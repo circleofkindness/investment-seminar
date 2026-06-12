@@ -2,9 +2,10 @@ name: Update Stock Data
 
 on:
   schedule:
+    # 每天週一到週五，台灣時間 09:05, 10:00, 11:00, 12:00, 13:00, 14:00 執行
     - cron: '5 1 * * 1-5'
     - cron: '0 2,3,4,5,6 * * 1-5'
-  workflow_dispatch:
+  workflow_dispatch:   # 可手動觸發
 
 permissions:
   contents: write
@@ -15,70 +16,58 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install yfinance
+        run: pip install yfinance --quiet
+
       - name: Fetch stock prices & history
         run: |
           python3 << 'PYEOF'
-          import json, urllib.request, datetime, os, ssl, time
-
-          ctx = ssl.create_default_context()
-          ctx.check_hostname = False
-          ctx.verify_mode = ssl.CERT_NONE
+          import json, datetime, os, time
+          import yfinance as yf
 
           STOCKS = {
             'tse': ['1612','2059','2303','2316','2327','2329','2330','2385','2454','3026','3324'],
             'otc': ['3042','3059','3167','3450','3485','3653','5289','5511','6121','6147','6223','6227','6442','6449','6669','6788','6840','7871','8299','9939']
           }
 
-          HEADERS = {
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Accept': 'application/json, */*',
-            'Accept-Language': 'zh-TW,zh;q=0.9,en;q=0.8',
-          }
-
           os.makedirs('data', exist_ok=True)
           prices = {}
-          now_utc = datetime.datetime.now(datetime.timezone.utc)
-          updated = now_utc.isoformat()
+          updated = datetime.datetime.now(datetime.timezone.utc).isoformat()
 
           for ex, codes in STOCKS.items():
             suffix = '.TW' if ex == 'tse' else '.TWO'
             for code in codes:
-              url = f'https://query1.finance.yahoo.com/v8/chart/{code}{suffix}?interval=1d&range=2y&includePrePost=false'
+              ticker_sym = f'{code}{suffix}'
               for attempt in range(3):
                 try:
-                  req = urllib.request.Request(url, headers=HEADERS)
-                  r = urllib.request.urlopen(req, context=ctx, timeout=20)
-                  data = json.loads(r.read())
-                  result = data['chart']['result'][0]
-                  meta = result['meta']
-                  ts = result['timestamp']
-                  q = result['indicators']['quote'][0]
+                  t = yf.Ticker(ticker_sym)
+                  hist = t.history(period='2y', interval='1d', auto_adjust=True)
+                  if hist.empty:
+                    raise ValueError('empty dataframe')
 
                   ohlc = []
-                  for i, t in enumerate(ts):
+                  for dt, row in hist.iterrows():
                     try:
-                      o,h,l,c = q['open'][i],q['high'][i],q['low'][i],q['close'][i]
+                      date_str = dt.strftime('%Y-%m-%d')
+                      o,h,l,c = float(row['Open']),float(row['High']),float(row['Low']),float(row['Close'])
                       if o and h and l and c:
-                        ohlc.append({
-                          'time': datetime.datetime.utcfromtimestamp(t).strftime('%Y-%m-%d'),
-                          'open': round(o,2), 'high': round(h,2),
-                          'low': round(l,2), 'close': round(c,2),
-                        })
+                        ohlc.append({'time':date_str,'open':round(o,2),'high':round(h,2),'low':round(l,2),'close':round(c,2)})
                     except: pass
 
                   with open(f'data/{code}.json', 'w') as f:
                     json.dump({'updated': updated, 'data': ohlc}, f, separators=(',',':'))
 
-                  p = meta.get('regularMarketPrice', 0)
-                  prev = meta.get('previousClose') or meta.get('chartPreviousClose', 0)
-                  chg = round((p-prev)/prev*100, 2) if prev and prev > 0 else 0
-                  prices[code] = {'p': round(p,2), 'prev': round(prev,2) if prev else 0, 'chgPct': chg}
-                  print(f'OK {code}{suffix}: {p} ({chg:+.2f}%)')
-                  time.sleep(0.3)
+                  info = t.fast_info
+                  p    = round(float(info.last_price or 0), 2)
+                  prev = round(float(info.previous_close or 0), 2)
+                  chg  = round((p - prev) / prev * 100, 2) if prev > 0 else 0
+                  prices[code] = {'p': p, 'prev': prev, 'chgPct': chg}
+                  print(f'OK {ticker_sym}: {p} ({chg:+.2f}%) [{len(ohlc)} bars]')
+                  time.sleep(0.5)
                   break
                 except Exception as e:
-                  print(f'RETRY {attempt+1} {code}: {e}')
-                  time.sleep(2)
+                  print(f'RETRY {attempt+1} {ticker_sym}: {e}')
+                  time.sleep(3)
 
           with open('data/prices.json', 'w') as f:
             json.dump({'updated': updated, 'prices': prices}, f, separators=(',',':'))
