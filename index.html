@@ -329,8 +329,8 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       <div class="sc"><div class="sc-lbl">上櫃 (TPEX)</div><div class="sc-val" id="st-otc">—</div></div>
       <div class="sc"><div class="sc-lbl">更新時間</div><div class="sc-val" id="st-time" style="font-size:13px;margin-top:4px">—</div></div>
     </div>
-    <div class="pgrid" id="pgrid"></div>
     <div id="obs-panel"></div>
+    <div class="pgrid" id="pgrid"></div>
     <div class="adm" id="admin-panel" style="display:none">
       <div class="adm-hd">🔐 管理員後台<span class="adm-badge">ADMIN</span>
         <a class="adm-link" href="https://supabase.com/dashboard/project/_/auth/users" target="_blank">Supabase 管理使用者 →</a>
@@ -689,6 +689,7 @@ function switchMeeting(val){
   initStats(m.members); render(m.members); renderObs(m);
   populateMemberSelect(m.members); loadPrices();
   hideMemberDetail(); hideStockDetail();
+  setTimeout(()=>document.getElementById('obs-panel').scrollIntoView({behavior:'smooth'}),50);
 }
 
 function initStats(members){
