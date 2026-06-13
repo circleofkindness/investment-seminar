@@ -1027,7 +1027,7 @@ async function loadChart(code, ex, range){
     const userM=getUserMarkers(code);
     const manM=getManualMarkers(code);
     _chartAllMarkers=[...meetM,...manM,...userM];
-    function _applyMarkers(){const sorted=[..._chartAllMarkers].filter(m=>validTimes.has(m.time)).sort((a,b)=>a.time.localeCompare(b.time));if(sorted.length)cs.setMarkers(sorted);}
+    function _applyMarkers(){const sorted=[..._chartAllMarkers].filter(m=>validTimes.has(m.time)).sort((a,b)=>a.time.localeCompare(b.time));cs.setMarkers([]);if(sorted.length)vs.setMarkers(sorted.map(m=>({...m,position:'aboveBar',size:1})));}
     _applyMarkers();
 
     loadChengwayeMarkers(code).then(cwM=>{
