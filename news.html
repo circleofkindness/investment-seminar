@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>&#x5373;&#x6642;&#x6d88;&#x606f;</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='15' fill='%230066cc'/%3E%3Ctext x='50' y='72' text-anchor='middle' font-size='65' font-weight='bold' fill='white' font-family='Arial'%3E%24%3C/text%3E%3C/svg%3E">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f5f7fa;min-height:100vh}
+    .topbar{background:#0066cc;color:#fff;padding:0 20px;height:52px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+    .back-btn{background:rgba(255,255,255,.2);border:none;color:#fff;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;font-family:inherit;transition:.15s}
+    .back-btn:hover{background:rgba(255,255,255,.35)}
+    .page-title{font-size:16px;font-weight:700;letter-spacing:.5px}
+    .container{max-width:760px;margin:0 auto;padding:20px}
+    .post-box{background:#fff;border-radius:12px;padding:16px;margin-bottom:20px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+    .post-label{font-size:13px;font-weight:600;color:#444;margin-bottom:8px}
+    textarea{width:100%;border:1.5px solid #e0e0e0;border-radius:8px;padding:10px 12px;font-size:14px;resize:vertical;min-height:80px;font-family:inherit;outline:none;transition:.15s}
+    textarea:focus{border-color:#0066cc;box-shadow:0 0 0 3px rgba(0,102,204,.1)}
+    .post-footer{display:flex;justify-content:flex-end;margin-top:10px}
+    .post-btn{background:#0066cc;color:#fff;border:none;border-radius:8px;padding:8px 22px;font-size:14px;cursor:pointer;font-weight:700;font-family:inherit;transition:.15s}
+    .post-btn:hover{background:#0052a3}
+    .post-btn:disabled{opacity:.5;cursor:default}
+    .msg-card{background:#fff;border-radius:10px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,.05);border:1px solid #ebebeb}
+    .msg-meta{font-size:12px;color:#999;margin-bottom:6px}
+    .msg-body{white-space:pre-wrap;line-height:1.65;font-size:14px;color:#222}
+    .status{color:#999;text-align:center;padding:30px;font-size:14px}
+    .section-label{font-size:12px;font-weight:600;color:#888;letter-spacing:.8px;margin-bottom:12px}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <button class="back-btn" onclick="history.back()">&#x2190; &#x8fd4;&#x56de;&#x770b;&#x677f;</button>
+    <span class="page-title">&#x5373;&#x6642;&#x6d88;&#x606f;</span>
+    <button class="back-btn" onclick="loadMsgs()" style="margin-left:auto">&#x5237;&#x65b0;</button>
+  </div>
+  <div class="container">
+    <div class="post-box">
+      <div class="post-label">&#x767c;&#x5e03;&#x6d88;&#x606f;</div>
+      <textarea id="ta" placeholder="&#x8f38;&#x5165;&#x6d88;&#x606f;..."></textarea>
+      <div class="post-footer">
+        <button class="post-btn" id="pbtn" onclick="postMsg()">&#x767c;&#x5e03;</button>
+      </div>
+    </div>
+    <div class="section-label">&#x6700;&#x65b0;&#x6d88;&#x606f;</div>
+    <div id="list"><p class="status">&#x8f09;&#x5165;&#x4e2d;...</p></div>
+  </div>
+  <script>
+    var SB_URL='https://irgwtrpreolrgniebdlc.supabase.co';
+    var SB_KEY='sb_publishable_YR86duyW1fiw5dL9QkupEQ_YBeirf4E';
+    var sb=window.supabase.createClient(SB_URL,SB_KEY);
+    var curUser=null;
+    sb.auth.onAuthStateChange(function(e,s){
+      curUser=s&&s.user||null;
+      var ta=document.getElementById('ta');
+      var btn=document.getElementById('pbtn');
+      if(!curUser){ta.placeholder='\u8acb\u5148\u767b\u5165\u624d\u80fd\u767c\u5e03\u6d88\u606f';ta.disabled=true;btn.disabled=true;}
+      else{ta.disabled=false;btn.disabled=false;ta.placeholder='\u8f38\u5165\u6d88\u606f...';}
+    });
+    function loadMsgs(){
+      var list=document.getElementById('list');
+      list.innerHTML='<p class="status">\u8f09\u5165\u4e2d...</p>';
+      sb.from('messages').select('*').order('created_at',{ascending:false}).limit(100).then(function(r){
+        if(r.error){list.innerHTML='<p class="status" style="color:#e53935">\u7121\u6cd5\u8f09\u5165\u6d88\u606f</p>';return;}
+        if(!r.data||!r.data.length){list.innerHTML='<p class="status">\u76ee\u524d\u6c92\u6709\u6d88\u606f</p>';return;}
+        list.innerHTML=r.data.map(function(m){
+          var t=new Date(m.created_at).toLocaleString('zh-TW');
+          var c=m.content.split('<').join('&lt;').split('>').join('&gt;');
+          var a=m.author_name||'\u533f\u540d';
+          return '<div class="msg-card"><div class="msg-meta">'+a+' &middot; '+t+'</div><div class="msg-body">'+c+'</div></div>';
+        }).join('');
+      });
+    }
+    function postMsg(){
+      var ta=document.getElementById('ta');
+      var c=ta.value.trim();if(!c)return;
+      var btn=document.getElementById('pbtn');btn.disabled=true;
+      var a=curUser?curUser.email.split('@')[0]:'\u533f\u540d';
+      sb.from('messages').insert({content:c,author_name:a,user_id:curUser?curUser.id:null}).then(function(r){
+        btn.disabled=false;
+        if(r.error){alert('\u767c\u5e03\u5931\u6557: '+r.error.message);return;}
+        ta.value='';loadMsgs();
+      });
+    }
+    loadMsgs();
+  </script>
+</body>
+</html>
