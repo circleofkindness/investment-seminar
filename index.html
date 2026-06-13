@@ -2036,46 +2036,25 @@ async function prefetchAllStocks(){
     }));
   }
 }
-async function fetchYahooChart(code, ex, range){
-  if(_stockDataCache[code]&&_stockDataCache[code].data&&_stockDataCache[code].data.length){const _fr=function(d,r){const n=new Date(),c=new Date();if(r==='3mo')c.setMonth(n.getMonth()-3);else if(r==='6mo')c.setMonth(n.getMonth()-6);else if(r==='1y')c.setFullYear(n.getFullYear()-1);else c.setFullYear(n.getFullYear()-2);return d.filter(function(x){return x.time>=c.toISOString().split('T')[0];});};const f=_fr(_stockDataCache[code].data,range);if(f.length)return{_local:true,ohlc:f};}
-  // Primary: read from pre-fetched local data (no CORS, no proxy needed)
-  try{
-    const r=await fetchWithTimeout(`${DATA_BASE}/${code}.json`,8000);
-    if(r.ok){
-      const json=await r.json();
-      if(json.data&&json.data.length){
-              _stockDataCache[code]=json;
-        // Filter by range
-        const now=new Date(), cutoff=new Date();
-        if(range==='3mo') cutoff.setMonth(now.getMonth()-3);
-        else if(range==='6mo') cutoff.setMonth(now.getMonth()-6);
-        else if(range==='1y') cutoff.setFullYear(now.getFullYear()-1);
-        else cutoff.setFullYear(now.getFullYear()-2);
-        const cutStr=cutoff.toISOString().split('T')[0];
-        const filtered=json.data.filter(d=>d.time>=cutStr);
-        if(filtered.length>0) return {_local:true, ohlc:filtered};
-      }
-    }
-  }catch(e){}
-  // Fallback: try Yahoo Finance via multiple proxies
-  const suffix=ex==='tse'?'.TW':'.TWO';
-  const yahooUrl=`https://query1.finance.yahoo.com/v8/chart/${code}${suffix}?interval=1d&range=${range}&includePrePost=false`;
-  const proxies=[
-    `https://corsproxy.io/?${encodeURIComponent(yahooUrl)}`,
-    `https://api.allorigins.win/raw?url=${encodeURIComponent(yahooUrl)}`,
-    `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(yahooUrl)}`,
-  ];
-  let lastErr;
-  for(const proxy of proxies){
-    try{
-      const r=await fetchWithTimeout(proxy,15000);
-      if(!r.ok) throw new Error(`HTTP ${r.status}`);
-      const json=await r.json();
-      if(json.chart?.result?.[0]) return json;
-      throw new Error('no result');
-    }catch(e){ lastErr=e; }
+async function fetchYahooChart(code,ex,range){
+  const ck=code+'_'+range;
+  if(window._stockDataCache&&window._stockDataCache[ck]){
+    const c=window._stockDataCache[ck];
+    return{_local:true,ohlc:c.ohlc,volume:c.volume};
   }
-  throw lastErr||new Error('資料尚未生成，請先執行 GitHub Actions 更新資料');
+  const rm={'3mo':3,'6mo':6,'1y':12,'2y':24};
+  const months=rm[range]||6;
+  const s=new Date();s.setMonth(s.getMonth()-months);
+  const sd=s.toISOString().split('T')[0];
+  const url='https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id='+code+'&start_date='+sd;
+  const res=await fetch(url);
+  if(!res.ok)throw new Error('FinMind '+res.status);
+  const json=await res.json();
+  if(!json.data||!json.data.length)throw new Error('no data');
+  const ohlc=json.data.map(d=>({time:d.date,open:d.open,high:d.max,low:d.min,close:d.close}));
+  const volume=json.data.map(d=>({time:d.date,value:d.Trading_Volume,color:d.close>=d.open?'rgba(255,82,82,0.4)':'rgba(0,184,148,0.4)'}));
+  if(window._stockDataCache)window._stockDataCache[ck]={ohlc,volume};
+  return{_local:true,ohlc,volume};
 }
 
 async function loadChart(code, ex, range){
