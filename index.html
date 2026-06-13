@@ -91,7 +91,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 .tag{font-size:9px;padding:1px 7px;border-radius:3px;background:rgba(0,102,204,0.06);color:var(--acc2);border:1px solid rgba(0,102,204,0.12);font-weight:600}
 .pcol{text-align:right}
 .pv{font-size:13px;font-weight:700;color:var(--navy);font-family:var(--mono);font-variant-numeric:tabular-nums}
-.pc2{display:none}
+.pc2{font-size:10px;margin-top:2px;font-family:var(--mono);font-weight:600;font-variant-numeric:tabular-nums}
 .cu{color:var(--up)}.cd{color:var(--dn)}
 .tcol{text-align:right}
 .tlbl{font-size:9px;color:var(--mu2);letter-spacing:.08em;text-transform:uppercase;font-weight:600}
@@ -2007,23 +2007,7 @@ async function fetchWithTimeout(url, ms){
   catch(e){ clearTimeout(t); throw e; }
 }
 
-async function loadChengwayeMarkers(code){
-  function rocToGreg(d){if(!d)return null;const p=d.split('/');if(p.length<3)return null;return(parseInt(p[0])+1911)+'-'+p[1]+'-'+p[2];}
-  const base='https://chengwaye-data.pages.dev';const markers=[];
-  try{
-    const[fin,att,events,rev]=await Promise.allSettled([
-      fetch(base+'/realtime_fin.json').then(r=>r.json()),
-      fetch(base+'/realtime_att.json').then(r=>r.json()),
-      fetch(base+'/realtime_fin_events.json').then(r=>r.json()),
-      fetch(base+'/realtime_revenue.json').then(r=>r.json()),
-    ]);
-    if(fin.status==='fulfilled'){const entries=(fin.value.entries||fin.value||[]).filter(e=>String(e.code)===String(code));for(const e of entries){const t=rocToGreg(e.date);if(t)markers.push({time:t,position:'aboveBar',color:'#e8b000',shape:'circle',text:'\u5B63',size:1,_src:'\u5B63\u5831',_detail:e.subject||'\u5B63\u5831'});}}
-    if(att.status==='fulfilled'){const entries=(att.value.entries||att.value||[]).filter(e=>String(e.code)===String(code));for(const e of entries){const t=rocToGreg(e.date);if(t)markers.push({time:t,position:'aboveBar',color:'#0066cc',shape:'circle',text:'\u81EA',size:1,_src:'\u81EA\u7D50',_detail:e.subject||'\u81EA\u7D50'});}}
-    if(events.status==='fulfilled'){const entries=(events.value.entries||events.value||[]).filter(e=>String(e.code)===String(code));for(const e of entries){const t=(e.scheduled_date||e.date||'').split(' ')[0];if(t)markers.push({time:t,position:'aboveBar',color:'#00aa44',shape:'circle',text:'\u6CD5',size:1,_src:'\u6CD5\u8AAA',_detail:'\u6CD5\u8AAA\u6703'});}}
-    if(rev.status==='fulfilled'){const entries=(Array.isArray(rev.value)?rev.value:(rev.value.entries||[])).filter(e=>String(e.code)===String(code));for(const e of entries){const t=e.first_seen?e.first_seen.split(' ')[0]:null;if(t)markers.push({time:t,position:'aboveBar',color:'#cc4400',shape:'circle',text:'\u71DF',size:1,_src:'\u71DF\u6536',_detail:(e.period||'')+'\u71DF\u6536'});}}
-  }catch(err){}
-  return markers;
-}
+async function loadChengwayeMarkers(code){return [];}
 const _stockDataCache={};
 async function prefetchAllStocks(){
   const codes=new Map();
@@ -2052,7 +2036,7 @@ async function fetchYahooChart(code,ex,range){
   if(!res.ok)throw new Error('FinMind '+res.status);
   const json=await res.json();
   if(!json.data||!json.data.length)throw new Error('no data for '+stockId);
-  const ohlc=json.data.map(d=>({time:d.date,open:d.open,high:d.max,low:d.min,close:d.close}));
+  const ohlc=json.data.map(d=>({time:d.date,open:d.open,high:d.max,low:d.min,close:d.close,volume:d.Trading_Volume}));
   const volume=json.data.map(d=>({time:d.date,value:d.Trading_Volume,color:d.close>=d.open?'rgba(255,82,82,0.4)':'rgba(0,184,148,0.4)'}));
   if(window._stockDataCache)window._stockDataCache[ck]={ohlc,volume};
   return{_local:true,ohlc,volume};
