@@ -135,7 +135,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 .member-page{z-index:150}
 .stock-page{z-index:160}
 .side-page.active{transform:translateX(0)}
-.sp-back{display:inline-flex;align-items:center;gap:6px;background:var(--acc);border:none;border-radius:8px;padding:10px 20px;font-size:14px;color:#fff;cursor:pointer;font-family:inherit;margin-bottom:16px;transition:all .15s;font-weight:700;box-shadow:0 2px 8px rgba(0,102,204,0.25)}
+.sp-back{position:fixed;top:60px;left:16px;z-index:300;display:inline-flex;align-items:center;gap:6px;background:var(--acc);border:none;border-radius:8px;padding:8px 16px;font-size:13px;color:#fff;cursor:pointer;font-family:inherit;transition:all .15s;font-weight:700;box-shadow:0 2px 12px rgba(0,102,204,0.4)}
 .sp-back:hover{background:#0052a3;color:#fff;box-shadow:0 4px 12px rgba(0,102,204,0.35)}
 .mp-hdr{display:flex;align-items:center;gap:16px;margin-bottom:28px}
 .mp-av-lg{width:56px;height:56px;border-radius:12px;background:rgba(0,102,204,0.10);color:var(--acc);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;flex-shrink:0;border:1px solid rgba(0,102,204,0.20)}
@@ -255,6 +255,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   .popup-card{padding:18px 14px;max-height:82vh}
 }
 </style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='15' fill='%230066cc'/%3E%3Ctext x='50' y='72' text-anchor='middle' font-size='65' font-weight='bold' fill='white' font-family='Arial'%3E%24%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
@@ -2236,6 +2237,81 @@ async function loadPrices(){
     document.querySelectorAll('[data-price]').forEach(el=>{if(el.dataset.price)el.textContent='—';});
   }
 }
+</script>
+
+<div id="news-page" style="display:none;padding:72px 20px 20px;max-width:800px;margin:0 auto"></div>
+<script>
+(function(){
+  var _origPMS=populateMeetingSelect;
+  populateMeetingSelect=function(){
+    _origPMS();
+    var sel=document.getElementById('meeting-select');
+    if(!sel.querySelector('option[value="news"]')){
+      var sep=document.createElement('option');sep.disabled=true;
+      sep.textContent='\u2500\u2500\u2500\u2500\u2500';sel.appendChild(sep);
+      var no=document.createElement('option');
+      no.value='news';no.textContent='\u5373\u6642\u6d88\u606f';
+      sel.appendChild(no);
+    }
+  };
+  var _origSM=switchMeeting;
+  window.switchMeeting=function(val){
+    if(val==='news'){showNewsPage();return;}
+    hideNewsPage();_origSM(val);
+  };
+  window.showNewsPage=async function(){
+    document.getElementById('pgrid').style.display='none';
+    var ap=document.getElementById('admin-panel');if(ap)ap.style.display='none';
+    document.getElementById('news-page').style.display='block';
+    var r=await sb.auth.getUser();
+    if(r.data&&r.data.user)document.getElementById('news-post-area').style.display='block';
+    loadNewsMessages();
+  };
+  window.hideNewsPage=function(){
+    var np=document.getElementById('news-page');if(np)np.style.display='none';
+    document.getElementById('pgrid').style.display='';
+  };
+  window.loadNewsMessages=async function(){
+    var list=document.getElementById('news-list');if(!list)return;
+    list.innerHTML='<p style="color:#999">\u8f09\u5165\u4e2d...</p>';
+    var res=await sb.from('messages').select('*').order('created_at',{ascending:false}).limit(100);
+    if(res.error){
+      list.innerHTML='<p style="color:#e53935">\u7121\u6cd5\u8f09\u5165\u6d88\u606f\u3002\u8acb\u5148\u5728 Supabase \u5efa\u7acb <b>messages</b> \u8cc7\u6599\u8868\u3002</p>';
+      return;
+    }
+    if(!res.data||!res.data.length){list.innerHTML='<p style="color:#999">\u76ee\u524d\u6c92\u6709\u6d88\u606f</p>';return;}
+    list.innerHTML=res.data.map(function(m){
+      var t=new Date(m.created_at).toLocaleString('zh-TW');
+      var txt=m.content.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      return '<div style="padding:14px 16px;margin-bottom:10px;background:#fff;border-radius:10px;border:1px solid #e8e8e8;box-shadow:0 1px 4px rgba(0,0,0,0.05)">'
+        +'<div style="font-size:12px;color:#888;margin-bottom:6px">'+(m.author_name||'\u533f\u540d')+' &middot; '+t+'</div>'
+        +'<div style="white-space:pre-wrap;line-height:1.6">'+txt+'</div></div>';
+    }).join('');
+  };
+  window.postNewsMsg=async function(){
+    var ta=document.getElementById('news-input');
+    var content=ta.value.trim();if(!content)return;
+    var btn=document.querySelector('#news-post-area button');btn.disabled=true;
+    var r2=await sb.auth.getUser();
+    var user=r2.data&&r2.data.user;
+    var aname=user?user.email.split('@')[0]:'\u533f\u540d';
+    var ins=await sb.from('messages').insert({content:content,author_name:aname,user_id:user?user.id:null});
+    btn.disabled=false;
+    if(ins.error){alert('\u767c\u5e03\u5931\u6557: '+ins.error.message);return;}
+    ta.value='';loadNewsMessages();
+  };
+  var np=document.getElementById('news-page');
+  np.innerHTML='<div style="margin-bottom:20px;display:flex;align-items:center;gap:12px">
+<h2 style="margin:0;font-size:20px;color:var(--acc)">\u5373\u6642\u6d88\u606f</h2>
+<button onclick="loadNewsMessages()" style="padding:4px 12px;border:1px solid var(--acc);background:#fff;color:var(--acc);border-radius:6px;cursor:pointer;font-size:13px">\u5237\u65b0</button>
+</div>
+<div id="news-post-area" style="display:none;margin-bottom:20px">
+<textarea id="news-input" placeholder="\u8f38\u5165\u6d88\u606f..." style="width:100%;box-sizing:border-box;padding:10px;border:1px solid #ddd;border-radius:8px;font-size:14px;resize:vertical;min-height:80px;font-family:inherit"></textarea>
+<div style="margin-top:8px;text-align:right">
+<button onclick="postNewsMsg()" style="background:var(--acc);color:#fff;border:none;border-radius:8px;padding:8px 20px;font-size:14px;cursor:pointer;font-weight:700">\u767c\u5e03</button>
+</div></div>
+<div id="news-list"></div>';
+})();
 </script>
 </body>
 </html>
