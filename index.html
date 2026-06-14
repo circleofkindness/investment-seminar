@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>投資研討會追蹤看板</title>
+<title>æè³ç è¨æè¿½è¹¤çæ¿</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 :root{
@@ -267,29 +267,29 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 <div id="login-screen">
   <div class="login-card">
     <div class="login-top">
-      <div class="ico">📊</div>
-      <h1>好朋友投資研討會</h1>
+      <div class="ico">ð</div>
+      <h1>å¥½æåæè³ç è¨æ</h1>
     </div>
     <div class="login-tabs">
-      <button class="ltab active" id="ltab-in" onclick="switchLoginTab('in')">登入</button>
-      <button class="ltab" id="ltab-up" onclick="switchLoginTab('up')">申請加入</button>
+      <button class="ltab active" id="ltab-in" onclick="switchLoginTab('in')">ç»å¥</button>
+      <button class="ltab" id="ltab-up" onclick="switchLoginTab('up')">ç³è«å å¥</button>
     </div>
     <div class="lf" id="lf-in">
       <label>Email</label>
       <input type="email" id="li-email" placeholder="you@example.com" autocomplete="email">
-      <label>密碼</label>
-      <input type="password" id="li-pw" placeholder="••••••••" autocomplete="current-password">
-      <button class="lbtn" id="li-btn" onclick="doSignIn()">登入</button>
+      <label>å¯ç¢¼</label>
+      <input type="password" id="li-pw" placeholder="â¢â¢â¢â¢â¢â¢â¢â¢" autocomplete="current-password">
+      <button class="lbtn" id="li-btn" onclick="doSignIn()">ç»å¥</button>
       <div id="login-err"></div>
     </div>
     <div class="lf" id="lf-up" style="display:none">
       <label>Email</label>
       <input type="email" id="reg-email" placeholder="you@example.com" autocomplete="email">
-      <label>密碼（至少 6 位）</label>
-      <input type="password" id="reg-pw" placeholder="••••••••" autocomplete="new-password">
-      <label>暱稱（最多 20 字元，顯示於浮水印）</label>
-      <input type="text" id="reg-cn" placeholder="例：凱哥、小資男孩" maxlength="20" autocomplete="off">
-      <button class="lbtn" id="reg-btn" onclick="doSignUp()">申請加入</button>
+      <label>å¯ç¢¼ï¼è³å° 6 ä½ï¼</label>
+      <input type="password" id="reg-pw" placeholder="â¢â¢â¢â¢â¢â¢â¢â¢" autocomplete="new-password">
+      <label>æ±ç¨±ï¼æå¤ 20 å­åï¼é¡¯ç¤ºæ¼æµ®æ°´å°ï¼</label>
+      <input type="text" id="reg-cn" placeholder="ä¾ï¼å±å¥ãå°è³ç·å­©" maxlength="20" autocomplete="off">
+      <button class="lbtn" id="reg-btn" onclick="doSignUp()">ç³è«å å¥</button>
       <div id="reg-err"></div>
     </div>
   </div>
@@ -297,12 +297,10 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 
 <div id="pending-screen">
   <div class="login-card" style="text-align:center;max-width:420px">
-    <div style="font-size:48px;margin-bottom:16px">⏳</div>
-    <h2 style="margin-bottom:8px">申請審核中</h2>
-    <p style="color:var(--mu);margin-bottom:16px">請等候管理員放行或通知<strong>打單</strong></p>
-    <div style="background:#f8fafc;border-radius:12px;padding:16px;font-size:13px;color:#475569;text-align:left">
-      📋 管理員操作步驟<br>① 用管理員帳號登入網站<br>② 主頁右上方找到「🔐 管理員後台」<br>③ 在待審清單點「允許加入」
-    </div>
+    <div style="font-size:48px;margin-bottom:16px">â³</div>
+    <h2 style="margin-bottom:8px">ç³è«å¯©æ ¸ä¸­</h2>
+    <p style="color:var(--mu);margin-bottom:16px">è«ç­åç®¡çå¡æ¾è¡æéç¥<strong>æå®</strong></p>
+    
   </div>
 </div>
 
@@ -310,65 +308,65 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 
 <div id="codename-modal">
   <div class="cn-card">
-    <h2>👋 設定你的代號</h2>
-    <p>請輸入你在研討會中的稱呼（例如：凱哥、小資男孩）。<br>這個代號會顯示在看板上，之後無法自行修改。</p>
-    <input type="text" id="cn-input" placeholder="你的代號" maxlength="12" autocomplete="off">
-    <button id="cn-btn" onclick="saveCodename()">確認並進入</button>
+    <h2>ð è¨­å®ä½ çä»£è</h2>
+    <p>è«è¼¸å¥ä½ å¨ç è¨æä¸­çç¨±å¼ï¼ä¾å¦ï¼å±å¥ãå°è³ç·å­©ï¼ã<br>éåä»£èæé¡¯ç¤ºå¨çæ¿ä¸ï¼ä¹å¾ç¡æ³èªè¡ä¿®æ¹ã</p>
+    <input type="text" id="cn-input" placeholder="ä½ çä»£è" maxlength="12" autocomplete="off">
+    <button id="cn-btn" onclick="saveCodename()">ç¢ºèªä¸¦é²å¥</button>
     <div id="cn-err"></div>
   </div>
 </div>
 
 <div id="invite-modal">
   <div class="cn-card">
-    <h2>🎉 歡迎加入研討會！</h2>
-    <p>你已受到邀請。請設定你的登入密碼和專屬代號。<br>代號將顯示在浮水印上，設定後無法自行修改。</p>
-    <label>設定密碼（至少 6 位）</label>
-    <input type="password" id="inv-pw1" placeholder="••••••••" autocomplete="new-password">
-    <label>確認密碼</label>
-    <input type="password" id="inv-pw2" placeholder="再輸入一次" autocomplete="new-password">
-    <label>你的代號</label>
-    <input type="text" id="inv-cn" placeholder="例如：凱哥、小資男孩" maxlength="12" autocomplete="off">
-    <button id="inv-btn" onclick="doSetupInvite()" style="margin-top:14px">完成設定並進入</button>
+    <h2>ð æ­¡è¿å å¥ç è¨æï¼</h2>
+    <p>ä½ å·²åå°éè«ãè«è¨­å®ä½ çç»å¥å¯ç¢¼åå°å±¬ä»£èã<br>ä»£èå°é¡¯ç¤ºå¨æµ®æ°´å°ä¸ï¼è¨­å®å¾ç¡æ³èªè¡ä¿®æ¹ã</p>
+    <label>è¨­å®å¯ç¢¼ï¼è³å° 6 ä½ï¼</label>
+    <input type="password" id="inv-pw1" placeholder="â¢â¢â¢â¢â¢â¢â¢â¢" autocomplete="new-password">
+    <label>ç¢ºèªå¯ç¢¼</label>
+    <input type="password" id="inv-pw2" placeholder="åè¼¸å¥ä¸æ¬¡" autocomplete="new-password">
+    <label>ä½ çä»£è</label>
+    <input type="text" id="inv-cn" placeholder="ä¾å¦ï¼å±å¥ãå°è³ç·å­©" maxlength="12" autocomplete="off">
+    <button id="inv-btn" onclick="doSetupInvite()" style="margin-top:14px">å®æè¨­å®ä¸¦é²å¥</button>
     <div id="inv-err" style="font-size:12px;color:var(--dn);margin-top:6px;min-height:16px"></div>
   </div>
 </div>
 
 <div id="app">
   <div class="topbar">
-    <div class="tb-brand">好朋友<span>投資研討會</span></div>
+    <div class="tb-brand">å¥½æå<span>æè³ç è¨æ</span></div>
     <div class="tb-sep"></div>
     <select class="tb-select" id="meeting-select" onchange="switchMeeting(this.value)"></select>
-    <span class="bdg-pu" id="s-cnt">計算中…</span>
+    <span class="bdg-pu" id="s-cnt">è¨ç®ä¸­â¦</span>
     <div class="tb-sep"></div>
     <select class="tb-select" id="member-select" onchange="openMemberFromSelect(this.value)">
-      <option value="">👤 查找成員</option>
+      <option value="">ð¤ æ¥æ¾æå¡</option>
     </select>
-    <input class="tb-search" id="stock-search" type="text" placeholder="🔍 搜尋標的…" oninput="filterStocks(this.value)" autocomplete="off">
+    <input class="tb-search" id="stock-search" type="text" placeholder="ð æå°æ¨çâ¦" oninput="filterStocks(this.value)" autocomplete="off">
     <div class="tb-spacer"></div>
-    <span class="px-bdg" id="px-st">載入中…</span>
-    <button class="rfsh" onclick="loadPrices()">重新整理</button>
+    <span class="px-bdg" id="px-st">è¼å¥ä¸­â¦</span>
+    <button class="rfsh" onclick="loadPrices()">éæ°æ´ç</button>
     <span class="user-chip" id="user-chip"></span>
     <button onclick="window.location.href='news.html'" style="background:#cc0000;color:#fff;border:none;border-radius:6px;padding:6px 14px;font-size:13px;cursor:pointer;font-weight:700;white-space:nowrap;letter-spacing:1px">&#x65b0;&#x589e;&#x60c5;&#x5831;</button>
-    <button class="signout" onclick="doSignOut()">登出</button>
+    <button class="signout" onclick="doSignOut()">ç»åº</button>
   </div>
 
   <div class="wrap">
     <div class="stats">
-      <div class="sc"><div class="sc-lbl">與會人數</div><div class="sc-val" id="st-members">—</div></div>
-      <div class="sc"><div class="sc-lbl">追蹤標的</div><div class="sc-val" id="st-total">—</div></div>
-      <div class="sc"><div class="sc-lbl">上市 (TSE)</div><div class="sc-val" id="st-tse">—</div></div>
-      <div class="sc"><div class="sc-lbl">上櫃 (TPEX)</div><div class="sc-val" id="st-otc">—</div></div>
-      <div class="sc"><div class="sc-lbl">更新時間</div><div class="sc-val" id="st-time" style="font-size:13px;margin-top:4px">—</div></div>
+      <div class="sc"><div class="sc-lbl">èæäººæ¸</div><div class="sc-val" id="st-members">â</div></div>
+      <div class="sc"><div class="sc-lbl">è¿½è¹¤æ¨ç</div><div class="sc-val" id="st-total">â</div></div>
+      <div class="sc"><div class="sc-lbl">ä¸å¸ (TSE)</div><div class="sc-val" id="st-tse">â</div></div>
+      <div class="sc"><div class="sc-lbl">ä¸æ« (TPEX)</div><div class="sc-val" id="st-otc">â</div></div>
+      <div class="sc"><div class="sc-lbl">æ´æ°æé</div><div class="sc-val" id="st-time" style="font-size:13px;margin-top:4px">â</div></div>
     </div>
     <div id="obs-panel"></div>
     <div class="pgrid" id="pgrid"></div>
     <div class="adm" id="admin-panel" style="display:none">
-      <div class="adm-hd">🔐 管理員後台<span class="adm-badge">ADMIN</span>
-        <a class="adm-link" href="https://supabase.com/dashboard/project/_/auth/users" target="_blank">Supabase 管理使用者 →</a>
+      <div class="adm-hd">ð ç®¡çå¡å¾å°<span class="adm-badge">ADMIN</span>
+        <a class="adm-link" href="https://supabase.com/dashboard/project/_/auth/users" target="_blank">Supabase ç®¡çä½¿ç¨è â</a>
       </div>
       <div class="adm-body">
-        <div class="adm-sub">待審核申請</div><div id="adm-pending">載入中…</div>
-        <div class="adm-sub" style="margin-top:16px">成員登入記錄（最近 100 筆）</div><div id="adm-log">載入中…</div>
+        <div class="adm-sub">å¾å¯©æ ¸ç³è«</div><div id="adm-pending">è¼å¥ä¸­â¦</div>
+        <div class="adm-sub" style="margin-top:16px">æå¡ç»å¥è¨éï¼æè¿ 100 ç­ï¼</div><div id="adm-log">è¼å¥ä¸­â¦</div>
       </div>
     </div>
   </div>
@@ -376,7 +374,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   <!-- MEMBER DETAIL PAGE -->
   <div class="side-page member-page" id="member-page">
     <div class="wrap">
-      <button class="sp-back" onclick="hideMemberDetail()">← 返回看板</button>
+      <button class="sp-back" onclick="hideMemberDetail()">â è¿åçæ¿</button>
       <div class="mp-hdr">
         <div class="mp-av-lg" id="mp-av"></div>
         <div><div class="mp-name" id="mp-name"></div><div class="mp-sub" id="mp-sub"></div></div>
@@ -388,7 +386,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   <!-- STOCK DETAIL PAGE -->
   <div class="side-page stock-page" id="stock-page">
     <div class="wrap">
-      <button class="sp-back" id="stock-back-btn" onclick="hideStockDetail()">← 返回</button>
+      <button class="sp-back" id="stock-back-btn" onclick="hideStockDetail()">â è¿å</button>
       <div class="sdp-hdr">
         <div class="sdp-code c-na" id="sdp-code"></div>
         <div><div class="sdp-name" id="sdp-name"></div><div class="sdp-sub" id="sdp-sub"></div></div>
@@ -397,26 +395,26 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       <!-- K-LINE CHART -->
       <div class="chart-wrap" id="chart-wrap">
         <div class="chart-topbar">
-          <span class="chart-title">日K走勢圖</span>
+          <span class="chart-title">æ¥Kèµ°å¢å</span>
           <div class="range-btns">
-            <button class="range-btn" data-range="3mo" onclick="reloadChart('3mo')">3月</button>
-            <button class="range-btn active" data-range="6mo" onclick="reloadChart('6mo')">6月</button>
-            <button class="range-btn" data-range="1y" onclick="reloadChart('1y')">1年</button>
-            <button class="range-btn" data-range="2y" onclick="reloadChart('2y')">2年</button>
+            <button class="range-btn" data-range="3mo" onclick="reloadChart('3mo')">3æ</button>
+            <button class="range-btn active" data-range="6mo" onclick="reloadChart('6mo')">6æ</button>
+            <button class="range-btn" data-range="1y" onclick="reloadChart('1y')">1å¹´</button>
+            <button class="range-btn" data-range="2y" onclick="reloadChart('2y')">2å¹´</button>
           </div>
         </div>
         <div id="chart-container"></div>
         <div class="chart-hint">
-          <span style="color:#0066cc;font-weight:700">●</span> 會議討論標記　
-          <span style="color:#f59e0b;font-weight:700">■</span> 事件標注　
-          點擊標記查看說明
+          <span style="color:#0066cc;font-weight:700">â</span> æè­°è¨è«æ¨è¨ã
+          <span style="color:#f59e0b;font-weight:700">â </span> äºä»¶æ¨æ³¨ã
+          é»ææ¨è¨æ¥çèªªæ
         </div>
         <div class="ann-section">
-          <div class="ann-sec-title">新增事件標注</div>
+          <div class="ann-sec-title">æ°å¢äºä»¶æ¨æ³¨</div>
           <div class="ann-inputs">
             <input type="date" id="ann-date" class="ann-input ann-input-date">
-            <input type="text" id="ann-text" class="ann-input ann-input-text" placeholder="說明（法說會、停損、群組討論重點…）">
-            <button class="ann-btn" onclick="addAnnotation()">＋ 新增</button>
+            <input type="text" id="ann-text" class="ann-input ann-input-text" placeholder="èªªæï¼æ³èªªæãåæãç¾¤çµè¨è«éé»â¦ï¼">
+            <button class="ann-btn" onclick="addAnnotation()">ï¼ æ°å¢</button>
           </div>
           <div class="ann-chips" id="ann-chips"></div>
         </div>
@@ -425,7 +423,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       <!-- DISCUSSION TIMELINE -->
       <div style="font-size:10px;font-weight:700;color:var(--navy);letter-spacing:.10em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px">
         <span style="width:3px;height:13px;background:var(--acc);border-radius:2px;display:inline-block"></span>
-        會議討論記錄
+        æè­°è¨è«è¨é
       </div>
       <div class="timeline" id="sdp-timeline"></div>
     </div>
@@ -435,7 +433,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   <div id="marker-popup" class="marker-popup" style="display:none">
     <div class="popup-backdrop" onclick="closeMarkerPopup()"></div>
     <div class="popup-card">
-      <button class="popup-close" onclick="closeMarkerPopup()">✕</button>
+      <button class="popup-close" onclick="closeMarkerPopup()">â</button>
       <div class="popup-hdr" id="popup-hdr"></div>
       <div id="popup-body"></div>
     </div>
@@ -460,7 +458,7 @@ function applyWatermark(label){
   const ctx=c.getContext('2d');
   ctx.save(); ctx.translate(100,60); ctx.rotate(-22*Math.PI/180); ctx.textAlign='center';
   ctx.font='600 11px Inter,sans-serif'; ctx.fillStyle='rgba(10,37,64,0.07)'; ctx.fillText(label,0,0);
-  ctx.font='500 9px Inter,sans-serif'; ctx.fillStyle='rgba(10,37,64,0.045)'; ctx.fillText('好朋友投資研討會 · 機密',0,15);
+  ctx.font='500 9px Inter,sans-serif'; ctx.fillStyle='rgba(10,37,64,0.045)'; ctx.fillText('å¥½æåæè³ç è¨æ Â· æ©å¯',0,15);
   ctx.restore();
   const wm=document.getElementById('watermark');
   wm.style.backgroundImage=`url(${c.toDataURL()})`; wm.style.backgroundSize='100px 60px'; wm.style.backgroundRepeat='repeat';
@@ -470,10 +468,10 @@ function getCodename(u){ return u?.user_metadata?.codename||null; }
 async function saveCodename(){
   const val=document.getElementById('cn-input').value.trim();
   const err=document.getElementById('cn-err'),btn=document.getElementById('cn-btn');
-  if(!val){err.textContent='請填入代號';return;}
-  btn.disabled=true; btn.textContent='儲存中…';
+  if(!val){err.textContent='è«å¡«å¥ä»£è';return;}
+  btn.disabled=true; btn.textContent='å²å­ä¸­â¦';
   const {data,error}=await sb.auth.updateUser({data:{codename:val}});
-  if(error){err.textContent='儲存失敗';btn.disabled=false;btn.textContent='確認並進入';return;}
+  if(error){err.textContent='å²å­å¤±æ';btn.disabled=false;btn.textContent='ç¢ºèªä¸¦é²å¥';return;}
   document.getElementById('codename-modal').style.display='none';
   document.getElementById('user-chip').textContent=val; applyWatermark(val);
   sb.from('activity_log').insert({user_email:data.user.email,codename:val,action:'login',ua:navigator.userAgent.substring(0,250)});
@@ -524,10 +522,10 @@ sb.auth.onAuthStateChange(async(event,session)=>{
 async function doSignIn(){
   const email=document.getElementById('li-email').value.trim(),pw=document.getElementById('li-pw').value;
   const btn=document.getElementById('li-btn'),err=document.getElementById('login-err');
-  if(!email||!pw){err.textContent='請填入 Email 和密碼';return;}
-  btn.disabled=true; btn.textContent='登入中…'; err.textContent='';
+  if(!email||!pw){err.textContent='è«å¡«å¥ Email åå¯ç¢¼';return;}
+  btn.disabled=true; btn.textContent='ç»å¥ä¸­â¦'; err.textContent='';
   const {error}=await sb.auth.signInWithPassword({email,password:pw});
-  if(error){err.textContent='帳密錯誤，請再試一次';btn.disabled=false;btn.textContent='登入';}
+  if(error){err.textContent='å¸³å¯é¯èª¤ï¼è«åè©¦ä¸æ¬¡';btn.disabled=false;btn.textContent='ç»å¥';}
 }
 async function doSignOut(){await sb.auth.signOut();}
 
@@ -535,12 +533,12 @@ async function doSetupInvite(){
   const pw1=document.getElementById('inv-pw1').value,pw2=document.getElementById('inv-pw2').value;
   const cn=document.getElementById('inv-cn').value.trim();
   const err=document.getElementById('inv-err'),btn=document.getElementById('inv-btn');
-  if(pw1.length<6){err.textContent='密碼至少 6 位';return;}
-  if(pw1!==pw2){err.textContent='兩次密碼不一致';return;}
-  if(!cn){err.textContent='請填入代號';return;}
-  btn.disabled=true; btn.textContent='設定中…';
+  if(pw1.length<6){err.textContent='å¯ç¢¼è³å° 6 ä½';return;}
+  if(pw1!==pw2){err.textContent='å©æ¬¡å¯ç¢¼ä¸ä¸è´';return;}
+  if(!cn){err.textContent='è«å¡«å¥ä»£è';return;}
+  btn.disabled=true; btn.textContent='è¨­å®ä¸­â¦';
   const {data,error}=await sb.auth.updateUser({password:pw1,data:{codename:cn}});
-  if(error){err.textContent='設定失敗：'+error.message;btn.disabled=false;btn.textContent='完成設定並進入';return;}
+  if(error){err.textContent='è¨­å®å¤±æï¼'+error.message;btn.disabled=false;btn.textContent='å®æè¨­å®ä¸¦é²å¥';return;}
   window.history.replaceState(null,'',window.location.pathname);
   document.getElementById('invite-modal').style.display='none';
   document.getElementById('app').style.display='block';
@@ -559,13 +557,13 @@ document.addEventListener('DOMContentLoaded',()=>{
 async function loadAdminLog(){
   const {data,error}=await sb.from('activity_log').select('user_email,codename,action,ua,created_at').order('created_at',{ascending:false}).limit(100);
   const el=document.getElementById('adm-log');
-  if(error||!data||!data.length){el.innerHTML='<span style="font-size:12px;color:var(--mu)">尚無記錄</span>';return;}
-  el.innerHTML=`<table><thead><tr><th>代號</th><th>Email</th><th>動作</th><th>時間</th><th>裝置</th></tr></thead><tbody>${data.map(r=>{
+  if(error||!data||!data.length){el.innerHTML='<span style="font-size:12px;color:var(--mu)">å°ç¡è¨é</span>';return;}
+  el.innerHTML=`<table><thead><tr><th>ä»£è</th><th>Email</th><th>åä½</th><th>æé</th><th>è£ç½®</th></tr></thead><tbody>${data.map(r=>{
     const d=new Date(r.created_at);
     const dt=`${d.getFullYear()}/${d.getMonth()+1}/${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
-    const ua=r.ua||'',dev=ua.includes('iPhone')||ua.includes('Android')?'📱 手機':ua.includes('iPad')?'📱 平板':'💻 電腦';
-    const ab=r.action==='login'?'<span style="background:#eff6ff;color:#1d4ed8;font-size:10px;padding:1px 6px;border-radius:999px">登入</span>':'<span style="background:#f3f4f6;color:#6b7280;font-size:10px;padding:1px 6px;border-radius:999px">瀏覽</span>';
-    return `<tr><td style="font-weight:500">${r.codename||'—'}</td><td style="color:var(--mu);font-size:11px">${r.user_email}</td><td>${ab}</td><td style="white-space:nowrap;font-variant-numeric:tabular-nums">${dt}</td><td>${dev}</td></tr>`;
+    const ua=r.ua||'',dev=ua.includes('iPhone')||ua.includes('Android')?'ð± ææ©':ua.includes('iPad')?'ð± å¹³æ¿':'ð» é»è¦';
+    const ab=r.action==='login'?'<span style="background:#eff6ff;color:#1d4ed8;font-size:10px;padding:1px 6px;border-radius:999px">ç»å¥</span>':'<span style="background:#f3f4f6;color:#6b7280;font-size:10px;padding:1px 6px;border-radius:999px">çè¦½</span>';
+    return `<tr><td style="font-weight:500">${r.codename||'â'}</td><td style="color:var(--mu);font-size:11px">${r.user_email}</td><td>${ab}</td><td style="white-space:nowrap;font-variant-numeric:tabular-nums">${dt}</td><td>${dev}</td></tr>`;
   }).join('')}</tbody></table>`;
 }
 
@@ -574,122 +572,122 @@ async function loadAdminLog(){
 // ============================================================
 const MEETINGS = [
   {
-    id:'m20260609',date:'2026/06/09',label:'第一次',
+    id:'m20260609',date:'2026/06/09',label:'ç¬¬ä¸æ¬¡',
     members:[
-      {name:'凱哥',stocks:[
-        {code:'7871',ex:'otc',name:'安立璽榮-KY',thesis:'阿茲海默小分子藥，BioMark 生物標記有效率 5/7（4/7 降低 30%+ 發炎），1 案例 MMSE 從 15 分逆轉至 23 分（全球首例），即將進大型臨床試驗，大藥廠授權機會',target:null,tags:['生技','阿茲海默']},
-        {code:'3528',ex:'otc',name:'安馳',thesis:'雷哥推薦，凱哥下週私訪，基金已買進兩大買超，120 以下將加碼至 1 億',target:'120以下',tags:[]},
-        {code:'7610',ex:'otc',name:'聯友金屬',thesis:'鎢材料稀缺 + 中美貿易戰地緣政治 + 技術壁壘（競爭對手難進入），成本 57 元漲至 1900+；日本停產消息待消化',target:2300,tags:['鎢','地緣政治']},
-        {code:'2059',ex:'tse',name:'川湖',thesis:'伺服器機櫃導軌，營收持續超預期，成本 1000 出頭，基金已買進',target:null,tags:['伺服器','AI']},
-        {code:'3026',ex:'tse',name:'禾伸堂',thesis:'被動元件漲價受惠，基金持有',target:null,tags:['被動元件']},
+      {name:'å±å¥',stocks:[
+        {code:'7871',ex:'otc',name:'å®ç«ç½æ¦®-KY',thesis:'é¿è²æµ·é»å°åå­è¥ï¼BioMark çç©æ¨è¨ææç 5/7ï¼4/7 éä½ 30%+ ç¼çï¼ï¼1 æ¡ä¾ MMSE å¾ 15 åéè½è³ 23 åï¼å¨çé¦ä¾ï¼ï¼å³å°é²å¤§åè¨åºè©¦é©ï¼å¤§è¥å» ææ¬æ©æ',target:null,tags:['çæ','é¿è²æµ·é»']},
+        {code:'3528',ex:'otc',name:'å®é¦³',thesis:'é·å¥æ¨è¦ï¼å±å¥ä¸é±ç§è¨ªï¼åºéå·²è²·é²å©å¤§è²·è¶ï¼120 ä»¥ä¸å°å ç¢¼è³ 1 å',target:'120ä»¥ä¸',tags:[]},
+        {code:'7610',ex:'otc',name:'è¯åéå±¬',thesis:'é¢ææç¨ç¼º + ä¸­ç¾è²¿ææ°å°ç·£æ¿æ²» + æè¡å£å£ï¼ç«¶ç­å°æé£é²å¥ï¼ï¼ææ¬ 57 åæ¼²è³ 1900+ï¼æ¥æ¬åç¢æ¶æ¯å¾æ¶å',target:2300,tags:['é¢','å°ç·£æ¿æ²»']},
+        {code:'2059',ex:'tse',name:'å·æ¹',thesis:'ä¼ºæå¨æ©æ«å°è»ï¼çæ¶æçºè¶é æï¼ææ¬ 1000 åºé ­ï¼åºéå·²è²·é²',target:null,tags:['ä¼ºæå¨','AI']},
+        {code:'3026',ex:'tse',name:'ç¦¾ä¼¸å ',thesis:'è¢«ååä»¶æ¼²å¹åæ ï¼åºéææ',target:null,tags:['è¢«ååä»¶']},
       ]},
-      {name:'崴哥',stocks:[
-        {code:'3528',ex:'otc',name:'安馳',thesis:'4 月營收掉、5 月回升，市場估月 EPS 2 塊、全年 20，等凱哥私訪驗證 EPS',target:null,tags:['生技']},
-        {code:'2385',ex:'tse',name:'群光',thesis:'高殖利率 ETF 成分股（0056/919），法人持續買進，線型飄升中',target:null,tags:['除息行情','高殖利率']},
-        {code:'9939',ex:'otc',name:'宏全',thesis:'7 月初除息，高殖利率，法人目前持續建倉，還有約一個月時間',target:null,tags:['除息行情','高殖利率']},
-        {code:'6449',ex:'otc',name:'鈺邦',thesis:'鋁質電容漲價 + 缺貨（比 MLCC 漲幅更大），漲價前月 EPS 已達 1 塊，本益比低於國巨，籌碼較冷',target:null,tags:['被動元件','鋁質電容']},
-        {code:'5511',ex:'otc',name:'德昌',thesis:'社宅案 1/3 暗量 Q4 入帳，今年 EPS 估 15，除息後本益比僅 4 倍，明年繼續成長',target:null,tags:['建設','低本益比']},
+      {name:'å´´å¥',stocks:[
+        {code:'3528',ex:'otc',name:'å®é¦³',thesis:'4 æçæ¶æã5 æååï¼å¸å ´ä¼°æ EPS 2 å¡ãå¨å¹´ 20ï¼ç­å±å¥ç§è¨ªé©è­ EPS',target:null,tags:['çæ']},
+        {code:'2385',ex:'tse',name:'ç¾¤å',thesis:'é«æ®å©ç ETF æåè¡ï¼0056/919ï¼ï¼æ³äººæçºè²·é²ï¼ç·åé£åä¸­',target:null,tags:['é¤æ¯è¡æ','é«æ®å©ç']},
+        {code:'9939',ex:'otc',name:'å®å¨',thesis:'7 æåé¤æ¯ï¼é«æ®å©çï¼æ³äººç®åæçºå»ºåï¼éæç´ä¸åææé',target:null,tags:['é¤æ¯è¡æ','é«æ®å©ç']},
+        {code:'6449',ex:'otc',name:'éºé¦',thesis:'éè³ªé»å®¹æ¼²å¹ + ç¼ºè²¨ï¼æ¯ MLCC æ¼²å¹æ´å¤§ï¼ï¼æ¼²å¹åæ EPS å·²é 1 å¡ï¼æ¬çæ¯ä½æ¼åå·¨ï¼ç±ç¢¼è¼å·',target:null,tags:['è¢«ååä»¶','éè³ªé»å®¹']},
+        {code:'5511',ex:'otc',name:'å¾·æ',thesis:'ç¤¾å®æ¡ 1/3 æé Q4 å¥å¸³ï¼ä»å¹´ EPS ä¼° 15ï¼é¤æ¯å¾æ¬çæ¯å 4 åï¼æå¹´ç¹¼çºæé·',target:null,tags:['å»ºè¨­','ä½æ¬çæ¯']},
       ]},
-      {name:'漁樵耕讀',stocks:[
-        {code:'6227',ex:'otc',name:'茂綸',thesis:'通路股，威剛下 80 億訂單，明年 Q2 入帳，明年營收 300 億起跳，EPS 估 20，通路股 PE 11-13 倍',target:220,tags:['通路','AI記憶體']},
-        {code:'5289',ex:'otc',name:'宜鼎',thesis:'工業 NAND，六月營收破 80 億，上半年 EPS 150-160，全年 EPS 破 300，今日創歷史新高',target:null,tags:['工業記憶體','AI']},
-        {code:'3026',ex:'tse',name:'禾伸堂',thesis:'長期持有，無轉弱跡象',target:null,tags:['被動元件']},
-        {code:'7610',ex:'otc',name:'聯友金屬',thesis:'長期持有，無轉弱跡象，持續追蹤',target:null,tags:['鎢']},
+      {name:'æ¼æ¨µèè®',stocks:[
+        {code:'6227',ex:'otc',name:'èç¶¸',thesis:'éè·¯è¡ï¼å¨åä¸ 80 åè¨å®ï¼æå¹´ Q2 å¥å¸³ï¼æå¹´çæ¶ 300 åèµ·è·³ï¼EPS ä¼° 20ï¼éè·¯è¡ PE 11-13 å',target:220,tags:['éè·¯','AIè¨æ¶é«']},
+        {code:'5289',ex:'otc',name:'å®é¼',thesis:'å·¥æ¥­ NANDï¼å­æçæ¶ç ´ 80 åï¼ä¸åå¹´ EPS 150-160ï¼å¨å¹´ EPS ç ´ 300ï¼ä»æ¥åµæ­·å²æ°é«',target:null,tags:['å·¥æ¥­è¨æ¶é«','AI']},
+        {code:'3026',ex:'tse',name:'ç¦¾ä¼¸å ',thesis:'é·æææï¼ç¡è½å¼±è·¡è±¡',target:null,tags:['è¢«ååä»¶']},
+        {code:'7610',ex:'otc',name:'è¯åéå±¬',thesis:'é·æææï¼ç¡è½å¼±è·¡è±¡ï¼æçºè¿½è¹¤',target:null,tags:['é¢']},
       ]},
-      {name:'高鐵哥',stocks:[
-        {code:'1612',ex:'tse',name:'宏泰',thesis:'台電電網 10 年計畫受惠，同業大亞/華榮錨點 PE 150-180，福邦關係戶',target:72,tags:['電力','電網']},
-        {code:null,ex:null,name:'世界盃加密貨幣',thesis:'世界盃期間操作相關幣種：狐狸/Flocky、Solana 鏈上主題幣，事件型交易',target:null,tags:['加密貨幣']},
+      {name:'é«éµå¥',stocks:[
+        {code:'1612',ex:'tse',name:'å®æ³°',thesis:'å°é»é»ç¶² 10 å¹´è¨ç«åæ ï¼åæ¥­å¤§äº/è¯æ¦®é¨é» PE 150-180ï¼ç¦é¦éä¿æ¶',target:72,tags:['é»å','é»ç¶²']},
+        {code:null,ex:null,name:'ä¸ççå å¯è²¨å¹£',thesis:'ä¸ççæéæä½ç¸éå¹£ç¨®ï¼çç¸/FlockyãSolana éä¸ä¸»é¡å¹£ï¼äºä»¶åäº¤æ',target:null,tags:['å å¯è²¨å¹£']},
       ]},
-      {name:'小資男孩',stocks:[
-        {code:'8299',ex:'otc',name:'群聯',thesis:'AI PC + Intel 合作 NPU 晶片，5-6 萬 vs NV 10 萬+ 價差，CP 值高；庫存持續出補；今年 EPS 估 300+',target:null,tags:['AI PC','NPU','NAND']},
-        {code:'6223',ex:'otc',name:'旺矽',thesis:'探針需求持續強勁，CB 詢圈期間認購，轉換價 6223',target:null,tags:['探針','CB']},
+      {name:'å°è³ç·å­©',stocks:[
+        {code:'8299',ex:'otc',name:'ç¾¤è¯',thesis:'AI PC + Intel åä½ NPU æ¶çï¼5-6 è¬ vs NV 10 è¬+ å¹å·®ï¼CP å¼é«ï¼åº«å­æçºåºè£ï¼ä»å¹´ EPS ä¼° 300+',target:null,tags:['AI PC','NPU','NAND']},
+        {code:'6223',ex:'otc',name:'æºç½',thesis:'æ¢ééæ±æçºå¼·åï¼CB è©¢åæéèªè³¼ï¼è½æå¹ 6223',target:null,tags:['æ¢é','CB']},
       ]},
       {name:'Monson',stocks:[
-        {code:'8299',ex:'otc',name:'群聯',thesis:'Computex 展出 NPU 晶片，讓 AIPC 地端流暢跑 LLM，潘董說持續缺貨，餐飲業已實際落地應用',target:null,tags:['AI PC','NPU']},
-        {code:'3167',ex:'otc',name:'大量',thesis:'PCB 厚度 TMS 量測機台全球最優，毛利率 42-45%，下半年營收 +25%；董事長：今年 EPS 30、明年 60（保守）',target:1500,tags:['設備','PCB量測']},
+        {code:'8299',ex:'otc',name:'ç¾¤è¯',thesis:'Computex å±åº NPU æ¶çï¼è® AIPC å°ç«¯æµæ¢è· LLMï¼æ½è£èªªæçºç¼ºè²¨ï¼é¤é£²æ¥­å·²å¯¦éè½å°æç¨',target:null,tags:['AI PC','NPU']},
+        {code:'3167',ex:'otc',name:'å¤§é',thesis:'PCB ååº¦ TMS éæ¸¬æ©å°å¨çæåªï¼æ¯å©ç 42-45%ï¼ä¸åå¹´çæ¶ +25%ï¼è£äºé·ï¼ä»å¹´ EPS 30ãæå¹´ 60ï¼ä¿å®ï¼',target:1500,tags:['è¨­å','PCBéæ¸¬']},
       ]},
-      {name:'馬奎爾',stocks:[
-        {code:'2327',ex:'tse',name:'國巨',thesis:'被動元件漲價，流動性強，長期持有核心部位',target:null,tags:['被動元件']},
-        {code:'2316',ex:'tse',name:'楠梓電',thesis:'母以子貴（持有滬電 15%），投信 00982A 新買 3000 張；滬電漲 40-50%，理論合理值約 770+',target:770,tags:['PCB','母以子貴']},
-        {code:null,ex:null,name:'美債 ZB 30Y',thesis:'三週前超買，殖利率約 5.2，若再掉一點繼續加碼；未來升息機率降低看好回升',target:null,tags:['美債','總經']},
-        {code:null,ex:null,name:'比特幣 BTC',thesis:'線型仍差，等打底後把股票利潤 rebalance 5-10%，等待時機',target:null,tags:['加密貨幣']},
+      {name:'é¦¬å¥ç¾',stocks:[
+        {code:'2327',ex:'tse',name:'åå·¨',thesis:'è¢«ååä»¶æ¼²å¹ï¼æµåæ§å¼·ï¼é·ææææ ¸å¿é¨ä½',target:null,tags:['è¢«ååä»¶']},
+        {code:'2316',ex:'tse',name:'æ¥ æ¢é»',thesis:'æ¯ä»¥å­è²´ï¼æææ»¬é» 15%ï¼ï¼æä¿¡ 00982A æ°è²· 3000 å¼µï¼æ»¬é»æ¼² 40-50%ï¼çè«åçå¼ç´ 770+',target:770,tags:['PCB','æ¯ä»¥å­è²´']},
+        {code:null,ex:null,name:'ç¾åµ ZB 30Y',thesis:'ä¸é±åè¶è²·ï¼æ®å©çç´ 5.2ï¼è¥åæä¸é»ç¹¼çºå ç¢¼ï¼æªä¾åæ¯æ©çéä½çå¥½åå',target:null,tags:['ç¾åµ','ç¸½ç¶']},
+        {code:null,ex:null,name:'æ¯ç¹å¹£ BTC',thesis:'ç·åä»å·®ï¼ç­æåºå¾æè¡ç¥¨å©æ½¤ rebalance 5-10%ï¼ç­å¾ææ©',target:null,tags:['å å¯è²¨å¹£']},
       ]},
-      {name:'新朋友',stocks:[
-        {code:'3450',ex:'otc',name:'聯鈞',thesis:'AOC 光纖線，接到 Coherent/Lite/Marvel 訂單；子公司源傑 Q3 上興櫃；庫存去化完成，YOY 40-50%，產能開到 200%',target:null,tags:['光通訊','AOC']},
-        {code:'2327',ex:'tse',name:'國巨',thesis:'被動元件漲價受惠，持續追蹤',target:null,tags:['被動元件']},
-        {code:'8043',ex:'otc',name:'蜜望實',thesis:'太陽誘電（TDK）台灣代理，已率先發漲價通知，受惠被動元件漲價週期',target:null,tags:['被動元件通路']},
+      {name:'æ°æå',stocks:[
+        {code:'3450',ex:'otc',name:'è¯é',thesis:'AOC åçºç·ï¼æ¥å° Coherent/Lite/Marvel è¨å®ï¼å­å¬å¸æºå Q3 ä¸èæ«ï¼åº«å­å»åå®æï¼YOY 40-50%ï¼ç¢è½éå° 200%',target:null,tags:['åéè¨','AOC']},
+        {code:'2327',ex:'tse',name:'åå·¨',thesis:'è¢«ååä»¶æ¼²å¹åæ ï¼æçºè¿½è¹¤',target:null,tags:['è¢«ååä»¶']},
+        {code:'8043',ex:'otc',name:'èæå¯¦',thesis:'å¤ªé½èªé»ï¼TDKï¼å°ç£ä»£çï¼å·²çåç¼æ¼²å¹éç¥ï¼åæ è¢«ååä»¶æ¼²å¹é±æ',target:null,tags:['è¢«ååä»¶éè·¯']},
       ]},
-      {name:'小哥哥',stocks:[
-        {code:'3485',ex:'otc',name:'敘豐',thesis:'TGV 概念，欣興拉貨提前，月營收 0.5 億→7 月達 1 億，明年 EPS 估 20+，剛上櫃籌碼乾淨，6/15 處置結束後量才會出來',target:null,tags:['TGV','PCB材料']},
-        {code:'3059',ex:'otc',name:'偉訓',thesis:'大股東直接說可以買，CB 可轉債，利多 7-8 月；禮拜一從跌停拉到翻紅已驗證',target:null,tags:['CB','通路']},
+      {name:'å°å¥å¥',stocks:[
+        {code:'3485',ex:'otc',name:'æè±',thesis:'TGV æ¦å¿µï¼æ¬£èæè²¨æåï¼æçæ¶ 0.5 åâ7 æé 1 åï¼æå¹´ EPS ä¼° 20+ï¼åä¸æ«ç±ç¢¼ä¹¾æ·¨ï¼6/15 èç½®çµæå¾éææåºä¾',target:null,tags:['TGV','PCBææ']},
+        {code:'3059',ex:'otc',name:'åè¨',thesis:'å¤§è¡æ±ç´æ¥èªªå¯ä»¥è²·ï¼CB å¯è½åµï¼å©å¤ 7-8 æï¼ç¦®æä¸å¾è·åæå°ç¿»ç´å·²é©è­',target:null,tags:['CB','éè·¯']},
       ]},
-      {name:'KK大',stocks:[
-        {code:'3653',ex:'otc',name:'健策',thesis:'NV 改設計 ASP 掉 66% 已 price in，Computex 展出新 solution（MC link + VC 結合），目標 23kW 散熱，展示驗證中',target:null,tags:['散熱','AI伺服器','CoWoS']},
-        {code:'2454',ex:'tse',name:'聯發科',thesis:'大股票持有，月初有人記得月中忘記策略，抓 20% 區間操作',target:null,tags:['IC設計']},
-        {code:'3324',ex:'tse',name:'雙鴻',thesis:'大股票持有',target:null,tags:['散熱']},
-        {code:'2059',ex:'tse',name:'川湖',thesis:'大股票持有',target:null,tags:['伺服器']},
-        {code:'5289',ex:'otc',name:'宜鼎',thesis:'大股票，月初漲月中被遺忘策略反覆操作，EPS 強勁',target:null,tags:['工業記憶體']},
-        {code:'6840',ex:'otc',name:'東延信超',thesis:'CB 轉換價 106，月營收衝 9000 萬驗證中，若月 EPS 近 1 塊即 60 元股價就進場',target:null,tags:['CB','電子']},
+      {name:'KKå¤§',stocks:[
+        {code:'3653',ex:'otc',name:'å¥ç­',thesis:'NV æ¹è¨­è¨ ASP æ 66% å·² price inï¼Computex å±åºæ° solutionï¼MC link + VC çµåï¼ï¼ç®æ¨ 23kW æ£ç±ï¼å±ç¤ºé©è­ä¸­',target:null,tags:['æ£ç±','AIä¼ºæå¨','CoWoS']},
+        {code:'2454',ex:'tse',name:'è¯ç¼ç§',thesis:'å¤§è¡ç¥¨ææï¼æåæäººè¨å¾æä¸­å¿è¨ç­ç¥ï¼æ 20% åéæä½',target:null,tags:['ICè¨­è¨']},
+        {code:'3324',ex:'tse',name:'éé´»',thesis:'å¤§è¡ç¥¨ææ',target:null,tags:['æ£ç±']},
+        {code:'2059',ex:'tse',name:'å·æ¹',thesis:'å¤§è¡ç¥¨ææ',target:null,tags:['ä¼ºæå¨']},
+        {code:'5289',ex:'otc',name:'å®é¼',thesis:'å¤§è¡ç¥¨ï¼æåæ¼²æä¸­è¢«éºå¿ç­ç¥åè¦æä½ï¼EPS å¼·å',target:null,tags:['å·¥æ¥­è¨æ¶é«']},
+        {code:'6840',ex:'otc',name:'æ±å»¶ä¿¡è¶',thesis:'CB è½æå¹ 106ï¼æçæ¶è¡ 9000 è¬é©è­ä¸­ï¼è¥æ EPS è¿ 1 å¡å³ 60 åè¡å¹å°±é²å ´',target:null,tags:['CB','é»å­']},
       ]},
-      {name:'小王子',stocks:[
-        {code:'6147',ex:'otc',name:'頎邦',thesis:'光通訊金凸塊封裝（COF），27 年 TEM 600 億美元，廖學邦建倉持股達 5%，明年營收 300 億',target:null,tags:['光通訊','封裝','COF']},
-        {code:'6442',ex:'otc',name:'光聖',thesis:'Google TPU 光纖佈線，子公司合聖待上興櫃，今年 EPS 60 / 明年 115，9 成以上收入來自 TPU',target:115,tags:['光通訊','Google TPU']},
+      {name:'å°çå­',stocks:[
+        {code:'6147',ex:'otc',name:'é é¦',thesis:'åéè¨éå¸å¡å°è£ï¼COFï¼ï¼27 å¹´ TEM 600 åç¾åï¼å»å­¸é¦å»ºåæè¡é 5%ï¼æå¹´çæ¶ 300 å',target:null,tags:['åéè¨','å°è£','COF']},
+        {code:'6442',ex:'otc',name:'åè',thesis:'Google TPU åçºä½ç·ï¼å­å¬å¸åèå¾ä¸èæ«ï¼ä»å¹´ EPS 60 / æå¹´ 115ï¼9 æä»¥ä¸æ¶å¥ä¾èª TPU',target:115,tags:['åéè¨','Google TPU']},
       ]},
       {name:'CH',stocks:[
-        {code:'7610',ex:'otc',name:'聯友金屬',thesis:'鎢材料：稀缺資源 + 地緣政治 + 技術壁壘，半導體封裝廠指定供應商，明年 EPS 估 115',target:2300,tags:['鎢','地緣政治']},
-        {code:'3042',ex:'otc',name:'晶技',thesis:'石英震盪器 AI 伺服器不可替代（抖動遠低於 MEMS），今年 EPS 12 / 明年 16，配息率 80%+',target:null,tags:['石英振盪器','AI伺服器']},
-        {code:'3653',ex:'otc',name:'健策',thesis:'ASP 掉 66% 已充分反映，Computex 展出新 solution，接低點布局',target:null,tags:['散熱','CoWoS']},
+        {code:'7610',ex:'otc',name:'è¯åéå±¬',thesis:'é¢ææï¼ç¨ç¼ºè³æº + å°ç·£æ¿æ²» + æè¡å£å£ï¼åå°é«å°è£å» æå®ä¾æåï¼æå¹´ EPS ä¼° 115',target:2300,tags:['é¢','å°ç·£æ¿æ²»']},
+        {code:'3042',ex:'otc',name:'æ¶æ',thesis:'ç³è±éçªå¨ AI ä¼ºæå¨ä¸å¯æ¿ä»£ï¼æåé ä½æ¼ MEMSï¼ï¼ä»å¹´ EPS 12 / æå¹´ 16ï¼éæ¯ç 80%+',target:null,tags:['ç³è±æ¯çªå¨','AIä¼ºæå¨']},
+        {code:'3653',ex:'otc',name:'å¥ç­',thesis:'ASP æ 66% å·²åååæ ï¼Computex å±åºæ° solutionï¼æ¥ä½é»å¸å±',target:null,tags:['æ£ç±','CoWoS']},
       ]},
-      {name:'發發哥',stocks:[
-        {code:'2329',ex:'tse',name:'華泰',thesis:'CB 可轉債，整理很久剛開始啟動，籌碼認很多，共識形成，富邦新板已注意',target:null,tags:['CB','類比IC']},
-        {code:'6121',ex:'otc',name:'新普',thesis:'電池廠，CB 可轉債，電池漲價趨勢，近期有人在拆 CB，可留意',target:null,tags:['電池','CB']},
+      {name:'ç¼ç¼å¥',stocks:[
+        {code:'2329',ex:'tse',name:'è¯æ³°',thesis:'CB å¯è½åµï¼æ´çå¾ä¹åéå§ååï¼ç±ç¢¼èªå¾å¤ï¼å±è­å½¢æï¼å¯é¦æ°æ¿å·²æ³¨æ',target:null,tags:['CB','é¡æ¯IC']},
+        {code:'6121',ex:'otc',name:'æ°æ®',thesis:'é»æ± å» ï¼CB å¯è½åµï¼é»æ± æ¼²å¹è¶¨å¢ï¼è¿ææäººå¨æ CBï¼å¯çæ',target:null,tags:['é»æ± ','CB']},
       ]},
-      {name:'寶寶',stocks:[
-        {code:'2327',ex:'tse',name:'國巨',thesis:'大部位核心持倉，被動元件漲價週期主標的',target:null,tags:['被動元件']},
-        {code:'6449',ex:'otc',name:'鈺邦',thesis:'鋁質電容，籌碼乾淨，有資訊優勢，持續關注',target:null,tags:['鋁質電容']},
-        {code:'6788',ex:'otc',name:'（6788 待確認）',thesis:'台積電擴廠設備受惠，毛利率 60%，今年 EPS 20 / 明年 35，富邦新板目標 600-800',target:800,tags:['設備','台積電']},
+      {name:'å¯¶å¯¶',stocks:[
+        {code:'2327',ex:'tse',name:'åå·¨',thesis:'å¤§é¨ä½æ ¸å¿æåï¼è¢«ååä»¶æ¼²å¹é±æä¸»æ¨ç',target:null,tags:['è¢«ååä»¶']},
+        {code:'6449',ex:'otc',name:'éºé¦',thesis:'éè³ªé»å®¹ï¼ç±ç¢¼ä¹¾æ·¨ï¼æè³è¨åªå¢ï¼æçºéæ³¨',target:null,tags:['éè³ªé»å®¹']},
+        {code:'6788',ex:'otc',name:'ï¼6788 å¾ç¢ºèªï¼',thesis:'å°ç©é»æ´å» è¨­ååæ ï¼æ¯å©ç 60%ï¼ä»å¹´ EPS 20 / æå¹´ 35ï¼å¯é¦æ°æ¿ç®æ¨ 600-800',target:800,tags:['è¨­å','å°ç©é»']},
       ]},
       {name:'momoji',stocks:[
-        {code:'2327',ex:'tse',name:'國巨',thesis:'標配持股',target:null,tags:['被動元件']},
-        {code:'3167',ex:'otc',name:'大量',thesis:'標配持股，董事長預期今年 EPS 30 / 明年 60（保守），統一報告 2027 EPS 43.4',target:null,tags:['設備']},
-        {code:'2059',ex:'tse',name:'川湖',thesis:'標配持股',target:null,tags:['伺服器']},
-        {code:'6669',ex:'otc',name:'緯穎',thesis:'明年 EPS 估 600，現在 <10 倍 PE，市場關注度低，除息公告後有啟動機會',target:null,tags:['伺服器','AI']},
-        {code:'6223',ex:'otc',name:'旺矽',thesis:'CB 詢圈被洗掉後，昨天好營收出來，MS 今天可能發報告',target:null,tags:['探針']},
-        {code:'2303',ex:'tse',name:'聯電',thesis:'919 ETF 成分股調整事件，朋友推，內部估 200-300',target:300,tags:['晶圓代工']},
+        {code:'2327',ex:'tse',name:'åå·¨',thesis:'æ¨éæè¡',target:null,tags:['è¢«ååä»¶']},
+        {code:'3167',ex:'otc',name:'å¤§é',thesis:'æ¨éæè¡ï¼è£äºé·é æä»å¹´ EPS 30 / æå¹´ 60ï¼ä¿å®ï¼ï¼çµ±ä¸å ±å 2027 EPS 43.4',target:null,tags:['è¨­å']},
+        {code:'2059',ex:'tse',name:'å·æ¹',thesis:'æ¨éæè¡',target:null,tags:['ä¼ºæå¨']},
+        {code:'6669',ex:'otc',name:'ç·¯ç©',thesis:'æå¹´ EPS ä¼° 600ï¼ç¾å¨ <10 å PEï¼å¸å ´éæ³¨åº¦ä½ï¼é¤æ¯å¬åå¾æååæ©æ',target:null,tags:['ä¼ºæå¨','AI']},
+        {code:'6223',ex:'otc',name:'æºç½',thesis:'CB è©¢åè¢«æ´æå¾ï¼æ¨å¤©å¥½çæ¶åºä¾ï¼MS ä»å¤©å¯è½ç¼å ±å',target:null,tags:['æ¢é']},
+        {code:'2303',ex:'tse',name:'è¯é»',thesis:'919 ETF æåè¡èª¿æ´äºä»¶ï¼æåæ¨ï¼å§é¨ä¼° 200-300',target:300,tags:['æ¶åä»£å·¥']},
       ]},
-      {name:'奇哥（線上）',stocks:[
-        {code:'2303',ex:'tse',name:'聯電',thesis:'8 吋成熟製程產能 7 月後達 9 成，客戶收到漲價通知 5-20%（PMIC、PowerIC），台積電退出 28nm 訂單流向聯電；市場共識 200-300',target:300,tags:['晶圓代工','漲價']},
+      {name:'å¥å¥ï¼ç·ä¸ï¼',stocks:[
+        {code:'2303',ex:'tse',name:'è¯é»',thesis:'8 åæçè£½ç¨ç¢è½ 7 æå¾é 9 æï¼å®¢æ¶æ¶å°æ¼²å¹éç¥ 5-20%ï¼PMICãPowerICï¼ï¼å°ç©é»éåº 28nm è¨å®æµåè¯é»ï¼å¸å ´å±è­ 200-300',target:300,tags:['æ¶åä»£å·¥','æ¼²å¹']},
       ]},
-      {name:'武王（線上）',stocks:[
-        {code:'2330',ex:'tse',name:'台積電',thesis:'主要持股，AI 硬體核心受惠者，台灣 AI 成長率蓋過升息利率，基本面最強，拉回即加碼',target:null,tags:['台積電','AI']},
+      {name:'æ­¦çï¼ç·ä¸ï¼',stocks:[
+        {code:'2330',ex:'tse',name:'å°ç©é»',thesis:'ä¸»è¦æè¡ï¼AI ç¡¬é«æ ¸å¿åæ èï¼å°ç£ AI æé·çèéåæ¯å©çï¼åºæ¬é¢æå¼·ï¼æåå³å ç¢¼',target:null,tags:['å°ç©é»','AI']},
       ]},
     ],
     bullish:[
-      {text:'被動元件漲價週期（MLCC、鋁質電容缺貨，漲幅超預期）',by:'崴哥、新朋友、寶寶、KK大'},
-      {text:'光通訊族群（AOC、Google TPU、光纖模組）持續擴產',by:'小王子、新朋友、Monson'},
-      {text:'TGV（玻璃通孔）2027-28 年設備/產線爆發期，撒網佈局',by:'小哥哥、凱哥、奇哥；相關：漢偉、東捷、鈦昇、川寶'},
-      {text:'AI PC / 地端 NPU 晶片，CP 值優於 NV，Intel 合作',by:'小資男孩、Monson'},
-      {text:'CoWoS 散熱升級（目標 23kW+），健策新 solution 驗證中',by:'CH、KK大'},
-      {text:'SpaceX IPO → 太空/陶瓷材料供應鏈受惠（九豪等陶瓷基板）',by:'奇哥；SpaceX 市值 1.7T'},
-      {text:'高殖利率除息行情（7 月），ETF 成分股提前飄升',by:'崴哥；0056、919 成分股'},
-      {text:'阿茲海默小分子藥，安立璽榮-KY BioMark 全球首例認知逆轉案例',by:'凱哥、崴哥；即將進大型臨床'},
+      {text:'è¢«ååä»¶æ¼²å¹é±æï¼MLCCãéè³ªé»å®¹ç¼ºè²¨ï¼æ¼²å¹è¶é æï¼',by:'å´´å¥ãæ°æåãå¯¶å¯¶ãKKå¤§'},
+      {text:'åéè¨æç¾¤ï¼AOCãGoogle TPUãåçºæ¨¡çµï¼æçºæ´ç¢',by:'å°çå­ãæ°æåãMonson'},
+      {text:'TGVï¼ç»çéå­ï¼2027-28 å¹´è¨­å/ç¢ç·çç¼æï¼æç¶²ä½å±',by:'å°å¥å¥ãå±å¥ãå¥å¥ï¼ç¸éï¼æ¼¢åãæ±æ·ãé¦æãå·å¯¶'},
+      {text:'AI PC / å°ç«¯ NPU æ¶çï¼CP å¼åªæ¼ NVï¼Intel åä½',by:'å°è³ç·å­©ãMonson'},
+      {text:'CoWoS æ£ç±åç´ï¼ç®æ¨ 23kW+ï¼ï¼å¥ç­æ° solution é©è­ä¸­',by:'CHãKKå¤§'},
+      {text:'SpaceX IPO â å¤ªç©º/é¶ç·ææä¾æéåæ ï¼ä¹è±ªç­é¶ç·åºæ¿ï¼',by:'å¥å¥ï¼SpaceX å¸å¼ 1.7T'},
+      {text:'é«æ®å©çé¤æ¯è¡æï¼7 æï¼ï¼ETF æåè¡æåé£å',by:'å´´å¥ï¼0056ã919 æåè¡'},
+      {text:'é¿è²æµ·é»å°åå­è¥ï¼å®ç«ç½æ¦®-KY BioMark å¨çé¦ä¾èªç¥éè½æ¡ä¾',by:'å±å¥ãå´´å¥ï¼å³å°é²å¤§åè¨åº'},
     ],
     macro:[
-      {color:'r',text:'<strong>日本升息</strong>（下週），Carry Trade 壓力釋放，預期影響小於去年 7 月崩盤',by:'奇哥、武王、馬奎爾'},
-      {color:'y',text:'<strong>CPI</strong> 市場預期 4.2，內部估實際 4.0-4.1；若未超預期則無升息壓力',by:'奇哥（2026/06/10 公布）'},
-      {color:'g',text:'今年 CPI <strong>高點在 7 月</strong>後轉降，升息機率低，Fed 維持不動',by:'武王'},
-      {color:'r',text:'<strong>SpaceX IPO</strong> 抽資金 75-100B 美元，造成半導體短線賣壓（SMH 跌 10%）',by:'奇哥'},
-      {color:'g',text:'台灣經濟成長率 > 升息利率，AI 硬體優勢明確，<strong>拉回建倉</strong>好時機',by:'奇哥、武王；預期 2-3 週波動後回升'},
-      {color:'g',text:'聯電 8 吋成熟製程產能下半年達 9 成，<strong>季季漲價 5-20%</strong>，可挑客戶',by:'奇哥；台積電放棄 28nm，訂單流向聯電'},
-      {color:'y',text:'馬奎爾持美債 ZB 30Y（殖利率 5.2），看好短期回升；比特幣等打底後再 rebalance 5-10%',by:'馬奎爾'},
+      {color:'r',text:'<strong>æ¥æ¬åæ¯</strong>ï¼ä¸é±ï¼ï¼Carry Trade å£åéæ¾ï¼é æå½±é¿å°æ¼å»å¹´ 7 æå´©ç¤',by:'å¥å¥ãæ­¦çãé¦¬å¥ç¾'},
+      {color:'y',text:'<strong>CPI</strong> å¸å ´é æ 4.2ï¼å§é¨ä¼°å¯¦é 4.0-4.1ï¼è¥æªè¶é æåç¡åæ¯å£å',by:'å¥å¥ï¼2026/06/10 å¬å¸ï¼'},
+      {color:'g',text:'ä»å¹´ CPI <strong>é«é»å¨ 7 æ</strong>å¾è½éï¼åæ¯æ©çä½ï¼Fed ç¶­æä¸å',by:'æ­¦ç'},
+      {color:'r',text:'<strong>SpaceX IPO</strong> æ½è³é 75-100B ç¾åï¼é æåå°é«ç­ç·è³£å£ï¼SMH è· 10%ï¼',by:'å¥å¥'},
+      {color:'g',text:'å°ç£ç¶æ¿æé·ç > åæ¯å©çï¼AI ç¡¬é«åªå¢æç¢ºï¼<strong>æåå»ºå</strong>å¥½ææ©',by:'å¥å¥ãæ­¦çï¼é æ 2-3 é±æ³¢åå¾åå'},
+      {color:'g',text:'è¯é» 8 åæçè£½ç¨ç¢è½ä¸åå¹´é 9 æï¼<strong>å­£å­£æ¼²å¹ 5-20%</strong>ï¼å¯æå®¢æ¶',by:'å¥å¥ï¼å°ç©é»æ¾æ£ 28nmï¼è¨å®æµåè¯é»'},
+      {color:'y',text:'é¦¬å¥ç¾æç¾åµ ZB 30Yï¼æ®å©ç 5.2ï¼ï¼çå¥½ç­æååï¼æ¯ç¹å¹£ç­æåºå¾å rebalance 5-10%',by:'é¦¬å¥ç¾'},
     ]
   }
-  // 新增下次會議：{id:'m20260714', date:'2026/07/14', label:'第二次', members:[...], bullish:[...], macro:[...]}
+  // æ°å¢ä¸æ¬¡æè­°ï¼{id:'m20260714', date:'2026/07/14', label:'ç¬¬äºæ¬¡', members:[...], bullish:[...], macro:[...]}
 ];
 
-// 手動標注（由 Claude 根據你提供的資訊更新）
+// æåæ¨æ³¨ï¼ç± Claude æ ¹æä½ æä¾çè³è¨æ´æ°ï¼
 const MANUAL_ANNOTATIONS = {
-  // '2330': [{date:'2026-06-15', text:'台積電法說會，EPS 超預期'}],
+  // '2330': [{date:'2026-06-15', text:'å°ç©é»æ³èªªæï¼EPS è¶é æ'}],
 };
 
 const codeMap = {};
@@ -749,7 +747,7 @@ function initStats(members){
   document.getElementById('st-total').textContent=seen.size;
   document.getElementById('st-tse').textContent=tse;
   document.getElementById('st-otc').textContent=otc;
-  document.getElementById('s-cnt').textContent=`${seen.size} 支標的`;
+  document.getElementById('s-cnt').textContent=`${seen.size} æ¯æ¨ç`;
 }
 
 function populateMeetingSelect(){
@@ -760,7 +758,7 @@ function populateMeetingSelect(){
 
 function populateMemberSelect(members){
   const sel=document.getElementById('member-select');
-  sel.innerHTML='<option value="">👤 查找成員</option>';
+  sel.innerHTML='<option value="">ð¤ æ¥æ¾æå¡</option>';
   members.forEach(p=>{ const o=document.createElement('option'); o.value=p.name; o.textContent=`${p.name} (${p.stocks.length})`; sel.appendChild(o); });
 }
 
@@ -778,17 +776,17 @@ function escQ(s){ return (s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'"); }
 
 function renderStockRow(s){
   const cc=s.ex==='tse'?'c-tse':s.ex==='otc'?'c-otc':'c-na';
-  const cl=s.code||'—';
-  const tr=s.target?(typeof s.target==='number'?'$'+s.target.toLocaleString():s.target):'—';
+  const cl=s.code||'â';
+  const tr=s.target?(typeof s.target==='number'?'$'+s.target.toLocaleString():s.target):'â';
   const tg=s.tags.map(t=>`<span class="tag">${t}</span>`).join('');
   return `<div class="sr" data-code="${s.code||''}" onclick="showStockDetail('${escQ(s.code)}','${escQ(s.name)}')">
     <span class="scode ${cc}">${cl}</span>
     <div class="si"><div class="sname">${s.name}</div><div class="sth">${s.thesis}</div>${tg?`<div class="stags">${tg}</div>`:''}</div>
     <div class="pcol">
-      <div class="pv" data-price="${s.code||''}">${s.code?'<span class="ldg"></span>':'—'}</div>
+      <div class="pv" data-price="${s.code||''}">${s.code?'<span class="ldg"></span>':'â'}</div>
       <div class="pc2" data-chg="${s.code||''}"></div>
     </div>
-    <div class="tcol"><div class="tlbl">目標</div><div class="tv2">${tr}</div></div>
+    <div class="tcol"><div class="tlbl">ç®æ¨</div><div class="tv2">${tr}</div></div>
   </div>`;
 }
 
@@ -796,11 +794,11 @@ function render(members){
   const g=document.getElementById('pgrid'); g.innerHTML='';
   members.forEach(p=>{
     const d=document.createElement('div'); d.className='pc'; d.dataset.member=p.name;
-    const ini=p.name.replace(/（.*?）/,'').trim().charAt(0);
-    d.innerHTML=`<div class="ph" onclick="showMemberDetail('${escQ(p.name)}')" title="查看 ${p.name} 完整記錄">
+    const ini=p.name.replace(/ï¼.*?ï¼/,'').trim().charAt(0);
+    d.innerHTML=`<div class="ph" onclick="showMemberDetail('${escQ(p.name)}')" title="æ¥ç ${p.name} å®æ´è¨é">
       <div class="av">${ini}</div><div class="pn">${p.name}</div>
-      <div style="margin-left:auto;font-size:10px;color:var(--mu);font-weight:600">${p.stocks.length} 標的</div>
-      <span class="view-link">查看 →</span>
+      <div style="margin-left:auto;font-size:10px;color:var(--mu);font-weight:600">${p.stocks.length} æ¨ç</div>
+      <span class="view-link">æ¥ç â</span>
     </div>
     <div class="sl">${p.stocks.map(renderStockRow).join('')}</div>`;
     g.appendChild(d);
@@ -809,13 +807,13 @@ function render(members){
 
 function renderObs(m){
   document.getElementById('obs-panel').innerHTML=`<div class="obs">
-    <div class="obh">產業與總經觀察 · ${m.date} ${m.label}</div>
+    <div class="obh">ç¢æ¥­èç¸½ç¶è§å¯ Â· ${m.date} ${m.label}</div>
     <div class="obg">
-      <div class="obs-s"><div class="obs-t">看好產業</div>
-        ${m.bullish.map(b=>`<div class="oi"><div class="od"></div><div class="ot">${b.text}<br><span class="ob">— ${b.by}</span></div></div>`).join('')}
+      <div class="obs-s"><div class="obs-t">çå¥½ç¢æ¥­</div>
+        ${m.bullish.map(b=>`<div class="oi"><div class="od"></div><div class="ot">${b.text}<br><span class="ob">â ${b.by}</span></div></div>`).join('')}
       </div>
-      <div class="obs-s"><div class="obs-t">總經觀點</div>
-        ${m.macro.map(x=>`<div class="oi"><div class="od ${x.color==='r'?'rdot':x.color==='g'?'gdot':'ydot'}"></div><div class="ot">${x.text}<br><span class="ob">— ${x.by}</span></div></div>`).join('')}
+      <div class="obs-s"><div class="obs-t">ç¸½ç¶è§é»</div>
+        ${m.macro.map(x=>`<div class="oi"><div class="od ${x.color==='r'?'rdot':x.color==='g'?'gdot':'ydot'}"></div><div class="ot">${x.text}<br><span class="ob">â ${x.by}</span></div></div>`).join('')}
       </div>
     </div>
   </div>`;
@@ -827,14 +825,14 @@ function renderObs(m){
 function showMemberDetail(name){
   const history=MEETINGS.map(m=>{ const mbr=m.members.find(p=>p.name===name); return mbr&&mbr.stocks.length?{date:m.date,label:m.label,stocks:mbr.stocks}:null; }).filter(Boolean);
   if(!history.length)return;
-  const ini=name.replace(/（.*?）/,'').trim().charAt(0);
+  const ini=name.replace(/ï¼.*?ï¼/,'').trim().charAt(0);
   const tot=history.reduce((s,h)=>s+h.stocks.length,0);
   document.getElementById('mp-av').textContent=ini;
   document.getElementById('mp-name').textContent=name;
-  document.getElementById('mp-sub').textContent=`${history.length} 場會議記錄 · 共 ${tot} 筆標的`;
+  document.getElementById('mp-sub').textContent=`${history.length} å ´æè­°è¨é Â· å± ${tot} ç­æ¨ç`;
   document.getElementById('mp-timeline').innerHTML=history.map(h=>`
     <div class="tl-block">
-      <div class="tl-head"><span class="tl-badge">${h.date} · ${h.label}</span><span class="tl-count">${h.stocks.length} 標的</span></div>
+      <div class="tl-head"><span class="tl-badge">${h.date} Â· ${h.label}</span><span class="tl-count">${h.stocks.length} æ¨ç</span></div>
       <div class="sl">${h.stocks.map(renderStockRow).join('')}</div>
     </div>`).join('');
   const page=document.getElementById('member-page');
@@ -858,21 +856,21 @@ function showStockDetail(code, name){
   const tot=timeline.reduce((s,t)=>s+t.mentions.length,0);
   const ex=code?codeMap[code]:null;
   const cc=ex==='tse'?'c-tse':ex==='otc'?'c-otc':'c-na';
-  document.getElementById('sdp-code').textContent=code||'—';
+  document.getElementById('sdp-code').textContent=code||'â';
   document.getElementById('sdp-code').className=`sdp-code ${cc}`;
   document.getElementById('sdp-name').textContent=name;
-  document.getElementById('sdp-sub').textContent=`${timeline.length} 場會議提及 · 共 ${tot} 人`;
+  document.getElementById('sdp-sub').textContent=`${timeline.length} å ´æè­°æå Â· å± ${tot} äºº`;
   document.getElementById('sdp-timeline').innerHTML=timeline.map(t=>`
     <div class="tl-block">
-      <div class="tl-head"><span class="tl-badge">${t.date} · ${t.label}</span><span class="tl-count">${t.mentions.length} 人提及</span></div>
+      <div class="tl-head"><span class="tl-badge">${t.date} Â· ${t.label}</span><span class="tl-count">${t.mentions.length} äººæå</span></div>
       ${t.mentions.map(item=>{
-        const ini=item.member.replace(/（.*?）/,'').trim().charAt(0);
+        const ini=item.member.replace(/ï¼.*?ï¼/,'').trim().charAt(0);
         const tr=item.stock.target?(typeof item.stock.target==='number'?'$'+item.stock.target.toLocaleString():item.stock.target):null;
         return `<div class="sm-row">
           <div class="sm-who"><div class="av">${ini}</div><span class="sm-who-name">${item.member}</span></div>
           <div class="sm-body">
             <div class="sm-thesis">${item.stock.thesis}</div>
-            ${tr?`<div class="sm-target"><span class="tlbl">目標價</span><span class="sm-target-val">${tr}</span></div>`:''}
+            ${tr?`<div class="sm-target"><span class="tlbl">ç®æ¨å¹</span><span class="sm-target-val">${tr}</span></div>`:''}
             ${item.stock.tags.length?`<div class="stags" style="margin-top:7px">${item.stock.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>`:''}
           </div>
         </div>`;
@@ -880,7 +878,7 @@ function showStockDetail(code, name){
     </div>`).join('');
 
   _stockCameFromMember=document.getElementById('member-page').classList.contains('active');
-  document.getElementById('stock-back-btn').textContent=_stockCameFromMember?'← 返回成員':'← 返回看板';
+  document.getElementById('stock-back-btn').textContent=_stockCameFromMember?'â è¿åæå¡':'â è¿åçæ¿';
   _chartCode=code; _chartEx=ex; _chartRange='6mo';
   document.querySelectorAll('.range-btn').forEach(b=>b.classList.toggle('active',b.dataset.range==='6mo'));
 
@@ -985,7 +983,7 @@ async function fetchYahooChart(code, ex, range){
       throw new Error('no result');
     }catch(e){ lastErr=e; }
   }
-  throw lastErr||new Error('資料尚未生成，請先執行 GitHub Actions 更新資料');
+  throw lastErr||new Error('è³æå°æªçæï¼è«åå·è¡ GitHub Actions æ´æ°è³æ');
 }
 
 async function loadChengwayeMarkers(code){
@@ -999,10 +997,10 @@ async function loadChengwayeMarkers(code){
       fetch(base+'/realtime_fin_events.json').then(r=>r.json()),
       fetch(base+'/realtime_revenue.json').then(r=>r.json()),
     ]);
-    if(fin.status==='fulfilled'){const entries=(fin.value.entries||fin.value||[]).filter(e=>String(e.code)===String(code));for(const e of entries){const t=rocToGreg(e.date);if(t)markers.push({time:t,position:'aboveBar',color:'#e8b000',shape:'circle',text:'季',size:1,_src:'季報',_detail:e.subject||'季報'});}}
-    if(att.status==='fulfilled'){const entries=(att.value.entries||att.value||[]).filter(e=>String(e.code)===String(code));for(const e of entries){const t=rocToGreg(e.date);if(t)markers.push({time:t,position:'aboveBar',color:'#0066cc',shape:'circle',text:'自',size:1,_src:'自結',_detail:e.subject||'自結'});}}
-    if(events.status==='fulfilled'){const entries=(events.value.entries||events.value||[]).filter(e=>String(e.code)===String(code));for(const e of entries){const t=(e.scheduled_date||e.date||'').split(' ')[0];if(t)markers.push({time:t,position:'aboveBar',color:'#00aa44',shape:'circle',text:'法',size:1,_src:'法說',_detail:'法說會'});}}
-    if(rev.status==='fulfilled'){const entries=(Array.isArray(rev.value)?rev.value:(rev.value.entries||[])).filter(e=>String(e.code)===String(code));for(const e of entries){const t=e.first_seen?e.first_seen.split(' ')[0]:null;if(t)markers.push({time:t,position:'aboveBar',color:'#cc4400',shape:'circle',text:'營',size:1,_src:'營收',_detail:(e.period||'')+'營收'});}}
+    if(fin.status==='fulfilled'){const entries=(fin.value.entries||fin.value||[]).filter(e=>String(e.code)===String(code));for(const e of entries){const t=rocToGreg(e.date);if(t)markers.push({time:t,position:'aboveBar',color:'#e8b000',shape:'circle',text:'å­£',size:1,_src:'å­£å ±',_detail:e.subject||'å­£å ±'});}}
+    if(att.status==='fulfilled'){const entries=(att.value.entries||att.value||[]).filter(e=>String(e.code)===String(code));for(const e of entries){const t=rocToGreg(e.date);if(t)markers.push({time:t,position:'aboveBar',color:'#0066cc',shape:'circle',text:'èª',size:1,_src:'èªçµ',_detail:e.subject||'èªçµ'});}}
+    if(events.status==='fulfilled'){const entries=(events.value.entries||events.value||[]).filter(e=>String(e.code)===String(code));for(const e of entries){const t=(e.scheduled_date||e.date||'').split(' ')[0];if(t)markers.push({time:t,position:'aboveBar',color:'#00aa44',shape:'circle',text:'æ³',size:1,_src:'æ³èªª',_detail:'æ³èªªæ'});}}
+    if(rev.status==='fulfilled'){const entries=(Array.isArray(rev.value)?rev.value:(rev.value.entries||[])).filter(e=>String(e.code)===String(code));for(const e of entries){const t=e.first_seen?e.first_seen.split(' ')[0]:null;if(t)markers.push({time:t,position:'aboveBar',color:'#cc4400',shape:'circle',text:'ç',size:1,_src:'çæ¶',_detail:(e.period||'')+'çæ¶'});}}
   }catch(err){}
   return markers;
 }
@@ -1010,10 +1008,10 @@ async function loadChart(code, ex, range){
   _chartCode=code; _chartEx=ex; if(range)_chartRange=range;
   const container=document.getElementById('chart-container');
   container.style.height='380px';
-  container.innerHTML=`<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;gap:8px"><span class="ldg"></span>載入走勢圖…</div>`;
+  container.innerHTML=`<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;gap:8px"><span class="ldg"></span>è¼å¥èµ°å¢åâ¦</div>`;
 
   if(!code){
-    container.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;padding:20px;text-align:center">此標的無股票代碼，無法顯示走勢圖</div>';
+    container.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;padding:20px;text-align:center">æ­¤æ¨çç¡è¡ç¥¨ä»£ç¢¼ï¼ç¡æ³é¡¯ç¤ºèµ°å¢å</div>';
     return;
   }
 
@@ -1095,10 +1093,10 @@ async function loadChart(code, ex, range){
   }catch(e){
     const r=_chartRange;
     container.innerHTML=`<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;gap:6px;padding:20px;text-align:center">
-      <span style="font-size:14px">⚠️ 走勢圖載入失敗</span>
-      <span style="font-size:10px;color:var(--mu2)">${e.message||'連線逾時'}</span>
-      <span style="font-size:10px;color:var(--mu2)">已嘗試多個資料源，請確認網路或稍後重試</span>
-      <button onclick="reloadChart('${r}')" style="margin-top:10px;padding:7px 18px;background:var(--acc);color:#fff;border:none;border-radius:5px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600">🔄 重新載入</button>
+      <span style="font-size:14px">â ï¸ èµ°å¢åè¼å¥å¤±æ</span>
+      <span style="font-size:10px;color:var(--mu2)">${e.message||'é£ç·é¾æ'}</span>
+      <span style="font-size:10px;color:var(--mu2)">å·²åè©¦å¤åè³ææºï¼è«ç¢ºèªç¶²è·¯æç¨å¾éè©¦</span>
+      <button onclick="reloadChart('${r}')" style="margin-top:10px;padding:7px 18px;background:var(--acc);color:#fff;border:none;border-radius:5px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600">ð éæ°è¼å¥</button>
     </div>`;
   }
 }
@@ -1114,7 +1112,7 @@ function renderAnnotationChips(code){
     ?notes.map((n,i)=>`<div class="ann-chip">
         <span style="font-weight:700">${n.date}</span>
         <span>${n.text}</span>
-        <button class="ann-chip-del" onclick="deleteAnnotation('${escQ(code)}',${i})">✕</button>
+        <button class="ann-chip-del" onclick="deleteAnnotation('${escQ(code)}',${i})">â</button>
       </div>`).join('')
     :'';
 }
@@ -1147,9 +1145,9 @@ function deleteAnnotation(code,idx){
 function showMarkerPopup(marker){
   const hdrEl=document.getElementById('popup-hdr'),bodyEl=document.getElementById('popup-body');
   if(marker._type==='meeting'){
-    hdrEl.innerHTML=`${marker._date} ${marker._label} <span class="popup-type popup-type-meet">會議討論</span>`;
+    hdrEl.innerHTML=`${marker._date} ${marker._label} <span class="popup-type popup-type-meet">æè­°è¨è«</span>`;
     bodyEl.innerHTML=marker._mentions.map(item=>{
-      const ini=item.member.replace(/（.*?）/,'').trim().charAt(0);
+      const ini=item.member.replace(/ï¼.*?ï¼/,'').trim().charAt(0);
       const tr=item.stock.target?(typeof item.stock.target==='number'?'$'+item.stock.target.toLocaleString():item.stock.target):null;
       return `<div class="sm-row" style="padding:12px 0;border-bottom:1px solid var(--bd)">
         <div class="sm-who"><div class="av">${ini}</div><span class="sm-who-name">${item.member}</span></div>
@@ -1157,7 +1155,7 @@ function showMarkerPopup(marker){
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>投資研討會追蹤看板</title>
+<title>æè³ç è¨æè¿½è¹¤çæ¿</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 :root{
@@ -1415,16 +1413,16 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 <div id="login-screen">
   <div class="login-card">
     <div class="login-top">
-      <div class="ico">📊</div>
-      <h1>好朋友投資研討會</h1>
-      <p>請輸入帳號密碼登入</p>
+      <div class="ico">ð</div>
+      <h1>å¥½æåæè³ç è¨æ</h1>
+      <p>è«è¼¸å¥å¸³èå¯ç¢¼ç»å¥</p>
     </div>
     <div class="lf">
       <label>Email</label>
       <input type="email" id="li-email" placeholder="you@example.com" autocomplete="email">
-      <label>密碼</label>
-      <input type="password" id="li-pw" placeholder="••••••••" autocomplete="current-password">
-      <button class="lbtn" id="li-btn" onclick="doSignIn()">登入</button>
+      <label>å¯ç¢¼</label>
+      <input type="password" id="li-pw" placeholder="â¢â¢â¢â¢â¢â¢â¢â¢" autocomplete="current-password">
+      <button class="lbtn" id="li-btn" onclick="doSignIn()">ç»å¥</button>
       <div id="login-err"></div>
     </div>
   </div>
@@ -1434,69 +1432,69 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 
 <div id="codename-modal">
   <div class="cn-card">
-    <h2>👋 設定你的代號</h2>
-    <p>請輸入你在研討會中的稱呼（例如：凱哥、小資男孩）。<br>這個代號會顯示在看板上，之後無法自行修改。</p>
-    <input type="text" id="cn-input" placeholder="你的代號" maxlength="12" autocomplete="off">
-    <button id="cn-btn" onclick="saveCodename()">確認並進入</button>
+    <h2>ð è¨­å®ä½ çä»£è</h2>
+    <p>è«è¼¸å¥ä½ å¨ç è¨æä¸­çç¨±å¼ï¼ä¾å¦ï¼å±å¥ãå°è³ç·å­©ï¼ã<br>éåä»£èæé¡¯ç¤ºå¨çæ¿ä¸ï¼ä¹å¾ç¡æ³èªè¡ä¿®æ¹ã</p>
+    <input type="text" id="cn-input" placeholder="ä½ çä»£è" maxlength="12" autocomplete="off">
+    <button id="cn-btn" onclick="saveCodename()">ç¢ºèªä¸¦é²å¥</button>
     <div id="cn-err"></div>
   </div>
 </div>
 
 <div id="invite-modal">
   <div class="cn-card">
-    <h2>🎉 歡迎加入研討會！</h2>
-    <p>你已受到邀請。請設定你的登入密碼和專屬代號。<br>代號將顯示在浮水印上，設定後無法自行修改。</p>
-    <label>設定密碼（至少 6 位）</label>
-    <input type="password" id="inv-pw1" placeholder="••••••••" autocomplete="new-password">
-    <label>確認密碼</label>
-    <input type="password" id="inv-pw2" placeholder="再輸入一次" autocomplete="new-password">
-    <label>你的代號</label>
-    <input type="text" id="inv-cn" placeholder="例如：凱哥、小資男孩" maxlength="12" autocomplete="off">
-    <button id="inv-btn" onclick="doSetupInvite()" style="margin-top:14px">完成設定並進入</button>
+    <h2>ð æ­¡è¿å å¥ç è¨æï¼</h2>
+    <p>ä½ å·²åå°éè«ãè«è¨­å®ä½ çç»å¥å¯ç¢¼åå°å±¬ä»£èã<br>ä»£èå°é¡¯ç¤ºå¨æµ®æ°´å°ä¸ï¼è¨­å®å¾ç¡æ³èªè¡ä¿®æ¹ã</p>
+    <label>è¨­å®å¯ç¢¼ï¼è³å° 6 ä½ï¼</label>
+    <input type="password" id="inv-pw1" placeholder="â¢â¢â¢â¢â¢â¢â¢â¢" autocomplete="new-password">
+    <label>ç¢ºèªå¯ç¢¼</label>
+    <input type="password" id="inv-pw2" placeholder="åè¼¸å¥ä¸æ¬¡" autocomplete="new-password">
+    <label>ä½ çä»£è</label>
+    <input type="text" id="inv-cn" placeholder="ä¾å¦ï¼å±å¥ãå°è³ç·å­©" maxlength="12" autocomplete="off">
+    <button id="inv-btn" onclick="doSetupInvite()" style="margin-top:14px">å®æè¨­å®ä¸¦é²å¥</button>
     <div id="inv-err" style="font-size:12px;color:var(--dn);margin-top:6px;min-height:16px"></div>
   </div>
 </div>
 
 <div id="app">
   <div class="topbar">
-    <div class="tb-brand">好朋友<span>投資研討會</span></div>
+    <div class="tb-brand">å¥½æå<span>æè³ç è¨æ</span></div>
     <div class="tb-sep"></div>
     <select class="tb-select" id="meeting-select" onchange="switchMeeting(this.value)"></select>
-    <span class="bdg-pu" id="s-cnt">計算中…</span>
+    <span class="bdg-pu" id="s-cnt">è¨ç®ä¸­â¦</span>
     <div class="tb-sep"></div>
     <select class="tb-select" id="member-select" onchange="openMemberFromSelect(this.value)">
-      <option value="">👤 查找成員</option>
+      <option value="">ð¤ æ¥æ¾æå¡</option>
     </select>
-    <input class="tb-search" id="stock-search" type="text" placeholder="🔍 搜尋標的…" oninput="filterStocks(this.value)" autocomplete="off">
+    <input class="tb-search" id="stock-search" type="text" placeholder="ð æå°æ¨çâ¦" oninput="filterStocks(this.value)" autocomplete="off">
     <div class="tb-spacer"></div>
-    <span class="px-bdg" id="px-st">載入中…</span>
-    <button class="rfsh" onclick="loadPrices()">重新整理</button>
+    <span class="px-bdg" id="px-st">è¼å¥ä¸­â¦</span>
+    <button class="rfsh" onclick="loadPrices()">éæ°æ´ç</button>
     <span class="user-chip" id="user-chip"></span>
-    <button class="signout" onclick="doSignOut()">登出</button>
+    <button class="signout" onclick="doSignOut()">ç»åº</button>
   </div>
 
   <div class="wrap">
     <div class="stats">
-      <div class="sc"><div class="sc-lbl">與會人數</div><div class="sc-val" id="st-members">—</div></div>
-      <div class="sc"><div class="sc-lbl">追蹤標的</div><div class="sc-val" id="st-total">—</div></div>
-      <div class="sc"><div class="sc-lbl">上市 (TSE)</div><div class="sc-val" id="st-tse">—</div></div>
-      <div class="sc"><div class="sc-lbl">上櫃 (TPEX)</div><div class="sc-val" id="st-otc">—</div></div>
-      <div class="sc"><div class="sc-lbl">更新時間</div><div class="sc-val" id="st-time" style="font-size:13px;margin-top:4px">—</div></div>
+      <div class="sc"><div class="sc-lbl">èæäººæ¸</div><div class="sc-val" id="st-members">â</div></div>
+      <div class="sc"><div class="sc-lbl">è¿½è¹¤æ¨ç</div><div class="sc-val" id="st-total">â</div></div>
+      <div class="sc"><div class="sc-lbl">ä¸å¸ (TSE)</div><div class="sc-val" id="st-tse">â</div></div>
+      <div class="sc"><div class="sc-lbl">ä¸æ« (TPEX)</div><div class="sc-val" id="st-otc">â</div></div>
+      <div class="sc"><div class="sc-lbl">æ´æ°æé</div><div class="sc-val" id="st-time" style="font-size:13px;margin-top:4px">â</div></div>
     </div>
     <div class="pgrid" id="pgrid"></div>
     <div id="obs-panel"></div>
     <div class="adm" id="admin-panel" style="display:none">
-      <div class="adm-hd">🔐 管理員後台<span class="adm-badge">ADMIN</span>
-        <a class="adm-link" href="https://supabase.com/dashboard/project/_/auth/users" target="_blank">Supabase 管理使用者 →</a>
+      <div class="adm-hd">ð ç®¡çå¡å¾å°<span class="adm-badge">ADMIN</span>
+        <a class="adm-link" href="https://supabase.com/dashboard/project/_/auth/users" target="_blank">Supabase ç®¡çä½¿ç¨è â</a>
       </div>
-      <div class="adm-body"><div class="adm-sub">成員登入記錄（最近 100 筆）</div><div id="adm-log">載入中…</div></div>
+      <div class="adm-body"><div class="adm-sub">æå¡ç»å¥è¨éï¼æè¿ 100 ç­ï¼</div><div id="adm-log">è¼å¥ä¸­â¦</div></div>
     </div>
   </div>
 
   <!-- MEMBER DETAIL PAGE -->
   <div class="side-page member-page" id="member-page">
     <div class="wrap">
-      <button class="sp-back" onclick="hideMemberDetail()">← 返回看板</button>
+      <button class="sp-back" onclick="hideMemberDetail()">â è¿åçæ¿</button>
       <div class="mp-hdr">
         <div class="mp-av-lg" id="mp-av"></div>
         <div><div class="mp-name" id="mp-name"></div><div class="mp-sub" id="mp-sub"></div></div>
@@ -1508,7 +1506,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   <!-- STOCK DETAIL PAGE -->
   <div class="side-page stock-page" id="stock-page">
     <div class="wrap">
-      <button class="sp-back" id="stock-back-btn" onclick="hideStockDetail()">← 返回</button>
+      <button class="sp-back" id="stock-back-btn" onclick="hideStockDetail()">â è¿å</button>
       <div class="sdp-hdr">
         <div class="sdp-code c-na" id="sdp-code"></div>
         <div><div class="sdp-name" id="sdp-name"></div><div class="sdp-sub" id="sdp-sub"></div></div>
@@ -1517,26 +1515,26 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       <!-- K-LINE CHART -->
       <div class="chart-wrap" id="chart-wrap">
         <div class="chart-topbar">
-          <span class="chart-title">日K走勢圖</span>
+          <span class="chart-title">æ¥Kèµ°å¢å</span>
           <div class="range-btns">
-            <button class="range-btn" data-range="3mo" onclick="reloadChart('3mo')">3月</button>
-            <button class="range-btn active" data-range="6mo" onclick="reloadChart('6mo')">6月</button>
-            <button class="range-btn" data-range="1y" onclick="reloadChart('1y')">1年</button>
-            <button class="range-btn" data-range="2y" onclick="reloadChart('2y')">2年</button>
+            <button class="range-btn" data-range="3mo" onclick="reloadChart('3mo')">3æ</button>
+            <button class="range-btn active" data-range="6mo" onclick="reloadChart('6mo')">6æ</button>
+            <button class="range-btn" data-range="1y" onclick="reloadChart('1y')">1å¹´</button>
+            <button class="range-btn" data-range="2y" onclick="reloadChart('2y')">2å¹´</button>
           </div>
         </div>
         <div id="chart-container"></div>
         <div class="chart-hint">
-          <span style="color:#0066cc;font-weight:700">●</span> 會議討論標記　
-          <span style="color:#f59e0b;font-weight:700">■</span> 事件標注　
-          點擊標記查看說明
+          <span style="color:#0066cc;font-weight:700">â</span> æè­°è¨è«æ¨è¨ã
+          <span style="color:#f59e0b;font-weight:700">â </span> äºä»¶æ¨æ³¨ã
+          é»ææ¨è¨æ¥çèªªæ
         </div>
         <div class="ann-section">
-          <div class="ann-sec-title">新增事件標注</div>
+          <div class="ann-sec-title">æ°å¢äºä»¶æ¨æ³¨</div>
           <div class="ann-inputs">
             <input type="date" id="ann-date" class="ann-input ann-input-date">
-            <input type="text" id="ann-text" class="ann-input ann-input-text" placeholder="說明（法說會、停損、群組討論重點…）">
-            <button class="ann-btn" onclick="addAnnotation()">＋ 新增</button>
+            <input type="text" id="ann-text" class="ann-input ann-input-text" placeholder="èªªæï¼æ³èªªæãåæãç¾¤çµè¨è«éé»â¦ï¼">
+            <button class="ann-btn" onclick="addAnnotation()">ï¼ æ°å¢</button>
           </div>
           <div class="ann-chips" id="ann-chips"></div>
         </div>
@@ -1545,7 +1543,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       <!-- DISCUSSION TIMELINE -->
       <div style="font-size:10px;font-weight:700;color:var(--navy);letter-spacing:.10em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px">
         <span style="width:3px;height:13px;background:var(--acc);border-radius:2px;display:inline-block"></span>
-        會議討論記錄
+        æè­°è¨è«è¨é
       </div>
       <div class="timeline" id="sdp-timeline"></div>
     </div>
@@ -1555,7 +1553,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   <div id="marker-popup" class="marker-popup" style="display:none">
     <div class="popup-backdrop" onclick="closeMarkerPopup()"></div>
     <div class="popup-card">
-      <button class="popup-close" onclick="closeMarkerPopup()">✕</button>
+      <button class="popup-close" onclick="closeMarkerPopup()">â</button>
       <div class="popup-hdr" id="popup-hdr"></div>
       <div id="popup-body"></div>
     </div>
@@ -1580,7 +1578,7 @@ function applyWatermark(label){
   const ctx=c.getContext('2d');
   ctx.save(); ctx.translate(100,60); ctx.rotate(-22*Math.PI/180); ctx.textAlign='center';
   ctx.font='600 11px Inter,sans-serif'; ctx.fillStyle='rgba(10,37,64,0.07)'; ctx.fillText(label,0,0);
-  ctx.font='500 9px Inter,sans-serif'; ctx.fillStyle='rgba(10,37,64,0.045)'; ctx.fillText('好朋友投資研討會 · 機密',0,15);
+  ctx.font='500 9px Inter,sans-serif'; ctx.fillStyle='rgba(10,37,64,0.045)'; ctx.fillText('å¥½æåæè³ç è¨æ Â· æ©å¯',0,15);
   ctx.restore();
   const wm=document.getElementById('watermark');
   wm.style.backgroundImage=`url(${c.toDataURL()})`; wm.style.backgroundSize='100px 60px'; wm.style.backgroundRepeat='repeat';
@@ -1590,10 +1588,10 @@ function getCodename(u){ return u?.user_metadata?.codename||null; }
 async function saveCodename(){
   const val=document.getElementById('cn-input').value.trim();
   const err=document.getElementById('cn-err'),btn=document.getElementById('cn-btn');
-  if(!val){err.textContent='請填入代號';return;}
-  btn.disabled=true; btn.textContent='儲存中…';
+  if(!val){err.textContent='è«å¡«å¥ä»£è';return;}
+  btn.disabled=true; btn.textContent='å²å­ä¸­â¦';
   const {data,error}=await sb.auth.updateUser({data:{codename:val}});
-  if(error){err.textContent='儲存失敗';btn.disabled=false;btn.textContent='確認並進入';return;}
+  if(error){err.textContent='å²å­å¤±æ';btn.disabled=false;btn.textContent='ç¢ºèªä¸¦é²å¥';return;}
   document.getElementById('codename-modal').style.display='none';
   document.getElementById('user-chip').textContent=val; applyWatermark(val);
   sb.from('activity_log').insert({user_email:data.user.email,codename:val,action:'login',ua:navigator.userAgent.substring(0,250)});
@@ -1631,10 +1629,10 @@ sb.auth.onAuthStateChange(async(event,session)=>{
 async function doSignIn(){
   const email=document.getElementById('li-email').value.trim(),pw=document.getElementById('li-pw').value;
   const btn=document.getElementById('li-btn'),err=document.getElementById('login-err');
-  if(!email||!pw){err.textContent='請填入 Email 和密碼';return;}
-  btn.disabled=true; btn.textContent='登入中…'; err.textContent='';
+  if(!email||!pw){err.textContent='è«å¡«å¥ Email åå¯ç¢¼';return;}
+  btn.disabled=true; btn.textContent='ç»å¥ä¸­â¦'; err.textContent='';
   const {error}=await sb.auth.signInWithPassword({email,password:pw});
-  if(error){err.textContent='帳密錯誤，請再試一次';btn.disabled=false;btn.textContent='登入';}
+  if(error){err.textContent='å¸³å¯é¯èª¤ï¼è«åè©¦ä¸æ¬¡';btn.disabled=false;btn.textContent='ç»å¥';}
 }
 async function doSignOut(){await sb.auth.signOut();}
 
@@ -1642,12 +1640,12 @@ async function doSetupInvite(){
   const pw1=document.getElementById('inv-pw1').value,pw2=document.getElementById('inv-pw2').value;
   const cn=document.getElementById('inv-cn').value.trim();
   const err=document.getElementById('inv-err'),btn=document.getElementById('inv-btn');
-  if(pw1.length<6){err.textContent='密碼至少 6 位';return;}
-  if(pw1!==pw2){err.textContent='兩次密碼不一致';return;}
-  if(!cn){err.textContent='請填入代號';return;}
-  btn.disabled=true; btn.textContent='設定中…';
+  if(pw1.length<6){err.textContent='å¯ç¢¼è³å° 6 ä½';return;}
+  if(pw1!==pw2){err.textContent='å©æ¬¡å¯ç¢¼ä¸ä¸è´';return;}
+  if(!cn){err.textContent='è«å¡«å¥ä»£è';return;}
+  btn.disabled=true; btn.textContent='è¨­å®ä¸­â¦';
   const {data,error}=await sb.auth.updateUser({password:pw1,data:{codename:cn}});
-  if(error){err.textContent='設定失敗：'+error.message;btn.disabled=false;btn.textContent='完成設定並進入';return;}
+  if(error){err.textContent='è¨­å®å¤±æï¼'+error.message;btn.disabled=false;btn.textContent='å®æè¨­å®ä¸¦é²å¥';return;}
   window.history.replaceState(null,'',window.location.pathname);
   document.getElementById('invite-modal').style.display='none';
   document.getElementById('app').style.display='block';
@@ -1666,13 +1664,13 @@ document.addEventListener('DOMContentLoaded',()=>{
 async function loadAdminLog(){
   const {data,error}=await sb.from('activity_log').select('user_email,codename,action,ua,created_at').order('created_at',{ascending:false}).limit(100);
   const el=document.getElementById('adm-log');
-  if(error||!data||!data.length){el.innerHTML='<span style="font-size:12px;color:var(--mu)">尚無記錄</span>';return;}
-  el.innerHTML=`<table><thead><tr><th>代號</th><th>Email</th><th>動作</th><th>時間</th><th>裝置</th></tr></thead><tbody>${data.map(r=>{
+  if(error||!data||!data.length){el.innerHTML='<span style="font-size:12px;color:var(--mu)">å°ç¡è¨é</span>';return;}
+  el.innerHTML=`<table><thead><tr><th>ä»£è</th><th>Email</th><th>åä½</th><th>æé</th><th>è£ç½®</th></tr></thead><tbody>${data.map(r=>{
     const d=new Date(r.created_at);
     const dt=`${d.getFullYear()}/${d.getMonth()+1}/${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
-    const ua=r.ua||'',dev=ua.includes('iPhone')||ua.includes('Android')?'📱 手機':ua.includes('iPad')?'📱 平板':'💻 電腦';
-    const ab=r.action==='login'?'<span style="background:#eff6ff;color:#1d4ed8;font-size:10px;padding:1px 6px;border-radius:999px">登入</span>':'<span style="background:#f3f4f6;color:#6b7280;font-size:10px;padding:1px 6px;border-radius:999px">瀏覽</span>';
-    return `<tr><td style="font-weight:500">${r.codename||'—'}</td><td style="color:var(--mu);font-size:11px">${r.user_email}</td><td>${ab}</td><td style="white-space:nowrap;font-variant-numeric:tabular-nums">${dt}</td><td>${dev}</td></tr>`;
+    const ua=r.ua||'',dev=ua.includes('iPhone')||ua.includes('Android')?'ð± ææ©':ua.includes('iPad')?'ð± å¹³æ¿':'ð» é»è¦';
+    const ab=r.action==='login'?'<span style="background:#eff6ff;color:#1d4ed8;font-size:10px;padding:1px 6px;border-radius:999px">ç»å¥</span>':'<span style="background:#f3f4f6;color:#6b7280;font-size:10px;padding:1px 6px;border-radius:999px">çè¦½</span>';
+    return `<tr><td style="font-weight:500">${r.codename||'â'}</td><td style="color:var(--mu);font-size:11px">${r.user_email}</td><td>${ab}</td><td style="white-space:nowrap;font-variant-numeric:tabular-nums">${dt}</td><td>${dev}</td></tr>`;
   }).join('')}</tbody></table>`;
 }
 
@@ -1681,122 +1679,122 @@ async function loadAdminLog(){
 // ============================================================
 const MEETINGS = [
   {
-    id:'m20260609',date:'2026/06/09',label:'第一次',
+    id:'m20260609',date:'2026/06/09',label:'ç¬¬ä¸æ¬¡',
     members:[
-      {name:'凱哥',stocks:[
-        {code:'7871',ex:'otc',name:'安立璽榮-KY',thesis:'阿茲海默小分子藥，BioMark 生物標記有效率 5/7（4/7 降低 30%+ 發炎），1 案例 MMSE 從 15 分逆轉至 23 分（全球首例），即將進大型臨床試驗，大藥廠授權機會',target:null,tags:['生技','阿茲海默']},
-        {code:'3528',ex:'otc',name:'安馳',thesis:'雷哥推薦，凱哥下週私訪，基金已買進兩大買超，120 以下將加碼至 1 億',target:'120以下',tags:[]},
-        {code:'7610',ex:'otc',name:'聯友金屬',thesis:'鎢材料稀缺 + 中美貿易戰地緣政治 + 技術壁壘（競爭對手難進入），成本 57 元漲至 1900+；日本停產消息待消化',target:2300,tags:['鎢','地緣政治']},
-        {code:'2059',ex:'tse',name:'川湖',thesis:'伺服器機櫃導軌，營收持續超預期，成本 1000 出頭，基金已買進',target:null,tags:['伺服器','AI']},
-        {code:'3026',ex:'tse',name:'禾伸堂',thesis:'被動元件漲價受惠，基金持有',target:null,tags:['被動元件']},
+      {name:'å±å¥',stocks:[
+        {code:'7871',ex:'otc',name:'å®ç«ç½æ¦®-KY',thesis:'é¿è²æµ·é»å°åå­è¥ï¼BioMark çç©æ¨è¨ææç 5/7ï¼4/7 éä½ 30%+ ç¼çï¼ï¼1 æ¡ä¾ MMSE å¾ 15 åéè½è³ 23 åï¼å¨çé¦ä¾ï¼ï¼å³å°é²å¤§åè¨åºè©¦é©ï¼å¤§è¥å» ææ¬æ©æ',target:null,tags:['çæ','é¿è²æµ·é»']},
+        {code:'3528',ex:'otc',name:'å®é¦³',thesis:'é·å¥æ¨è¦ï¼å±å¥ä¸é±ç§è¨ªï¼åºéå·²è²·é²å©å¤§è²·è¶ï¼120 ä»¥ä¸å°å ç¢¼è³ 1 å',target:'120ä»¥ä¸',tags:[]},
+        {code:'7610',ex:'otc',name:'è¯åéå±¬',thesis:'é¢ææç¨ç¼º + ä¸­ç¾è²¿ææ°å°ç·£æ¿æ²» + æè¡å£å£ï¼ç«¶ç­å°æé£é²å¥ï¼ï¼ææ¬ 57 åæ¼²è³ 1900+ï¼æ¥æ¬åç¢æ¶æ¯å¾æ¶å',target:2300,tags:['é¢','å°ç·£æ¿æ²»']},
+        {code:'2059',ex:'tse',name:'å·æ¹',thesis:'ä¼ºæå¨æ©æ«å°è»ï¼çæ¶æçºè¶é æï¼ææ¬ 1000 åºé ­ï¼åºéå·²è²·é²',target:null,tags:['ä¼ºæå¨','AI']},
+        {code:'3026',ex:'tse',name:'ç¦¾ä¼¸å ',thesis:'è¢«ååä»¶æ¼²å¹åæ ï¼åºéææ',target:null,tags:['è¢«ååä»¶']},
       ]},
-      {name:'崴哥',stocks:[
-        {code:'3528',ex:'otc',name:'安馳',thesis:'4 月營收掉、5 月回升，市場估月 EPS 2 塊、全年 20，等凱哥私訪驗證 EPS',target:null,tags:['生技']},
-        {code:'2385',ex:'tse',name:'群光',thesis:'高殖利率 ETF 成分股（0056/919），法人持續買進，線型飄升中',target:null,tags:['除息行情','高殖利率']},
-        {code:'9939',ex:'otc',name:'宏全',thesis:'7 月初除息，高殖利率，法人目前持續建倉，還有約一個月時間',target:null,tags:['除息行情','高殖利率']},
-        {code:'6449',ex:'otc',name:'鈺邦',thesis:'鋁質電容漲價 + 缺貨（比 MLCC 漲幅更大），漲價前月 EPS 已達 1 塊，本益比低於國巨，籌碼較冷',target:null,tags:['被動元件','鋁質電容']},
-        {code:'5511',ex:'otc',name:'德昌',thesis:'社宅案 1/3 暗量 Q4 入帳，今年 EPS 估 15，除息後本益比僅 4 倍，明年繼續成長',target:null,tags:['建設','低本益比']},
+      {name:'å´´å¥',stocks:[
+        {code:'3528',ex:'otc',name:'å®é¦³',thesis:'4 æçæ¶æã5 æååï¼å¸å ´ä¼°æ EPS 2 å¡ãå¨å¹´ 20ï¼ç­å±å¥ç§è¨ªé©è­ EPS',target:null,tags:['çæ']},
+        {code:'2385',ex:'tse',name:'ç¾¤å',thesis:'é«æ®å©ç ETF æåè¡ï¼0056/919ï¼ï¼æ³äººæçºè²·é²ï¼ç·åé£åä¸­',target:null,tags:['é¤æ¯è¡æ','é«æ®å©ç']},
+        {code:'9939',ex:'otc',name:'å®å¨',thesis:'7 æåé¤æ¯ï¼é«æ®å©çï¼æ³äººç®åæçºå»ºåï¼éæç´ä¸åææé',target:null,tags:['é¤æ¯è¡æ','é«æ®å©ç']},
+        {code:'6449',ex:'otc',name:'éºé¦',thesis:'éè³ªé»å®¹æ¼²å¹ + ç¼ºè²¨ï¼æ¯ MLCC æ¼²å¹æ´å¤§ï¼ï¼æ¼²å¹åæ EPS å·²é 1 å¡ï¼æ¬çæ¯ä½æ¼åå·¨ï¼ç±ç¢¼è¼å·',target:null,tags:['è¢«ååä»¶','éè³ªé»å®¹']},
+        {code:'5511',ex:'otc',name:'å¾·æ',thesis:'ç¤¾å®æ¡ 1/3 æé Q4 å¥å¸³ï¼ä»å¹´ EPS ä¼° 15ï¼é¤æ¯å¾æ¬çæ¯å 4 åï¼æå¹´ç¹¼çºæé·',target:null,tags:['å»ºè¨­','ä½æ¬çæ¯']},
       ]},
-      {name:'漁樵耕讀',stocks:[
-        {code:'6227',ex:'otc',name:'茂綸',thesis:'通路股，威剛下 80 億訂單，明年 Q2 入帳，明年營收 300 億起跳，EPS 估 20，通路股 PE 11-13 倍',target:220,tags:['通路','AI記憶體']},
-        {code:'5289',ex:'otc',name:'宜鼎',thesis:'工業 NAND，六月營收破 80 億，上半年 EPS 150-160，全年 EPS 破 300，今日創歷史新高',target:null,tags:['工業記憶體','AI']},
-        {code:'3026',ex:'tse',name:'禾伸堂',thesis:'長期持有，無轉弱跡象',target:null,tags:['被動元件']},
-        {code:'7610',ex:'otc',name:'聯友金屬',thesis:'長期持有，無轉弱跡象，持續追蹤',target:null,tags:['鎢']},
+      {name:'æ¼æ¨µèè®',stocks:[
+        {code:'6227',ex:'otc',name:'èç¶¸',thesis:'éè·¯è¡ï¼å¨åä¸ 80 åè¨å®ï¼æå¹´ Q2 å¥å¸³ï¼æå¹´çæ¶ 300 åèµ·è·³ï¼EPS ä¼° 20ï¼éè·¯è¡ PE 11-13 å',target:220,tags:['éè·¯','AIè¨æ¶é«']},
+        {code:'5289',ex:'otc',name:'å®é¼',thesis:'å·¥æ¥­ NANDï¼å­æçæ¶ç ´ 80 åï¼ä¸åå¹´ EPS 150-160ï¼å¨å¹´ EPS ç ´ 300ï¼ä»æ¥åµæ­·å²æ°é«',target:null,tags:['å·¥æ¥­è¨æ¶é«','AI']},
+        {code:'3026',ex:'tse',name:'ç¦¾ä¼¸å ',thesis:'é·æææï¼ç¡è½å¼±è·¡è±¡',target:null,tags:['è¢«ååä»¶']},
+        {code:'7610',ex:'otc',name:'è¯åéå±¬',thesis:'é·æææï¼ç¡è½å¼±è·¡è±¡ï¼æçºè¿½è¹¤',target:null,tags:['é¢']},
       ]},
-      {name:'高鐵哥',stocks:[
-        {code:'1612',ex:'tse',name:'宏泰',thesis:'台電電網 10 年計畫受惠，同業大亞/華榮錨點 PE 150-180，福邦關係戶',target:72,tags:['電力','電網']},
-        {code:null,ex:null,name:'世界盃加密貨幣',thesis:'世界盃期間操作相關幣種：狐狸/Flocky、Solana 鏈上主題幣，事件型交易',target:null,tags:['加密貨幣']},
+      {name:'é«éµå¥',stocks:[
+        {code:'1612',ex:'tse',name:'å®æ³°',thesis:'å°é»é»ç¶² 10 å¹´è¨ç«åæ ï¼åæ¥­å¤§äº/è¯æ¦®é¨é» PE 150-180ï¼ç¦é¦éä¿æ¶',target:72,tags:['é»å','é»ç¶²']},
+        {code:null,ex:null,name:'ä¸ççå å¯è²¨å¹£',thesis:'ä¸ççæéæä½ç¸éå¹£ç¨®ï¼çç¸/FlockyãSolana éä¸ä¸»é¡å¹£ï¼äºä»¶åäº¤æ',target:null,tags:['å å¯è²¨å¹£']},
       ]},
-      {name:'小資男孩',stocks:[
-        {code:'8299',ex:'otc',name:'群聯',thesis:'AI PC + Intel 合作 NPU 晶片，5-6 萬 vs NV 10 萬+ 價差，CP 值高；庫存持續出補；今年 EPS 估 300+',target:null,tags:['AI PC','NPU','NAND']},
-        {code:'6223',ex:'otc',name:'旺矽',thesis:'探針需求持續強勁，CB 詢圈期間認購，轉換價 6223',target:null,tags:['探針','CB']},
+      {name:'å°è³ç·å­©',stocks:[
+        {code:'8299',ex:'otc',name:'ç¾¤è¯',thesis:'AI PC + Intel åä½ NPU æ¶çï¼5-6 è¬ vs NV 10 è¬+ å¹å·®ï¼CP å¼é«ï¼åº«å­æçºåºè£ï¼ä»å¹´ EPS ä¼° 300+',target:null,tags:['AI PC','NPU','NAND']},
+        {code:'6223',ex:'otc',name:'æºç½',thesis:'æ¢ééæ±æçºå¼·åï¼CB è©¢åæéèªè³¼ï¼è½æå¹ 6223',target:null,tags:['æ¢é','CB']},
       ]},
       {name:'Monson',stocks:[
-        {code:'8299',ex:'otc',name:'群聯',thesis:'Computex 展出 NPU 晶片，讓 AIPC 地端流暢跑 LLM，潘董說持續缺貨，餐飲業已實際落地應用',target:null,tags:['AI PC','NPU']},
-        {code:'3167',ex:'otc',name:'大量',thesis:'PCB 厚度 TMS 量測機台全球最優，毛利率 42-45%，下半年營收 +25%；董事長：今年 EPS 30、明年 60（保守）',target:1500,tags:['設備','PCB量測']},
+        {code:'8299',ex:'otc',name:'ç¾¤è¯',thesis:'Computex å±åº NPU æ¶çï¼è® AIPC å°ç«¯æµæ¢è· LLMï¼æ½è£èªªæçºç¼ºè²¨ï¼é¤é£²æ¥­å·²å¯¦éè½å°æç¨',target:null,tags:['AI PC','NPU']},
+        {code:'3167',ex:'otc',name:'å¤§é',thesis:'PCB ååº¦ TMS éæ¸¬æ©å°å¨çæåªï¼æ¯å©ç 42-45%ï¼ä¸åå¹´çæ¶ +25%ï¼è£äºé·ï¼ä»å¹´ EPS 30ãæå¹´ 60ï¼ä¿å®ï¼',target:1500,tags:['è¨­å','PCBéæ¸¬']},
       ]},
-      {name:'馬奎爾',stocks:[
-        {code:'2327',ex:'tse',name:'國巨',thesis:'被動元件漲價，流動性強，長期持有核心部位',target:null,tags:['被動元件']},
-        {code:'2316',ex:'tse',name:'楠梓電',thesis:'母以子貴（持有滬電 15%），投信 00982A 新買 3000 張；滬電漲 40-50%，理論合理值約 770+',target:770,tags:['PCB','母以子貴']},
-        {code:null,ex:null,name:'美債 ZB 30Y',thesis:'三週前超買，殖利率約 5.2，若再掉一點繼續加碼；未來升息機率降低看好回升',target:null,tags:['美債','總經']},
-        {code:null,ex:null,name:'比特幣 BTC',thesis:'線型仍差，等打底後把股票利潤 rebalance 5-10%，等待時機',target:null,tags:['加密貨幣']},
+      {name:'é¦¬å¥ç¾',stocks:[
+        {code:'2327',ex:'tse',name:'åå·¨',thesis:'è¢«ååä»¶æ¼²å¹ï¼æµåæ§å¼·ï¼é·ææææ ¸å¿é¨ä½',target:null,tags:['è¢«ååä»¶']},
+        {code:'2316',ex:'tse',name:'æ¥ æ¢é»',thesis:'æ¯ä»¥å­è²´ï¼æææ»¬é» 15%ï¼ï¼æä¿¡ 00982A æ°è²· 3000 å¼µï¼æ»¬é»æ¼² 40-50%ï¼çè«åçå¼ç´ 770+',target:770,tags:['PCB','æ¯ä»¥å­è²´']},
+        {code:null,ex:null,name:'ç¾åµ ZB 30Y',thesis:'ä¸é±åè¶è²·ï¼æ®å©çç´ 5.2ï¼è¥åæä¸é»ç¹¼çºå ç¢¼ï¼æªä¾åæ¯æ©çéä½çå¥½åå',target:null,tags:['ç¾åµ','ç¸½ç¶']},
+        {code:null,ex:null,name:'æ¯ç¹å¹£ BTC',thesis:'ç·åä»å·®ï¼ç­æåºå¾æè¡ç¥¨å©æ½¤ rebalance 5-10%ï¼ç­å¾ææ©',target:null,tags:['å å¯è²¨å¹£']},
       ]},
-      {name:'新朋友',stocks:[
-        {code:'3450',ex:'otc',name:'聯鈞',thesis:'AOC 光纖線，接到 Coherent/Lite/Marvel 訂單；子公司源傑 Q3 上興櫃；庫存去化完成，YOY 40-50%，產能開到 200%',target:null,tags:['光通訊','AOC']},
-        {code:'2327',ex:'tse',name:'國巨',thesis:'被動元件漲價受惠，持續追蹤',target:null,tags:['被動元件']},
-        {code:'8043',ex:'otc',name:'蜜望實',thesis:'太陽誘電（TDK）台灣代理，已率先發漲價通知，受惠被動元件漲價週期',target:null,tags:['被動元件通路']},
+      {name:'æ°æå',stocks:[
+        {code:'3450',ex:'otc',name:'è¯é',thesis:'AOC åçºç·ï¼æ¥å° Coherent/Lite/Marvel è¨å®ï¼å­å¬å¸æºå Q3 ä¸èæ«ï¼åº«å­å»åå®æï¼YOY 40-50%ï¼ç¢è½éå° 200%',target:null,tags:['åéè¨','AOC']},
+        {code:'2327',ex:'tse',name:'åå·¨',thesis:'è¢«ååä»¶æ¼²å¹åæ ï¼æçºè¿½è¹¤',target:null,tags:['è¢«ååä»¶']},
+        {code:'8043',ex:'otc',name:'èæå¯¦',thesis:'å¤ªé½èªé»ï¼TDKï¼å°ç£ä»£çï¼å·²çåç¼æ¼²å¹éç¥ï¼åæ è¢«ååä»¶æ¼²å¹é±æ',target:null,tags:['è¢«ååä»¶éè·¯']},
       ]},
-      {name:'小哥哥',stocks:[
-        {code:'3485',ex:'otc',name:'敘豐',thesis:'TGV 概念，欣興拉貨提前，月營收 0.5 億→7 月達 1 億，明年 EPS 估 20+，剛上櫃籌碼乾淨，6/15 處置結束後量才會出來',target:null,tags:['TGV','PCB材料']},
-        {code:'3059',ex:'otc',name:'偉訓',thesis:'大股東直接說可以買，CB 可轉債，利多 7-8 月；禮拜一從跌停拉到翻紅已驗證',target:null,tags:['CB','通路']},
+      {name:'å°å¥å¥',stocks:[
+        {code:'3485',ex:'otc',name:'æè±',thesis:'TGV æ¦å¿µï¼æ¬£èæè²¨æåï¼æçæ¶ 0.5 åâ7 æé 1 åï¼æå¹´ EPS ä¼° 20+ï¼åä¸æ«ç±ç¢¼ä¹¾æ·¨ï¼6/15 èç½®çµæå¾éææåºä¾',target:null,tags:['TGV','PCBææ']},
+        {code:'3059',ex:'otc',name:'åè¨',thesis:'å¤§è¡æ±ç´æ¥èªªå¯ä»¥è²·ï¼CB å¯è½åµï¼å©å¤ 7-8 æï¼ç¦®æä¸å¾è·åæå°ç¿»ç´å·²é©è­',target:null,tags:['CB','éè·¯']},
       ]},
-      {name:'KK大',stocks:[
-        {code:'3653',ex:'otc',name:'健策',thesis:'NV 改設計 ASP 掉 66% 已 price in，Computex 展出新 solution（MC link + VC 結合），目標 23kW 散熱，展示驗證中',target:null,tags:['散熱','AI伺服器','CoWoS']},
-        {code:'2454',ex:'tse',name:'聯發科',thesis:'大股票持有，月初有人記得月中忘記策略，抓 20% 區間操作',target:null,tags:['IC設計']},
-        {code:'3324',ex:'tse',name:'雙鴻',thesis:'大股票持有',target:null,tags:['散熱']},
-        {code:'2059',ex:'tse',name:'川湖',thesis:'大股票持有',target:null,tags:['伺服器']},
-        {code:'5289',ex:'otc',name:'宜鼎',thesis:'大股票，月初漲月中被遺忘策略反覆操作，EPS 強勁',target:null,tags:['工業記憶體']},
-        {code:'6840',ex:'otc',name:'東延信超',thesis:'CB 轉換價 106，月營收衝 9000 萬驗證中，若月 EPS 近 1 塊即 60 元股價就進場',target:null,tags:['CB','電子']},
+      {name:'KKå¤§',stocks:[
+        {code:'3653',ex:'otc',name:'å¥ç­',thesis:'NV æ¹è¨­è¨ ASP æ 66% å·² price inï¼Computex å±åºæ° solutionï¼MC link + VC çµåï¼ï¼ç®æ¨ 23kW æ£ç±ï¼å±ç¤ºé©è­ä¸­',target:null,tags:['æ£ç±','AIä¼ºæå¨','CoWoS']},
+        {code:'2454',ex:'tse',name:'è¯ç¼ç§',thesis:'å¤§è¡ç¥¨ææï¼æåæäººè¨å¾æä¸­å¿è¨ç­ç¥ï¼æ 20% åéæä½',target:null,tags:['ICè¨­è¨']},
+        {code:'3324',ex:'tse',name:'éé´»',thesis:'å¤§è¡ç¥¨ææ',target:null,tags:['æ£ç±']},
+        {code:'2059',ex:'tse',name:'å·æ¹',thesis:'å¤§è¡ç¥¨ææ',target:null,tags:['ä¼ºæå¨']},
+        {code:'5289',ex:'otc',name:'å®é¼',thesis:'å¤§è¡ç¥¨ï¼æåæ¼²æä¸­è¢«éºå¿ç­ç¥åè¦æä½ï¼EPS å¼·å',target:null,tags:['å·¥æ¥­è¨æ¶é«']},
+        {code:'6840',ex:'otc',name:'æ±å»¶ä¿¡è¶',thesis:'CB è½æå¹ 106ï¼æçæ¶è¡ 9000 è¬é©è­ä¸­ï¼è¥æ EPS è¿ 1 å¡å³ 60 åè¡å¹å°±é²å ´',target:null,tags:['CB','é»å­']},
       ]},
-      {name:'小王子',stocks:[
-        {code:'6147',ex:'otc',name:'頎邦',thesis:'光通訊金凸塊封裝（COF），27 年 TEM 600 億美元，廖學邦建倉持股達 5%，明年營收 300 億',target:null,tags:['光通訊','封裝','COF']},
-        {code:'6442',ex:'otc',name:'光聖',thesis:'Google TPU 光纖佈線，子公司合聖待上興櫃，今年 EPS 60 / 明年 115，9 成以上收入來自 TPU',target:115,tags:['光通訊','Google TPU']},
+      {name:'å°çå­',stocks:[
+        {code:'6147',ex:'otc',name:'é é¦',thesis:'åéè¨éå¸å¡å°è£ï¼COFï¼ï¼27 å¹´ TEM 600 åç¾åï¼å»å­¸é¦å»ºåæè¡é 5%ï¼æå¹´çæ¶ 300 å',target:null,tags:['åéè¨','å°è£','COF']},
+        {code:'6442',ex:'otc',name:'åè',thesis:'Google TPU åçºä½ç·ï¼å­å¬å¸åèå¾ä¸èæ«ï¼ä»å¹´ EPS 60 / æå¹´ 115ï¼9 æä»¥ä¸æ¶å¥ä¾èª TPU',target:115,tags:['åéè¨','Google TPU']},
       ]},
       {name:'CH',stocks:[
-        {code:'7610',ex:'otc',name:'聯友金屬',thesis:'鎢材料：稀缺資源 + 地緣政治 + 技術壁壘，半導體封裝廠指定供應商，明年 EPS 估 115',target:2300,tags:['鎢','地緣政治']},
-        {code:'3042',ex:'otc',name:'晶技',thesis:'石英震盪器 AI 伺服器不可替代（抖動遠低於 MEMS），今年 EPS 12 / 明年 16，配息率 80%+',target:null,tags:['石英振盪器','AI伺服器']},
-        {code:'3653',ex:'otc',name:'健策',thesis:'ASP 掉 66% 已充分反映，Computex 展出新 solution，接低點布局',target:null,tags:['散熱','CoWoS']},
+        {code:'7610',ex:'otc',name:'è¯åéå±¬',thesis:'é¢ææï¼ç¨ç¼ºè³æº + å°ç·£æ¿æ²» + æè¡å£å£ï¼åå°é«å°è£å» æå®ä¾æåï¼æå¹´ EPS ä¼° 115',target:2300,tags:['é¢','å°ç·£æ¿æ²»']},
+        {code:'3042',ex:'otc',name:'æ¶æ',thesis:'ç³è±éçªå¨ AI ä¼ºæå¨ä¸å¯æ¿ä»£ï¼æåé ä½æ¼ MEMSï¼ï¼ä»å¹´ EPS 12 / æå¹´ 16ï¼éæ¯ç 80%+',target:null,tags:['ç³è±æ¯çªå¨','AIä¼ºæå¨']},
+        {code:'3653',ex:'otc',name:'å¥ç­',thesis:'ASP æ 66% å·²åååæ ï¼Computex å±åºæ° solutionï¼æ¥ä½é»å¸å±',target:null,tags:['æ£ç±','CoWoS']},
       ]},
-      {name:'發發哥',stocks:[
-        {code:'2329',ex:'tse',name:'華泰',thesis:'CB 可轉債，整理很久剛開始啟動，籌碼認很多，共識形成，富邦新板已注意',target:null,tags:['CB','類比IC']},
-        {code:'6121',ex:'otc',name:'新普',thesis:'電池廠，CB 可轉債，電池漲價趨勢，近期有人在拆 CB，可留意',target:null,tags:['電池','CB']},
+      {name:'ç¼ç¼å¥',stocks:[
+        {code:'2329',ex:'tse',name:'è¯æ³°',thesis:'CB å¯è½åµï¼æ´çå¾ä¹åéå§ååï¼ç±ç¢¼èªå¾å¤ï¼å±è­å½¢æï¼å¯é¦æ°æ¿å·²æ³¨æ',target:null,tags:['CB','é¡æ¯IC']},
+        {code:'6121',ex:'otc',name:'æ°æ®',thesis:'é»æ± å» ï¼CB å¯è½åµï¼é»æ± æ¼²å¹è¶¨å¢ï¼è¿ææäººå¨æ CBï¼å¯çæ',target:null,tags:['é»æ± ','CB']},
       ]},
-      {name:'寶寶',stocks:[
-        {code:'2327',ex:'tse',name:'國巨',thesis:'大部位核心持倉，被動元件漲價週期主標的',target:null,tags:['被動元件']},
-        {code:'6449',ex:'otc',name:'鈺邦',thesis:'鋁質電容，籌碼乾淨，有資訊優勢，持續關注',target:null,tags:['鋁質電容']},
-        {code:'6788',ex:'otc',name:'（6788 待確認）',thesis:'台積電擴廠設備受惠，毛利率 60%，今年 EPS 20 / 明年 35，富邦新板目標 600-800',target:800,tags:['設備','台積電']},
+      {name:'å¯¶å¯¶',stocks:[
+        {code:'2327',ex:'tse',name:'åå·¨',thesis:'å¤§é¨ä½æ ¸å¿æåï¼è¢«ååä»¶æ¼²å¹é±æä¸»æ¨ç',target:null,tags:['è¢«ååä»¶']},
+        {code:'6449',ex:'otc',name:'éºé¦',thesis:'éè³ªé»å®¹ï¼ç±ç¢¼ä¹¾æ·¨ï¼æè³è¨åªå¢ï¼æçºéæ³¨',target:null,tags:['éè³ªé»å®¹']},
+        {code:'6788',ex:'otc',name:'ï¼6788 å¾ç¢ºèªï¼',thesis:'å°ç©é»æ´å» è¨­ååæ ï¼æ¯å©ç 60%ï¼ä»å¹´ EPS 20 / æå¹´ 35ï¼å¯é¦æ°æ¿ç®æ¨ 600-800',target:800,tags:['è¨­å','å°ç©é»']},
       ]},
       {name:'momoji',stocks:[
-        {code:'2327',ex:'tse',name:'國巨',thesis:'標配持股',target:null,tags:['被動元件']},
-        {code:'3167',ex:'otc',name:'大量',thesis:'標配持股，董事長預期今年 EPS 30 / 明年 60（保守），統一報告 2027 EPS 43.4',target:null,tags:['設備']},
-        {code:'2059',ex:'tse',name:'川湖',thesis:'標配持股',target:null,tags:['伺服器']},
-        {code:'6669',ex:'otc',name:'緯穎',thesis:'明年 EPS 估 600，現在 <10 倍 PE，市場關注度低，除息公告後有啟動機會',target:null,tags:['伺服器','AI']},
-        {code:'6223',ex:'otc',name:'旺矽',thesis:'CB 詢圈被洗掉後，昨天好營收出來，MS 今天可能發報告',target:null,tags:['探針']},
-        {code:'2303',ex:'tse',name:'聯電',thesis:'919 ETF 成分股調整事件，朋友推，內部估 200-300',target:300,tags:['晶圓代工']},
+        {code:'2327',ex:'tse',name:'åå·¨',thesis:'æ¨éæè¡',target:null,tags:['è¢«ååä»¶']},
+        {code:'3167',ex:'otc',name:'å¤§é',thesis:'æ¨éæè¡ï¼è£äºé·é æä»å¹´ EPS 30 / æå¹´ 60ï¼ä¿å®ï¼ï¼çµ±ä¸å ±å 2027 EPS 43.4',target:null,tags:['è¨­å']},
+        {code:'2059',ex:'tse',name:'å·æ¹',thesis:'æ¨éæè¡',target:null,tags:['ä¼ºæå¨']},
+        {code:'6669',ex:'otc',name:'ç·¯ç©',thesis:'æå¹´ EPS ä¼° 600ï¼ç¾å¨ <10 å PEï¼å¸å ´éæ³¨åº¦ä½ï¼é¤æ¯å¬åå¾æååæ©æ',target:null,tags:['ä¼ºæå¨','AI']},
+        {code:'6223',ex:'otc',name:'æºç½',thesis:'CB è©¢åè¢«æ´æå¾ï¼æ¨å¤©å¥½çæ¶åºä¾ï¼MS ä»å¤©å¯è½ç¼å ±å',target:null,tags:['æ¢é']},
+        {code:'2303',ex:'tse',name:'è¯é»',thesis:'919 ETF æåè¡èª¿æ´äºä»¶ï¼æåæ¨ï¼å§é¨ä¼° 200-300',target:300,tags:['æ¶åä»£å·¥']},
       ]},
-      {name:'奇哥（線上）',stocks:[
-        {code:'2303',ex:'tse',name:'聯電',thesis:'8 吋成熟製程產能 7 月後達 9 成，客戶收到漲價通知 5-20%（PMIC、PowerIC），台積電退出 28nm 訂單流向聯電；市場共識 200-300',target:300,tags:['晶圓代工','漲價']},
+      {name:'å¥å¥ï¼ç·ä¸ï¼',stocks:[
+        {code:'2303',ex:'tse',name:'è¯é»',thesis:'8 åæçè£½ç¨ç¢è½ 7 æå¾é 9 æï¼å®¢æ¶æ¶å°æ¼²å¹éç¥ 5-20%ï¼PMICãPowerICï¼ï¼å°ç©é»éåº 28nm è¨å®æµåè¯é»ï¼å¸å ´å±è­ 200-300',target:300,tags:['æ¶åä»£å·¥','æ¼²å¹']},
       ]},
-      {name:'武王（線上）',stocks:[
-        {code:'2330',ex:'tse',name:'台積電',thesis:'主要持股，AI 硬體核心受惠者，台灣 AI 成長率蓋過升息利率，基本面最強，拉回即加碼',target:null,tags:['台積電','AI']},
+      {name:'æ­¦çï¼ç·ä¸ï¼',stocks:[
+        {code:'2330',ex:'tse',name:'å°ç©é»',thesis:'ä¸»è¦æè¡ï¼AI ç¡¬é«æ ¸å¿åæ èï¼å°ç£ AI æé·çèéåæ¯å©çï¼åºæ¬é¢æå¼·ï¼æåå³å ç¢¼',target:null,tags:['å°ç©é»','AI']},
       ]},
     ],
     bullish:[
-      {text:'被動元件漲價週期（MLCC、鋁質電容缺貨，漲幅超預期）',by:'崴哥、新朋友、寶寶、KK大'},
-      {text:'光通訊族群（AOC、Google TPU、光纖模組）持續擴產',by:'小王子、新朋友、Monson'},
-      {text:'TGV（玻璃通孔）2027-28 年設備/產線爆發期，撒網佈局',by:'小哥哥、凱哥、奇哥；相關：漢偉、東捷、鈦昇、川寶'},
-      {text:'AI PC / 地端 NPU 晶片，CP 值優於 NV，Intel 合作',by:'小資男孩、Monson'},
-      {text:'CoWoS 散熱升級（目標 23kW+），健策新 solution 驗證中',by:'CH、KK大'},
-      {text:'SpaceX IPO → 太空/陶瓷材料供應鏈受惠（九豪等陶瓷基板）',by:'奇哥；SpaceX 市值 1.7T'},
-      {text:'高殖利率除息行情（7 月），ETF 成分股提前飄升',by:'崴哥；0056、919 成分股'},
-      {text:'阿茲海默小分子藥，安立璽榮-KY BioMark 全球首例認知逆轉案例',by:'凱哥、崴哥；即將進大型臨床'},
+      {text:'è¢«ååä»¶æ¼²å¹é±æï¼MLCCãéè³ªé»å®¹ç¼ºè²¨ï¼æ¼²å¹è¶é æï¼',by:'å´´å¥ãæ°æåãå¯¶å¯¶ãKKå¤§'},
+      {text:'åéè¨æç¾¤ï¼AOCãGoogle TPUãåçºæ¨¡çµï¼æçºæ´ç¢',by:'å°çå­ãæ°æåãMonson'},
+      {text:'TGVï¼ç»çéå­ï¼2027-28 å¹´è¨­å/ç¢ç·çç¼æï¼æç¶²ä½å±',by:'å°å¥å¥ãå±å¥ãå¥å¥ï¼ç¸éï¼æ¼¢åãæ±æ·ãé¦æãå·å¯¶'},
+      {text:'AI PC / å°ç«¯ NPU æ¶çï¼CP å¼åªæ¼ NVï¼Intel åä½',by:'å°è³ç·å­©ãMonson'},
+      {text:'CoWoS æ£ç±åç´ï¼ç®æ¨ 23kW+ï¼ï¼å¥ç­æ° solution é©è­ä¸­',by:'CHãKKå¤§'},
+      {text:'SpaceX IPO â å¤ªç©º/é¶ç·ææä¾æéåæ ï¼ä¹è±ªç­é¶ç·åºæ¿ï¼',by:'å¥å¥ï¼SpaceX å¸å¼ 1.7T'},
+      {text:'é«æ®å©çé¤æ¯è¡æï¼7 æï¼ï¼ETF æåè¡æåé£å',by:'å´´å¥ï¼0056ã919 æåè¡'},
+      {text:'é¿è²æµ·é»å°åå­è¥ï¼å®ç«ç½æ¦®-KY BioMark å¨çé¦ä¾èªç¥éè½æ¡ä¾',by:'å±å¥ãå´´å¥ï¼å³å°é²å¤§åè¨åº'},
     ],
     macro:[
-      {color:'r',text:'<strong>日本升息</strong>（下週），Carry Trade 壓力釋放，預期影響小於去年 7 月崩盤',by:'奇哥、武王、馬奎爾'},
-      {color:'y',text:'<strong>CPI</strong> 市場預期 4.2，內部估實際 4.0-4.1；若未超預期則無升息壓力',by:'奇哥（2026/06/10 公布）'},
-      {color:'g',text:'今年 CPI <strong>高點在 7 月</strong>後轉降，升息機率低，Fed 維持不動',by:'武王'},
-      {color:'r',text:'<strong>SpaceX IPO</strong> 抽資金 75-100B 美元，造成半導體短線賣壓（SMH 跌 10%）',by:'奇哥'},
-      {color:'g',text:'台灣經濟成長率 > 升息利率，AI 硬體優勢明確，<strong>拉回建倉</strong>好時機',by:'奇哥、武王；預期 2-3 週波動後回升'},
-      {color:'g',text:'聯電 8 吋成熟製程產能下半年達 9 成，<strong>季季漲價 5-20%</strong>，可挑客戶',by:'奇哥；台積電放棄 28nm，訂單流向聯電'},
-      {color:'y',text:'馬奎爾持美債 ZB 30Y（殖利率 5.2），看好短期回升；比特幣等打底後再 rebalance 5-10%',by:'馬奎爾'},
+      {color:'r',text:'<strong>æ¥æ¬åæ¯</strong>ï¼ä¸é±ï¼ï¼Carry Trade å£åéæ¾ï¼é æå½±é¿å°æ¼å»å¹´ 7 æå´©ç¤',by:'å¥å¥ãæ­¦çãé¦¬å¥ç¾'},
+      {color:'y',text:'<strong>CPI</strong> å¸å ´é æ 4.2ï¼å§é¨ä¼°å¯¦é 4.0-4.1ï¼è¥æªè¶é æåç¡åæ¯å£å',by:'å¥å¥ï¼2026/06/10 å¬å¸ï¼'},
+      {color:'g',text:'ä»å¹´ CPI <strong>é«é»å¨ 7 æ</strong>å¾è½éï¼åæ¯æ©çä½ï¼Fed ç¶­æä¸å',by:'æ­¦ç'},
+      {color:'r',text:'<strong>SpaceX IPO</strong> æ½è³é 75-100B ç¾åï¼é æåå°é«ç­ç·è³£å£ï¼SMH è· 10%ï¼',by:'å¥å¥'},
+      {color:'g',text:'å°ç£ç¶æ¿æé·ç > åæ¯å©çï¼AI ç¡¬é«åªå¢æç¢ºï¼<strong>æåå»ºå</strong>å¥½ææ©',by:'å¥å¥ãæ­¦çï¼é æ 2-3 é±æ³¢åå¾åå'},
+      {color:'g',text:'è¯é» 8 åæçè£½ç¨ç¢è½ä¸åå¹´é 9 æï¼<strong>å­£å­£æ¼²å¹ 5-20%</strong>ï¼å¯æå®¢æ¶',by:'å¥å¥ï¼å°ç©é»æ¾æ£ 28nmï¼è¨å®æµåè¯é»'},
+      {color:'y',text:'é¦¬å¥ç¾æç¾åµ ZB 30Yï¼æ®å©ç 5.2ï¼ï¼çå¥½ç­æååï¼æ¯ç¹å¹£ç­æåºå¾å rebalance 5-10%',by:'é¦¬å¥ç¾'},
     ]
   }
-  // 新增下次會議：{id:'m20260714', date:'2026/07/14', label:'第二次', members:[...], bullish:[...], macro:[...]}
+  // æ°å¢ä¸æ¬¡æè­°ï¼{id:'m20260714', date:'2026/07/14', label:'ç¬¬äºæ¬¡', members:[...], bullish:[...], macro:[...]}
 ];
 
-// 手動標注（由 Claude 根據你提供的資訊更新）
+// æåæ¨æ³¨ï¼ç± Claude æ ¹æä½ æä¾çè³è¨æ´æ°ï¼
 const MANUAL_ANNOTATIONS = {
-  // '2330': [{date:'2026-06-15', text:'台積電法說會，EPS 超預期'}],
+  // '2330': [{date:'2026-06-15', text:'å°ç©é»æ³èªªæï¼EPS è¶é æ'}],
 };
 
 const codeMap = {};
@@ -1855,7 +1853,7 @@ function initStats(members){
   document.getElementById('st-total').textContent=seen.size;
   document.getElementById('st-tse').textContent=tse;
   document.getElementById('st-otc').textContent=otc;
-  document.getElementById('s-cnt').textContent=`${seen.size} 支標的`;
+  document.getElementById('s-cnt').textContent=`${seen.size} æ¯æ¨ç`;
 }
 
 function populateMeetingSelect(){
@@ -1866,7 +1864,7 @@ function populateMeetingSelect(){
 
 function populateMemberSelect(members){
   const sel=document.getElementById('member-select');
-  sel.innerHTML='<option value="">👤 查找成員</option>';
+  sel.innerHTML='<option value="">ð¤ æ¥æ¾æå¡</option>';
   members.forEach(p=>{ const o=document.createElement('option'); o.value=p.name; o.textContent=`${p.name} (${p.stocks.length})`; sel.appendChild(o); });
 }
 
@@ -1884,17 +1882,17 @@ function escQ(s){ return (s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'"); }
 
 function renderStockRow(s){
   const cc=s.ex==='tse'?'c-tse':s.ex==='otc'?'c-otc':'c-na';
-  const cl=s.code||'—';
-  const tr=s.target?(typeof s.target==='number'?'$'+s.target.toLocaleString():s.target):'—';
+  const cl=s.code||'â';
+  const tr=s.target?(typeof s.target==='number'?'$'+s.target.toLocaleString():s.target):'â';
   const tg=s.tags.map(t=>`<span class="tag">${t}</span>`).join('');
   return `<div class="sr" data-code="${s.code||''}" onclick="showStockDetail('${escQ(s.code)}','${escQ(s.name)}')">
     <span class="scode ${cc}">${cl}</span>
     <div class="si"><div class="sname">${s.name}</div><div class="sth">${s.thesis}</div>${tg?`<div class="stags">${tg}</div>`:''}</div>
     <div class="pcol">
-      <div class="pv" data-price="${s.code||''}">${s.code?'<span class="ldg"></span>':'—'}</div>
+      <div class="pv" data-price="${s.code||''}">${s.code?'<span class="ldg"></span>':'â'}</div>
       <div class="pc2" data-chg="${s.code||''}"></div>
     </div>
-    <div class="tcol"><div class="tlbl">目標</div><div class="tv2">${tr}</div></div>
+    <div class="tcol"><div class="tlbl">ç®æ¨</div><div class="tv2">${tr}</div></div>
   </div>`;
 }
 
@@ -1902,11 +1900,11 @@ function render(members){
   const g=document.getElementById('pgrid'); g.innerHTML='';
   members.forEach(p=>{
     const d=document.createElement('div'); d.className='pc'; d.dataset.member=p.name;
-    const ini=p.name.replace(/（.*?）/,'').trim().charAt(0);
-    d.innerHTML=`<div class="ph" onclick="showMemberDetail('${escQ(p.name)}')" title="查看 ${p.name} 完整記錄">
+    const ini=p.name.replace(/ï¼.*?ï¼/,'').trim().charAt(0);
+    d.innerHTML=`<div class="ph" onclick="showMemberDetail('${escQ(p.name)}')" title="æ¥ç ${p.name} å®æ´è¨é">
       <div class="av">${ini}</div><div class="pn">${p.name}</div>
-      <div style="margin-left:auto;font-size:10px;color:var(--mu);font-weight:600">${p.stocks.length} 標的</div>
-      <span class="view-link">查看 →</span>
+      <div style="margin-left:auto;font-size:10px;color:var(--mu);font-weight:600">${p.stocks.length} æ¨ç</div>
+      <span class="view-link">æ¥ç â</span>
     </div>
     <div class="sl">${p.stocks.map(renderStockRow).join('')}</div>`;
     g.appendChild(d);
@@ -1915,13 +1913,13 @@ function render(members){
 
 function renderObs(m){
   document.getElementById('obs-panel').innerHTML=`<div class="obs">
-    <div class="obh">產業與總經觀察 · ${m.date} ${m.label}</div>
+    <div class="obh">ç¢æ¥­èç¸½ç¶è§å¯ Â· ${m.date} ${m.label}</div>
     <div class="obg">
-      <div class="obs-s"><div class="obs-t">看好產業</div>
-        ${m.bullish.map(b=>`<div class="oi"><div class="od"></div><div class="ot">${b.text}<br><span class="ob">— ${b.by}</span></div></div>`).join('')}
+      <div class="obs-s"><div class="obs-t">çå¥½ç¢æ¥­</div>
+        ${m.bullish.map(b=>`<div class="oi"><div class="od"></div><div class="ot">${b.text}<br><span class="ob">â ${b.by}</span></div></div>`).join('')}
       </div>
-      <div class="obs-s"><div class="obs-t">總經觀點</div>
-        ${m.macro.map(x=>`<div class="oi"><div class="od ${x.color==='r'?'rdot':x.color==='g'?'gdot':'ydot'}"></div><div class="ot">${x.text}<br><span class="ob">— ${x.by}</span></div></div>`).join('')}
+      <div class="obs-s"><div class="obs-t">ç¸½ç¶è§é»</div>
+        ${m.macro.map(x=>`<div class="oi"><div class="od ${x.color==='r'?'rdot':x.color==='g'?'gdot':'ydot'}"></div><div class="ot">${x.text}<br><span class="ob">â ${x.by}</span></div></div>`).join('')}
       </div>
     </div>
   </div>`;
@@ -1933,14 +1931,14 @@ function renderObs(m){
 function showMemberDetail(name){
   const history=MEETINGS.map(m=>{ const mbr=m.members.find(p=>p.name===name); return mbr&&mbr.stocks.length?{date:m.date,label:m.label,stocks:mbr.stocks}:null; }).filter(Boolean);
   if(!history.length)return;
-  const ini=name.replace(/（.*?）/,'').trim().charAt(0);
+  const ini=name.replace(/ï¼.*?ï¼/,'').trim().charAt(0);
   const tot=history.reduce((s,h)=>s+h.stocks.length,0);
   document.getElementById('mp-av').textContent=ini;
   document.getElementById('mp-name').textContent=name;
-  document.getElementById('mp-sub').textContent=`${history.length} 場會議記錄 · 共 ${tot} 筆標的`;
+  document.getElementById('mp-sub').textContent=`${history.length} å ´æè­°è¨é Â· å± ${tot} ç­æ¨ç`;
   document.getElementById('mp-timeline').innerHTML=history.map(h=>`
     <div class="tl-block">
-      <div class="tl-head"><span class="tl-badge">${h.date} · ${h.label}</span><span class="tl-count">${h.stocks.length} 標的</span></div>
+      <div class="tl-head"><span class="tl-badge">${h.date} Â· ${h.label}</span><span class="tl-count">${h.stocks.length} æ¨ç</span></div>
       <div class="sl">${h.stocks.map(renderStockRow).join('')}</div>
     </div>`).join('');
   const page=document.getElementById('member-page');
@@ -1964,21 +1962,21 @@ function showStockDetail(code, name){
   const tot=timeline.reduce((s,t)=>s+t.mentions.length,0);
   const ex=code?codeMap[code]:null;
   const cc=ex==='tse'?'c-tse':ex==='otc'?'c-otc':'c-na';
-  document.getElementById('sdp-code').textContent=code||'—';
+  document.getElementById('sdp-code').textContent=code||'â';
   document.getElementById('sdp-code').className=`sdp-code ${cc}`;
   document.getElementById('sdp-name').textContent=name;
-  document.getElementById('sdp-sub').textContent=`${timeline.length} 場會議提及 · 共 ${tot} 人`;
+  document.getElementById('sdp-sub').textContent=`${timeline.length} å ´æè­°æå Â· å± ${tot} äºº`;
   document.getElementById('sdp-timeline').innerHTML=timeline.map(t=>`
     <div class="tl-block">
-      <div class="tl-head"><span class="tl-badge">${t.date} · ${t.label}</span><span class="tl-count">${t.mentions.length} 人提及</span></div>
+      <div class="tl-head"><span class="tl-badge">${t.date} Â· ${t.label}</span><span class="tl-count">${t.mentions.length} äººæå</span></div>
       ${t.mentions.map(item=>{
-        const ini=item.member.replace(/（.*?）/,'').trim().charAt(0);
+        const ini=item.member.replace(/ï¼.*?ï¼/,'').trim().charAt(0);
         const tr=item.stock.target?(typeof item.stock.target==='number'?'$'+item.stock.target.toLocaleString():item.stock.target):null;
         return `<div class="sm-row">
           <div class="sm-who"><div class="av">${ini}</div><span class="sm-who-name">${item.member}</span></div>
           <div class="sm-body">
             <div class="sm-thesis">${item.stock.thesis}</div>
-            ${tr?`<div class="sm-target"><span class="tlbl">目標價</span><span class="sm-target-val">${tr}</span></div>`:''}
+            ${tr?`<div class="sm-target"><span class="tlbl">ç®æ¨å¹</span><span class="sm-target-val">${tr}</span></div>`:''}
             ${item.stock.tags.length?`<div class="stags" style="margin-top:7px">${item.stock.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>`:''}
           </div>
         </div>`;
@@ -1986,7 +1984,7 @@ function showStockDetail(code, name){
     </div>`).join('');
 
   _stockCameFromMember=document.getElementById('member-page').classList.contains('active');
-  document.getElementById('stock-back-btn').textContent=_stockCameFromMember?'← 返回成員':'← 返回看板';
+  document.getElementById('stock-back-btn').textContent=_stockCameFromMember?'â è¿åæå¡':'â è¿åçæ¿';
   _chartCode=code; _chartEx=ex; _chartRange='6mo';
   document.querySelectorAll('.range-btn').forEach(b=>b.classList.toggle('active',b.dataset.range==='6mo'));
 
@@ -2093,10 +2091,10 @@ async function loadChart(code, ex, range){
   _chartCode=code; _chartEx=ex; if(range)_chartRange=range;
   const container=document.getElementById('chart-container');
   container.style.height='380px';
-  container.innerHTML=`<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;gap:8px"><span class="ldg"></span>載入走勢圖…</div>`;
+  container.innerHTML=`<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;gap:8px"><span class="ldg"></span>è¼å¥èµ°å¢åâ¦</div>`;
 
   if(!code){
-    container.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;padding:20px;text-align:center">此標的無股票代碼，無法顯示走勢圖</div>';
+    container.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;padding:20px;text-align:center">æ­¤æ¨çç¡è¡ç¥¨ä»£ç¢¼ï¼ç¡æ³é¡¯ç¤ºèµ°å¢å</div>';
     return;
   }
 
@@ -2166,10 +2164,10 @@ async function loadChart(code, ex, range){
   }catch(e){
     const r=_chartRange;
     container.innerHTML=`<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;gap:6px;padding:20px;text-align:center">
-      <span style="font-size:14px">⚠️ 走勢圖載入失敗</span>
-      <span style="font-size:10px;color:var(--mu2)">${e.message||'連線逾時'}</span>
-      <span style="font-size:10px;color:var(--mu2)">已嘗試多個資料源，請確認網路或稍後重試</span>
-      <button onclick="reloadChart('${r}')" style="margin-top:10px;padding:7px 18px;background:var(--acc);color:#fff;border:none;border-radius:5px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600">🔄 重新載入</button>
+      <span style="font-size:14px">â ï¸ èµ°å¢åè¼å¥å¤±æ</span>
+      <span style="font-size:10px;color:var(--mu2)">${e.message||'é£ç·é¾æ'}</span>
+      <span style="font-size:10px;color:var(--mu2)">å·²åè©¦å¤åè³ææºï¼è«ç¢ºèªç¶²è·¯æç¨å¾éè©¦</span>
+      <button onclick="reloadChart('${r}')" style="margin-top:10px;padding:7px 18px;background:var(--acc);color:#fff;border:none;border-radius:5px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600">ð éæ°è¼å¥</button>
     </div>`;
   }
 }
@@ -2185,7 +2183,7 @@ function renderAnnotationChips(code){
     ?notes.map((n,i)=>`<div class="ann-chip">
         <span style="font-weight:700">${n.date}</span>
         <span>${n.text}</span>
-        <button class="ann-chip-del" onclick="deleteAnnotation('${escQ(code)}',${i})">✕</button>
+        <button class="ann-chip-del" onclick="deleteAnnotation('${escQ(code)}',${i})">â</button>
       </div>`).join('')
     :'';
 }
@@ -2218,20 +2216,20 @@ function deleteAnnotation(code,idx){
 function showMarkerPopup(marker){
   const hdrEl=document.getElementById('popup-hdr'),bodyEl=document.getElementById('popup-body');
   if(marker._type==='meeting'){
-    hdrEl.innerHTML=`${marker._date} ${marker._label} <span class="popup-type popup-type-meet">會議討論</span>`;
+    hdrEl.innerHTML=`${marker._date} ${marker._label} <span class="popup-type popup-type-meet">æè­°è¨è«</span>`;
     bodyEl.innerHTML=marker._mentions.map(item=>{
-      const ini=item.member.replace(/（.*?）/,'').trim().charAt(0);
+      const ini=item.member.replace(/ï¼.*?ï¼/,'').trim().charAt(0);
       const tr=item.stock.target?(typeof item.stock.target==='number'?'$'+item.stock.target.toLocaleString():item.stock.target):null;
       return `<div class="sm-row" style="padding:12px 0;border-bottom:1px solid var(--bd)">
         <div class="sm-who"><div class="av">${ini}</div><span class="sm-who-name">${item.member}</span></div>
         <div class="sm-body">
           <div class="sm-thesis">${item.stock.thesis}</div>
-          ${tr?`<div class="sm-target"><span class="tlbl">目標價</span><span class="sm-target-val">${tr}</span></div>`:''}
+          ${tr?`<div class="sm-target"><span class="tlbl">ç®æ¨å¹</span><span class="sm-target-val">${tr}</span></div>`:''}
         </div>
       </div>`;
     }).join('');
   } else {
-    hdrEl.innerHTML=`${marker._date.replace(/-/g,'/')} <span class="popup-type popup-type-note">事件標注</span>`;
+    hdrEl.innerHTML=`${marker._date.replace(/-/g,'/')} <span class="popup-type popup-type-note">äºä»¶æ¨æ³¨</span>`;
     bodyEl.innerHTML=`<div style="padding:12px 0;font-size:13px;color:var(--tx);line-height:1.7">${marker._text}</div>`;
   }
   document.getElementById('marker-popup').style.display='flex';
@@ -2251,7 +2249,7 @@ async function loadPrices(){
   });
   if(!seen.size)return;
   const stEl=document.getElementById('px-st');
-  stEl.textContent='載入中…'; stEl.style.background='rgba(255,255,200,0.12)'; stEl.style.color='rgba(255,255,255,0.65)';
+  stEl.textContent='è¼å¥ä¸­â¦'; stEl.style.background='rgba(255,255,200,0.12)'; stEl.style.color='rgba(255,255,255,0.65)';
   try{
     const r=await fetchWithTimeout(`${DATA_BASE}/prices.json`,8000);
     if(!r.ok)throw new Error(`HTTP ${r.status}`);
@@ -2261,7 +2259,7 @@ async function loadPrices(){
     document.querySelectorAll('[data-price]').forEach(el=>{
       const c=el.dataset.price; if(!c)return;
       const d=prices[c];
-      if(!d){el.textContent='—';return;}
+      if(!d){el.textContent='â';return;}
       loaded++;
       el.textContent=d.p.toLocaleString('zh-TW',{minimumFractionDigits:1,maximumFractionDigits:2});
       const pcol=el.closest('.pcol'); if(!pcol)return;
@@ -2276,11 +2274,11 @@ async function loadPrices(){
     const twTime=new Date(upd.getTime()+8*3600000);
     const hm=`${twTime.getUTCHours()}:${String(twTime.getUTCMinutes()).padStart(2,'0')}`;
     document.getElementById('st-time').textContent=hm;
-    stEl.textContent=loaded>0?`收盤價 ${upd.toLocaleDateString('zh-TW',{month:'numeric',day:'numeric'})}` :'無資料';
+    stEl.textContent=loaded>0?`æ¶ç¤å¹ ${upd.toLocaleDateString('zh-TW',{month:'numeric',day:'numeric'})}` :'ç¡è³æ';
     stEl.style.background='rgba(0,184,148,0.15)'; stEl.style.color='#00d4a8';
   }catch(e){
-    stEl.textContent='資料更新中…'; stEl.style.background='rgba(245,158,11,0.15)'; stEl.style.color='#f59e0b';
-    document.querySelectorAll('[data-price]').forEach(el=>{if(el.dataset.price)el.textContent='—';});
+    stEl.textContent='è³ææ´æ°ä¸­â¦'; stEl.style.background='rgba(245,158,11,0.15)'; stEl.style.color='#f59e0b';
+    document.querySelectorAll('[data-price]').forEach(el=>{if(el.dataset.price)el.textContent='â';});
   }
 }
 </script>
@@ -2358,28 +2356,28 @@ async function doSignUp(){
   const cn=document.getElementById('reg-cn').value.trim();
   const err=document.getElementById('reg-err');
   err.textContent=''; err.style.color='#ef4444';
-  if(!email){err.textContent='請填寫信箱';return;}
-  if(pw.length<6){err.textContent='密碼至少 6 位';return;}
-  if(!cn){err.textContent='請填寫暱稱';return;}
+  if(!email){err.textContent='è«å¡«å¯«ä¿¡ç®±';return;}
+  if(pw.length<6){err.textContent='å¯ç¢¼è³å° 6 ä½';return;}
+  if(!cn){err.textContent='è«å¡«å¯«æ±ç¨±';return;}
   const btn=document.getElementById('reg-btn');
-  btn.disabled=true;btn.textContent='申請中...';
+  btn.disabled=true;btn.textContent='ç³è«ä¸­...';
   try{
     const {error}=await sb.auth.signUp({email,password:pw,options:{data:{codename:cn}}});
     if(error){
-      err.textContent=error.message.includes('already')?'此信箱已註冊，請切換至「登入」':('錯誤：'+error.message);
-      btn.disabled=false;btn.textContent='申請加入';
+      err.textContent=error.message.includes('already')?'æ­¤ä¿¡ç®±å·²è¨»åï¼è«åæè³ãç»å¥ã':('é¯èª¤ï¼'+error.message);
+      btn.disabled=false;btn.textContent='ç³è«å å¥';
       return;
     }
     err.style.color='#166534';
-    err.textContent='✅ 申請送出！請等候管理員放行';
+    err.textContent='â ç³è«éåºï¼è«ç­åç®¡çå¡æ¾è¡';
     btn.disabled=true;
     setTimeout(()=>{
       document.getElementById('login-screen').style.display='none';
       document.getElementById('pending-screen').style.display='flex';
     },2000);
   }catch(e){
-    err.textContent='錯誤：'+e.message;
-    btn.disabled=false;btn.textContent='申請加入';
+    err.textContent='é¯èª¤ï¼'+e.message;
+    btn.disabled=false;btn.textContent='ç³è«å å¥';
   }
 }
 
@@ -2387,22 +2385,22 @@ function loadPendingUsers(){
   const el=document.getElementById('adm-pending');
   if(!el)return;
   sb.from('profiles').select('id,email,codename,approved').eq('approved',false).then(({data})=>{
-    if(!data||!data.length){el.innerHTML='<p style="color:#64748b;padding:8px 0">目前無待審核申請</p>';return;}
-    el.innerHTML=data.map(u=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #e2e8f0"><div><strong>${u.codename||''}</strong><br><span style="font-size:12px;color:#64748b">${u.email||''}</span></div><div><button data-uid="${u.id}" data-act="approve" style="background:#22c55e;color:#fff;border:none;padding:5px 14px;border-radius:6px;cursor:pointer;margin-right:6px;font-size:13px">允許加入</button><button data-uid="${u.id}" data-act="reject" style="background:#ef4444;color:#fff;border:none;padding:5px 14px;border-radius:6px;cursor:pointer;font-size:13px">拒絕</button></div></div>`).join('');
+    if(!data||!data.length){el.innerHTML='<p style="color:#64748b;padding:8px 0">ç®åç¡å¾å¯©æ ¸ç³è«</p>';return;}
+    el.innerHTML=data.map(u=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #e2e8f0"><div><strong>${u.codename||''}</strong><br><span style="font-size:12px;color:#64748b">${u.email||''}</span></div><div><button data-uid="${u.id}" data-act="approve" style="background:#22c55e;color:#fff;border:none;padding:5px 14px;border-radius:6px;cursor:pointer;margin-right:6px;font-size:13px">åè¨±å å¥</button><button data-uid="${u.id}" data-act="reject" style="background:#ef4444;color:#fff;border:none;padding:5px 14px;border-radius:6px;cursor:pointer;font-size:13px">æçµ</button></div></div>`).join('');
     el.querySelectorAll('[data-uid]').forEach(b=>{b.onclick=()=>b.dataset.act==='approve'?approveUser(b.dataset.uid):rejectUser(b.dataset.uid);});
   });
 }
 
 async function approveUser(uid){
   const {error}=await sb.from('profiles').update({approved:true}).eq('id',uid);
-  if(error){alert('失敗：'+error.message);return;}
-  alert('已允許加入！');loadPendingUsers();
+  if(error){alert('å¤±æï¼'+error.message);return;}
+  alert('å·²åè¨±å å¥ï¼');loadPendingUsers();
 }
 
 async function rejectUser(uid){
-  if(!confirm('確定拒絕此申請？'))return;
+  if(!confirm('ç¢ºå®æçµæ­¤ç³è«ï¼'))return;
   const {error}=await sb.from('profiles').delete().eq('id',uid);
-  if(error){alert('刪除失敗：'+error.message);return;}
+  if(error){alert('åªé¤å¤±æï¼'+error.message);return;}
   loadPendingUsers();
 }
 </script>
