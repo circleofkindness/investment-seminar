@@ -294,13 +294,18 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 </div>
 
 <div id="watermark"></div>
-<div id="pending-screen" style="display:none;min-height:100vh;align-items:center;justify-content:center;background:var(--navy)">
-  <div class="login-card" style="text-align:center">
-    <div class="ico" style="font-size:48px;margin-bottom:12px">⏳</div>
-    <h2 style="color:var(--navy);margin-bottom:12px">申請審核中</h2>
-    <p style="color:var(--mu);line-height:1.6;margin-bottom:8px">您的申請已送出，<br>請等待管理員審核確認後即可登入使用。</p>
-    <p style="font-size:13px;color:var(--mu);margin-bottom:24px">如需協助，請聯繫打單</p>
-    <button class="lbtn" onclick="doSignOut()" style="background:#64748b">登出</button>
+<div id="pending-screen" style="display:none;min-height:100vh;background:#0f3460;display:none;align-items:center;justify-content:center;flex-direction:column">
+  <div class="login-card" style="text-align:center;max-width:420px">
+    <div style="font-size:48px;margin-bottom:16px">⏳</div>
+    <h2 style="color:#0f3460;margin:0 0 8px">申請審核中</h2>
+    <p style="color:#475569;margin:0 0 20px;line-height:1.6">請等候管理員放行或通知<strong>打單</strong></p>
+    <div style="background:#f1f5f9;border-radius:8px;padding:16px;text-align:left;font-size:14px;color:#475569">
+      <div style="font-weight:600;color:#0f3460;margin-bottom:8px">📋 管理員操作步驟</div>
+      <div style="margin-bottom:6px">① 用管理員帳號登入網站</div>
+      <div style="margin-bottom:6px">② 主頁右上方找到「🔐 管理員後台」</div>
+      <div>③ 在「待審核申請」點「允許加入」</div>
+    </div>
+    <button onclick="sb.auth.signOut()" style="margin-top:20px;background:none;border:1px solid #cbd5e1;color:#64748b;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:13px">登出</button>
   </div>
 </div>
 
@@ -514,29 +519,41 @@ function doSignIn(){
 }
 function switchLoginTab(tab){
   document.querySelectorAll('.ltab').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('.lf').forEach(f=>f.style.display='none');
+  document.getElementById('lf-in').style.display='none';
+  document.getElementById('lf-up').style.display='none';
   document.getElementById('ltab-'+tab).classList.add('active');
-  document.getElementById('lf-'+tab).style.display='';
+  document.getElementById('lf-'+tab).style.display='block';
 }
 async function doSignUp(){
   const email=document.getElementById('reg-email').value.trim();
   const pw=document.getElementById('reg-pw').value;
   const cn=document.getElementById('reg-cn').value.trim();
   const err=document.getElementById('reg-err');
-  err.textContent='';
+  err.textContent=''; err.style.color='#ef4444';
   if(!email){err.textContent='請填寫信箱';return;}
   if(pw.length<6){err.textContent='密碼至少 6 位';return;}
   if(!cn){err.textContent='請填寫暱稱';return;}
   const btn=document.getElementById('reg-btn');
   btn.disabled=true;btn.textContent='申請中...';
-  const {error}=await sb.auth.signUp({email,password:pw,options:{data:{codename:cn}}});
-  btn.disabled=false;btn.textContent='申請加入';
-  if(error){
-    err.textContent=error.message.includes('already')?'此信箱已註冊，請切換至「登入」':('錯誤：'+error.message);
-    return;
+  try{
+    const {error}=await sb.auth.signUp({email,password:pw,options:{data:{codename:cn}}});
+    if(error){
+      err.textContent=error.message.includes('already')?'此信箱已註冊，請切換至「登入」':('錯誤：'+error.message);
+      btn.disabled=false;btn.textContent='申請加入';
+      return;
+    }
+    // Success: show pending message in form
+    err.style.color='#166534';
+    err.textContent='✅ 申請送出！請等候管理員放行或通知打單';
+    btn.disabled=true;
+    setTimeout(()=>{
+      document.getElementById('login-screen').style.display='none';
+      document.getElementById('pending-screen').style.display='';
+    },2000);
+  }catch(e){
+    err.textContent='錯誤：'+e.message;
+    btn.disabled=false;btn.textContent='申請加入';
   }
-  document.getElementById('login-screen').style.display='none';
-  document.getElementById('pending-screen').style.display='';
 }
 function loadPendingUsers(){
   const el=document.getElementById('adm-pending');
