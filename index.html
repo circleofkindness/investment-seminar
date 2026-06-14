@@ -477,47 +477,7 @@ async function saveCodename(){
   sb.from('activity_log').insert({user_email:data.user.email,codename:val,action:'login',ua:navigator.userAgent.substring(0,250)});
 }
 
-sb.auth.onAuthStateChange(async(event,session)=>{
-  if(!session){
-    document.getElementById('login-screen').style.display='flex';
-    document.getElementById('app').style.display='none';
-    document.getElementById('pending-screen').style.display='none';
-    document.getElementById('watermark').style.backgroundImage='';
-    ['codename-modal','invite-modal'].forEach(id=>document.getElementById(id).style.display='none');
-    return;
-  }
-  if(_isInvite&&(event==='SIGNED_IN'||event==='USER_UPDATED')){
-    document.getElementById('login-screen').style.display='none';
-    document.getElementById('app').style.display='none';
-    document.getElementById('invite-modal').style.display='flex';
-    document.getElementById('inv-pw1').focus(); return;
-  }
-  const {data:prof}=await sb.from('profiles').select('approved,codename').eq('id',session.user.id).single();
-  if(!prof||!prof.approved){
-    document.getElementById('login-screen').style.display='none';
-    document.getElementById('app').style.display='none';
-    document.getElementById('pending-screen').style.display='flex';
-    return;
-  }
-  document.getElementById('login-screen').style.display='none';
-  document.getElementById('invite-modal').style.display='none';
-  document.getElementById('pending-screen').style.display='none';
-  document.getElementById('app').style.display='block';
-  const cn=getCodename(session.user), dn=cn||session.user.email;
-  document.getElementById('user-chip').textContent=dn; applyWatermark(dn);
-  if(event==='SIGNED_IN'&&!cn){
-    document.getElementById('codename-modal').style.display='flex';
-    document.getElementById('cn-input').focus();
-  } else {
-    sb.from('activity_log').insert({user_email:session.user.email,codename:cn||null,action:event==='SIGNED_IN'?'login':'view',ua:navigator.userAgent.substring(0,250)});
-  }
-  if(session.user.email===ADMIN_EMAIL){
-    document.getElementById('admin-panel').style.display='block';
-    loadPendingUsers();
-    loadAdminLog();
-  }
-  initApp();
-});
+
 
 async function doSignIn(){
   const email=document.getElementById('li-email').value.trim(),pw=document.getElementById('li-pw').value;
