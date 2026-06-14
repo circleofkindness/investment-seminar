@@ -522,7 +522,7 @@ function switchLoginTab(tab){
   document.getElementById('lf-in').style.display='none';
   document.getElementById('lf-up').style.display='none';
   document.getElementById('ltab-'+tab).classList.add('active');
-  document.getElementById('lf-'+tab).style.display='block';
+  document.getElementById('lf-'+tab).style.display='flex';
 }
 async function doSignUp(){
   const email=document.getElementById('reg-email').value.trim();
