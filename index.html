@@ -18,6 +18,9 @@
 body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;min-height:100vh;-webkit-font-smoothing:antialiased}
 
 /* LOGIN */
+.login-tabs{display:flex;gap:0;margin-bottom:20px;border-radius:8px;overflow:hidden;border:1px solid #e2e8f0}
+.ltab{flex:1;padding:10px;border:none;background:#f8fafc;color:#64748b;cursor:pointer;font-size:14px;font-weight:500;transition:all .2s}
+.ltab.active{background:#0f3460;color:#fff}
 #login-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--navy);background-image:radial-gradient(ellipse at 60% 40%,rgba(0,102,204,0.18) 0%,transparent 65%)}
 .login-card{background:#fff;border-radius:12px;padding:40px 36px;width:360px;max-width:92vw;box-shadow:0 20px 60px rgba(10,37,64,0.35)}
 .login-top{text-align:center;margin-bottom:28px}
@@ -264,9 +267,12 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     <div class="login-top">
       <div class="ico">📊</div>
       <h1>好朋友投資研討會</h1>
-      <p>請輸入帳號密碼登入</p>
     </div>
-    <div class="lf">
+    <div class="login-tabs">
+      <button class="ltab active" id="ltab-in" onclick="switchLoginTab('in')">登入</button>
+      <button class="ltab" id="ltab-up" onclick="switchLoginTab('up')">申請加入</button>
+    </div>
+    <div class="lf" id="lf-in">
       <label>Email</label>
       <input type="email" id="li-email" placeholder="you@example.com" autocomplete="email">
       <label>密碼</label>
@@ -274,16 +280,35 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       <button class="lbtn" id="li-btn" onclick="doSignIn()">登入</button>
       <div id="login-err"></div>
     </div>
+    <div class="lf" id="lf-up" style="display:none">
+      <label>Email</label>
+      <input type="email" id="reg-email" placeholder="you@example.com" autocomplete="email">
+      <label>密碼（至少 6 位）</label>
+      <input type="password" id="reg-pw" placeholder="••••••••" autocomplete="new-password">
+      <label>暱稱（最多 20 字元，顯示於浮水印）</label>
+      <input type="text" id="reg-cn" placeholder="例：凱哥、小資男孩" maxlength="20" autocomplete="off">
+      <button class="lbtn" id="reg-btn" onclick="doSignUp()">申請加入</button>
+      <div id="reg-err"></div>
+    </div>
   </div>
 </div>
 
 <div id="watermark"></div>
+<div id="pending-screen" style="display:none;min-height:100vh;align-items:center;justify-content:center;background:var(--navy)">
+  <div class="login-card" style="text-align:center">
+    <div class="ico" style="font-size:48px;margin-bottom:12px">⏳</div>
+    <h2 style="color:var(--navy);margin-bottom:12px">申請審核中</h2>
+    <p style="color:var(--mu);line-height:1.6;margin-bottom:8px">您的申請已送出，<br>請等待管理員審核確認後即可登入使用。</p>
+    <p style="font-size:13px;color:var(--mu);margin-bottom:24px">如需協助，請聯繫打單</p>
+    <button class="lbtn" onclick="doSignOut()" style="background:#64748b">登出</button>
+  </div>
+</div>
 
 <div id="codename-modal">
   <div class="cn-card">
     <h2>👋 設定你的代號</h2>
-    <p>請輸入你在研討會中的稱呼（例如：凱哥、小資男孩）。<br>這個代號會顯示在看板上，之後無法自行修改。</p>
-    <input type="text" id="cn-input" placeholder="你的代號" maxlength="12" autocomplete="off">
+    <p>請輸入你在研討會中的稱呼（例如：凱哥、小資男孩）。<br>暱稱最多 20 個字元，顯示於成員列表與浮水印上，設定後無法自行修改。</p>
+    <input type="text" id="cn-input" placeholder="你的代號" maxlength="20" autocomplete="off">
     <button id="cn-btn" onclick="saveCodename()">確認並進入</button>
     <div id="cn-err"></div>
   </div>
@@ -337,7 +362,12 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       <div class="adm-hd">🔐 管理員後台<span class="adm-badge">ADMIN</span>
         <a class="adm-link" href="https://supabase.com/dashboard/project/_/auth/users" target="_blank">Supabase 管理使用者 →</a>
       </div>
-      <div class="adm-body"><div class="adm-sub">成員登入記錄（最近 100 筆）</div><div id="adm-log">載入中…</div></div>
+      <div class="adm-body">
+        <div class="adm-sub" style="margin-bottom:8px">⏳ 待審核申請</div>
+        <div id="adm-pending" style="margin-bottom:20px">載入中…</div>
+        <div class="adm-sub">成員登入記錄（最近 100 筆）</div>
+        <div id="adm-log">載入中…</div>
+      </div>
     </div>
   </div>
 
@@ -455,6 +485,18 @@ sb.auth.onAuthStateChange(async(event,session)=>{
       document.getElementById('invite-modal').style.display='flex';
       document.getElementById('inv-pw1').focus(); return;
     }
+    // 審核檢查（管理員跳過）
+    if(session.user.email!==ADMIN_EMAIL){
+      const {data:prof}=await sb.from('profiles').select('approved').eq('id',session.user.id).single();
+      if(!prof||!prof.approved){
+        document.getElementById('login-screen').style.display='none';
+        document.getElementById('invite-modal').style.display='none';
+        document.getElementById('app').style.display='none';
+        document.getElementById('pending-screen').style.display='flex';
+        return;
+      }
+    }
+    document.getElementById('pending-screen').style.display='none';
     document.getElementById('login-screen').style.display='none';
     document.getElementById('invite-modal').style.display='none';
     document.getElementById('app').style.display='block';
@@ -466,11 +508,11 @@ sb.auth.onAuthStateChange(async(event,session)=>{
     } else {
       sb.from('activity_log').insert({user_email:session.user.email,codename:cn||null,action:event==='SIGNED_IN'?'login':'view',ua:navigator.userAgent.substring(0,250)});
     }
-    if(session.user.email===ADMIN_EMAIL){document.getElementById('admin-panel').style.display='block';loadAdminLog();}
+    if(session.user.email===ADMIN_EMAIL){document.getElementById('admin-panel').style.display='block';loadAdminLog();loadPendingUsers();}
     initApp();
   } else {
     document.getElementById('watermark').style.backgroundImage='';
-    ['codename-modal','invite-modal'].forEach(id=>document.getElementById(id).style.display='none');
+    ['codename-modal','invite-modal','pending-screen'].forEach(id=>document.getElementById(id).style.display='none');
     document.getElementById('app').style.display='none';
     document.getElementById('login-screen').style.display='flex';
   }
@@ -485,6 +527,31 @@ async function doSignIn(){
   if(error){err.textContent='帳密錯誤，請再試一次';btn.disabled=false;btn.textContent='登入';}
 }
 async function doSignOut(){await sb.auth.signOut();}
+
+function switchLoginTab(tab){
+  document.getElementById('lf-in').style.display=tab==='in'?'':'none';
+  document.getElementById('lf-up').style.display=tab==='up'?'':'none';
+  document.getElementById('ltab-in').classList.toggle('active',tab==='in');
+  document.getElementById('ltab-up').classList.toggle('active',tab==='up');
+  document.getElementById('login-err').textContent='';
+  document.getElementById('reg-err').textContent='';
+}
+
+async function doSignUp(){
+  const email=document.getElementById('reg-email').value.trim();
+  const pw=document.getElementById('reg-pw').value;
+  const cn=document.getElementById('reg-cn').value.trim();
+  const btn=document.getElementById('reg-btn'),err=document.getElementById('reg-err');
+  if(!email||!pw||!cn){err.style.color='#dc2626';err.textContent='請填入所有欄位';return;}
+  if(cn.length>20){err.style.color='#dc2626';err.textContent='暱稱最多 20 個字元';return;}
+  if(pw.length<6){err.style.color='#dc2626';err.textContent='密碼至少需要 6 位';return;}
+  btn.disabled=true; btn.textContent='送出中…'; err.textContent='';
+  const {data,error}=await sb.auth.signUp({email,password:pw,options:{data:{codename:cn}}});
+  if(error){err.style.color='#dc2626';err.textContent=error.message;btn.disabled=false;btn.textContent='申請加入';return;}
+  err.style.color='#16a34a';
+  err.textContent='申請已送出！請等待管理員審核後即可登入。';
+  btn.textContent='已送出';
+}
 
 async function doSetupInvite(){
   const pw1=document.getElementById('inv-pw1').value,pw2=document.getElementById('inv-pw2').value;
@@ -510,6 +577,32 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('ann-text').addEventListener('keydown',e=>{if(e.key==='Enter')addAnnotation();});
   document.getElementById('ann-date').value=new Date().toISOString().split('T')[0];
 });
+
+async function loadPendingUsers(){
+  const el=document.getElementById('adm-pending');
+  const {data,error}=await sb.from('profiles').select('id,email,codename,created_at').eq('approved',false).order('created_at',{ascending:true});
+  if(error){el.innerHTML='<span style="font-size:12px;color:red">載入失敗</span>';return;}
+  if(!data||!data.length){el.innerHTML='<span style="font-size:12px;color:var(--mu)">目前無待審核申請</span>';return;}
+  el.innerHTML=data.map(r=>{
+    const dt=new Date(r.created_at).toLocaleDateString('zh-TW');
+    return '<div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border)">'
+      +'<span style="flex:1;font-size:13px"><b>'+(r.codename||'（未設定）')+'</b> <span style="color:var(--mu)">'+r.email+'</span></span>'
+      +'<span style="font-size:11px;color:var(--mu)">'+dt+'</span>'
+      +'<button onclick="approveUser(''+r.id+'')" style="padding:3px 10px;background:#16a34a;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:12px">核准</button>'
+      +'<button onclick="rejectUser(''+r.id+'')" style="padding:3px 10px;background:#dc2626;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:12px">拒絕</button>'
+      +'</div>';
+  }).join('');
+}
+async function approveUser(uid){
+  const {error}=await sb.from('profiles').update({approved:true}).eq('id',uid);
+  if(error){alert('核准失敗：'+error.message);return;}
+  loadPendingUsers();
+}
+async function rejectUser(uid){
+  if(!confirm('確定要拒絕並刪除此申請？此操作無法復原。'))return;
+  await sb.from('profiles').delete().eq('id',uid);
+  loadPendingUsers();
+}
 
 async function loadAdminLog(){
   const {data,error}=await sb.from('activity_log').select('user_email,codename,action,ua,created_at').order('created_at',{ascending:false}).limit(100);
