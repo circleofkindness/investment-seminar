@@ -18,9 +18,6 @@
 body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;min-height:100vh;-webkit-font-smoothing:antialiased}
 
 /* LOGIN */
-.login-tabs{display:flex;gap:0;margin-bottom:20px;border-radius:8px;overflow:hidden;border:1px solid #e2e8f0}
-.ltab{flex:1;padding:10px;border:none;background:#f8fafc;color:#64748b;cursor:pointer;font-size:14px;font-weight:500;transition:all .2s}
-.ltab.active{background:#0f3460;color:#fff}
 #login-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--navy);background-image:radial-gradient(ellipse at 60% 40%,rgba(0,102,204,0.18) 0%,transparent 65%)}
 .login-card{background:#fff;border-radius:12px;padding:40px 36px;width:360px;max-width:92vw;box-shadow:0 20px 60px rgba(10,37,64,0.35)}
 .login-top{text-align:center;margin-bottom:28px}
@@ -257,6 +254,11 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   .marker-popup{padding:12px}
   .popup-card{padding:18px 14px;max-height:82vh}
 }
+/* === LOGIN TABS === */
+.login-tabs{display:flex;gap:0;margin-bottom:16px;border-bottom:2px solid #e2e8f0}
+.ltab{flex:1;padding:10px;border:none;background:none;color:var(--mu);cursor:pointer;font-size:14px;font-weight:500;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .15s}
+.ltab.active{color:var(--acc);border-bottom-color:var(--acc)}
+#pending-screen{position:fixed;inset:0;background:var(--bg);display:none;align-items:center;justify-content:center;z-index:900}
 </style>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='15' fill='%230066cc'/%3E%3Ctext x='50' y='72' text-anchor='middle' font-size='65' font-weight='bold' fill='white' font-family='Arial'%3E%24%3C/text%3E%3C/svg%3E">
 </head>
@@ -293,27 +295,24 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   </div>
 </div>
 
-<div id="watermark"></div>
-<div id="pending-screen" style="display:none;min-height:100vh;background:#0f3460;display:none;align-items:center;justify-content:center;flex-direction:column">
+<div id="pending-screen">
   <div class="login-card" style="text-align:center;max-width:420px">
     <div style="font-size:48px;margin-bottom:16px">⏳</div>
-    <h2 style="color:#0f3460;margin:0 0 8px">申請審核中</h2>
-    <p style="color:#475569;margin:0 0 20px;line-height:1.6">請等候管理員放行或通知<strong>打單</strong></p>
-    <div style="background:#f1f5f9;border-radius:8px;padding:16px;text-align:left;font-size:14px;color:#475569">
-      <div style="font-weight:600;color:#0f3460;margin-bottom:8px">📋 管理員操作步驟</div>
-      <div style="margin-bottom:6px">① 用管理員帳號登入網站</div>
-      <div style="margin-bottom:6px">② 主頁右上方找到「🔐 管理員後台」</div>
-      <div>③ 在「待審核申請」點「允許加入」</div>
+    <h2 style="margin-bottom:8px">申請審核中</h2>
+    <p style="color:var(--mu);margin-bottom:16px">請等候管理員放行或通知<strong>打單</strong></p>
+    <div style="background:#f8fafc;border-radius:12px;padding:16px;font-size:13px;color:#475569;text-align:left">
+      📋 管理員操作步驟<br>① 用管理員帳號登入網站<br>② 主頁右上方找到「🔐 管理員後台」<br>③ 在待審清單點「允許加入」
     </div>
-    <button onclick="sb.auth.signOut()" style="margin-top:20px;background:none;border:1px solid #cbd5e1;color:#64748b;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:13px">登出</button>
   </div>
 </div>
+
+<div id="watermark"></div>
 
 <div id="codename-modal">
   <div class="cn-card">
     <h2>👋 設定你的代號</h2>
-    <p>請輸入你在研討會中的稱呼（例如：凱哥、小資男孩）。<br>暱稱最多 20 個字元，顯示於成員列表與浮水印上，設定後無法自行修改。</p>
-    <input type="text" id="cn-input" placeholder="你的代號" maxlength="20" autocomplete="off">
+    <p>請輸入你在研討會中的稱呼（例如：凱哥、小資男孩）。<br>這個代號會顯示在看板上，之後無法自行修改。</p>
+    <input type="text" id="cn-input" placeholder="你的代號" maxlength="12" autocomplete="off">
     <button id="cn-btn" onclick="saveCodename()">確認並進入</button>
     <div id="cn-err"></div>
   </div>
@@ -368,10 +367,8 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
         <a class="adm-link" href="https://supabase.com/dashboard/project/_/auth/users" target="_blank">Supabase 管理使用者 →</a>
       </div>
       <div class="adm-body">
-        <div class="adm-sub" style="margin-bottom:8px">⏳ 待審核申請</div>
-        <div id="adm-pending" style="margin-bottom:20px">載入中…</div>
-        <div class="adm-sub">成員登入記錄（最近 100 筆）</div>
-        <div id="adm-log">載入中…</div>
+        <div class="adm-sub">待審核申請</div><div id="adm-pending">載入中…</div>
+        <div class="adm-sub" style="margin-top:16px">成員登入記錄（最近 100 筆）</div><div id="adm-log">載入中…</div>
       </div>
     </div>
   </div>
@@ -484,96 +481,80 @@ async function saveCodename(){
 
 sb.auth.onAuthStateChange(async(event,session)=>{
   if(!session){
-    document.getElementById('login-screen').style.display='';
+    document.getElementById('login-screen').style.display='flex';
     document.getElementById('app').style.display='none';
     document.getElementById('pending-screen').style.display='none';
+    document.getElementById('watermark').style.backgroundImage='';
+    ['codename-modal','invite-modal'].forEach(id=>document.getElementById(id).style.display='none');
     return;
+  }
+  if(_isInvite&&(event==='SIGNED_IN'||event==='USER_UPDATED')){
+    document.getElementById('login-screen').style.display='none';
+    document.getElementById('app').style.display='none';
+    document.getElementById('invite-modal').style.display='flex';
+    document.getElementById('inv-pw1').focus(); return;
   }
   const {data:prof}=await sb.from('profiles').select('approved,codename').eq('id',session.user.id).single();
   if(!prof||!prof.approved){
     document.getElementById('login-screen').style.display='none';
     document.getElementById('app').style.display='none';
-    document.getElementById('pending-screen').style.display='';
+    document.getElementById('pending-screen').style.display='flex';
     return;
   }
   document.getElementById('login-screen').style.display='none';
+  document.getElementById('invite-modal').style.display='none';
   document.getElementById('pending-screen').style.display='none';
-  document.getElementById('app').style.display='';
-  if(session.user.email==='channel.huangsc@gmail.com'){
-    const adm=document.getElementById('admin-panel');
-    if(adm)adm.style.display='';
+  document.getElementById('app').style.display='block';
+  const cn=getCodename(session.user), dn=cn||session.user.email;
+  document.getElementById('user-chip').textContent=dn; applyWatermark(dn);
+  if(event==='SIGNED_IN'&&!cn){
+    document.getElementById('codename-modal').style.display='flex';
+    document.getElementById('cn-input').focus();
+  } else {
+    sb.from('activity_log').insert({user_email:session.user.email,codename:cn||null,action:event==='SIGNED_IN'?'login':'view',ua:navigator.userAgent.substring(0,250)});
+  }
+  if(session.user.email===ADMIN_EMAIL){
+    document.getElementById('admin-panel').style.display='block';
     loadPendingUsers();
     loadAdminLog();
   }
   initApp();
 });
-function doSignIn(){
-  const email=document.getElementById('li-email').value.trim();
-  const pw=document.getElementById('li-pw').value;
-  const err=document.getElementById('login-err');
-  err.textContent='';
-  if(!email||!pw){err.textContent='請填寫信箱與密碼';return;}
-  sb.auth.signInWithPassword({email,password:pw}).then(({error})=>{
-    if(error)err.textContent='帳密錯誤，請再試一次';
-  });
+
+async function doSignIn(){
+  const email=document.getElementById('li-email').value.trim(),pw=document.getElementById('li-pw').value;
+  const btn=document.getElementById('li-btn'),err=document.getElementById('login-err');
+  if(!email||!pw){err.textContent='請填入 Email 和密碼';return;}
+  btn.disabled=true; btn.textContent='登入中…'; err.textContent='';
+  const {error}=await sb.auth.signInWithPassword({email,password:pw});
+  if(error){err.textContent='帳密錯誤，請再試一次';btn.disabled=false;btn.textContent='登入';}
 }
-function switchLoginTab(tab){
-  document.querySelectorAll('.ltab').forEach(b=>b.classList.remove('active'));
-  document.getElementById('lf-in').style.display='none';
-  document.getElementById('lf-up').style.display='none';
-  document.getElementById('ltab-'+tab).classList.add('active');
-  document.getElementById('lf-'+tab).style.display='flex';
-}
-async function doSignUp(){
-  const email=document.getElementById('reg-email').value.trim();
-  const pw=document.getElementById('reg-pw').value;
-  const cn=document.getElementById('reg-cn').value.trim();
-  const err=document.getElementById('reg-err');
-  err.textContent=''; err.style.color='#ef4444';
-  if(!email){err.textContent='請填寫信箱';return;}
-  if(pw.length<6){err.textContent='密碼至少 6 位';return;}
-  if(!cn){err.textContent='請填寫暱稱';return;}
-  const btn=document.getElementById('reg-btn');
-  btn.disabled=true;btn.textContent='申請中...';
-  try{
-    const {error}=await sb.auth.signUp({email,password:pw,options:{data:{codename:cn}}});
-    if(error){
-      err.textContent=error.message.includes('already')?'此信箱已註冊，請切換至「登入」':('錯誤：'+error.message);
-      btn.disabled=false;btn.textContent='申請加入';
-      return;
-    }
-    // Success: show pending message in form
-    err.style.color='#166534';
-    err.textContent='✅ 申請送出！請等候管理員放行或通知打單';
-    btn.disabled=true;
-    setTimeout(()=>{
-      document.getElementById('login-screen').style.display='none';
-      document.getElementById('pending-screen').style.display='';
-    },2000);
-  }catch(e){
-    err.textContent='錯誤：'+e.message;
-    btn.disabled=false;btn.textContent='申請加入';
-  }
-}
-function loadPendingUsers(){
-  const el=document.getElementById('adm-pending');
-  if(!el)return;
-  sb.from('profiles').select('id,email,codename,approved').eq('approved',false).then(({data})=>{
-    if(!data||!data.length){el.innerHTML='<p style="color:#64748b;padding:8px 0">目前無待審核申請</p>';return;}
-    el.innerHTML=data.map(u=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #e2e8f0"><div><strong>${u.codename||''}</strong><br><span style="font-size:12px;color:#64748b">${u.email||''}</span></div><div><button data-uid="${u.id}" data-act="approve" style="background:#22c55e;color:#fff;border:none;padding:5px 14px;border-radius:6px;cursor:pointer;margin-right:6px;font-size:13px">允許加入</button><button data-uid="${u.id}" data-act="reject" style="background:#ef4444;color:#fff;border:none;padding:5px 14px;border-radius:6px;cursor:pointer;font-size:13px">拒絕</button></div></div>`).join('');
-    el.querySelectorAll('[data-uid]').forEach(b=>{b.onclick=()=>b.dataset.act==='approve'?approveUser(b.dataset.uid):rejectUser(b.dataset.uid);});
-  });
-}
-async function approveUser(uid){
-  const {error}=await sb.from('profiles').update({approved:true}).eq('id',uid);
-  if(!error)loadPendingUsers();
-}
-async function rejectUser(uid){
-  if(!confirm('確定拒絕此申請？'))return;
-  await sb.from('profiles').delete().eq('id',uid);
-  loadPendingUsers();
+async function doSignOut(){await sb.auth.signOut();}
+
+async function doSetupInvite(){
+  const pw1=document.getElementById('inv-pw1').value,pw2=document.getElementById('inv-pw2').value;
+  const cn=document.getElementById('inv-cn').value.trim();
+  const err=document.getElementById('inv-err'),btn=document.getElementById('inv-btn');
+  if(pw1.length<6){err.textContent='密碼至少 6 位';return;}
+  if(pw1!==pw2){err.textContent='兩次密碼不一致';return;}
+  if(!cn){err.textContent='請填入代號';return;}
+  btn.disabled=true; btn.textContent='設定中…';
+  const {data,error}=await sb.auth.updateUser({password:pw1,data:{codename:cn}});
+  if(error){err.textContent='設定失敗：'+error.message;btn.disabled=false;btn.textContent='完成設定並進入';return;}
+  window.history.replaceState(null,'',window.location.pathname);
+  document.getElementById('invite-modal').style.display='none';
+  document.getElementById('app').style.display='block';
+  document.getElementById('user-chip').textContent=cn; applyWatermark(cn);
+  sb.from('activity_log').insert({user_email:data.user.email,codename:cn,action:'login',ua:navigator.userAgent.substring(0,250)});
+  if(data.user.email===ADMIN_EMAIL){document.getElementById('admin-panel').style.display='block';loadAdminLog();}
+  initApp();
 }
 
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('li-pw').addEventListener('keydown',e=>{if(e.key==='Enter')doSignIn();});
+  document.getElementById('ann-text').addEventListener('keydown',e=>{if(e.key==='Enter')addAnnotation();});
+  document.getElementById('ann-date').value=new Date().toISOString().split('T')[0];
+});
 
 async function loadAdminLog(){
   const {data,error}=await sb.from('activity_log').select('user_email,codename,action,ua,created_at').order('created_at',{ascending:false}).limit(100);
@@ -2362,6 +2343,68 @@ np.innerHTML='<div style="margin-bottom:20px;display:flex;align-items:center;gap
 populateMeetingSelect();
 
 })();
+
+function switchLoginTab(tab){
+  document.querySelectorAll('.ltab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('lf-in').style.display='none';
+  document.getElementById('lf-up').style.display='none';
+  document.getElementById('ltab-'+tab).classList.add('active');
+  document.getElementById('lf-'+tab).style.display='flex';
+}
+
+async function doSignUp(){
+  const email=document.getElementById('reg-email').value.trim();
+  const pw=document.getElementById('reg-pw').value;
+  const cn=document.getElementById('reg-cn').value.trim();
+  const err=document.getElementById('reg-err');
+  err.textContent=''; err.style.color='#ef4444';
+  if(!email){err.textContent='請填寫信箱';return;}
+  if(pw.length<6){err.textContent='密碼至少 6 位';return;}
+  if(!cn){err.textContent='請填寫暱稱';return;}
+  const btn=document.getElementById('reg-btn');
+  btn.disabled=true;btn.textContent='申請中...';
+  try{
+    const {error}=await sb.auth.signUp({email,password:pw,options:{data:{codename:cn}}});
+    if(error){
+      err.textContent=error.message.includes('already')?'此信箱已註冊，請切換至「登入」':('錯誤：'+error.message);
+      btn.disabled=false;btn.textContent='申請加入';
+      return;
+    }
+    err.style.color='#166534';
+    err.textContent='✅ 申請送出！請等候管理員放行';
+    btn.disabled=true;
+    setTimeout(()=>{
+      document.getElementById('login-screen').style.display='none';
+      document.getElementById('pending-screen').style.display='flex';
+    },2000);
+  }catch(e){
+    err.textContent='錯誤：'+e.message;
+    btn.disabled=false;btn.textContent='申請加入';
+  }
+}
+
+function loadPendingUsers(){
+  const el=document.getElementById('adm-pending');
+  if(!el)return;
+  sb.from('profiles').select('id,email,codename,approved').eq('approved',false).then(({data})=>{
+    if(!data||!data.length){el.innerHTML='<p style="color:#64748b;padding:8px 0">目前無待審核申請</p>';return;}
+    el.innerHTML=data.map(u=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #e2e8f0"><div><strong>${u.codename||''}</strong><br><span style="font-size:12px;color:#64748b">${u.email||''}</span></div><div><button data-uid="${u.id}" data-act="approve" style="background:#22c55e;color:#fff;border:none;padding:5px 14px;border-radius:6px;cursor:pointer;margin-right:6px;font-size:13px">允許加入</button><button data-uid="${u.id}" data-act="reject" style="background:#ef4444;color:#fff;border:none;padding:5px 14px;border-radius:6px;cursor:pointer;font-size:13px">拒絕</button></div></div>`).join('');
+    el.querySelectorAll('[data-uid]').forEach(b=>{b.onclick=()=>b.dataset.act==='approve'?approveUser(b.dataset.uid):rejectUser(b.dataset.uid);});
+  });
+}
+
+async function approveUser(uid){
+  const {error}=await sb.from('profiles').update({approved:true}).eq('id',uid);
+  if(error){alert('失敗：'+error.message);return;}
+  alert('已允許加入！');loadPendingUsers();
+}
+
+async function rejectUser(uid){
+  if(!confirm('確定拒絕此申請？'))return;
+  const {error}=await sb.from('profiles').delete().eq('id',uid);
+  if(error){alert('刪除失敗：'+error.message);return;}
+  loadPendingUsers();
+}
 </script>
 </body>
 </html>
