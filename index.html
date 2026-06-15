@@ -1615,6 +1615,16 @@ sb.auth.onAuthStateChange(async function(event,session){
   }
 });
 
+// Safety net: if all panels stay hidden 2s after load, show login
+setTimeout(function(){
+  var ls=document.getElementById('login-screen');
+  var ap=document.getElementById('app');
+  var ps=document.getElementById('pending-screen');
+  if(ls&&ap&&ps&&getComputedStyle(ls).display==='none'&&getComputedStyle(ap).display==='none'&&getComputedStyle(ps).display==='none'){
+    ls.style.display='flex';
+  }
+},2000);
+
 async function doSignIn(){
   const email=document.getElementById('li-email').value.trim(),pw=document.getElementById('li-pw').value;
   const btn=document.getElementById('li-btn'),err=document.getElementById('login-err');
