@@ -1543,6 +1543,8 @@ const SUPABASE_ANON = 'sb_publishable_YR86duyW1fiw5dL9QkupEQ_YBeirf4E';
 const ADMIN_EMAIL   = 'channel.huangsc@gmail.com';
 
 const { createClient } = window.supabase;
+// Clear expired/malformed Supabase sessions immediately
+(function(){try{var k=Object.keys(localStorage).find(function(k){return k.startsWith('sb-')&&k.endsWith('-auth-token');});if(k){var d=JSON.parse(localStorage.getItem(k)||'{}');var exp=d&&d.expires_at;if(!exp||exp<Math.floor(Date.now()/1000)){Object.keys(localStorage).filter(function(j){return j.startsWith('sb-');}).forEach(function(j){localStorage.removeItem(j);});}}}catch(e){Object.keys(localStorage).filter(function(j){return j.startsWith('sb-');}).forEach(function(j){localStorage.removeItem(j);});}})();
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
 const _hashParams = new URLSearchParams(window.location.hash.slice(1));
 const _isInvite = _hashParams.get('type') === 'invite';
