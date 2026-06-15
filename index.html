@@ -254,11 +254,6 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   .marker-popup{padding:12px}
   .popup-card{padding:18px 14px;max-height:82vh}
 }
-/* === LOGIN TABS === */
-.login-tabs{display:flex;gap:0;margin-bottom:16px;border-bottom:2px solid #e2e8f0}
-.ltab{flex:1;padding:10px;border:none;background:none;color:var(--mu);cursor:pointer;font-size:14px;font-weight:500;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .15s}
-.ltab.active{color:var(--acc);border-bottom-color:var(--acc)}
-#pending-screen{position:fixed;inset:0;background:var(--bg);display:none;align-items:center;justify-content:center;z-index:900}
 </style>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='15' fill='%230066cc'/%3E%3Ctext x='50' y='72' text-anchor='middle' font-size='65' font-weight='bold' fill='white' font-family='Arial'%3E%24%3C/text%3E%3C/svg%3E">
 </head>
@@ -269,12 +264,13 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     <div class="login-top">
       <div class="ico">📊</div>
       <h1>好朋友投資研討會</h1>
+      <p>請輸入帳號密碼登入</p>
     </div>
-    <div class="login-tabs">
-      <button class="ltab active" id="ltab-in" onclick="switchLoginTab('in')">登入</button>
-      <button class="ltab" id="ltab-up" onclick="switchLoginTab('up')">申請加入</button>
+    <div style="display:flex;gap:.5rem;margin-bottom:1rem">
+      <button id="tab-li" onclick="switchLoginTab('li')" style="flex:1;padding:.5rem;border:none;border-radius:6px;background:#2563eb;color:#fff;cursor:pointer;font-weight:600">登入</button>
+      <button id="tab-reg" onclick="switchLoginTab('reg')" style="flex:1;padding:.5rem;border:none;border-radius:6px;background:#1e293b;color:#7a8fa3;cursor:pointer">申請加入</button>
     </div>
-    <div class="lf" id="lf-in">
+    <div id="pane-li"><div class="lf">
       <label>Email</label>
       <input type="email" id="li-email" placeholder="you@example.com" autocomplete="email">
       <label>密碼</label>
@@ -282,25 +278,23 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       <button class="lbtn" id="li-btn" onclick="doSignIn()">登入</button>
       <div id="login-err"></div>
     </div>
-    <div class="lf" id="lf-up" style="display:none">
+    <div id="pane-reg" class="lf" style="display:none">
       <label>Email</label>
-      <input type="email" id="reg-email" placeholder="you@example.com" autocomplete="email">
-      <label>密碼（至少 6 位）</label>
-      <input type="password" id="reg-pw" placeholder="••••••••" autocomplete="new-password">
-      <label>暱稱（最多 20 字元，顯示於浮水印）</label>
-      <input type="text" id="reg-cn" placeholder="例：凱哥、小資男孩" maxlength="20" autocomplete="off">
-      <button class="lbtn" id="reg-btn" onclick="doSignUp()">申請加入</button>
-      <div id="reg-err"></div>
-    </div>
+      <input type="email" id="reg-email" placeholder="your@email.com" style="width:100%;box-sizing:border-box">
+      <label>密碼（6位以上）</label>
+      <input type="password" id="reg-pw" placeholder="設定密碼" style="width:100%;box-sizing:border-box">
+      <label>暱稱</label>
+      <input type="text" id="reg-nick" placeholder="您的暱稱" style="width:100%;box-sizing:border-box">
+      <button class="lbtn" onclick="doRegister()">送出申請</button>
+    </div></div>
   </div>
 </div>
-
-<div id="pending-screen">
-  <div class="login-card" style="text-align:center;max-width:420px">
-    <div style="font-size:48px;margin-bottom:16px">⏳</div>
-    <h2 style="margin-bottom:8px">申請審核中</h2>
-    <p style="color:var(--mu);margin-bottom:16px">請等候管理員放行或通知<strong>打單</strong></p>
-    
+<div id="pending-screen" style="display:none;position:fixed;inset:0;background:rgba(10,14,22,.97);align-items:center;justify-content:center;z-index:998">
+  <div style="background:#1a2236;padding:2.5rem 2rem;border-radius:16px;text-align:center;color:#c8d8e8;max-width:400px;width:90%">
+    <div style="font-size:3rem;margin-bottom:1rem">&#x23F3;</div>
+    <h2 style="margin:0 0 .75rem;color:#e0eaf5">申請審核中</h2>
+    <p style="margin:0 0 1.5rem;color:#7a8fa3">帳號等待管理員核准，核准後即可登入。</p>
+    <button onclick="sb.auth.signOut()" style="padding:.6rem 1.5rem;background:#2563eb;color:#fff;border:none;border-radius:8px;font-size:1rem;cursor:pointer">登出</button>
   </div>
 </div>
 
@@ -360,15 +354,17 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     </div>
     <div id="obs-panel"></div>
     <div class="pgrid" id="pgrid"></div>
-    <div class="adm" id="admin-panel" style="display:none">
-      <div class="adm-hd">🔐 管理員後台<span class="adm-badge">ADMIN</span>
-        <a class="adm-link" href="https://supabase.com/dashboard/project/_/auth/users" target="_blank">Supabase 管理使用者 →</a>
+    <div class="adm" <div class="adm" id="admin-panel" style="display:none">
+      <div class="adm-hd">管理員後台<span class="adm-badge">ADMIN</span>
+        <a class="adm-link" href="https://supabase.com/dashboard/project/_/auth/users" target="_blank">Supabase 用戶 →</a>
       </div>
       <div class="adm-body">
-        <div class="adm-sub">待審核申請</div><div id="adm-pending">載入中…</div>
-        <div class="adm-sub" style="margin-top:16px">成員登入記錄（最近 100 筆）</div><div id="adm-log">載入中…</div>
+        <div class="adm-sub">待審核申請</div>
+        <div id="pending-list"></div>
+        <div class="adm-sub" style="margin-top:.75rem">最近活動</div>
+        <div id="admin-log-body"></div>
       </div>
-    </div>
+    </div></div>
   </div>
 
   <!-- MEMBER DETAIL PAGE -->
@@ -478,45 +474,32 @@ async function saveCodename(){
 }
 
 sb.auth.onAuthStateChange(async(event,session)=>{
-  if(!session){
-    document.getElementById('login-screen').style.display='flex';
-    document.getElementById('app').style.display='none';
-    document.getElementById('pending-screen').style.display='none';
+  if(session){
+    if(_isInvite&&(event==='SIGNED_IN'||event==='USER_UPDATED')){
+      document.getElementById('login-screen').style.display='none';
+      document.getElementById('app').style.display='none';
+      document.getElementById('invite-modal').style.display='flex';
+      document.getElementById('inv-pw1').focus(); return;
+    }
+    document.getElementById('login-screen').style.display='none';
+    document.getElementById('invite-modal').style.display='none';
+    document.getElementById('app').style.display='block';
+    const cn=getCodename(session.user), dn=cn||session.user.email;
+    document.getElementById('user-chip').textContent=dn; applyWatermark(dn);
+    if(event==='SIGNED_IN'&&!cn){
+      document.getElementById('codename-modal').style.display='flex';
+      document.getElementById('cn-input').focus();
+    } else {
+      sb.from('activity_log').insert({user_email:session.user.email,codename:cn||null,action:event==='SIGNED_IN'?'login':'view',ua:navigator.userAgent.substring(0,250)});
+    }
+    if(session.user.email===ADMIN_EMAIL){document.getElementById('admin-panel').style.display='block';loadAdminLog();}
+    initApp();
+  } else {
     document.getElementById('watermark').style.backgroundImage='';
     ['codename-modal','invite-modal'].forEach(id=>document.getElementById(id).style.display='none');
-    return;
-  }
-  if(_isInvite&&(event==='SIGNED_IN'||event==='USER_UPDATED')){
-    document.getElementById('login-screen').style.display='none';
     document.getElementById('app').style.display='none';
-    document.getElementById('invite-modal').style.display='flex';
-    document.getElementById('inv-pw1').focus(); return;
+    document.getElementById('login-screen').style.display='flex';
   }
-  const {data:prof}=await sb.from('profiles').select('approved,codename').eq('id',session.user.id).single();
-  if(!prof||!prof.approved){
-    document.getElementById('login-screen').style.display='none';
-    document.getElementById('app').style.display='none';
-    document.getElementById('pending-screen').style.display='flex';
-    return;
-  }
-  document.getElementById('login-screen').style.display='none';
-  document.getElementById('invite-modal').style.display='none';
-  document.getElementById('pending-screen').style.display='none';
-  document.getElementById('app').style.display='block';
-  const cn=getCodename(session.user), dn=cn||session.user.email;
-  document.getElementById('user-chip').textContent=dn; applyWatermark(dn);
-  if(event==='SIGNED_IN'&&!cn){
-    document.getElementById('codename-modal').style.display='flex';
-    document.getElementById('cn-input').focus();
-  } else {
-    sb.from('activity_log').insert({user_email:session.user.email,codename:cn||null,action:event==='SIGNED_IN'?'login':'view',ua:navigator.userAgent.substring(0,250)});
-  }
-  if(session.user.email===ADMIN_EMAIL){
-    document.getElementById('admin-panel').style.display='block';
-    loadPendingUsers();
-    loadAdminLog();
-  }
-  initApp();
 });
 
 async function doSignIn(){
@@ -1597,7 +1580,48 @@ async function saveCodename(){
   sb.from('activity_log').insert({user_email:data.user.email,codename:val,action:'login',ua:navigator.userAgent.substring(0,250)});
 }
 
-
+sb.auth.onAuthStateChange(async function(event,session){
+  if(!session){
+    document.getElementById('login-screen').style.display='flex';
+    document.getElementById('app').style.display='none';
+    document.getElementById('pending-screen').style.display='none';
+    document.getElementById('watermark').style.backgroundImage='';
+    ['codename-modal','invite-modal'].forEach(function(id){var el=document.getElementById(id);if(el)el.style.display='none';});
+    return;
+  }
+  var im=document.getElementById('invite-modal');
+  document.getElementById('login-screen').style.display='none';
+  try{
+    var pres=await sb.from('profiles').select('approved,codename').eq('id',session.user.id).single();
+    var prof=pres.data;
+    if(!prof||!prof.approved){
+      document.getElementById('app').style.display='none';
+      document.getElementById('pending-screen').style.display='flex';
+      return;
+    }
+    if(im)im.style.display='none';
+    document.getElementById('pending-screen').style.display='none';
+    document.getElementById('app').style.display='block';
+    var cn=getCodename(session.user),dn=cn||session.user.email;
+    document.getElementById('user-chip').textContent=dn;applyWatermark(dn);
+    if(event==='SIGNED_IN'&&!cn){
+      var cm=document.getElementById('codename-modal');
+      if(cm){cm.style.display='flex';document.getElementById('cn-input').focus();}
+    }else{
+      sb.from('activity_log').insert({user_email:session.user.email,codename:cn||null,action:event==='SIGNED_IN'?'login':'view',ua:navigator.userAgent.substring(0,250)});
+    }
+    var adm=document.getElementById('admin-panel');
+    if(session.user.email===ADMIN_EMAIL&&adm){
+      adm.style.display='block';
+      loadPendingUsers();
+      if(typeof loadAdminLog==='function')loadAdminLog();
+    }
+    initApp();
+  }catch(err){
+    console.error('auth error:',err);
+    document.getElementById('pending-screen').style.display='flex';
+  }
+});
 
 async function doSignIn(){
   const email=document.getElementById('li-email').value.trim(),pw=document.getElementById('li-pw').value;
@@ -2254,6 +2278,48 @@ async function loadPrices(){
     document.querySelectorAll('[data-price]').forEach(el=>{if(el.dataset.price)el.textContent='—';});
   }
 }
+
+function switchLoginTab(tab){
+  document.getElementById('pane-li').style.display=tab==='li'?'block':'none';
+  document.getElementById('pane-reg').style.display=tab==='reg'?'block':'none';
+  ['tab-li','tab-reg'].forEach(function(id){
+    var t=document.getElementById(id),active=id==='tab-'+tab;
+    t.style.background=active?'#2563eb':'#1e293b';
+    t.style.color=active?'#fff':'#7a8fa3';
+  });
+  document.getElementById('login-err').textContent='';
+}
+async function doRegister(){
+  var email=document.getElementById('reg-email').value.trim();
+  var pw=document.getElementById('reg-pw').value;
+  var nick=document.getElementById('reg-nick').value.trim();
+  var err=document.getElementById('login-err');
+  if(!email||!pw||!nick){err.style.color='#f87171';err.textContent='請填寫所有欄位';return;}
+  if(pw.length<6){err.style.color='#f87171';err.textContent='密碼需至少6位';return;}
+  var btn=document.querySelector('#pane-reg .lbtn');
+  if(btn){btn.disabled=true;btn.textContent='申請中...';}
+  try{
+    var res=await sb.auth.signUp({email:email,password:pw,options:{data:{codename:nick}}});
+    if(res.error)throw res.error;
+    err.style.color='#4ade80';err.textContent='申請已送出，請等待管理員核准。';
+    if(btn)btn.textContent='已送出';
+  }catch(e){
+    err.style.color='#f87171';err.textContent=e.message||'申請失敗';
+    if(btn){btn.disabled=false;btn.textContent='送出申請';}
+  }
+}
+async function loadPendingUsers(){
+  var el=document.getElementById('pending-list');if(!el)return;
+  var res=await sb.from('profiles').select('id,email,codename,created_at').eq('approved',false).order('created_at');
+  var data=res.data;
+  if(!data||!data.length){el.innerHTML='<p style="color:#7a8fa3;font-size:.85rem;padding:.5rem">目前無待審核申請</p>';return;}
+  el.innerHTML=data.map(function(u){return '<div style="display:flex;align-items:center;gap:.5rem;margin:.3rem 0;padding:.5rem .75rem;background:#0f172a;border-radius:6px;font-size:.85rem"><div style="flex:1"><b style="color:#e0eaf5">'+u.codename+'</b> <span style="color:#7a8fa3">'+u.email+'</span></div><button onclick="approveUser(''+u.id+'',true)" style="padding:.3rem .65rem;background:#22c55e;color:#fff;border:none;border-radius:4px;cursor:pointer">核准</button> <button onclick="approveUser(''+u.id+'',false)" style="padding:.3rem .65rem;background:#ef4444;color:#fff;border:none;border-radius:4px;cursor:pointer">拒絕</button></div>';}).join('');
+}
+async function approveUser(id,approve){
+  if(approve){await sb.from('profiles').update({approved:true}).eq('id',id);}
+  else{await sb.from('profiles').delete().eq('id',id);}
+  loadPendingUsers();
+}
 </script>
 
 <div id="news-page" style="display:none;padding:72px 20px 20px;max-width:800px;margin:0 auto"></div>
@@ -2314,68 +2380,6 @@ np.innerHTML='<div style="margin-bottom:20px;display:flex;align-items:center;gap
 populateMeetingSelect();
 
 })();
-
-function switchLoginTab(tab){
-  document.querySelectorAll('.ltab').forEach(b=>b.classList.remove('active'));
-  document.getElementById('lf-in').style.display='none';
-  document.getElementById('lf-up').style.display='none';
-  document.getElementById('ltab-'+tab).classList.add('active');
-  document.getElementById('lf-'+tab).style.display='flex';
-}
-
-async function doSignUp(){
-  const email=document.getElementById('reg-email').value.trim();
-  const pw=document.getElementById('reg-pw').value;
-  const cn=document.getElementById('reg-cn').value.trim();
-  const err=document.getElementById('reg-err');
-  err.textContent=''; err.style.color='#ef4444';
-  if(!email){err.textContent='請填寫信箱';return;}
-  if(pw.length<6){err.textContent='密碼至少 6 位';return;}
-  if(!cn){err.textContent='請填寫暱稱';return;}
-  const btn=document.getElementById('reg-btn');
-  btn.disabled=true;btn.textContent='申請中...';
-  try{
-    const {error}=await sb.auth.signUp({email,password:pw,options:{data:{codename:cn}}});
-    if(error){
-      err.textContent=error.message.includes('already')?'此信箱已註冊，請切換至「登入」':('錯誤：'+error.message);
-      btn.disabled=false;btn.textContent='申請加入';
-      return;
-    }
-    err.style.color='#166534';
-    err.textContent='✅ 申請送出！請等候管理員放行';
-    btn.disabled=true;
-    setTimeout(()=>{
-      document.getElementById('login-screen').style.display='none';
-      document.getElementById('pending-screen').style.display='flex';
-    },2000);
-  }catch(e){
-    err.textContent='錯誤：'+e.message;
-    btn.disabled=false;btn.textContent='申請加入';
-  }
-}
-
-function loadPendingUsers(){
-  const el=document.getElementById('adm-pending');
-  if(!el)return;
-  sb.from('profiles').select('id,email,codename,approved').eq('approved',false).then(({data})=>{
-    if(!data||!data.length){el.innerHTML='<p style="color:#64748b;padding:8px 0">目前無待審核申請</p>';return;}
-    el.innerHTML=data.map(u=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #e2e8f0"><div><strong>${u.codename||''}</strong><br><span style="font-size:12px;color:#64748b">${u.email||''}</span></div><div><button data-uid="${u.id}" data-act="approve" style="background:#22c55e;color:#fff;border:none;padding:5px 14px;border-radius:6px;cursor:pointer;margin-right:6px;font-size:13px">允許加入</button><button data-uid="${u.id}" data-act="reject" style="background:#ef4444;color:#fff;border:none;padding:5px 14px;border-radius:6px;cursor:pointer;font-size:13px">拒絕</button></div></div>`).join('');
-    el.querySelectorAll('[data-uid]').forEach(b=>{b.onclick=()=>b.dataset.act==='approve'?approveUser(b.dataset.uid):rejectUser(b.dataset.uid);});
-  });
-}
-
-async function approveUser(uid){
-  const {error}=await sb.from('profiles').update({approved:true}).eq('id',uid);
-  if(error){alert('失敗：'+error.message);return;}
-  alert('已允許加入！');loadPendingUsers();
-}
-
-async function rejectUser(uid){
-  if(!confirm('確定拒絕此申請？'))return;
-  const {error}=await sb.from('profiles').delete().eq('id',uid);
-  if(error){alert('刪除失敗：'+error.message);return;}
-  loadPendingUsers();
-}
 </script>
 </body>
 </html>
