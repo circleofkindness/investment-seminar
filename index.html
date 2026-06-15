@@ -1586,7 +1586,7 @@ sb.auth.onAuthStateChange(async function(event,session){
   try{
     var pres=await sb.from('profiles').select('approved,codename').eq('id',session.user.id).single();
     var prof=pres.data;
-    if(!prof||(!prof.approved&&session.user.email!==ADMIN_EMAIL)){
+    if(session.user.email!==ADMIN_EMAIL&&(!prof||!prof.approved)){
       document.getElementById('app').style.display='none';
       var ps2=document.getElementById('pending-screen');if(ps2)ps2.style.display='flex';
       return;
