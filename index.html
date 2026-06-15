@@ -2296,6 +2296,9 @@ async function doRegister(){
   try{
     var res=await sb.auth.signUp({email:email,password:pw,options:{data:{codename:nick}}});
     if(res.error)throw res.error;
+    if(res.data&&res.data.user){
+      await sb.from('profiles').upsert({id:res.data.user.id,email:email,codename:nick,approved:false},{onConflict:'id'});
+    }
     if(err){err.style.color='#4ade80';err.textContent='申請已送出，請等待管理員核准。';}
     if(btn)btn.textContent='已送出';
   }catch(ex){
