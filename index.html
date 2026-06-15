@@ -1621,6 +1621,7 @@ setTimeout(function(){
   var ap=document.getElementById('app');
   var ps=document.getElementById('pending-screen');
   if(ls&&ap&&ps&&getComputedStyle(ls).display==='none'&&getComputedStyle(ap).display==='none'&&getComputedStyle(ps).display==='none'){
+    sb.auth.signOut().catch(function(){});
     ls.style.display='flex';
   }
 },2000);
@@ -1630,6 +1631,7 @@ async function doSignIn(){
   const btn=document.getElementById('li-btn'),err=document.getElementById('login-err');
   if(!email||!pw){err.textContent='請填入 Email 和密碼';return;}
   btn.disabled=true; btn.textContent='登入中…'; err.textContent='';
+  await sb.auth.signOut().catch(function(){});
   const {error}=await sb.auth.signInWithPassword({email,password:pw});
   if(error){err.textContent='帳密錯誤，請再試一次';btn.disabled=false;btn.textContent='登入';}
 }
