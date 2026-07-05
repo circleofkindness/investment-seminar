@@ -442,6 +442,29 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="https://unpkg.com/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
 <script>
+// Early safety-net: runs before createClient so page never stays dark even if Supabase CDN is blocked
+(function(){
+  setTimeout(function(){
+    var ls=document.getElementById('login-screen');
+    var ap=document.getElementById('app');
+    var ps=document.getElementById('pending-screen');
+    var allHidden=ls&&ap&&ps&&getComputedStyle(ls).display==='none'&&getComputedStyle(ap).display==='none'&&getComputedStyle(ps).display==='none';
+    if(allHidden){
+      var hasSbKeys=Object.keys(localStorage).some(function(k){return k.startsWith('sb-');});
+      if(!hasSbKeys){ls.style.display='flex';}
+    }
+  },5000);
+  setTimeout(function(){
+    var ls=document.getElementById('login-screen');
+    var ap=document.getElementById('app');
+    var ps=document.getElementById('pending-screen');
+    var allHidden=ls&&ap&&ps&&getComputedStyle(ls).display==='none'&&getComputedStyle(ap).display==='none'&&getComputedStyle(ps).display==='none';
+    if(allHidden){
+      Object.keys(localStorage).filter(function(k){return k.startsWith('sb-');}).forEach(function(k){localStorage.removeItem(k);});
+      ls.style.display='flex';
+    }
+  },20000);
+})();
 const SUPABASE_URL  = 'https://irgwtrpreolrgniebdlc.supabase.co';
 const SUPABASE_ANON = 'sb_publishable_YR86duyW1fiw5dL9QkupEQ_YBeirf4E';
 const ADMIN_EMAIL   = 'channel.huangsc@gmail.com';
@@ -1645,28 +1668,6 @@ sb.auth.onAuthStateChange(async function(event,session){
 });
 
 // Safety net: if all panels stay hidden 2s after load, show login
-// Safety-net: only show login if no active session in localStorage
-setTimeout(function(){
-  var ls=document.getElementById('login-screen');
-  var ap=document.getElementById('app');
-  var ps=document.getElementById('pending-screen');
-  var allHidden=ls&&ap&&ps&&getComputedStyle(ls).display==='none'&&getComputedStyle(ap).display==='none'&&getComputedStyle(ps).display==='none';
-  if(allHidden){
-    var hasSbKeys=Object.keys(localStorage).some(function(k){return k.startsWith('sb-');});
-    if(!hasSbKeys){ls.style.display='flex';}
-  }
-},5000);
-// Extended safety-net: still blank after 20s even with session → clear stale session and show login
-setTimeout(function(){
-  var ls=document.getElementById('login-screen');
-  var ap=document.getElementById('app');
-  var ps=document.getElementById('pending-screen');
-  var allHidden=ls&&ap&&ps&&getComputedStyle(ls).display==='none'&&getComputedStyle(ap).display==='none'&&getComputedStyle(ps).display==='none';
-  if(allHidden){
-    Object.keys(localStorage).filter(function(k){return k.startsWith('sb-');}).forEach(function(k){localStorage.removeItem(k);});
-    ls.style.display='flex';
-  }
-},20000);
 
 async function doSignIn(){
   const email=document.getElementById('li-email').value.trim(),pw=document.getElementById('li-pw').value;
