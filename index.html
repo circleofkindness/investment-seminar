@@ -512,17 +512,18 @@ sb.auth.onAuthStateChange(async(event,session)=>{
     }
     document.getElementById('login-screen').style.display='none';
     document.getElementById('invite-modal').style.display='none';
-    document.getElementById('app').style.display='block';
     const cn=getCodename(session.user), dn=cn||session.user.email;
     document.getElementById('user-chip').textContent=dn; applyWatermark(dn);
+    if(session.user.email===ADMIN_EMAIL){document.getElementById('admin-panel').style.display='block';}
+    initApp();
+    document.getElementById('app').style.display='block';
+    if(session.user.email===ADMIN_EMAIL){loadAdminLog();}
     if(event==='SIGNED_IN'&&!cn){
       document.getElementById('codename-modal').style.display='flex';
       document.getElementById('cn-input').focus();
     } else {
       sb.from('activity_log').insert({user_email:session.user.email,codename:cn||null,action:event==='SIGNED_IN'?'login':'view',ua:navigator.userAgent.substring(0,250)});
     }
-    if(session.user.email===ADMIN_EMAIL){document.getElementById('admin-panel').style.display='block';loadAdminLog();}
-    initApp();
   } else {
     document.getElementById('watermark').style.backgroundImage='';
     ['codename-modal','invite-modal'].forEach(id=>document.getElementById(id).style.display='none');
