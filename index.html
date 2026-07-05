@@ -285,6 +285,16 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 <p id="login-err" style="font-size:.875rem;margin:.25rem 0;min-height:1.2em;text-align:center"></p>
   </div>
 </div>
+<div id="reset-screen" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,14,22,.97);align-items:center;justify-content:center;z-index:999">
+<div style="background:#fff;border-radius:16px;padding:40px;width:90%;max-width:400px;text-align:center">
+<div style="font-size:32px;margin-bottom:8px">🔑</div>
+<h2 style="color:#1a2a4a;margin:0 0 8px">設定新密碼</h2>
+<p style="color:#666;font-size:14px;margin:0 0 20px">請輸入你的新密碼</p>
+<input id="new-pw" type="password" placeholder="新密碼（至少6位）" style="width:100%;box-sizing:border-box;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:15px;margin-bottom:12px">
+<input id="new-pw2" type="password" placeholder="再輸入一次" style="width:100%;box-sizing:border-box;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:15px;margin-bottom:16px">
+<button onclick="doResetPw()" style="width:100%;padding:14px;background:#1a3a6b;color:#fff;border:none;border-radius:8px;font-size:16px;cursor:pointer">確認更新密碼</button>
+<div id="reset-err" style="color:#c00;margin-top:10px;font-size:13px"></div>
+</div></div>
 <div id="pending-screen" style="display:none;position:fixed;inset:0;background:rgba(10,14,22,.97);align-items:center;justify-content:center;z-index:998">
 <div style="background:#1a2236;padding:2.5rem 2rem;border-radius:16px;text-align:center;max-width:360px;width:90%">
 <h2 style="color:#f0f6ff;margin-bottom:1rem">申請審核中</h2>
@@ -467,6 +477,13 @@ async function saveCodename(){
 }
 
 sb.auth.onAuthStateChange(async(event,session)=>{
+  if(event==='PASSWORD_RECOVERY'){
+    document.getElementById('login-screen').style.display='none';
+    document.getElementById('app').style.display='none';
+    document.getElementById('pending-screen').style.display='none';
+    document.getElementById('reset-screen').style.display='flex';
+    return;
+  }
   if(session){
     if(_isInvite&&(event==='SIGNED_IN'||event==='USER_UPDATED')){
       document.getElementById('login-screen').style.display='none';
@@ -1544,6 +1561,14 @@ const SUPABASE_ANON = 'sb_publishable_YR86duyW1fiw5dL9QkupEQ_YBeirf4E';
 const ADMIN_EMAIL   = 'channel.huangsc@gmail.com';
 
 const { createClient } = window.supabase;
+// Handle password recovery from email link
+(function(){
+  var hash=window.location.hash;
+  if(hash.includes('type=recovery')||hash.includes('type=signup')){
+    // Supabase will fire onAuthStateChange with type='PASSWORD_RECOVERY'
+    window._isRecovery=true;
+  }
+})();
 // Clear expired/malformed Supabase sessions immediately
 (function(){try{var k=Object.keys(localStorage).find(function(k){return k.startsWith('sb-')&&k.endsWith('-auth-token');});if(k){var d=JSON.parse(localStorage.getItem(k)||'{}');var exp=d&&d.expires_at;if(!exp||exp<Math.floor(Date.now()/1000)){Object.keys(localStorage).filter(function(j){return j.startsWith('sb-');}).forEach(function(j){localStorage.removeItem(j);});}}}catch(e){Object.keys(localStorage).filter(function(j){return j.startsWith('sb-');}).forEach(function(j){localStorage.removeItem(j);});}})();
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON);
@@ -2304,6 +2329,23 @@ async function doForgotPw(){
   const {error}=await sb.auth.resetPasswordForEmail(email,{redirectTo:'https://circleofkindness.github.io/investment-seminar/'});
   if(error){alert('發送失敗：'+error.message);}
   else{alert('重設密碼信已寄出，請檢查你的信箱（含垃圾信件夾）。');}
+}
+async function doResetPw(){
+  const pw=document.getElementById('new-pw').value;
+  const pw2=document.getElementById('new-pw2').value;
+  const err=document.getElementById('reset-err');
+  if(pw.length<6){err.textContent='密碼至少需要 6 位';return;}
+  if(pw!==pw2){err.textContent='兩次密碼不一致';return;}
+  err.textContent='更新中...';
+  const {error}=await sb.auth.updateUser({password:pw});
+  if(error){err.textContent='錯誤：'+error.message;}
+  else{
+    alert('密碼已更新！請重新登入。');
+    await sb.auth.signOut();
+    document.getElementById('reset-screen').style.display='none';
+    document.getElementById('login-screen').style.display='flex';
+    window.location.hash='';
+  }
 }
 async function doRegister(){
   var email=document.getElementById('reg-email').value.trim();
