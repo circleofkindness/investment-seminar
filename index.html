@@ -1645,14 +1645,28 @@ sb.auth.onAuthStateChange(async function(event,session){
 });
 
 // Safety net: if all panels stay hidden 2s after load, show login
+// Safety-net: only show login if no active session in localStorage
 setTimeout(function(){
   var ls=document.getElementById('login-screen');
   var ap=document.getElementById('app');
   var ps=document.getElementById('pending-screen');
-  if(ls&&ap&&ps&&getComputedStyle(ls).display==='none'&&getComputedStyle(ap).display==='none'&&getComputedStyle(ps).display==='none'){
-    ls.style.display='flex';
+  var allHidden=ls&&ap&&ps&&getComputedStyle(ls).display==='none'&&getComputedStyle(ap).display==='none'&&getComputedStyle(ps).display==='none';
+  if(allHidden){
+    var hasSbKeys=Object.keys(localStorage).some(function(k){return k.startsWith('sb-');});
+    if(!hasSbKeys){ls.style.display='flex';}
   }
 },5000);
+// Extended safety-net: still blank after 20s even with session → clear stale session and show login
+setTimeout(function(){
+  var ls=document.getElementById('login-screen');
+  var ap=document.getElementById('app');
+  var ps=document.getElementById('pending-screen');
+  var allHidden=ls&&ap&&ps&&getComputedStyle(ls).display==='none'&&getComputedStyle(ap).display==='none'&&getComputedStyle(ps).display==='none';
+  if(allHidden){
+    Object.keys(localStorage).filter(function(k){return k.startsWith('sb-');}).forEach(function(k){localStorage.removeItem(k);});
+    ls.style.display='flex';
+  }
+},20000);
 
 async function doSignIn(){
   const email=document.getElementById('li-email').value.trim(),pw=document.getElementById('li-pw').value;
