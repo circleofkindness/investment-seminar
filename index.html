@@ -522,15 +522,7 @@ sb.auth.onAuthStateChange(async(event,session)=>{
       sb.from('activity_log').insert({user_email:session.user.email,codename:cn||null,action:event==='SIGNED_IN'?'login':'view',ua:navigator.userAgent.substring(0,250)});
     }
     if(session.user.email===ADMIN_EMAIL){document.getElementById('admin-panel').style.display='block';loadAdminLog();}
-    try{
-      initApp();
-    }catch(e){
-      console.error('[FF-debug] initApp failed:',e.message,e.stack);
-      document.getElementById('app').style.display='none';
-      document.getElementById('login-screen').style.display='flex';
-      const errEl=document.getElementById('login-err');
-      if(errEl) errEl.textContent='頁面載入失敗，請重新整理 ('+e.message+')';
-    }
+    initApp();
   } else {
     document.getElementById('watermark').style.backgroundImage='';
     ['codename-modal','invite-modal'].forEach(id=>document.getElementById(id).style.display='none');
