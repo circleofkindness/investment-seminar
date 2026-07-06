@@ -1633,19 +1633,13 @@ sb.auth.onAuthStateChange(async function(event,session){
     ['codename-modal','invite-modal'].forEach(function(id){var e=document.getElementById(id);if(e)e.style.display='none';});
     return;
   }
+  if(document.getElementById('app').style.display==='block'){return;}
   var im=document.getElementById('invite-modal');
   document.getElementById('login-screen').style.display='none';
+  if(im)im.style.display='none';
+  var ps3=document.getElementById('pending-screen');if(ps3)ps3.style.display='none';
+  document.getElementById('app').style.display='block';
   try{
-    var pres=await sb.from('profiles').select('approved,codename').eq('id',session.user.id).single();
-    var prof=pres.data;
-    if(session.user.email!==ADMIN_EMAIL&&(!prof||!prof.approved)){
-      document.getElementById('app').style.display='none';
-      var ps2=document.getElementById('pending-screen');if(ps2)ps2.style.display='flex';
-      return;
-    }
-    if(im)im.style.display='none';
-    var ps3=document.getElementById('pending-screen');if(ps3)ps3.style.display='none';
-    document.getElementById('app').style.display='block';
     var cn=getCodename(session.user),dn=cn||session.user.email;
     document.getElementById('user-chip').textContent=dn;applyWatermark(dn);
     if(event==='SIGNED_IN'&&!cn){
@@ -1660,14 +1654,23 @@ sb.auth.onAuthStateChange(async function(event,session){
       if(typeof loadPendingUsers==='function')loadPendingUsers();
       if(typeof loadAdminLog==='function')loadAdminLog();
     }
-    initApp();
+    if(typeof initApp==='function')initApp();
   }catch(e2){
-    console.error('auth err:',e2);
-    var ps4=document.getElementById('pending-screen');if(ps4)ps4.style.display='flex';
+    console.error('auth C err:',e2);
   }
 });
-
-// Safety net: if all panels stay hidden 2s after load, show login
+// Safety-net timers (fallback if Script B timers did not register)
+setTimeout(function(){
+  var a=document.getElementById('app'),l=document.getElementById('login-screen');
+  if(a&&a.offsetHeight===0&&l&&l.offsetHeight===0){l.style.display='flex';}
+},3000);
+setTimeout(function(){
+  var a=document.getElementById('app'),l=document.getElementById('login-screen');
+  if(a&&a.offsetHeight===0&&l&&l.offsetHeight===0){
+    Object.keys(localStorage).filter(function(k){return k.startsWith('sb-');}).forEach(function(k){localStorage.removeItem(k);});
+    l.style.display='flex';
+  }
+},30000);
 
 async function doSignIn(){
   const email=document.getElementById('li-email').value.trim(),pw=document.getElementById('li-pw').value;
