@@ -496,6 +496,7 @@ async function saveCodename(){
 }
 
 sb.auth.onAuthStateChange(async(event,session)=>{
+  console.log('[D0] onAuthStateChange fired: event=',event,'session=',!!session);
   if(event==='PASSWORD_RECOVERY'){
     document.getElementById('login-screen').style.display='none';
     document.getElementById('app').style.display='none';
@@ -512,7 +513,9 @@ sb.auth.onAuthStateChange(async(event,session)=>{
     }
     document.getElementById('login-screen').style.display='none';
     document.getElementById('invite-modal').style.display='none';
+    console.log('[D1] auth event=',event,'session=',!!session);
     document.getElementById('app').style.display='block';
+    console.log('[D2] app after set:', document.getElementById('app').style.display, 'computed:', getComputedStyle(document.getElementById('app')).display);
     const cn=getCodename(session.user), dn=cn||session.user.email;
     document.getElementById('user-chip').textContent=dn; applyWatermark(dn);
     if(event==='SIGNED_IN'&&!cn){
@@ -523,6 +526,7 @@ sb.auth.onAuthStateChange(async(event,session)=>{
     }
     if(session.user.email===ADMIN_EMAIL){document.getElementById('admin-panel').style.display='block';loadAdminLog();}
     initApp();
+    console.log('[D3] after initApp app=', document.getElementById('app').style.display, 'computed:', getComputedStyle(document.getElementById('app')).display);
   } else {
     document.getElementById('watermark').style.backgroundImage='';
     ['codename-modal','invite-modal'].forEach(id=>document.getElementById(id).style.display='none');
