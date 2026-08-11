@@ -1,9 +1,23 @@
 import json, datetime, os, time
 import yfinance as yf
 
+# TSE = 上市 (.TW on Yahoo Finance)
+# OTC = 上櫃 (.TWO on Yahoo Finance)
+# 興櫃 stocks (e.g. 7902宇越, 6696仁新) are included under otc but may fail to fetch
 STOCKS = {
-    'tse': ['1612','2059','2303','2316','2327','2329','2330','2385','2454','3026','3324'],
-    'otc': ['3042','3059','3167','3450','3485','3528','3653','5289','5511','6121','6147','6223','6227','6442','6449','6669','6788','6840','7610','7871','8043','8299','9939']
+    'tse': [
+        '1612','2059','2303','2316','2327','2329','2330','2356',
+        '2385','2397','2408','2423','2454','3017','3026','3042',
+        '3167','3324','3528','3711','5483','6213','6669'
+    ],
+    'otc': [
+        '3059','3374','3450','3485','3529','3595','3653',
+        '4542','4554','4927','5288','5289','5511',
+        '6121','6147','6182','6223','6227','6442','6449',
+        '6467','6610','6683','6696','6788','6840',
+        '7610','7798','7856','7861','7871','7902',
+        '8043','8096','8299','8431','9939'
+    ]
 }
 
 os.makedirs('data', exist_ok=True)
@@ -25,34 +39,31 @@ for ex, codes in STOCKS.items():
                 for dt, row in hist.iterrows():
                     try:
                         date_str = dt.strftime('%Y-%m-%d')
-                        o = float(row['Open'])
-                        h = float(row['High'])
-                        l = float(row['Low'])
-                        c = float(row['Close'])
-                        v = int(row['Volume']) if 'Volume' in row and row['Volume'] == row['Volume'] else None
-                        if o and h and l and c:
-                            entry = {'time': date_str, 'open': round(o,2), 'high': round(h,2), 'low': round(l,2), 'close': round(c,2)}
-                            if v is not None: entry['volume'] = v
-                            ohlc.append(entry)
-                    except:
+                        ohlc.append([date_str,
+                                     round(float(row['Open']),2),
+                                     round(float(row['High']),2),
+                                     round(float(row['Low']),2),
+                                     round(float(row['Close']),2)])
+                    except Exception:
                         pass
 
-                with open(f'data/{code}.json', 'w') as f:
-                    json.dump({'updated': updated, 'data': ohlc}, f, separators=(',',':'))
+                with open(f'data/{code}.json','w') as fh:
+                    json.dump({'code':code,'ex':ex,'ohlc':ohlc}, fh, separators=(',',':'))
 
-                info = t.fast_info
-                p    = round(float(info.last_price or 0), 2)
-                prev = round(float(info.previous_close or 0), 2)
-                chg  = round((p - prev) / prev * 100, 2) if prev > 0 else 0
-                prices[code] = {'p': p, 'prev': prev, 'chgPct': chg}
-                print(f'OK {ticker_sym}: {p} ({chg:+.2f}%) [{len(ohlc)} bars]')
-                time.sleep(0.5)
+                if ohlc:
+                    prev_close = ohlc[-2][4] if len(ohlc) >= 2 else ohlc[-1][4]
+                    last_close = ohlc[-1][4]
+                    chg_pct = round((last_close - prev_close) / prev_close * 100, 2) if prev_close else 0
+                    prices[code] = {'p': last_close, 'prev': prev_close, 'chgPct': chg_pct}
+
+                print(f'OK {ticker_sym} ({len(ohlc)} bars)')
                 break
             except Exception as e:
-                print(f'RETRY {attempt+1} {ticker_sym}: {e}')
-                time.sleep(3)
+                print(f'ERR {ticker_sym} attempt {attempt+1}: {e}')
+                if attempt < 2:
+                    time.sleep(2)
 
-with open('data/prices.json', 'w') as f:
-    json.dump({'updated': updated, 'prices': prices}, f, separators=(',',':'))
+with open('data/prices.json','w') as fh:
+    json.dump({'prices': prices, 'updated': updated}, fh, separators=(',',':'))
 
-print(f'\nDone: {len(prices)}/{sum(len(v) for v in STOCKS.values())} stocks updated')
+print(f'Done. {len(prices)} stocks updated.')
