@@ -592,14 +592,14 @@ const MEETINGS = [
     members:[
       {name:'凱哥',stocks:[
         {code:'7871',ex:'otc',name:'安立璽榮-KY',thesis:'阿茲海默小分子藥，BioMark 生物標記有效率 5/7（4/7 降低 30%+ 發炎），1 案例 MMSE 從 15 分逆轉至 23 分（全球首例），即將進大型臨床試驗，大藥廠授權機會',target:null,tags:['生技','阿茲海默']},
-        {code:'3528',ex:'otc',name:'安馳',thesis:'雷哥推薦，凱哥下週私訪，基金已買進兩大買超，120 以下將加碼至 1 億',target:'120以下',tags:[]},
+        {code:'3528',ex:'tse',name:'安馳',thesis:'雷哥推薦，凱哥下週私訪，基金已買進兩大買超，120 以下將加碼至 1 億',target:'120以下',tags:[]},
         {code:'7610',ex:'otc',name:'聯友金屬',thesis:'鎢材料稀缺 + 中美貿易戰地緣政治 + 技術壁壘（競爭對手難進入），成本 57 元漲至 1900+；日本停產消息待消化',target:2300,tags:['鎢','地緣政治']},
         {code:'2059',ex:'tse',name:'川湖',thesis:'伺服器機櫃導軌，營收持續超預期，成本 1000 出頭，基金已買進',target:null,tags:['伺服器','AI']},
         {code:'3026',ex:'tse',name:'禾伸堂',thesis:'被動元件漲價受惠，基金持有',target:null,tags:['被動元件']},
         {code:'7902',ex:'otc',name:'宇越生技',thesis:'宇越生醫科技（UWELL Biopharma）專注開發嵌合抗原受體（CAR-T）細胞療法與基因改造免疫治療藥物',target:null,tags:['生技','CAR-T']},
       ]},
       {name:'崴哥',stocks:[
-        {code:'3528',ex:'otc',name:'安馳',thesis:'4 月營收掉、5 月回升，市場估月 EPS 2 塊、全年 20，等凱哥私訪驗證 EPS',target:null,tags:['生技']},
+        {code:'3528',ex:'tse',name:'安馳',thesis:'4 月營收掉、5 月回升，市場估月 EPS 2 塊、全年 20，等凱哥私訪驗證 EPS',target:null,tags:['生技']},
         {code:'2385',ex:'tse',name:'群光',thesis:'高殖利率 ETF 成分股（0056/919），法人持續買進，線型飄升中',target:null,tags:['除息行情','高殖利率']},
         {code:'9939',ex:'otc',name:'宏全',thesis:'7 月初除息，高殖利率，法人目前持續建倉，還有約一個月時間',target:null,tags:['除息行情','高殖利率']},
         {code:'6449',ex:'otc',name:'鈺邦',thesis:'鋁質電容漲價 + 缺貨（比 MLCC 漲幅更大），漲價前月 EPS 已達 1 塊，本益比低於國巨，籌碼較冷',target:null,tags:['被動元件','鋁質電容']},
@@ -621,7 +621,7 @@ const MEETINGS = [
       ]},
       {name:'Monson',stocks:[
         {code:'8299',ex:'otc',name:'群聯',thesis:'Computex 展出 NPU 晶片，讓 AIPC 地端流暢跑 LLM，潘董說持續缺貨，餐飲業已實際落地應用',target:null,tags:['AI PC','NPU']},
-        {code:'3167',ex:'otc',name:'大量',thesis:'PCB 厚度 TMS 量測機台全球最優，毛利率 42-45%，下半年營收 +25%；董事長：今年 EPS 30、明年 60（保守）',target:1500,tags:['設備','PCB量測']},
+        {code:'3167',ex:'tse',name:'大量',thesis:'PCB 厚度 TMS 量測機台全球最優，毛利率 42-45%，下半年營收 +25%；董事長：今年 EPS 30、明年 60（保守）',target:1500,tags:['設備','PCB量測']},
       ]},
       {name:'馬奎爾',stocks:[
         {code:'2327',ex:'tse',name:'國巨',thesis:'被動元件漲價，流動性強，長期持有核心部位',target:null,tags:['被動元件']},
@@ -666,9 +666,9 @@ const MEETINGS = [
       ]},
       {name:'momoji',stocks:[
         {code:'2327',ex:'tse',name:'國巨',thesis:'標配持股',target:null,tags:['被動元件']},
-        {code:'3167',ex:'otc',name:'大量',thesis:'標配持股，董事長預期今年 EPS 30 / 明年 60（保守），統一報告 2027 EPS 43.4',target:null,tags:['設備']},
+        {code:'3167',ex:'tse',name:'大量',thesis:'標配持股，董事長預期今年 EPS 30 / 明年 60（保守），統一報告 2027 EPS 43.4',target:null,tags:['設備']},
         {code:'2059',ex:'tse',name:'川湖',thesis:'標配持股',target:null,tags:['伺服器']},
-        {code:'6669',ex:'otc',name:'緯穎',thesis:'明年 EPS 估 600，現在 <10 倍 PE，市場關注度低，除息公告後有啟動機會',target:null,tags:['伺服器','AI']},
+        {code:'6669',ex:'tse',name:'緯穎',thesis:'明年 EPS 估 600，現在 <10 倍 PE，市場關注度低，除息公告後有啟動機會',target:null,tags:['伺服器','AI']},
         {code:'6223',ex:'otc',name:'旺矽',thesis:'CB 詢圈被洗掉後，昨天好營收出來，MS 今天可能發報告',target:null,tags:['探針']},
         {code:'2303',ex:'tse',name:'聯電',thesis:'919 ETF 成分股調整事件，朋友推，內部估 200-300',target:300,tags:['晶圓代工']},
       ]},
@@ -714,7 +714,7 @@ const MEETINGS = [
         {code:'2059',ex:'tse',name:'川湖',thesis:'擴廠加速 2 年，年底兩座新廠完工，產能翻倍；法人大資金 16 億佈局',target:10000,tags:['伺服器','AI']},
         {code:'7610',ex:'otc',name:'聯友金屬',thesis:'鎢非中供應鏈，美中貿易戰長期受益',target:null,tags:['鎢','地緣政治']},
         {code:'7871',ex:'otc',name:'安立璽榮-KY',thesis:'阿茲海默藥試驗數據正向，6 月公告 200 萬美金 fee',target:null,tags:['生技','阿茲海默']},
-        {code:'3528',ex:'otc',name:'安馳',thesis:'ADI 通知下半年交期拉長，基金已接 1 億部位，長線看多',target:null,tags:['類比IC']},
+        {code:'3528',ex:'tse',name:'安馳',thesis:'ADI 通知下半年交期拉長，基金已接 1 億部位，長線看多',target:null,tags:['類比IC']},
         {code:'7902',ex:'otc',name:'宇越（興櫃）',thesis:'補件完成即將進二期，對比沛爾(6949)~500億估值，宇越僅 70 億；沙烏地授權談判中',target:null,tags:['生技','興櫃']},
         {code:'6610',ex:'otc',name:'安成生技',thesis:'25 元現增，年底二期高機率過，名聲差但定價錯誤機會',target:null,tags:['生技','新藥']},
         {code:'6467',ex:'otc',name:'泰合',thesis:'口溶膜抗凝血藥，原廠 BMS 三期炸掉，授權機會大增',target:null,tags:['生技','新藥']},
@@ -723,7 +723,7 @@ const MEETINGS = [
       {name:'Harris哥',stocks:[
         {code:'7610',ex:'otc',name:'聯友金屬',thesis:'EPS 150~200 估，目標 3,400~3,600（2027 年）',target:3500,tags:['鎢','地緣政治']},
         {code:'3042',ex:'tse',name:'晶技',thesis:'216MHz 產品銷售佳，下半年動能持續',target:null,tags:['石英振盪器','AI伺服器']},
-        {code:'6182',ex:'tse',name:'合晶',thesis:'矽晶圓，在 10~11 元進行部位調整',target:null,tags:['矽晶圓']},
+        {code:'6182',ex:'otc',name:'合晶',thesis:'矽晶圓，在 10~11 元進行部位調整',target:null,tags:['矽晶圓']},
         {code:'7856',ex:'otc',name:'漢測',thesis:'Advantest 合作進展，下半年動能',target:null,tags:['測試設備']},
       ]},
       {name:'馬奎爾',stocks:[
@@ -736,19 +736,19 @@ const MEETINGS = [
         {code:'3595',ex:'otc',name:'山太士',thesis:'ABF 獨立供應商，明年 EPS 下限 100 元',target:null,tags:['ABF','AI']},
         {code:'7861',ex:'otc',name:'貝爾威勒',thesis:'目標 50 元',target:50,tags:[]},
         {code:'6683',ex:'otc',name:'雍智科技',thesis:'V9 出貨量 >> V8，快速放量，升估值空間',target:null,tags:['AI','GPU']},
-        {code:'6182',ex:'tse',name:'合晶',thesis:'矽晶圓佈局',target:null,tags:['矽晶圓']},
+        {code:'6182',ex:'otc',name:'合晶',thesis:'矽晶圓佈局',target:null,tags:['矽晶圓']},
         {code:'4542',ex:'otc',name:'科嶠',thesis:'明年 EPS 40+，等季線支撐後切入',target:null,tags:['ABF']},
-        {code:'3259',ex:'tse',name:'力旺',thesis:'3,000 以下可考慮佈局',target:null,tags:['IP','嵌入式記憶體']},
-        {code:'3374',ex:'tse',name:'精材',thesis:'台積電 OS 訂單從矽品轉至精材，質變升估值，現價 350 vs 日月光 600~700',target:null,tags:['先進封裝','台積電']},
+        {code:'3529',ex:'otc',name:'力旺',thesis:'3,000 以下可考慮佈局',target:null,tags:['IP','嵌入式記憶體']},
+        {code:'3374',ex:'otc',name:'精材',thesis:'台積電 OS 訂單從矽品轉至精材，質變升估值，現價 350 vs 日月光 600~700',target:null,tags:['先進封裝','台積電']},
       ]},
       {name:'奇哥（線上）',stocks:[
-        {code:'3374',ex:'tse',name:'精材',thesis:'4~5 個 channel check 確認台積電 OS 訂單轉入，質變升估值，可與矽品/日月光比；槓桿工具齊全，動能資金必關注',target:null,tags:['先進封裝','台積電']},
+        {code:'3374',ex:'otc',name:'精材',thesis:'4~5 個 channel check 確認台積電 OS 訂單轉入，質變升估值，可與矽品/日月光比；槓桿工具齊全，動能資金必關注',target:null,tags:['先進封裝','台積電']},
       ]},
       {name:'小哥哥',stocks:[
         {code:'8096',ex:'otc',name:'擎亞',thesis:'月營收 89 億創新高，CBAS 定價 160，目標 200；EPS 今年 10~15，明年 25；轉單+台積電訂單放大催化劑',target:200,tags:['PCB材料','台積電']},
       ]},
       {name:'Monson',stocks:[
-        {code:'3167',ex:'otc',name:'大量',thesis:'6 月營收 ~10 億，背鑽機技術全球最優（優於德國）；700 多元有支撐，共識度提升',target:null,tags:['設備','PCB量測']},
+        {code:'3167',ex:'tse',name:'大量',thesis:'6 月營收 ~10 億，背鑽機技術全球最優（優於德國）；700 多元有支撐，共識度提升',target:null,tags:['設備','PCB量測']},
         {code:'6213',ex:'tse',name:'聯茂',thesis:'M7 毛利率 30%+（vs M4 11~12%），H2 佔比拉至 10~13%；泰國產能 H2 開出；新客戶微軟（呼應台積電微軟訂單 14x）',target:null,tags:['CCL','AI伺服器','微軟']},
         {code:'4554',ex:'otc',name:'橙的',thesis:'胎壓偵測器，歐洲 AM 市場 50%+ 市占，配息 2 元（殖利率高），6 月營收十年同期新高',target:null,tags:['汽車電子']},
       ]},
@@ -762,18 +762,18 @@ const MEETINGS = [
       ]},
       {name:'MT',stocks:[
         {code:'2303',ex:'tse',name:'聯電',thesis:'成熟製程明年漲價確定，史上首次發 CB（2 張），目標 200~250',target:250,tags:['晶圓代工','成熟製程']},
-        {code:'6669',ex:'otc',name:'緯穎',thesis:'首次發股票股利 20 元（配一送三），明年 EPS 聽聞 900，估值便宜，事件+基本面雙驅動',target:null,tags:['AI伺服器','股票股利']},
+        {code:'6669',ex:'tse',name:'緯穎',thesis:'首次發股票股利 20 元（配一送三），明年 EPS 聽聞 900，估值便宜，事件+基本面雙驅動',target:null,tags:['AI伺服器','股票股利']},
       ]},
       {name:'momoji',stocks:[
-        {code:'3167',ex:'otc',name:'大量',thesis:'區間操作，今日有接，目標約 1,000',target:1000,tags:['設備','PCB量測']},
+        {code:'3167',ex:'tse',name:'大量',thesis:'區間操作，今日有接，目標約 1,000',target:1000,tags:['設備','PCB量測']},
       ]},
       {name:'發發哥',stocks:[
-        {code:'6182',ex:'tse',name:'合晶',thesis:'矽晶圓族群，台勝科漲停後跟進',target:null,tags:['矽晶圓']},
+        {code:'6182',ex:'otc',name:'合晶',thesis:'矽晶圓族群，台勝科漲停後跟進',target:null,tags:['矽晶圓']},
         {code:'5483',ex:'tse',name:'中美晶',thesis:'算術目標 200+，折價環球晶 50%，有補漲空間',target:200,tags:['矽晶圓']},
       ]},
       {name:'崴哥',stocks:[
         {code:'5511',ex:'otc',name:'德昌',thesis:'冷門股，EPS 15 元，5 倍本益比，無人關注，韓股波動影響小',target:null,tags:['建設','低本益比']},
-        {code:'3528',ex:'otc',name:'安馳',thesis:'減碼後買回，EPS 便宜，ADI 下半年拉貨動能；基金已接 1 億',target:null,tags:['類比IC']},
+        {code:'3528',ex:'tse',name:'安馳',thesis:'減碼後買回，EPS 便宜，ADI 下半年拉貨動能；基金已接 1 億',target:null,tags:['類比IC']},
         {code:'2397',ex:'tse',name:'友通',thesis:'工業電腦族群，營收年增三成，BB 值接近 2，被錯殺，等反彈',target:null,tags:['工業電腦']},
         {code:'4927',ex:'otc',name:'泰鼎（空）',thesis:'空單：籌碼爛+韓合作遞延+閒置產能未認列+每季 EPS -3；中國 PCB 泰國廠競爭加劇',target:null,tags:['PCB','空單']},
       ]},
@@ -787,7 +787,7 @@ const MEETINGS = [
         {code:'2303',ex:'tse',name:'聯電',thesis:'估值便宜，繼續持有，成熟製程漲價受惠',target:null,tags:['晶圓代工']},
       ]},
       {name:'韋之哥（書面）',stocks:[
-        {code:'6669',ex:'otc',name:'緯穎',thesis:'Q3 核心長抱：高股票股利 + 明年獲利上修 + 下檔保護，殖利率保護型',target:null,tags:['AI伺服器','股票股利']},
+        {code:'6669',ex:'tse',name:'緯穎',thesis:'Q3 核心長抱：高股票股利 + 明年獲利上修 + 下檔保護，殖利率保護型',target:null,tags:['AI伺服器','股票股利']},
       ]},
       {name:'高鐵哥（書面）',stocks:[
         {code:'2356',ex:'tse',name:'英業達',thesis:'線形剛表態，整理完畢，可關注',target:null,tags:['AI伺服器']},
@@ -1844,14 +1844,14 @@ const MEETINGS = [
     members:[
       {name:'凱哥',stocks:[
         {code:'7871',ex:'otc',name:'安立璽榮-KY',thesis:'阿茲海默小分子藥，BioMark 生物標記有效率 5/7（4/7 降低 30%+ 發炎），1 案例 MMSE 從 15 分逆轉至 23 分（全球首例），即將進大型臨床試驗，大藥廠授權機會',target:null,tags:['生技','阿茲海默']},
-        {code:'3528',ex:'otc',name:'安馳',thesis:'雷哥推薦，凱哥下週私訪，基金已買進兩大買超，120 以下將加碼至 1 億',target:'120以下',tags:[]},
+        {code:'3528',ex:'tse',name:'安馳',thesis:'雷哥推薦，凱哥下週私訪，基金已買進兩大買超，120 以下將加碼至 1 億',target:'120以下',tags:[]},
         {code:'7610',ex:'otc',name:'聯友金屬',thesis:'鎢材料稀缺 + 中美貿易戰地緣政治 + 技術壁壘（競爭對手難進入），成本 57 元漲至 1900+；日本停產消息待消化',target:2300,tags:['鎢','地緣政治']},
         {code:'2059',ex:'tse',name:'川湖',thesis:'伺服器機櫃導軌，營收持續超預期，成本 1000 出頭，基金已買進',target:null,tags:['伺服器','AI']},
         {code:'3026',ex:'tse',name:'禾伸堂',thesis:'被動元件漲價受惠，基金持有',target:null,tags:['被動元件']},
         {code:'7902',ex:'otc',name:'宇越生技',thesis:'宇越生醫科技（UWELL Biopharma）專注開發嵌合抗原受體（CAR-T）細胞療法與基因改造免疫治療藥物',target:null,tags:['生技','CAR-T']},
       ]},
       {name:'崴哥',stocks:[
-        {code:'3528',ex:'otc',name:'安馳',thesis:'4 月營收掉、5 月回升，市場估月 EPS 2 塊、全年 20，等凱哥私訪驗證 EPS',target:null,tags:['生技']},
+        {code:'3528',ex:'tse',name:'安馳',thesis:'4 月營收掉、5 月回升，市場估月 EPS 2 塊、全年 20，等凱哥私訪驗證 EPS',target:null,tags:['生技']},
         {code:'2385',ex:'tse',name:'群光',thesis:'高殖利率 ETF 成分股（0056/919），法人持續買進，線型飄升中',target:null,tags:['除息行情','高殖利率']},
         {code:'9939',ex:'otc',name:'宏全',thesis:'7 月初除息，高殖利率，法人目前持續建倉，還有約一個月時間',target:null,tags:['除息行情','高殖利率']},
         {code:'6449',ex:'otc',name:'鈺邦',thesis:'鋁質電容漲價 + 缺貨（比 MLCC 漲幅更大），漲價前月 EPS 已達 1 塊，本益比低於國巨，籌碼較冷',target:null,tags:['被動元件','鋁質電容']},
@@ -1873,7 +1873,7 @@ const MEETINGS = [
       ]},
       {name:'Monson',stocks:[
         {code:'8299',ex:'otc',name:'群聯',thesis:'Computex 展出 NPU 晶片，讓 AIPC 地端流暢跑 LLM，潘董說持續缺貨，餐飲業已實際落地應用',target:null,tags:['AI PC','NPU']},
-        {code:'3167',ex:'otc',name:'大量',thesis:'PCB 厚度 TMS 量測機台全球最優，毛利率 42-45%，下半年營收 +25%；董事長：今年 EPS 30、明年 60（保守）',target:1500,tags:['設備','PCB量測']},
+        {code:'3167',ex:'tse',name:'大量',thesis:'PCB 厚度 TMS 量測機台全球最優，毛利率 42-45%，下半年營收 +25%；董事長：今年 EPS 30、明年 60（保守）',target:1500,tags:['設備','PCB量測']},
       ]},
       {name:'馬奎爾',stocks:[
         {code:'2327',ex:'tse',name:'國巨',thesis:'被動元件漲價，流動性強，長期持有核心部位',target:null,tags:['被動元件']},
@@ -1918,9 +1918,9 @@ const MEETINGS = [
       ]},
       {name:'momoji',stocks:[
         {code:'2327',ex:'tse',name:'國巨',thesis:'標配持股',target:null,tags:['被動元件']},
-        {code:'3167',ex:'otc',name:'大量',thesis:'標配持股，董事長預期今年 EPS 30 / 明年 60（保守），統一報告 2027 EPS 43.4',target:null,tags:['設備']},
+        {code:'3167',ex:'tse',name:'大量',thesis:'標配持股，董事長預期今年 EPS 30 / 明年 60（保守），統一報告 2027 EPS 43.4',target:null,tags:['設備']},
         {code:'2059',ex:'tse',name:'川湖',thesis:'標配持股',target:null,tags:['伺服器']},
-        {code:'6669',ex:'otc',name:'緯穎',thesis:'明年 EPS 估 600，現在 <10 倍 PE，市場關注度低，除息公告後有啟動機會',target:null,tags:['伺服器','AI']},
+        {code:'6669',ex:'tse',name:'緯穎',thesis:'明年 EPS 估 600，現在 <10 倍 PE，市場關注度低，除息公告後有啟動機會',target:null,tags:['伺服器','AI']},
         {code:'6223',ex:'otc',name:'旺矽',thesis:'CB 詢圈被洗掉後，昨天好營收出來，MS 今天可能發報告',target:null,tags:['探針']},
         {code:'2303',ex:'tse',name:'聯電',thesis:'919 ETF 成分股調整事件，朋友推，內部估 200-300',target:300,tags:['晶圓代工']},
       ]},
@@ -1966,7 +1966,7 @@ const MEETINGS = [
         {code:'2059',ex:'tse',name:'川湖',thesis:'擴廠加速 2 年，年底兩座新廠完工，產能翻倍；法人大資金 16 億佈局',target:10000,tags:['伺服器','AI']},
         {code:'7610',ex:'otc',name:'聯友金屬',thesis:'鎢非中供應鏈，美中貿易戰長期受益',target:null,tags:['鎢','地緣政治']},
         {code:'7871',ex:'otc',name:'安立璽榮-KY',thesis:'阿茲海默藥試驗數據正向，6 月公告 200 萬美金 fee',target:null,tags:['生技','阿茲海默']},
-        {code:'3528',ex:'otc',name:'安馳',thesis:'ADI 通知下半年交期拉長，基金已接 1 億部位，長線看多',target:null,tags:['類比IC']},
+        {code:'3528',ex:'tse',name:'安馳',thesis:'ADI 通知下半年交期拉長，基金已接 1 億部位，長線看多',target:null,tags:['類比IC']},
         {code:'7902',ex:'otc',name:'宇越（興櫃）',thesis:'補件完成即將進二期，對比沛爾(6949)~500億估值，宇越僅 70 億；沙烏地授權談判中',target:null,tags:['生技','興櫃']},
         {code:'6610',ex:'otc',name:'安成生技',thesis:'25 元現增，年底二期高機率過，名聲差但定價錯誤機會',target:null,tags:['生技','新藥']},
         {code:'6467',ex:'otc',name:'泰合',thesis:'口溶膜抗凝血藥，原廠 BMS 三期炸掉，授權機會大增',target:null,tags:['生技','新藥']},
@@ -1975,7 +1975,7 @@ const MEETINGS = [
       {name:'Harris哥',stocks:[
         {code:'7610',ex:'otc',name:'聯友金屬',thesis:'EPS 150~200 估，目標 3,400~3,600（2027 年）',target:3500,tags:['鎢','地緣政治']},
         {code:'3042',ex:'tse',name:'晶技',thesis:'216MHz 產品銷售佳，下半年動能持續',target:null,tags:['石英振盪器','AI伺服器']},
-        {code:'6182',ex:'tse',name:'合晶',thesis:'矽晶圓，在 10~11 元進行部位調整',target:null,tags:['矽晶圓']},
+        {code:'6182',ex:'otc',name:'合晶',thesis:'矽晶圓，在 10~11 元進行部位調整',target:null,tags:['矽晶圓']},
         {code:'7856',ex:'otc',name:'漢測',thesis:'Advantest 合作進展，下半年動能',target:null,tags:['測試設備']},
       ]},
       {name:'馬奎爾',stocks:[
@@ -1988,19 +1988,19 @@ const MEETINGS = [
         {code:'3595',ex:'otc',name:'山太士',thesis:'ABF 獨立供應商，明年 EPS 下限 100 元',target:null,tags:['ABF','AI']},
         {code:'7861',ex:'otc',name:'貝爾威勒',thesis:'目標 50 元',target:50,tags:[]},
         {code:'6683',ex:'otc',name:'雍智科技',thesis:'V9 出貨量 >> V8，快速放量，升估值空間',target:null,tags:['AI','GPU']},
-        {code:'6182',ex:'tse',name:'合晶',thesis:'矽晶圓佈局',target:null,tags:['矽晶圓']},
+        {code:'6182',ex:'otc',name:'合晶',thesis:'矽晶圓佈局',target:null,tags:['矽晶圓']},
         {code:'4542',ex:'otc',name:'科嶠',thesis:'明年 EPS 40+，等季線支撐後切入',target:null,tags:['ABF']},
-        {code:'3259',ex:'tse',name:'力旺',thesis:'3,000 以下可考慮佈局',target:null,tags:['IP','嵌入式記憶體']},
-        {code:'3374',ex:'tse',name:'精材',thesis:'台積電 OS 訂單從矽品轉至精材，質變升估值，現價 350 vs 日月光 600~700',target:null,tags:['先進封裝','台積電']},
+        {code:'3529',ex:'otc',name:'力旺',thesis:'3,000 以下可考慮佈局',target:null,tags:['IP','嵌入式記憶體']},
+        {code:'3374',ex:'otc',name:'精材',thesis:'台積電 OS 訂單從矽品轉至精材，質變升估值，現價 350 vs 日月光 600~700',target:null,tags:['先進封裝','台積電']},
       ]},
       {name:'奇哥（線上）',stocks:[
-        {code:'3374',ex:'tse',name:'精材',thesis:'4~5 個 channel check 確認台積電 OS 訂單轉入，質變升估值，可與矽品/日月光比；槓桿工具齊全，動能資金必關注',target:null,tags:['先進封裝','台積電']},
+        {code:'3374',ex:'otc',name:'精材',thesis:'4~5 個 channel check 確認台積電 OS 訂單轉入，質變升估值，可與矽品/日月光比；槓桿工具齊全，動能資金必關注',target:null,tags:['先進封裝','台積電']},
       ]},
       {name:'小哥哥',stocks:[
         {code:'8096',ex:'otc',name:'擎亞',thesis:'月營收 89 億創新高，CBAS 定價 160，目標 200；EPS 今年 10~15，明年 25；轉單+台積電訂單放大催化劑',target:200,tags:['PCB材料','台積電']},
       ]},
       {name:'Monson',stocks:[
-        {code:'3167',ex:'otc',name:'大量',thesis:'6 月營收 ~10 億，背鑽機技術全球最優（優於德國）；700 多元有支撐，共識度提升',target:null,tags:['設備','PCB量測']},
+        {code:'3167',ex:'tse',name:'大量',thesis:'6 月營收 ~10 億，背鑽機技術全球最優（優於德國）；700 多元有支撐，共識度提升',target:null,tags:['設備','PCB量測']},
         {code:'6213',ex:'tse',name:'聯茂',thesis:'M7 毛利率 30%+（vs M4 11~12%），H2 佔比拉至 10~13%；泰國產能 H2 開出；新客戶微軟（呼應台積電微軟訂單 14x）',target:null,tags:['CCL','AI伺服器','微軟']},
         {code:'4554',ex:'otc',name:'橙的',thesis:'胎壓偵測器，歐洲 AM 市場 50%+ 市占，配息 2 元（殖利率高），6 月營收十年同期新高',target:null,tags:['汽車電子']},
       ]},
@@ -2014,18 +2014,18 @@ const MEETINGS = [
       ]},
       {name:'MT',stocks:[
         {code:'2303',ex:'tse',name:'聯電',thesis:'成熟製程明年漲價確定，史上首次發 CB（2 張），目標 200~250',target:250,tags:['晶圓代工','成熟製程']},
-        {code:'6669',ex:'otc',name:'緯穎',thesis:'首次發股票股利 20 元（配一送三），明年 EPS 聽聞 900，估值便宜，事件+基本面雙驅動',target:null,tags:['AI伺服器','股票股利']},
+        {code:'6669',ex:'tse',name:'緯穎',thesis:'首次發股票股利 20 元（配一送三），明年 EPS 聽聞 900，估值便宜，事件+基本面雙驅動',target:null,tags:['AI伺服器','股票股利']},
       ]},
       {name:'momoji',stocks:[
-        {code:'3167',ex:'otc',name:'大量',thesis:'區間操作，今日有接，目標約 1,000',target:1000,tags:['設備','PCB量測']},
+        {code:'3167',ex:'tse',name:'大量',thesis:'區間操作，今日有接，目標約 1,000',target:1000,tags:['設備','PCB量測']},
       ]},
       {name:'發發哥',stocks:[
-        {code:'6182',ex:'tse',name:'合晶',thesis:'矽晶圓族群，台勝科漲停後跟進',target:null,tags:['矽晶圓']},
+        {code:'6182',ex:'otc',name:'合晶',thesis:'矽晶圓族群，台勝科漲停後跟進',target:null,tags:['矽晶圓']},
         {code:'5483',ex:'tse',name:'中美晶',thesis:'算術目標 200+，折價環球晶 50%，有補漲空間',target:200,tags:['矽晶圓']},
       ]},
       {name:'崴哥',stocks:[
         {code:'5511',ex:'otc',name:'德昌',thesis:'冷門股，EPS 15 元，5 倍本益比，無人關注，韓股波動影響小',target:null,tags:['建設','低本益比']},
-        {code:'3528',ex:'otc',name:'安馳',thesis:'減碼後買回，EPS 便宜，ADI 下半年拉貨動能；基金已接 1 億',target:null,tags:['類比IC']},
+        {code:'3528',ex:'tse',name:'安馳',thesis:'減碼後買回，EPS 便宜，ADI 下半年拉貨動能；基金已接 1 億',target:null,tags:['類比IC']},
         {code:'2397',ex:'tse',name:'友通',thesis:'工業電腦族群，營收年增三成，BB 值接近 2，被錯殺，等反彈',target:null,tags:['工業電腦']},
         {code:'4927',ex:'otc',name:'泰鼎（空）',thesis:'空單：籌碼爛+韓合作遞延+閒置產能未認列+每季 EPS -3；中國 PCB 泰國廠競爭加劇',target:null,tags:['PCB','空單']},
       ]},
@@ -2039,7 +2039,7 @@ const MEETINGS = [
         {code:'2303',ex:'tse',name:'聯電',thesis:'估值便宜，繼續持有，成熟製程漲價受惠',target:null,tags:['晶圓代工']},
       ]},
       {name:'韋之哥（書面）',stocks:[
-        {code:'6669',ex:'otc',name:'緯穎',thesis:'Q3 核心長抱：高股票股利 + 明年獲利上修 + 下檔保護，殖利率保護型',target:null,tags:['AI伺服器','股票股利']},
+        {code:'6669',ex:'tse',name:'緯穎',thesis:'Q3 核心長抱：高股票股利 + 明年獲利上修 + 下檔保護，殖利率保護型',target:null,tags:['AI伺服器','股票股利']},
       ]},
       {name:'高鐵哥（書面）',stocks:[
         {code:'2356',ex:'tse',name:'英業達',thesis:'線形剛表態，整理完畢，可關注',target:null,tags:['AI伺服器']},
