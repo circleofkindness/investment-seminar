@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>投資研討會追蹤看板</title>
+<title>æè³ç è¨æè¿½è¹¤çæ¿</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 :root{
@@ -262,44 +262,44 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 <div id="login-screen" style="display:flex;position:fixed;top:0;left:0;width:100%;height:100%;background:#0f172a;z-index:999;align-items:center;justify-content:center;">
   <div class="login-card">
     <div class="login-top">
-      <div class="ico">📊</div>
-      <h1>好朋友投資研討會</h1>
-      <p>請輸入帳號密碼登入</p>
+      <div class="ico">ð</div>
+      <h1>å¥½æåæè³ç è¨æ</h1>
+      <p>è«è¼¸å¥å¸³èå¯ç¢¼ç»å¥</p>
     </div>
-    <div style="display:flex;gap:0;margin-bottom:1rem"><button id="tab-li" onclick="switchLoginTab('li')" style="flex:1;padding:.5rem;background:#2563eb;color:#fff;border:none;cursor:pointer;border-radius:6px 0 0 6px;font-size:.9rem">登入</button><button id="tab-reg" onclick="switchLoginTab('reg')" style="flex:1;padding:.5rem;background:#1e293b;color:#7a8fa3;border:none;cursor:pointer;border-radius:0 6px 6px 0;font-size:.9rem">申請加入</button></div>
+    <div style="display:flex;gap:0;margin-bottom:1rem"><button id="tab-li" onclick="switchLoginTab('li')" style="flex:1;padding:.5rem;background:#2563eb;color:#fff;border:none;cursor:pointer;border-radius:6px 0 0 6px;font-size:.9rem">ç»å¥</button><button id="tab-reg" onclick="switchLoginTab('reg')" style="flex:1;padding:.5rem;background:#1e293b;color:#7a8fa3;border:none;cursor:pointer;border-radius:0 6px 6px 0;font-size:.9rem">ç³è«å å¥</button></div>
 <div id="pane-li"><div class="lf">
       <label>Email</label>
       <input type="email" id="li-email" placeholder="you@example.com" autocomplete="email">
-      <label>密碼</label>
-      <input type="password" id="li-pw" placeholder="••••••••" autocomplete="current-password">
-      <button class="lbtn" id="li-btn" onclick="doSignIn()">登入</button>
+      <label>å¯ç¢¼</label>
+      <input type="password" id="li-pw" placeholder="â¢â¢â¢â¢â¢â¢â¢â¢" autocomplete="current-password">
+      <button class="lbtn" id="li-btn" onclick="doSignIn()">ç»å¥</button>
       <div id="login-err"></div>
-      <p style="text-align:center;margin-top:8px"><a href="#" onclick="doForgotPw();return false;" style="font-size:12px;color:#888;text-decoration:underline">忘記密碼？</a></p>
+      <p style="text-align:center;margin-top:8px"><a href="#" onclick="doForgotPw();return false;" style="font-size:12px;color:#888;text-decoration:underline">å¿è¨å¯ç¢¼ï¼</a></p>
     </div></div>
 <div id="pane-reg" style="display:none">
 <input id="reg-email" type="email" class="linp" placeholder="Email">
-<input id="reg-pw" type="password" class="linp" placeholder="密碼（6位以上）">
-<input id="reg-nick" type="text" class="linp" placeholder="昵稱">
-<button class="lbtn" onclick="doRegister()">送出申請</button>
+<input id="reg-pw" type="password" class="linp" placeholder="å¯ç¢¼ï¼6ä½ä»¥ä¸ï¼">
+<input id="reg-nick" type="text" class="linp" placeholder="æµç¨±">
+<button class="lbtn" onclick="doRegister()">éåºç³è«</button>
 </div>
 <p id="login-err" style="font-size:.875rem;margin:.25rem 0;min-height:1.2em;text-align:center"></p>
   </div>
 </div>
 <div id="reset-screen" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,14,22,.97);align-items:center;justify-content:center;z-index:999">
 <div style="background:#fff;border-radius:16px;padding:40px;width:90%;max-width:400px;text-align:center">
-<div style="font-size:32px;margin-bottom:8px">🔑</div>
-<h2 style="color:#1a2a4a;margin:0 0 8px">設定新密碼</h2>
-<p style="color:#666;font-size:14px;margin:0 0 20px">請輸入你的新密碼</p>
-<input id="new-pw" type="password" placeholder="新密碼（至少6位）" style="width:100%;box-sizing:border-box;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:15px;margin-bottom:12px">
-<input id="new-pw2" type="password" placeholder="再輸入一次" style="width:100%;box-sizing:border-box;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:15px;margin-bottom:16px">
-<button onclick="doResetPw()" style="width:100%;padding:14px;background:#1a3a6b;color:#fff;border:none;border-radius:8px;font-size:16px;cursor:pointer">確認更新密碼</button>
+<div style="font-size:32px;margin-bottom:8px">ð</div>
+<h2 style="color:#1a2a4a;margin:0 0 8px">è¨­å®æ°å¯ç¢¼</h2>
+<p style="color:#666;font-size:14px;margin:0 0 20px">è«è¼¸å¥ä½ çæ°å¯ç¢¼</p>
+<input id="new-pw" type="password" placeholder="æ°å¯ç¢¼ï¼è³å°6ä½ï¼" style="width:100%;box-sizing:border-box;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:15px;margin-bottom:12px">
+<input id="new-pw2" type="password" placeholder="åè¼¸å¥ä¸æ¬¡" style="width:100%;box-sizing:border-box;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:15px;margin-bottom:16px">
+<button onclick="doResetPw()" style="width:100%;padding:14px;background:#1a3a6b;color:#fff;border:none;border-radius:8px;font-size:16px;cursor:pointer">ç¢ºèªæ´æ°å¯ç¢¼</button>
 <div id="reset-err" style="color:#c00;margin-top:10px;font-size:13px"></div>
 </div></div>
 <div id="pending-screen" style="display:none;position:fixed;inset:0;background:rgba(10,14,22,.97);align-items:center;justify-content:center;z-index:998">
 <div style="background:#1a2236;padding:2.5rem 2rem;border-radius:16px;text-align:center;max-width:360px;width:90%">
-<h2 style="color:#f0f6ff;margin-bottom:1rem">申請審核中</h2>
-<p style="color:#7a8fa3;margin-bottom:1.5rem">帳號等待管理員核准，核准後即可登入。</p>
-<button class="lbtn" onclick="sb.auth.signOut()">登出</button>
+<h2 style="color:#f0f6ff;margin-bottom:1rem">ç³è«å¯©æ ¸ä¸­</h2>
+<p style="color:#7a8fa3;margin-bottom:1.5rem">å¸³èç­å¾ç®¡çå¡æ ¸åï¼æ ¸åå¾å³å¯ç»å¥ã</p>
+<button class="lbtn" onclick="sb.auth.signOut()">ç»åº</button>
 </div>
 </div>
 
@@ -307,64 +307,64 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 
 <div id="codename-modal">
   <div class="cn-card">
-    <h2>👋 設定你的代號</h2>
-    <p>請輸入你在研討會中的稱呼（例如：凱哥、小資男孩）。<br>這個代號會顯示在看板上，之後無法自行修改。</p>
-    <input type="text" id="cn-input" placeholder="你的代號" maxlength="12" autocomplete="off">
-    <button id="cn-btn" onclick="saveCodename()">確認並進入</button>
+    <h2>ð è¨­å®ä½ çä»£è</h2>
+    <p>è«è¼¸å¥ä½ å¨ç è¨æä¸­çç¨±å¼ï¼ä¾å¦ï¼å±å¥ãå°è³ç·å­©ï¼ã<br>éåä»£èæé¡¯ç¤ºå¨çæ¿ä¸ï¼ä¹å¾ç¡æ³èªè¡ä¿®æ¹ã</p>
+    <input type="text" id="cn-input" placeholder="ä½ çä»£è" maxlength="12" autocomplete="off">
+    <button id="cn-btn" onclick="saveCodename()">ç¢ºèªä¸¦é²å¥</button>
     <div id="cn-err"></div>
   </div>
 </div>
 
 <div id="invite-modal">
   <div class="cn-card">
-    <h2>🎉 歡迎加入研討會！</h2>
-    <p>你已受到邀請。請設定你的登入密碼和專屬代號。<br>代號將顯示在浮水印上，設定後無法自行修改。</p>
-    <label>設定密碼（至少 6 位）</label>
-    <input type="password" id="inv-pw1" placeholder="••••••••" autocomplete="new-password">
-    <label>確認密碼</label>
-    <input type="password" id="inv-pw2" placeholder="再輸入一次" autocomplete="new-password">
-    <label>你的代號</label>
-    <input type="text" id="inv-cn" placeholder="例如：凱哥、小資男孩" maxlength="12" autocomplete="off">
-    <button id="inv-btn" onclick="doSetupInvite()" style="margin-top:14px">完成設定並進入</button>
+    <h2>ð æ­¡è¿å å¥ç è¨æï¼</h2>
+    <p>ä½ å·²åå°éè«ãè«è¨­å®ä½ çç»å¥å¯ç¢¼åå°å±¬ä»£èã<br>ä»£èå°é¡¯ç¤ºå¨æµ®æ°´å°ä¸ï¼è¨­å®å¾ç¡æ³èªè¡ä¿®æ¹ã</p>
+    <label>è¨­å®å¯ç¢¼ï¼è³å° 6 ä½ï¼</label>
+    <input type="password" id="inv-pw1" placeholder="â¢â¢â¢â¢â¢â¢â¢â¢" autocomplete="new-password">
+    <label>ç¢ºèªå¯ç¢¼</label>
+    <input type="password" id="inv-pw2" placeholder="åè¼¸å¥ä¸æ¬¡" autocomplete="new-password">
+    <label>ä½ çä»£è</label>
+    <input type="text" id="inv-cn" placeholder="ä¾å¦ï¼å±å¥ãå°è³ç·å­©" maxlength="12" autocomplete="off">
+    <button id="inv-btn" onclick="doSetupInvite()" style="margin-top:14px">å®æè¨­å®ä¸¦é²å¥</button>
     <div id="inv-err" style="font-size:12px;color:var(--dn);margin-top:6px;min-height:16px"></div>
   </div>
 </div>
 
 <div id="app">
   <div class="topbar">
-    <div class="tb-brand">好朋友<span>投資研討會</span></div>
+    <div class="tb-brand">å¥½æå<span>æè³ç è¨æ</span></div>
     <div class="tb-sep"></div>
     <select class="tb-select" id="meeting-select" onchange="switchMeeting(this.value)"></select>
-    <span class="bdg-pu" id="s-cnt">計算中…</span>
+    <span class="bdg-pu" id="s-cnt">è¨ç®ä¸­â¦</span>
     <div class="tb-sep"></div>
     <select class="tb-select" id="member-select" onchange="openMemberFromSelect(this.value)">
-      <option value="">👤 查找成員</option>
+      <option value="">ð¤ æ¥æ¾æå¡</option>
     </select>
-    <input class="tb-search" id="stock-search" type="text" placeholder="🔍 搜尋標的…" oninput="filterStocks(this.value)" autocomplete="off">
+    <input class="tb-search" id="stock-search" type="text" placeholder="ð æå°æ¨çâ¦" oninput="filterStocks(this.value)" autocomplete="off">
     <div class="tb-spacer"></div>
-    <span class="px-bdg" id="px-st">載入中…</span>
-    <button class="rfsh" onclick="loadPrices()">重新整理</button>
+    <span class="px-bdg" id="px-st">è¼å¥ä¸­â¦</span>
+    <button class="rfsh" onclick="loadPrices()">éæ°æ´ç</button>
     <span class="user-chip" id="user-chip"></span>
     <button onclick="window.location.href='news.html'" style="background:#cc0000;color:#fff;border:none;border-radius:6px;padding:6px 14px;font-size:13px;cursor:pointer;font-weight:700;white-space:nowrap;letter-spacing:1px">&#x65b0;&#x589e;&#x60c5;&#x5831;</button>
-    <button class="signout" onclick="doSignOut()">登出</button>
+    <button class="signout" onclick="doSignOut()">ç»åº</button>
   </div>
 
   <div class="wrap">
     <div class="stats">
-      <div class="sc"><div class="sc-lbl">與會人數</div><div class="sc-val" id="st-members">—</div></div>
-      <div class="sc"><div class="sc-lbl">追蹤標的</div><div class="sc-val" id="st-total">—</div></div>
-      <div class="sc"><div class="sc-lbl">上市 (TSE)</div><div class="sc-val" id="st-tse">—</div></div>
-      <div class="sc"><div class="sc-lbl">上櫃 (TPEX)</div><div class="sc-val" id="st-otc">—</div></div>
-      <div class="sc"><div class="sc-lbl">更新時間</div><div class="sc-val" id="st-time" style="font-size:13px;margin-top:4px">—</div></div>
+      <div class="sc"><div class="sc-lbl">èæäººæ¸</div><div class="sc-val" id="st-members">â</div></div>
+      <div class="sc"><div class="sc-lbl">è¿½è¹¤æ¨ç</div><div class="sc-val" id="st-total">â</div></div>
+      <div class="sc"><div class="sc-lbl">ä¸å¸ (TSE)</div><div class="sc-val" id="st-tse">â</div></div>
+      <div class="sc"><div class="sc-lbl">ä¸æ« (TPEX)</div><div class="sc-val" id="st-otc">â</div></div>
+      <div class="sc"><div class="sc-lbl">æ´æ°æé</div><div class="sc-val" id="st-time" style="font-size:13px;margin-top:4px">â</div></div>
     </div>
     <div id="obs-panel"></div>
     <div class="pgrid" id="pgrid"></div>
     <div class="adm" id="admin-panel" style="display:none">
-<div class="adm-hd">管理員後台<span class="adm-badge">ADMIN</span><a class="adm-link" href="https://supabase.com/dashboard/project/irgwtrpreolrgniebdlc/auth/users" target="_blank">Supabase 用戶 →</a></div>
+<div class="adm-hd">ç®¡çå¡å¾å°<span class="adm-badge">ADMIN</span><a class="adm-link" href="https://supabase.com/dashboard/project/irgwtrpreolrgniebdlc/auth/users" target="_blank">Supabase ç¨æ¶ â</a></div>
 <div class="adm-body">
-<div class="adm-sub">待審核申請</div>
+<div class="adm-sub">å¾å¯©æ ¸ç³è«</div>
 <div id="pending-list"></div>
-<div class="adm-sub" style="margin-top:.75rem">最近活動</div>
+<div class="adm-sub" style="margin-top:.75rem">æè¿æ´»å</div>
 <div id="admin-log-body"></div>
 </div>
 </div>
@@ -373,7 +373,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   <!-- MEMBER DETAIL PAGE -->
   <div class="side-page member-page" id="member-page">
     <div class="wrap">
-      <button class="sp-back" onclick="hideMemberDetail()">← 返回看板</button>
+      <button class="sp-back" onclick="hideMemberDetail()">â è¿åçæ¿</button>
       <div class="mp-hdr">
         <div class="mp-av-lg" id="mp-av"></div>
         <div><div class="mp-name" id="mp-name"></div><div class="mp-sub" id="mp-sub"></div></div>
@@ -385,7 +385,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   <!-- STOCK DETAIL PAGE -->
   <div class="side-page stock-page" id="stock-page">
     <div class="wrap">
-      <button class="sp-back" id="stock-back-btn" onclick="hideStockDetail()">← 返回</button>
+      <button class="sp-back" id="stock-back-btn" onclick="hideStockDetail()">â è¿å</button>
       <div class="sdp-hdr">
         <div class="sdp-code c-na" id="sdp-code"></div>
         <div><div class="sdp-name" id="sdp-name"></div><div class="sdp-sub" id="sdp-sub"></div></div>
@@ -394,26 +394,26 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       <!-- K-LINE CHART -->
       <div class="chart-wrap" id="chart-wrap">
         <div class="chart-topbar">
-          <span class="chart-title">日K走勢圖</span>
+          <span class="chart-title">æ¥Kèµ°å¢å</span>
           <div class="range-btns">
-            <button class="range-btn" data-range="3mo" onclick="reloadChart('3mo')">3月</button>
-            <button class="range-btn active" data-range="6mo" onclick="reloadChart('6mo')">6月</button>
-            <button class="range-btn" data-range="1y" onclick="reloadChart('1y')">1年</button>
-            <button class="range-btn" data-range="2y" onclick="reloadChart('2y')">2年</button>
+            <button class="range-btn" data-range="3mo" onclick="reloadChart('3mo')">3æ</button>
+            <button class="range-btn active" data-range="6mo" onclick="reloadChart('6mo')">6æ</button>
+            <button class="range-btn" data-range="1y" onclick="reloadChart('1y')">1å¹´</button>
+            <button class="range-btn" data-range="2y" onclick="reloadChart('2y')">2å¹´</button>
           </div>
         </div>
         <div id="chart-container"></div>
         <div class="chart-hint">
-          <span style="color:#0066cc;font-weight:700">●</span> 會議討論標記　
-          <span style="color:#f59e0b;font-weight:700">■</span> 事件標注　
-          點擊標記查看說明
+          <span style="color:#0066cc;font-weight:700">â</span> æè­°è¨è«æ¨è¨ã
+          <span style="color:#f59e0b;font-weight:700">â </span> äºä»¶æ¨æ³¨ã
+          é»ææ¨è¨æ¥çèªªæ
         </div>
         <div class="ann-section">
-          <div class="ann-sec-title">新增事件標注</div>
+          <div class="ann-sec-title">æ°å¢äºä»¶æ¨æ³¨</div>
           <div class="ann-inputs">
             <input type="date" id="ann-date" class="ann-input ann-input-date">
-            <input type="text" id="ann-text" class="ann-input ann-input-text" placeholder="說明（法說會、停損、群組討論重點…）">
-            <button class="ann-btn" onclick="addAnnotation()">＋ 新增</button>
+            <input type="text" id="ann-text" class="ann-input ann-input-text" placeholder="èªªæï¼æ³èªªæãåæãç¾¤çµè¨è«éé»â¦ï¼">
+            <button class="ann-btn" onclick="addAnnotation()">ï¼ æ°å¢</button>
           </div>
           <div class="ann-chips" id="ann-chips"></div>
         </div>
@@ -422,7 +422,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       <!-- DISCUSSION TIMELINE -->
       <div style="font-size:10px;font-weight:700;color:var(--navy);letter-spacing:.10em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px">
         <span style="width:3px;height:13px;background:var(--acc);border-radius:2px;display:inline-block"></span>
-        會議討論記錄
+        æè­°è¨è«è¨é
       </div>
       <div class="timeline" id="sdp-timeline"></div>
     </div>
@@ -432,7 +432,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   <div id="marker-popup" class="marker-popup" style="display:none">
     <div class="popup-backdrop" onclick="closeMarkerPopup()"></div>
     <div class="popup-card">
-      <button class="popup-close" onclick="closeMarkerPopup()">✕</button>
+      <button class="popup-close" onclick="closeMarkerPopup()">â</button>
       <div class="popup-hdr" id="popup-hdr"></div>
       <div id="popup-body"></div>
     </div>
@@ -476,7 +476,7 @@ function applyWatermark(label){
   const ctx=c.getContext('2d');
   ctx.save(); ctx.translate(100,60); ctx.rotate(-22*Math.PI/180); ctx.textAlign='center';
   ctx.font='600 11px Inter,sans-serif'; ctx.fillStyle='rgba(10,37,64,0.07)'; ctx.fillText(label,0,0);
-  ctx.font='500 9px Inter,sans-serif'; ctx.fillStyle='rgba(10,37,64,0.045)'; ctx.fillText('好朋友投資研討會 · 機密',0,15);
+  ctx.font='500 9px Inter,sans-serif'; ctx.fillStyle='rgba(10,37,64,0.045)'; ctx.fillText('å¥½æåæè³ç è¨æ Â· æ©å¯',0,15);
   ctx.restore();
   const wm=document.getElementById('watermark');
   wm.style.backgroundImage=`url(${c.toDataURL()})`; wm.style.backgroundSize='100px 60px'; wm.style.backgroundRepeat='repeat';
@@ -486,10 +486,10 @@ function getCodename(u){ return u?.user_metadata?.codename||null; }
 async function saveCodename(){
   const val=document.getElementById('cn-input').value.trim();
   const err=document.getElementById('cn-err'),btn=document.getElementById('cn-btn');
-  if(!val){err.textContent='請填入代號';return;}
-  btn.disabled=true; btn.textContent='儲存中…';
+  if(!val){err.textContent='è«å¡«å¥ä»£è';return;}
+  btn.disabled=true; btn.textContent='å²å­ä¸­â¦';
   const {data,error}=await sb.auth.updateUser({data:{codename:val}});
-  if(error){err.textContent='儲存失敗';btn.disabled=false;btn.textContent='確認並進入';return;}
+  if(error){err.textContent='å²å­å¤±æ';btn.disabled=false;btn.textContent='ç¢ºèªä¸¦é²å¥';return;}
   document.getElementById('codename-modal').style.display='none';
   document.getElementById('user-chip').textContent=val; applyWatermark(val);
   sb.from('activity_log').insert({user_email:data.user.email,codename:val,action:'login',ua:navigator.userAgent.substring(0,250)});
@@ -538,10 +538,10 @@ sb.auth.onAuthStateChange(async(event,session)=>{
 async function doSignIn(){
   const email=document.getElementById('li-email').value.trim(),pw=document.getElementById('li-pw').value;
   const btn=document.getElementById('li-btn'),err=document.getElementById('login-err');
-  if(!email||!pw){err.textContent='請填入 Email 和密碼';return;}
-  btn.disabled=true; btn.textContent='登入中…'; err.textContent='';
+  if(!email||!pw){err.textContent='è«å¡«å¥ Email åå¯ç¢¼';return;}
+  btn.disabled=true; btn.textContent='ç»å¥ä¸­â¦'; err.textContent='';
   const {error}=await sb.auth.signInWithPassword({email,password:pw});
-  if(error){err.textContent='帳密錯誤，請再試一次';btn.disabled=false;btn.textContent='登入';}
+  if(error){err.textContent='å¸³å¯é¯èª¤ï¼è«åè©¦ä¸æ¬¡';btn.disabled=false;btn.textContent='ç»å¥';}
 }
 async function doSignOut(){await sb.auth.signOut();}
 
@@ -549,12 +549,12 @@ async function doSetupInvite(){
   const pw1=document.getElementById('inv-pw1').value,pw2=document.getElementById('inv-pw2').value;
   const cn=document.getElementById('inv-cn').value.trim();
   const err=document.getElementById('inv-err'),btn=document.getElementById('inv-btn');
-  if(pw1.length<6){err.textContent='密碼至少 6 位';return;}
-  if(pw1!==pw2){err.textContent='兩次密碼不一致';return;}
-  if(!cn){err.textContent='請填入代號';return;}
-  btn.disabled=true; btn.textContent='設定中…';
+  if(pw1.length<6){err.textContent='å¯ç¢¼è³å° 6 ä½';return;}
+  if(pw1!==pw2){err.textContent='å©æ¬¡å¯ç¢¼ä¸ä¸è´';return;}
+  if(!cn){err.textContent='è«å¡«å¥ä»£è';return;}
+  btn.disabled=true; btn.textContent='è¨­å®ä¸­â¦';
   const {data,error}=await sb.auth.updateUser({password:pw1,data:{codename:cn}});
-  if(error){err.textContent='設定失敗：'+error.message;btn.disabled=false;btn.textContent='完成設定並進入';return;}
+  if(error){err.textContent='è¨­å®å¤±æï¼'+error.message;btn.disabled=false;btn.textContent='å®æè¨­å®ä¸¦é²å¥';return;}
   window.history.replaceState(null,'',window.location.pathname);
   document.getElementById('invite-modal').style.display='none';
   document.getElementById('app').style.display='block';
@@ -573,13 +573,13 @@ document.addEventListener('DOMContentLoaded',()=>{
 async function loadAdminLog(){
   const {data,error}=await sb.from('activity_log').select('user_email,codename,action,ua,created_at').order('created_at',{ascending:false}).limit(100);
   const el=document.getElementById('adm-log');
-  if(error||!data||!data.length){el.innerHTML='<span style="font-size:12px;color:var(--mu)">尚無記錄</span>';return;}
-  el.innerHTML=`<table><thead><tr><th>代號</th><th>Email</th><th>動作</th><th>時間</th><th>裝置</th></tr></thead><tbody>${data.map(r=>{
+  if(error||!data||!data.length){el.innerHTML='<span style="font-size:12px;color:var(--mu)">å°ç¡è¨é</span>';return;}
+  el.innerHTML=`<table><thead><tr><th>ä»£è</th><th>Email</th><th>åä½</th><th>æé</th><th>è£ç½®</th></tr></thead><tbody>${data.map(r=>{
     const d=new Date(r.created_at);
     const dt=`${d.getFullYear()}/${d.getMonth()+1}/${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
-    const ua=r.ua||'',dev=ua.includes('iPhone')||ua.includes('Android')?'📱 手機':ua.includes('iPad')?'📱 平板':'💻 電腦';
-    const ab=r.action==='login'?'<span style="background:#eff6ff;color:#1d4ed8;font-size:10px;padding:1px 6px;border-radius:999px">登入</span>':'<span style="background:#f3f4f6;color:#6b7280;font-size:10px;padding:1px 6px;border-radius:999px">瀏覽</span>';
-    return `<tr><td style="font-weight:500">${r.codename||'—'}</td><td style="color:var(--mu);font-size:11px">${r.user_email}</td><td>${ab}</td><td style="white-space:nowrap;font-variant-numeric:tabular-nums">${dt}</td><td>${dev}</td></tr>`;
+    const ua=r.ua||'',dev=ua.includes('iPhone')||ua.includes('Android')?'ð± ææ©':ua.includes('iPad')?'ð± å¹³æ¿':'ð» é»è¦';
+    const ab=r.action==='login'?'<span style="background:#eff6ff;color:#1d4ed8;font-size:10px;padding:1px 6px;border-radius:999px">ç»å¥</span>':'<span style="background:#f3f4f6;color:#6b7280;font-size:10px;padding:1px 6px;border-radius:999px">çè¦½</span>';
+    return `<tr><td style="font-weight:500">${r.codename||'â'}</td><td style="color:var(--mu);font-size:11px">${r.user_email}</td><td>${ab}</td><td style="white-space:nowrap;font-variant-numeric:tabular-nums">${dt}</td><td>${dev}</td></tr>`;
   }).join('')}</tbody></table>`;
 }
 
@@ -588,237 +588,237 @@ async function loadAdminLog(){
 // ============================================================
 const MEETINGS = [
   {
-    id:'m20260609',date:'2026/06/09',label:'第一次',
+    id:'m20260609',date:'2026/06/09',label:'ç¬¬ä¸æ¬¡',
     members:[
-      {name:'凱哥',stocks:[
-        {code:'7871',ex:'otc',name:'安立璽榮-KY',thesis:'阿茲海默小分子藥，BioMark 生物標記有效率 5/7（4/7 降低 30%+ 發炎），1 案例 MMSE 從 15 分逆轉至 23 分（全球首例），即將進大型臨床試驗，大藥廠授權機會',target:null,tags:['生技','阿茲海默']},
-        {code:'3528',ex:'tse',name:'安馳',thesis:'雷哥推薦，凱哥下週私訪，基金已買進兩大買超，120 以下將加碼至 1 億',target:'120以下',tags:[]},
-        {code:'7610',ex:'otc',name:'聯友金屬',thesis:'鎢材料稀缺 + 中美貿易戰地緣政治 + 技術壁壘（競爭對手難進入），成本 57 元漲至 1900+；日本停產消息待消化',target:2300,tags:['鎢','地緣政治']},
-        {code:'2059',ex:'tse',name:'川湖',thesis:'伺服器機櫃導軌，營收持續超預期，成本 1000 出頭，基金已買進',target:null,tags:['伺服器','AI']},
-        {code:'3026',ex:'tse',name:'禾伸堂',thesis:'被動元件漲價受惠，基金持有',target:null,tags:['被動元件']},
-        {code:'7902',ex:'otc',name:'宇越生技',thesis:'宇越生醫科技（UWELL Biopharma）專注開發嵌合抗原受體（CAR-T）細胞療法與基因改造免疫治療藥物',target:null,tags:['生技','CAR-T']},
+      {name:'å±å¥',stocks:[
+        {code:'7871',ex:'otc',name:'å®ç«ç½æ¦®-KY',thesis:'é¿è²æµ·é»å°åå­è¥ï¼BioMark çç©æ¨è¨ææç 5/7ï¼4/7 éä½ 30%+ ç¼çï¼ï¼1 æ¡ä¾ MMSE å¾ 15 åéè½è³ 23 åï¼å¨çé¦ä¾ï¼ï¼å³å°é²å¤§åè¨åºè©¦é©ï¼å¤§è¥å» ææ¬æ©æ',target:null,tags:['çæ','é¿è²æµ·é»']},
+        {code:'3528',ex:'tse',name:'å®é¦³',thesis:'é·å¥æ¨è¦ï¼å±å¥ä¸é±ç§è¨ªï¼åºéå·²è²·é²å©å¤§è²·è¶ï¼120 ä»¥ä¸å°å ç¢¼è³ 1 å',target:'120ä»¥ä¸',tags:[]},
+        {code:'7610',ex:'otc',name:'è¯åéå±¬',thesis:'é¢ææç¨ç¼º + ä¸­ç¾è²¿ææ°å°ç·£æ¿æ²» + æè¡å£å£ï¼ç«¶ç­å°æé£é²å¥ï¼ï¼ææ¬ 57 åæ¼²è³ 1900+ï¼æ¥æ¬åç¢æ¶æ¯å¾æ¶å',target:2300,tags:['é¢','å°ç·£æ¿æ²»']},
+        {code:'2059',ex:'tse',name:'å·æ¹',thesis:'ä¼ºæå¨æ©æ«å°è»ï¼çæ¶æçºè¶é æï¼ææ¬ 1000 åºé ­ï¼åºéå·²è²·é²',target:null,tags:['ä¼ºæå¨','AI']},
+        {code:'3026',ex:'tse',name:'ç¦¾ä¼¸å ',thesis:'è¢«ååä»¶æ¼²å¹åæ ï¼åºéææ',target:null,tags:['è¢«ååä»¶']},
+        {code:'7902',ex:'otc',name:'å®è¶çæ',thesis:'å®è¶çé«ç§æï¼UWELL Biopharmaï¼å°æ³¨éç¼åµåæååé«ï¼CAR-Tï¼ç´°èçæ³èåºå æ¹é åç«æ²»çè¥ç©',target:null,tags:['çæ','CAR-T']},
       ]},
-      {name:'崴哥',stocks:[
-        {code:'3528',ex:'tse',name:'安馳',thesis:'4 月營收掉、5 月回升，市場估月 EPS 2 塊、全年 20，等凱哥私訪驗證 EPS',target:null,tags:['生技']},
-        {code:'2385',ex:'tse',name:'群光',thesis:'高殖利率 ETF 成分股（0056/919），法人持續買進，線型飄升中',target:null,tags:['除息行情','高殖利率']},
-        {code:'9939',ex:'otc',name:'宏全',thesis:'7 月初除息，高殖利率，法人目前持續建倉，還有約一個月時間',target:null,tags:['除息行情','高殖利率']},
-        {code:'6449',ex:'otc',name:'鈺邦',thesis:'鋁質電容漲價 + 缺貨（比 MLCC 漲幅更大），漲價前月 EPS 已達 1 塊，本益比低於國巨，籌碼較冷',target:null,tags:['被動元件','鋁質電容']},
-        {code:'5511',ex:'otc',name:'德昌',thesis:'社宅案 1/3 暗量 Q4 入帳，今年 EPS 估 15，除息後本益比僅 4 倍，明年繼續成長',target:null,tags:['建設','低本益比']},
+      {name:'å´´å¥',stocks:[
+        {code:'3528',ex:'tse',name:'å®é¦³',thesis:'4 æçæ¶æã5 æååï¼å¸å ´ä¼°æ EPS 2 å¡ãå¨å¹´ 20ï¼ç­å±å¥ç§è¨ªé©è­ EPS',target:null,tags:['çæ']},
+        {code:'2385',ex:'tse',name:'ç¾¤å',thesis:'é«æ®å©ç ETF æåè¡ï¼0056/919ï¼ï¼æ³äººæçºè²·é²ï¼ç·åé£åä¸­',target:null,tags:['é¤æ¯è¡æ','é«æ®å©ç']},
+        {code:'9939',ex:'otc',name:'å®å¨',thesis:'7 æåé¤æ¯ï¼é«æ®å©çï¼æ³äººç®åæçºå»ºåï¼éæç´ä¸åææé',target:null,tags:['é¤æ¯è¡æ','é«æ®å©ç']},
+        {code:'6449',ex:'otc',name:'éºé¦',thesis:'éè³ªé»å®¹æ¼²å¹ + ç¼ºè²¨ï¼æ¯ MLCC æ¼²å¹æ´å¤§ï¼ï¼æ¼²å¹åæ EPS å·²é 1 å¡ï¼æ¬çæ¯ä½æ¼åå·¨ï¼ç±ç¢¼è¼å·',target:null,tags:['è¢«ååä»¶','éè³ªé»å®¹']},
+        {code:'5511',ex:'otc',name:'å¾·æ',thesis:'ç¤¾å®æ¡ 1/3 æé Q4 å¥å¸³ï¼ä»å¹´ EPS ä¼° 15ï¼é¤æ¯å¾æ¬çæ¯å 4 åï¼æå¹´ç¹¼çºæé·',target:null,tags:['å»ºè¨­','ä½æ¬çæ¯']},
       ]},
-      {name:'漁樵耕讀',stocks:[
-        {code:'6227',ex:'otc',name:'茂綸',thesis:'通路股，威剛下 80 億訂單，明年 Q2 入帳，明年營收 300 億起跳，EPS 估 20，通路股 PE 11-13 倍',target:220,tags:['通路','AI記憶體']},
-        {code:'5289',ex:'otc',name:'宜鼎',thesis:'工業 NAND，六月營收破 80 億，上半年 EPS 150-160，全年 EPS 破 300，今日創歷史新高',target:null,tags:['工業記憶體','AI']},
-        {code:'3026',ex:'tse',name:'禾伸堂',thesis:'長期持有，無轉弱跡象',target:null,tags:['被動元件']},
-        {code:'7610',ex:'otc',name:'聯友金屬',thesis:'長期持有，無轉弱跡象，持續追蹤',target:null,tags:['鎢']},
+      {name:'æ¼æ¨µèè®',stocks:[
+        {code:'6227',ex:'otc',name:'èç¶¸',thesis:'éè·¯è¡ï¼å¨åä¸ 80 åè¨å®ï¼æå¹´ Q2 å¥å¸³ï¼æå¹´çæ¶ 300 åèµ·è·³ï¼EPS ä¼° 20ï¼éè·¯è¡ PE 11-13 å',target:220,tags:['éè·¯','AIè¨æ¶é«']},
+        {code:'5289',ex:'otc',name:'å®é¼',thesis:'å·¥æ¥­ NANDï¼å­æçæ¶ç ´ 80 åï¼ä¸åå¹´ EPS 150-160ï¼å¨å¹´ EPS ç ´ 300ï¼ä»æ¥åµæ­·å²æ°é«',target:null,tags:['å·¥æ¥­è¨æ¶é«','AI']},
+        {code:'3026',ex:'tse',name:'ç¦¾ä¼¸å ',thesis:'é·æææï¼ç¡è½å¼±è·¡è±¡',target:null,tags:['è¢«ååä»¶']},
+        {code:'7610',ex:'otc',name:'è¯åéå±¬',thesis:'é·æææï¼ç¡è½å¼±è·¡è±¡ï¼æçºè¿½è¹¤',target:null,tags:['é¢']},
       ]},
-      {name:'高鐵哥',stocks:[
-        {code:'1612',ex:'tse',name:'宏泰',thesis:'台電電網 10 年計畫受惠，同業大亞/華榮錨點 PE 150-180，福邦關係戶',target:72,tags:['電力','電網']},
-        {code:null,ex:null,name:'世界盃加密貨幣',thesis:'世界盃期間操作相關幣種：狐狸/Flocky、Solana 鏈上主題幣，事件型交易',target:null,tags:['加密貨幣']},
+      {name:'é«éµå¥',stocks:[
+        {code:'1612',ex:'tse',name:'å®æ³°',thesis:'å°é»é»ç¶² 10 å¹´è¨ç«åæ ï¼åæ¥­å¤§äº/è¯æ¦®é¨é» PE 150-180ï¼ç¦é¦éä¿æ¶',target:72,tags:['é»å','é»ç¶²']},
+        {code:null,ex:null,name:'ä¸ççå å¯è²¨å¹£',thesis:'ä¸ççæéæä½ç¸éå¹£ç¨®ï¼çç¸/FlockyãSolana éä¸ä¸»é¡å¹£ï¼äºä»¶åäº¤æ',target:null,tags:['å å¯è²¨å¹£']},
       ]},
-      {name:'小資男孩',stocks:[
-        {code:'8299',ex:'otc',name:'群聯',thesis:'AI PC + Intel 合作 NPU 晶片，5-6 萬 vs NV 10 萬+ 價差，CP 值高；庫存持續出補；今年 EPS 估 300+',target:null,tags:['AI PC','NPU','NAND']},
-        {code:'6223',ex:'otc',name:'旺矽',thesis:'探針需求持續強勁，CB 詢圈期間認購，轉換價 6223',target:null,tags:['探針','CB']},
+      {name:'å°è³ç·å­©',stocks:[
+        {code:'8299',ex:'otc',name:'ç¾¤è¯',thesis:'AI PC + Intel åä½ NPU æ¶çï¼5-6 è¬ vs NV 10 è¬+ å¹å·®ï¼CP å¼é«ï¼åº«å­æçºåºè£ï¼ä»å¹´ EPS ä¼° 300+',target:null,tags:['AI PC','NPU','NAND']},
+        {code:'6223',ex:'otc',name:'æºç½',thesis:'æ¢ééæ±æçºå¼·åï¼CB è©¢åæéèªè³¼ï¼è½æå¹ 6223',target:null,tags:['æ¢é','CB']},
       ]},
       {name:'Monson',stocks:[
-        {code:'8299',ex:'otc',name:'群聯',thesis:'Computex 展出 NPU 晶片，讓 AIPC 地端流暢跑 LLM，潘董說持續缺貨，餐飲業已實際落地應用',target:null,tags:['AI PC','NPU']},
-        {code:'3167',ex:'tse',name:'大量',thesis:'PCB 厚度 TMS 量測機台全球最優，毛利率 42-45%，下半年營收 +25%；董事長：今年 EPS 30、明年 60（保守）',target:1500,tags:['設備','PCB量測']},
+        {code:'8299',ex:'otc',name:'ç¾¤è¯',thesis:'Computex å±åº NPU æ¶çï¼è® AIPC å°ç«¯æµæ¢è· LLMï¼æ½è£èªªæçºç¼ºè²¨ï¼é¤é£²æ¥­å·²å¯¦éè½å°æç¨',target:null,tags:['AI PC','NPU']},
+        {code:'3167',ex:'tse',name:'å¤§é',thesis:'PCB ååº¦ TMS éæ¸¬æ©å°å¨çæåªï¼æ¯å©ç 42-45%ï¼ä¸åå¹´çæ¶ +25%ï¼è£äºé·ï¼ä»å¹´ EPS 30ãæå¹´ 60ï¼ä¿å®ï¼',target:1500,tags:['è¨­å','PCBéæ¸¬']},
       ]},
-      {name:'馬奎爾',stocks:[
-        {code:'2327',ex:'tse',name:'國巨',thesis:'被動元件漲價，流動性強，長期持有核心部位',target:null,tags:['被動元件']},
-        {code:'2316',ex:'tse',name:'楠梓電',thesis:'母以子貴（持有滬電 15%），投信 00982A 新買 3000 張；滬電漲 40-50%，理論合理值約 770+',target:770,tags:['PCB','母以子貴']},
-        {code:null,ex:null,name:'美債 ZB 30Y',thesis:'三週前超買，殖利率約 5.2，若再掉一點繼續加碼；未來升息機率降低看好回升',target:null,tags:['美債','總經']},
-        {code:null,ex:null,name:'比特幣 BTC',thesis:'線型仍差，等打底後把股票利潤 rebalance 5-10%，等待時機',target:null,tags:['加密貨幣']},
+      {name:'é¦¬å¥ç¾',stocks:[
+        {code:'2327',ex:'tse',name:'åå·¨',thesis:'è¢«ååä»¶æ¼²å¹ï¼æµåæ§å¼·ï¼é·ææææ ¸å¿é¨ä½',target:null,tags:['è¢«ååä»¶']},
+        {code:'2316',ex:'tse',name:'æ¥ æ¢é»',thesis:'æ¯ä»¥å­è²´ï¼æææ»¬é» 15%ï¼ï¼æä¿¡ 00982A æ°è²· 3000 å¼µï¼æ»¬é»æ¼² 40-50%ï¼çè«åçå¼ç´ 770+',target:770,tags:['PCB','æ¯ä»¥å­è²´']},
+        {code:null,ex:null,name:'ç¾åµ ZB 30Y',thesis:'ä¸é±åè¶è²·ï¼æ®å©çç´ 5.2ï¼è¥åæä¸é»ç¹¼çºå ç¢¼ï¼æªä¾åæ¯æ©çéä½çå¥½åå',target:null,tags:['ç¾åµ','ç¸½ç¶']},
+        {code:null,ex:null,name:'æ¯ç¹å¹£ BTC',thesis:'ç·åä»å·®ï¼ç­æåºå¾æè¡ç¥¨å©æ½¤ rebalance 5-10%ï¼ç­å¾ææ©',target:null,tags:['å å¯è²¨å¹£']},
       ]},
-      {name:'新朋友',stocks:[
-        {code:'3450',ex:'otc',name:'聯鈞',thesis:'AOC 光纖線，接到 Coherent/Lite/Marvel 訂單；子公司源傑 Q3 上興櫃；庫存去化完成，YOY 40-50%，產能開到 200%',target:null,tags:['光通訊','AOC']},
-        {code:'2327',ex:'tse',name:'國巨',thesis:'被動元件漲價受惠，持續追蹤',target:null,tags:['被動元件']},
-        {code:'8043',ex:'otc',name:'蜜望實',thesis:'太陽誘電（TDK）台灣代理，已率先發漲價通知，受惠被動元件漲價週期',target:null,tags:['被動元件通路']},
+      {name:'æ°æå',stocks:[
+        {code:'3450',ex:'otc',name:'è¯é',thesis:'AOC åçºç·ï¼æ¥å° Coherent/Lite/Marvel è¨å®ï¼å­å¬å¸æºå Q3 ä¸èæ«ï¼åº«å­å»åå®æï¼YOY 40-50%ï¼ç¢è½éå° 200%',target:null,tags:['åéè¨','AOC']},
+        {code:'2327',ex:'tse',name:'åå·¨',thesis:'è¢«ååä»¶æ¼²å¹åæ ï¼æçºè¿½è¹¤',target:null,tags:['è¢«ååä»¶']},
+        {code:'8043',ex:'otc',name:'èæå¯¦',thesis:'å¤ªé½èªé»ï¼TDKï¼å°ç£ä»£çï¼å·²çåç¼æ¼²å¹éç¥ï¼åæ è¢«ååä»¶æ¼²å¹é±æ',target:null,tags:['è¢«ååä»¶éè·¯']},
       ]},
-      {name:'小哥哥',stocks:[
-        {code:'3485',ex:'otc',name:'敘豐',thesis:'TGV 概念，欣興拉貨提前，月營收 0.5 億→7 月達 1 億，明年 EPS 估 20+，剛上櫃籌碼乾淨，6/15 處置結束後量才會出來',target:null,tags:['TGV','PCB材料']},
-        {code:'3059',ex:'otc',name:'偉訓',thesis:'大股東直接說可以買，CB 可轉債，利多 7-8 月；禮拜一從跌停拉到翻紅已驗證',target:null,tags:['CB','通路']},
+      {name:'å°å¥å¥',stocks:[
+        {code:'3485',ex:'otc',name:'æè±',thesis:'TGV æ¦å¿µï¼æ¬£èæè²¨æåï¼æçæ¶ 0.5 åâ7 æé 1 åï¼æå¹´ EPS ä¼° 20+ï¼åä¸æ«ç±ç¢¼ä¹¾æ·¨ï¼6/15 èç½®çµæå¾éææåºä¾',target:null,tags:['TGV','PCBææ']},
+        {code:'3059',ex:'otc',name:'åè¨',thesis:'å¤§è¡æ±ç´æ¥èªªå¯ä»¥è²·ï¼CB å¯è½åµï¼å©å¤ 7-8 æï¼ç¦®æä¸å¾è·åæå°ç¿»ç´å·²é©è­',target:null,tags:['CB','éè·¯']},
       ]},
-      {name:'KK大',stocks:[
-        {code:'3653',ex:'otc',name:'健策',thesis:'NV 改設計 ASP 掉 66% 已 price in，Computex 展出新 solution（MC link + VC 結合），目標 23kW 散熱，展示驗證中',target:null,tags:['散熱','AI伺服器','CoWoS']},
-        {code:'2454',ex:'tse',name:'聯發科',thesis:'大股票持有，月初有人記得月中忘記策略，抓 20% 區間操作',target:null,tags:['IC設計']},
-        {code:'3324',ex:'tse',name:'雙鴻',thesis:'大股票持有',target:null,tags:['散熱']},
-        {code:'2059',ex:'tse',name:'川湖',thesis:'大股票持有',target:null,tags:['伺服器']},
-        {code:'5289',ex:'otc',name:'宜鼎',thesis:'大股票，月初漲月中被遺忘策略反覆操作，EPS 強勁',target:null,tags:['工業記憶體']},
-        {code:'6840',ex:'otc',name:'東延信超',thesis:'CB 轉換價 106，月營收衝 9000 萬驗證中，若月 EPS 近 1 塊即 60 元股價就進場',target:null,tags:['CB','電子']},
+      {name:'KKå¤§',stocks:[
+        {code:'3653',ex:'otc',name:'å¥ç­',thesis:'NV æ¹è¨­è¨ ASP æ 66% å·² price inï¼Computex å±åºæ° solutionï¼MC link + VC çµåï¼ï¼ç®æ¨ 23kW æ£ç±ï¼å±ç¤ºé©è­ä¸­',target:null,tags:['æ£ç±','AIä¼ºæå¨','CoWoS']},
+        {code:'2454',ex:'tse',name:'è¯ç¼ç§',thesis:'å¤§è¡ç¥¨ææï¼æåæäººè¨å¾æä¸­å¿è¨ç­ç¥ï¼æ 20% åéæä½',target:null,tags:['ICè¨­è¨']},
+        {code:'3324',ex:'tse',name:'éé´»',thesis:'å¤§è¡ç¥¨ææ',target:null,tags:['æ£ç±']},
+        {code:'2059',ex:'tse',name:'å·æ¹',thesis:'å¤§è¡ç¥¨ææ',target:null,tags:['ä¼ºæå¨']},
+        {code:'5289',ex:'otc',name:'å®é¼',thesis:'å¤§è¡ç¥¨ï¼æåæ¼²æä¸­è¢«éºå¿ç­ç¥åè¦æä½ï¼EPS å¼·å',target:null,tags:['å·¥æ¥­è¨æ¶é«']},
+        {code:'6840',ex:'otc',name:'æ±å»¶ä¿¡è¶',thesis:'CB è½æå¹ 106ï¼æçæ¶è¡ 9000 è¬é©è­ä¸­ï¼è¥æ EPS è¿ 1 å¡å³ 60 åè¡å¹å°±é²å ´',target:null,tags:['CB','é»å­']},
       ]},
-      {name:'小王子',stocks:[
-        {code:'6147',ex:'otc',name:'頎邦',thesis:'光通訊金凸塊封裝（COF），27 年 TEM 600 億美元，廖學邦建倉持股達 5%，明年營收 300 億',target:null,tags:['光通訊','封裝','COF']},
-        {code:'6442',ex:'otc',name:'光聖',thesis:'Google TPU 光纖佈線，子公司合聖待上興櫃，今年 EPS 60 / 明年 115，9 成以上收入來自 TPU',target:115,tags:['光通訊','Google TPU']},
+      {name:'å°çå­',stocks:[
+        {code:'6147',ex:'otc',name:'é é¦',thesis:'åéè¨éå¸å¡å°è£ï¼COFï¼ï¼27 å¹´ TEM 600 åç¾åï¼å»å­¸é¦å»ºåæè¡é 5%ï¼æå¹´çæ¶ 300 å',target:null,tags:['åéè¨','å°è£','COF']},
+        {code:'6442',ex:'otc',name:'åè',thesis:'Google TPU åçºä½ç·ï¼å­å¬å¸åèå¾ä¸èæ«ï¼ä»å¹´ EPS 60 / æå¹´ 115ï¼9 æä»¥ä¸æ¶å¥ä¾èª TPU',target:115,tags:['åéè¨','Google TPU']},
       ]},
       {name:'CH',stocks:[
-        {code:'7610',ex:'otc',name:'聯友金屬',thesis:'鎢材料：稀缺資源 + 地緣政治 + 技術壁壘，半導體封裝廠指定供應商，明年 EPS 估 115',target:2300,tags:['鎢','地緣政治']},
-        {code:'3042',ex:'otc',name:'晶技',thesis:'石英震盪器 AI 伺服器不可替代（抖動遠低於 MEMS），今年 EPS 12 / 明年 16，配息率 80%+',target:null,tags:['石英振盪器','AI伺服器']},
-        {code:'3653',ex:'otc',name:'健策',thesis:'ASP 掉 66% 已充分反映，Computex 展出新 solution，接低點布局',target:null,tags:['散熱','CoWoS']},
+        {code:'7610',ex:'otc',name:'è¯åéå±¬',thesis:'é¢ææï¼ç¨ç¼ºè³æº + å°ç·£æ¿æ²» + æè¡å£å£ï¼åå°é«å°è£å» æå®ä¾æåï¼æå¹´ EPS ä¼° 115',target:2300,tags:['é¢','å°ç·£æ¿æ²»']},
+        {code:'3042',ex:'otc',name:'æ¶æ',thesis:'ç³è±éçªå¨ AI ä¼ºæå¨ä¸å¯æ¿ä»£ï¼æåé ä½æ¼ MEMSï¼ï¼ä»å¹´ EPS 12 / æå¹´ 16ï¼éæ¯ç 80%+',target:null,tags:['ç³è±æ¯çªå¨','AIä¼ºæå¨']},
+        {code:'3653',ex:'otc',name:'å¥ç­',thesis:'ASP æ 66% å·²åååæ ï¼Computex å±åºæ° solutionï¼æ¥ä½é»å¸å±',target:null,tags:['æ£ç±','CoWoS']},
       ]},
-      {name:'發發哥',stocks:[
-        {code:'2329',ex:'tse',name:'華泰',thesis:'CB 可轉債，整理很久剛開始啟動，籌碼認很多，共識形成，富邦新板已注意',target:null,tags:['CB','類比IC']},
-        {code:'6121',ex:'otc',name:'新普',thesis:'電池廠，CB 可轉債，電池漲價趨勢，近期有人在拆 CB，可留意',target:null,tags:['電池','CB']},
+      {name:'ç¼ç¼å¥',stocks:[
+        {code:'2329',ex:'tse',name:'è¯æ³°',thesis:'CB å¯è½åµï¼æ´çå¾ä¹åéå§ååï¼ç±ç¢¼èªå¾å¤ï¼å±è­å½¢æï¼å¯é¦æ°æ¿å·²æ³¨æ',target:null,tags:['CB','é¡æ¯IC']},
+        {code:'6121',ex:'otc',name:'æ°æ®',thesis:'é»æ± å» ï¼CB å¯è½åµï¼é»æ± æ¼²å¹è¶¨å¢ï¼è¿ææäººå¨æ CBï¼å¯çæ',target:null,tags:['é»æ± ','CB']},
       ]},
-      {name:'寶寶',stocks:[
-        {code:'2327',ex:'tse',name:'國巨',thesis:'大部位核心持倉，被動元件漲價週期主標的',target:null,tags:['被動元件']},
-        {code:'6449',ex:'otc',name:'鈺邦',thesis:'鋁質電容，籌碼乾淨，有資訊優勢，持續關注',target:null,tags:['鋁質電容']},
-        {code:'6788',ex:'otc',name:'（6788 待確認）',thesis:'台積電擴廠設備受惠，毛利率 60%，今年 EPS 20 / 明年 35，富邦新板目標 600-800',target:800,tags:['設備','台積電']},
+      {name:'å¯¶å¯¶',stocks:[
+        {code:'2327',ex:'tse',name:'åå·¨',thesis:'å¤§é¨ä½æ ¸å¿æåï¼è¢«ååä»¶æ¼²å¹é±æä¸»æ¨ç',target:null,tags:['è¢«ååä»¶']},
+        {code:'6449',ex:'otc',name:'éºé¦',thesis:'éè³ªé»å®¹ï¼ç±ç¢¼ä¹¾æ·¨ï¼æè³è¨åªå¢ï¼æçºéæ³¨',target:null,tags:['éè³ªé»å®¹']},
+        {code:'6788',ex:'otc',name:'ï¼6788 å¾ç¢ºèªï¼',thesis:'å°ç©é»æ´å» è¨­ååæ ï¼æ¯å©ç 60%ï¼ä»å¹´ EPS 20 / æå¹´ 35ï¼å¯é¦æ°æ¿ç®æ¨ 600-800',target:800,tags:['è¨­å','å°ç©é»']},
       ]},
       {name:'momoji',stocks:[
-        {code:'2327',ex:'tse',name:'國巨',thesis:'標配持股',target:null,tags:['被動元件']},
-        {code:'3167',ex:'tse',name:'大量',thesis:'標配持股，董事長預期今年 EPS 30 / 明年 60（保守），統一報告 2027 EPS 43.4',target:null,tags:['設備']},
-        {code:'2059',ex:'tse',name:'川湖',thesis:'標配持股',target:null,tags:['伺服器']},
-        {code:'6669',ex:'tse',name:'緯穎',thesis:'明年 EPS 估 600，現在 <10 倍 PE，市場關注度低，除息公告後有啟動機會',target:null,tags:['伺服器','AI']},
-        {code:'6223',ex:'otc',name:'旺矽',thesis:'CB 詢圈被洗掉後，昨天好營收出來，MS 今天可能發報告',target:null,tags:['探針']},
-        {code:'2303',ex:'tse',name:'聯電',thesis:'919 ETF 成分股調整事件，朋友推，內部估 200-300',target:300,tags:['晶圓代工']},
+        {code:'2327',ex:'tse',name:'åå·¨',thesis:'æ¨éæè¡',target:null,tags:['è¢«ååä»¶']},
+        {code:'3167',ex:'tse',name:'å¤§é',thesis:'æ¨éæè¡ï¼è£äºé·é æä»å¹´ EPS 30 / æå¹´ 60ï¼ä¿å®ï¼ï¼çµ±ä¸å ±å 2027 EPS 43.4',target:null,tags:['è¨­å']},
+        {code:'2059',ex:'tse',name:'å·æ¹',thesis:'æ¨éæè¡',target:null,tags:['ä¼ºæå¨']},
+        {code:'6669',ex:'tse',name:'ç·¯ç©',thesis:'æå¹´ EPS ä¼° 600ï¼ç¾å¨ <10 å PEï¼å¸å ´éæ³¨åº¦ä½ï¼é¤æ¯å¬åå¾æååæ©æ',target:null,tags:['ä¼ºæå¨','AI']},
+        {code:'6223',ex:'otc',name:'æºç½',thesis:'CB è©¢åè¢«æ´æå¾ï¼æ¨å¤©å¥½çæ¶åºä¾ï¼MS ä»å¤©å¯è½ç¼å ±å',target:null,tags:['æ¢é']},
+        {code:'2303',ex:'tse',name:'è¯é»',thesis:'919 ETF æåè¡èª¿æ´äºä»¶ï¼æåæ¨ï¼å§é¨ä¼° 200-300',target:300,tags:['æ¶åä»£å·¥']},
       ]},
-      {name:'奇哥（線上）',stocks:[
-        {code:'2303',ex:'tse',name:'聯電',thesis:'8 吋成熟製程產能 7 月後達 9 成，客戶收到漲價通知 5-20%（PMIC、PowerIC），台積電退出 28nm 訂單流向聯電；市場共識 200-300',target:300,tags:['晶圓代工','漲價']},
+      {name:'å¥å¥ï¼ç·ä¸ï¼',stocks:[
+        {code:'2303',ex:'tse',name:'è¯é»',thesis:'8 åæçè£½ç¨ç¢è½ 7 æå¾é 9 æï¼å®¢æ¶æ¶å°æ¼²å¹éç¥ 5-20%ï¼PMICãPowerICï¼ï¼å°ç©é»éåº 28nm è¨å®æµåè¯é»ï¼å¸å ´å±è­ 200-300',target:300,tags:['æ¶åä»£å·¥','æ¼²å¹']},
       ]},
-      {name:'武王（線上）',stocks:[
-        {code:'2330',ex:'tse',name:'台積電',thesis:'主要持股，AI 硬體核心受惠者，台灣 AI 成長率蓋過升息利率，基本面最強，拉回即加碼',target:null,tags:['台積電','AI']},
+      {name:'æ­¦çï¼ç·ä¸ï¼',stocks:[
+        {code:'2330',ex:'tse',name:'å°ç©é»',thesis:'ä¸»è¦æè¡ï¼AI ç¡¬é«æ ¸å¿åæ èï¼å°ç£ AI æé·çèéåæ¯å©çï¼åºæ¬é¢æå¼·ï¼æåå³å ç¢¼',target:null,tags:['å°ç©é»','AI']},
       ]},
     ],
     bullish:[
-      {text:'被動元件漲價週期（MLCC、鋁質電容缺貨，漲幅超預期）',by:'崴哥、新朋友、寶寶、KK大'},
-      {text:'光通訊族群（AOC、Google TPU、光纖模組）持續擴產',by:'小王子、新朋友、Monson'},
-      {text:'TGV（玻璃通孔）2027-28 年設備/產線爆發期，撒網佈局',by:'小哥哥、凱哥、奇哥；相關：漢偉、東捷、鈦昇、川寶'},
-      {text:'AI PC / 地端 NPU 晶片，CP 值優於 NV，Intel 合作',by:'小資男孩、Monson'},
-      {text:'CoWoS 散熱升級（目標 23kW+），健策新 solution 驗證中',by:'CH、KK大'},
-      {text:'SpaceX IPO → 太空/陶瓷材料供應鏈受惠（九豪等陶瓷基板）',by:'奇哥；SpaceX 市值 1.7T'},
-      {text:'高殖利率除息行情（7 月），ETF 成分股提前飄升',by:'崴哥；0056、919 成分股'},
-      {text:'阿茲海默小分子藥，安立璽榮-KY BioMark 全球首例認知逆轉案例',by:'凱哥、崴哥；即將進大型臨床'},
+      {text:'è¢«ååä»¶æ¼²å¹é±æï¼MLCCãéè³ªé»å®¹ç¼ºè²¨ï¼æ¼²å¹è¶é æï¼',by:'å´´å¥ãæ°æåãå¯¶å¯¶ãKKå¤§'},
+      {text:'åéè¨æç¾¤ï¼AOCãGoogle TPUãåçºæ¨¡çµï¼æçºæ´ç¢',by:'å°çå­ãæ°æåãMonson'},
+      {text:'TGVï¼ç»çéå­ï¼2027-28 å¹´è¨­å/ç¢ç·çç¼æï¼æç¶²ä½å±',by:'å°å¥å¥ãå±å¥ãå¥å¥ï¼ç¸éï¼æ¼¢åãæ±æ·ãé¦æãå·å¯¶'},
+      {text:'AI PC / å°ç«¯ NPU æ¶çï¼CP å¼åªæ¼ NVï¼Intel åä½',by:'å°è³ç·å­©ãMonson'},
+      {text:'CoWoS æ£ç±åç´ï¼ç®æ¨ 23kW+ï¼ï¼å¥ç­æ° solution é©è­ä¸­',by:'CHãKKå¤§'},
+      {text:'SpaceX IPO â å¤ªç©º/é¶ç·ææä¾æéåæ ï¼ä¹è±ªç­é¶ç·åºæ¿ï¼',by:'å¥å¥ï¼SpaceX å¸å¼ 1.7T'},
+      {text:'é«æ®å©çé¤æ¯è¡æï¼7 æï¼ï¼ETF æåè¡æåé£å',by:'å´´å¥ï¼0056ã919 æåè¡'},
+      {text:'é¿è²æµ·é»å°åå­è¥ï¼å®ç«ç½æ¦®-KY BioMark å¨çé¦ä¾èªç¥éè½æ¡ä¾',by:'å±å¥ãå´´å¥ï¼å³å°é²å¤§åè¨åº'},
     ],
     macro:[
-      {color:'r',text:'<strong>日本升息</strong>（下週），Carry Trade 壓力釋放，預期影響小於去年 7 月崩盤',by:'奇哥、武王、馬奎爾'},
-      {color:'y',text:'<strong>CPI</strong> 市場預期 4.2，內部估實際 4.0-4.1；若未超預期則無升息壓力',by:'奇哥（2026/06/10 公布）'},
-      {color:'g',text:'今年 CPI <strong>高點在 7 月</strong>後轉降，升息機率低，Fed 維持不動',by:'武王'},
-      {color:'r',text:'<strong>SpaceX IPO</strong> 抽資金 75-100B 美元，造成半導體短線賣壓（SMH 跌 10%）',by:'奇哥'},
-      {color:'g',text:'台灣經濟成長率 > 升息利率，AI 硬體優勢明確，<strong>拉回建倉</strong>好時機',by:'奇哥、武王；預期 2-3 週波動後回升'},
-      {color:'g',text:'聯電 8 吋成熟製程產能下半年達 9 成，<strong>季季漲價 5-20%</strong>，可挑客戶',by:'奇哥；台積電放棄 28nm，訂單流向聯電'},
-      {color:'y',text:'馬奎爾持美債 ZB 30Y（殖利率 5.2），看好短期回升；比特幣等打底後再 rebalance 5-10%',by:'馬奎爾'},
+      {color:'r',text:'<strong>æ¥æ¬åæ¯</strong>ï¼ä¸é±ï¼ï¼Carry Trade å£åéæ¾ï¼é æå½±é¿å°æ¼å»å¹´ 7 æå´©ç¤',by:'å¥å¥ãæ­¦çãé¦¬å¥ç¾'},
+      {color:'y',text:'<strong>CPI</strong> å¸å ´é æ 4.2ï¼å§é¨ä¼°å¯¦é 4.0-4.1ï¼è¥æªè¶é æåç¡åæ¯å£å',by:'å¥å¥ï¼2026/06/10 å¬å¸ï¼'},
+      {color:'g',text:'ä»å¹´ CPI <strong>é«é»å¨ 7 æ</strong>å¾è½éï¼åæ¯æ©çä½ï¼Fed ç¶­æä¸å',by:'æ­¦ç'},
+      {color:'r',text:'<strong>SpaceX IPO</strong> æ½è³é 75-100B ç¾åï¼é æåå°é«ç­ç·è³£å£ï¼SMH è· 10%ï¼',by:'å¥å¥'},
+      {color:'g',text:'å°ç£ç¶æ¿æé·ç > åæ¯å©çï¼AI ç¡¬é«åªå¢æç¢ºï¼<strong>æåå»ºå</strong>å¥½ææ©',by:'å¥å¥ãæ­¦çï¼é æ 2-3 é±æ³¢åå¾åå'},
+      {color:'g',text:'è¯é» 8 åæçè£½ç¨ç¢è½ä¸åå¹´é 9 æï¼<strong>å­£å­£æ¼²å¹ 5-20%</strong>ï¼å¯æå®¢æ¶',by:'å¥å¥ï¼å°ç©é»æ¾æ£ 28nmï¼è¨å®æµåè¯é»'},
+      {color:'y',text:'é¦¬å¥ç¾æç¾åµ ZB 30Yï¼æ®å©ç 5.2ï¼ï¼çå¥½ç­æååï¼æ¯ç¹å¹£ç­æåºå¾å rebalance 5-10%',by:'é¦¬å¥ç¾'},
     ]
   }
 ,
   {
-    id:'m20260714',date:'2026/07/14',label:'第二次',
+    id:'m20260714',date:'2026/07/14',label:'ç¬¬äºæ¬¡',
     members:[
-      {name:'小資男孩',stocks:[
-        {code:'3017',ex:'tse',name:'奇鋐',thesis:'Q2 EPS ~24（vs 上季 20），BNV/ASIC 產品組合改善毛利率，明顯超預期',target:null,tags:['散熱','AI伺服器']},
-        {code:'2408',ex:'tse',name:'南電',thesis:'ABF 基板主要持股',target:null,tags:['ABF','AI']},
+      {name:'å°è³ç·å­©',stocks:[
+        {code:'3017',ex:'tse',name:'å¥é',thesis:'Q2 EPS ~24ï¼vs ä¸å­£ 20ï¼ï¼BNV/ASIC ç¢åçµåæ¹åæ¯å©çï¼æé¡¯è¶é æ',target:null,tags:['æ£ç±','AIä¼ºæå¨']},
+        {code:'2408',ex:'tse',name:'åé»',thesis:'ABF åºæ¿ä¸»è¦æè¡',target:null,tags:['ABF','AI']},
       ]},
-      {name:'凱哥',stocks:[
-        {code:'8431',ex:'otc',name:'匯鑽科',thesis:'轉機題材，AI 供應鏈轉型，業績開始兌現',target:null,tags:['AI','轉機']},
-        {code:'2330',ex:'tse',name:'台積電',thesis:'北美客戶訂單暴增：Broadcom +140%、NV +91%、AMD +56%、AWS +37%、Microsoft 2027 年 14 倍',target:null,tags:['台積電','AI']},
-        {code:'6696',ex:'otc',name:'仁新',thesis:'藥廠自銷策略，成本約 100，目標 1,200+，自主商業化 Upside 更大',target:1200,tags:['生技','自銷']},
-        {code:'2059',ex:'tse',name:'川湖',thesis:'擴廠加速 2 年，年底兩座新廠完工，產能翻倍；法人大資金 16 億佈局',target:10000,tags:['伺服器','AI']},
-        {code:'7610',ex:'otc',name:'聯友金屬',thesis:'鎢非中供應鏈，美中貿易戰長期受益',target:null,tags:['鎢','地緣政治']},
-        {code:'7871',ex:'otc',name:'安立璽榮-KY',thesis:'阿茲海默藥試驗數據正向，6 月公告 200 萬美金 fee',target:null,tags:['生技','阿茲海默']},
-        {code:'3528',ex:'tse',name:'安馳',thesis:'ADI 通知下半年交期拉長，基金已接 1 億部位，長線看多',target:null,tags:['類比IC']},
-        {code:'7902',ex:'otc',name:'宇越（興櫃）',thesis:'補件完成即將進二期，對比沛爾(6949)~500億估值，宇越僅 70 億；沙烏地授權談判中',target:null,tags:['生技','興櫃']},
-        {code:'6610',ex:'otc',name:'安成生技',thesis:'25 元現增，年底二期高機率過，名聲差但定價錯誤機會',target:null,tags:['生技','新藥']},
-        {code:'6467',ex:'otc',name:'泰合',thesis:'口溶膜抗凝血藥，原廠 BMS 三期炸掉，授權機會大增',target:null,tags:['生技','新藥']},
-        {code:'7798',ex:'otc',name:'將捷',thesis:'15 元現增，明年文山區建案 EPS ~3.5，目標 ~24.5（7 倍）',target:24,tags:['營建']},
+      {name:'å±å¥',stocks:[
+        {code:'8431',ex:'otc',name:'å¯é½ç§',thesis:'è½æ©é¡æï¼AI ä¾æéè½åï¼æ¥­ç¸¾éå§åç¾',target:null,tags:['AI','è½æ©']},
+        {code:'2330',ex:'tse',name:'å°ç©é»',thesis:'åç¾å®¢æ¶è¨å®æ´å¢ï¼Broadcom +140%ãNV +91%ãAMD +56%ãAWS +37%ãMicrosoft 2027 å¹´ 14 å',target:null,tags:['å°ç©é»','AI']},
+        {code:'6696',ex:'otc',name:'ä»æ°',thesis:'è¥å» èªé·ç­ç¥ï¼ææ¬ç´ 100ï¼ç®æ¨ 1,200+ï¼èªä¸»åæ¥­å Upside æ´å¤§',target:1200,tags:['çæ','èªé·']},
+        {code:'2059',ex:'tse',name:'å·æ¹',thesis:'æ´å» å é 2 å¹´ï¼å¹´åºå©åº§æ°å» å®å·¥ï¼ç¢è½ç¿»åï¼æ³äººå¤§è³é 16 åä½å±',target:10000,tags:['ä¼ºæå¨','AI']},
+        {code:'7610',ex:'otc',name:'è¯åéå±¬',thesis:'é¢éä¸­ä¾æéï¼ç¾ä¸­è²¿ææ°é·æåç',target:null,tags:['é¢','å°ç·£æ¿æ²»']},
+        {code:'7871',ex:'otc',name:'å®ç«ç½æ¦®-KY',thesis:'é¿è²æµ·é»è¥è©¦é©æ¸ææ­£åï¼6 æå¬å 200 è¬ç¾é fee',target:null,tags:['çæ','é¿è²æµ·é»']},
+        {code:'3528',ex:'tse',name:'å®é¦³',thesis:'ADI éç¥ä¸åå¹´äº¤ææé·ï¼åºéå·²æ¥ 1 åé¨ä½ï¼é·ç·çå¤',target:null,tags:['é¡æ¯IC']},
+        {code:'7902',ex:'otc',name:'å®è¶ï¼èæ«ï¼',thesis:'è£ä»¶å®æå³å°é²äºæï¼å°æ¯æ²ç¾(6949)~500åä¼°å¼ï¼å®è¶å 70 åï¼æ²çå°ææ¬è«å¤ä¸­',target:null,tags:['çæ','èæ«']},
+        {code:'6610',ex:'otc',name:'å®æçæ',thesis:'25 åç¾å¢ï¼å¹´åºäºæé«æ©çéï¼åè²å·®ä½å®å¹é¯èª¤æ©æ',target:null,tags:['çæ','æ°è¥']},
+        {code:'6467',ex:'otc',name:'æ³°å',thesis:'å£æº¶èæåè¡è¥ï¼åå»  BMS ä¸æç¸æï¼ææ¬æ©æå¤§å¢',target:null,tags:['çæ','æ°è¥']},
+        {code:'7798',ex:'otc',name:'å°æ·',thesis:'15 åç¾å¢ï¼æå¹´æå±±åå»ºæ¡ EPS ~3.5ï¼ç®æ¨ ~24.5ï¼7 åï¼',target:24,tags:['çå»º']},
       ]},
-      {name:'Harris哥',stocks:[
-        {code:'7610',ex:'otc',name:'聯友金屬',thesis:'EPS 150~200 估，目標 3,400~3,600（2027 年）',target:3500,tags:['鎢','地緣政治']},
-        {code:'3042',ex:'tse',name:'晶技',thesis:'216MHz 產品銷售佳，下半年動能持續',target:null,tags:['石英振盪器','AI伺服器']},
-        {code:'6182',ex:'otc',name:'合晶',thesis:'矽晶圓，在 10~11 元進行部位調整',target:null,tags:['矽晶圓']},
-        {code:'7856',ex:'otc',name:'漢測',thesis:'Advantest 合作進展，下半年動能',target:null,tags:['測試設備']},
+      {name:'Harriså¥',stocks:[
+        {code:'7610',ex:'otc',name:'è¯åéå±¬',thesis:'EPS 150~200 ä¼°ï¼ç®æ¨ 3,400~3,600ï¼2027 å¹´ï¼',target:3500,tags:['é¢','å°ç·£æ¿æ²»']},
+        {code:'3042',ex:'tse',name:'æ¶æ',thesis:'216MHz ç¢åé·å®ä½³ï¼ä¸åå¹´åè½æçº',target:null,tags:['ç³è±æ¯çªå¨','AIä¼ºæå¨']},
+        {code:'6182',ex:'otc',name:'åæ¶',thesis:'ç½æ¶åï¼å¨ 10~11 åé²è¡é¨ä½èª¿æ´',target:null,tags:['ç½æ¶å']},
+        {code:'7856',ex:'otc',name:'æ¼¢æ¸¬',thesis:'Advantest åä½é²å±ï¼ä¸åå¹´åè½',target:null,tags:['æ¸¬è©¦è¨­å']},
       ]},
-      {name:'馬奎爾',stocks:[
-        {code:'2327',ex:'tse',name:'國巨',thesis:'已於約 900 元賣出，獲利了結',target:null,tags:['被動元件']},
-        {code:'5483',ex:'tse',name:'中美晶',thesis:'買入：對環球晶折價 55%，集團小金雞（朋程等）；矽晶圓代替選擇',target:null,tags:['矽晶圓']},
-        {code:'2316',ex:'tse',name:'楠梓電',thesis:'持有；機器人/衛星/無人機轉型，EPS：今年 14~15、明年 21、後年 30',target:null,tags:['PCB','無人機','機器人']},
-        {code:'2330',ex:'tse',name:'台積電',thesis:'加碼佈局',target:null,tags:['台積電','AI']},
+      {name:'é¦¬å¥ç¾',stocks:[
+        {code:'2327',ex:'tse',name:'åå·¨',thesis:'å·²æ¼ç´ 900 åè³£åºï¼ç²å©äºçµ',target:null,tags:['è¢«ååä»¶']},
+        {code:'5483',ex:'tse',name:'ä¸­ç¾æ¶',thesis:'è²·å¥ï¼å°ç°çæ¶æå¹ 55%ï¼éåå°ééï¼æç¨ç­ï¼ï¼ç½æ¶åä»£æ¿é¸æ',target:null,tags:['ç½æ¶å']},
+        {code:'2316',ex:'tse',name:'æ¥ æ¢é»',thesis:'ææï¼æ©å¨äºº/è¡æ/ç¡äººæ©è½åï¼EPSï¼ä»å¹´ 14~15ãæå¹´ 21ãå¾å¹´ 30',target:null,tags:['PCB','ç¡äººæ©','æ©å¨äºº']},
+        {code:'2330',ex:'tse',name:'å°ç©é»',thesis:'å ç¢¼ä½å±',target:null,tags:['å°ç©é»','AI']},
       ]},
-      {name:'AC哥',stocks:[
-        {code:'3595',ex:'otc',name:'山太士',thesis:'ABF 獨立供應商，明年 EPS 下限 100 元',target:null,tags:['ABF','AI']},
-        {code:'7861',ex:'otc',name:'貝爾威勒',thesis:'目標 50 元',target:50,tags:[]},
-        {code:'6683',ex:'otc',name:'雍智科技',thesis:'V9 出貨量 >> V8，快速放量，升估值空間',target:null,tags:['AI','GPU']},
-        {code:'6182',ex:'otc',name:'合晶',thesis:'矽晶圓佈局',target:null,tags:['矽晶圓']},
-        {code:'4542',ex:'otc',name:'科嶠',thesis:'明年 EPS 40+，等季線支撐後切入',target:null,tags:['ABF']},
-        {code:'3529',ex:'otc',name:'力旺',thesis:'3,000 以下可考慮佈局',target:null,tags:['IP','嵌入式記憶體']},
-        {code:'3374',ex:'otc',name:'精材',thesis:'台積電 OS 訂單從矽品轉至精材，質變升估值，現價 350 vs 日月光 600~700',target:null,tags:['先進封裝','台積電']},
+      {name:'ACå¥',stocks:[
+        {code:'3595',ex:'otc',name:'å±±å¤ªå£«',thesis:'ABF ç¨ç«ä¾æåï¼æå¹´ EPS ä¸é 100 å',target:null,tags:['ABF','AI']},
+        {code:'7861',ex:'otc',name:'è²ç¾å¨å',thesis:'ç®æ¨ 50 å',target:50,tags:[]},
+        {code:'6683',ex:'otc',name:'éæºç§æ',thesis:'V9 åºè²¨é >> V8ï¼å¿«éæ¾éï¼åä¼°å¼ç©ºé',target:null,tags:['AI','GPU']},
+        {code:'6182',ex:'otc',name:'åæ¶',thesis:'ç½æ¶åä½å±',target:null,tags:['ç½æ¶å']},
+        {code:'4542',ex:'otc',name:'ç§å¶ ',thesis:'æå¹´ EPS 40+ï¼ç­å­£ç·æ¯æå¾åå¥',target:null,tags:['ABF']},
+        {code:'3529',ex:'otc',name:'åæº',thesis:'3,000 ä»¥ä¸å¯èæ®ä½å±',target:null,tags:['IP','åµå¥å¼è¨æ¶é«']},
+        {code:'3374',ex:'otc',name:'ç²¾æ',thesis:'å°ç©é» OS è¨å®å¾ç½åè½è³ç²¾æï¼è³ªè®åä¼°å¼ï¼ç¾å¹ 350 vs æ¥æå 600~700',target:null,tags:['åé²å°è£','å°ç©é»']},
       ]},
-      {name:'奇哥（線上）',stocks:[
-        {code:'3374',ex:'otc',name:'精材',thesis:'4~5 個 channel check 確認台積電 OS 訂單轉入，質變升估值，可與矽品/日月光比；槓桿工具齊全，動能資金必關注',target:null,tags:['先進封裝','台積電']},
+      {name:'å¥å¥ï¼ç·ä¸ï¼',stocks:[
+        {code:'3374',ex:'otc',name:'ç²¾æ',thesis:'4~5 å channel check ç¢ºèªå°ç©é» OS è¨å®è½å¥ï¼è³ªè®åä¼°å¼ï¼å¯èç½å/æ¥æåæ¯ï¼æ§æ¡¿å·¥å·é½å¨ï¼åè½è³éå¿éæ³¨',target:null,tags:['åé²å°è£','å°ç©é»']},
       ]},
-      {name:'小哥哥',stocks:[
-        {code:'8096',ex:'otc',name:'擎亞',thesis:'月營收 89 億創新高，CBAS 定價 160，目標 200；EPS 今年 10~15，明年 25；轉單+台積電訂單放大催化劑',target:200,tags:['PCB材料','台積電']},
+      {name:'å°å¥å¥',stocks:[
+        {code:'8096',ex:'otc',name:'æäº',thesis:'æçæ¶ 89 ååµæ°é«ï¼CBAS å®å¹ 160ï¼ç®æ¨ 200ï¼EPS ä»å¹´ 10~15ï¼æå¹´ 25ï¼è½å®+å°ç©é»è¨å®æ¾å¤§å¬åå',target:200,tags:['PCBææ','å°ç©é»']},
       ]},
       {name:'Monson',stocks:[
-        {code:'3167',ex:'tse',name:'大量',thesis:'6 月營收 ~10 億，背鑽機技術全球最優（優於德國）；700 多元有支撐，共識度提升',target:null,tags:['設備','PCB量測']},
-        {code:'6213',ex:'tse',name:'聯茂',thesis:'M7 毛利率 30%+（vs M4 11~12%），H2 佔比拉至 10~13%；泰國產能 H2 開出；新客戶微軟（呼應台積電微軟訂單 14x）',target:null,tags:['CCL','AI伺服器','微軟']},
-        {code:'4554',ex:'otc',name:'橙的',thesis:'胎壓偵測器，歐洲 AM 市場 50%+ 市占，配息 2 元（殖利率高），6 月營收十年同期新高',target:null,tags:['汽車電子']},
+        {code:'3167',ex:'tse',name:'å¤§é',thesis:'6 æçæ¶ ~10 åï¼èé½æ©æè¡å¨çæåªï¼åªæ¼å¾·åï¼ï¼700 å¤åææ¯æï¼å±è­åº¦æå',target:null,tags:['è¨­å','PCBéæ¸¬']},
+        {code:'6213',ex:'tse',name:'è¯è',thesis:'M7 æ¯å©ç 30%+ï¼vs M4 11~12%ï¼ï¼H2 ä½æ¯æè³ 10~13%ï¼æ³°åç¢è½ H2 éåºï¼æ°å®¢æ¶å¾®è»ï¼å¼æå°ç©é»å¾®è»è¨å® 14xï¼',target:null,tags:['CCL','AIä¼ºæå¨','å¾®è»']},
+        {code:'4554',ex:'otc',name:'æ©ç',thesis:'èå£åµæ¸¬å¨ï¼æ­æ´² AM å¸å ´ 50%+ å¸å ï¼éæ¯ 2 åï¼æ®å©çé«ï¼ï¼6 æçæ¶åå¹´åææ°é«',target:null,tags:['æ±½è»é»å­']},
       ]},
-      {name:'漢堡',stocks:[
-        {code:'3711',ex:'tse',name:'日月光投控',thesis:'最大持股，EPS 今年 18、明年 30；AIPC 產能擴增；封測龍頭，台積電外溢受益',target:null,tags:['封測','AI']},
-        {code:'5483',ex:'tse',name:'中美晶',thesis:'矽晶圓還有最後一波，法人報告陸續出爐；比環球晶便宜（折價 55%）',target:null,tags:['矽晶圓']},
+      {name:'æ¼¢å ¡',stocks:[
+        {code:'3711',ex:'tse',name:'æ¥æåææ§',thesis:'æå¤§æè¡ï¼EPS ä»å¹´ 18ãæå¹´ 30ï¼AIPC ç¢è½æ´å¢ï¼å°æ¸¬é¾é ­ï¼å°ç©é»å¤æº¢åç',target:null,tags:['å°æ¸¬','AI']},
+        {code:'5483',ex:'tse',name:'ä¸­ç¾æ¶',thesis:'ç½æ¶åéææå¾ä¸æ³¢ï¼æ³äººå ±åé¸çºåºçï¼æ¯ç°çæ¶ä¾¿å®ï¼æå¹ 55%ï¼',target:null,tags:['ç½æ¶å']},
       ]},
-      {name:'武王（線上）',stocks:[
-        {code:'2330',ex:'tse',name:'台積電',thesis:'基本面最穩，台指期多單，接近前高再增現金',target:null,tags:['台積電','AI']},
-        {code:null,ex:null,name:'ZB 30Y美債期貨',thesis:'CTA 空單降低，30 年美債利率有機會回到 5% 以下，已買進',target:null,tags:['美債','總經']},
+      {name:'æ­¦çï¼ç·ä¸ï¼',stocks:[
+        {code:'2330',ex:'tse',name:'å°ç©é»',thesis:'åºæ¬é¢æç©©ï¼å°ææå¤å®ï¼æ¥è¿åé«åå¢ç¾é',target:null,tags:['å°ç©é»','AI']},
+        {code:null,ex:null,name:'ZB 30Yç¾åµæè²¨',thesis:'CTA ç©ºå®éä½ï¼30 å¹´ç¾åµå©çææ©æåå° 5% ä»¥ä¸ï¼å·²è²·é²',target:null,tags:['ç¾åµ','ç¸½ç¶']},
       ]},
       {name:'MT',stocks:[
-        {code:'2303',ex:'tse',name:'聯電',thesis:'成熟製程明年漲價確定，史上首次發 CB（2 張），目標 200~250',target:250,tags:['晶圓代工','成熟製程']},
-        {code:'6669',ex:'tse',name:'緯穎',thesis:'首次發股票股利 20 元（配一送三），明年 EPS 聽聞 900，估值便宜，事件+基本面雙驅動',target:null,tags:['AI伺服器','股票股利']},
+        {code:'2303',ex:'tse',name:'è¯é»',thesis:'æçè£½ç¨æå¹´æ¼²å¹ç¢ºå®ï¼å²ä¸é¦æ¬¡ç¼ CBï¼2 å¼µï¼ï¼ç®æ¨ 200~250',target:250,tags:['æ¶åä»£å·¥','æçè£½ç¨']},
+        {code:'6669',ex:'tse',name:'ç·¯ç©',thesis:'é¦æ¬¡ç¼è¡ç¥¨è¡å© 20 åï¼éä¸éä¸ï¼ï¼æå¹´ EPS è½è 900ï¼ä¼°å¼ä¾¿å®ï¼äºä»¶+åºæ¬é¢éé©å',target:null,tags:['AIä¼ºæå¨','è¡ç¥¨è¡å©']},
       ]},
       {name:'momoji',stocks:[
-        {code:'3167',ex:'tse',name:'大量',thesis:'區間操作，今日有接，目標約 1,000',target:1000,tags:['設備','PCB量測']},
+        {code:'3167',ex:'tse',name:'å¤§é',thesis:'åéæä½ï¼ä»æ¥ææ¥ï¼ç®æ¨ç´ 1,000',target:1000,tags:['è¨­å','PCBéæ¸¬']},
       ]},
-      {name:'發發哥',stocks:[
-        {code:'6182',ex:'otc',name:'合晶',thesis:'矽晶圓族群，台勝科漲停後跟進',target:null,tags:['矽晶圓']},
-        {code:'5483',ex:'tse',name:'中美晶',thesis:'算術目標 200+，折價環球晶 50%，有補漲空間',target:200,tags:['矽晶圓']},
+      {name:'ç¼ç¼å¥',stocks:[
+        {code:'6182',ex:'otc',name:'åæ¶',thesis:'ç½æ¶åæç¾¤ï¼å°åç§æ¼²åå¾è·é²',target:null,tags:['ç½æ¶å']},
+        {code:'5483',ex:'tse',name:'ä¸­ç¾æ¶',thesis:'ç®è¡ç®æ¨ 200+ï¼æå¹ç°çæ¶ 50%ï¼æè£æ¼²ç©ºé',target:200,tags:['ç½æ¶å']},
       ]},
-      {name:'崴哥',stocks:[
-        {code:'5511',ex:'otc',name:'德昌',thesis:'冷門股，EPS 15 元，5 倍本益比，無人關注，韓股波動影響小',target:null,tags:['建設','低本益比']},
-        {code:'3528',ex:'tse',name:'安馳',thesis:'減碼後買回，EPS 便宜，ADI 下半年拉貨動能；基金已接 1 億',target:null,tags:['類比IC']},
-        {code:'2397',ex:'tse',name:'友通',thesis:'工業電腦族群，營收年增三成，BB 值接近 2，被錯殺，等反彈',target:null,tags:['工業電腦']},
-        {code:'4927',ex:'otc',name:'泰鼎（空）',thesis:'空單：籌碼爛+韓合作遞延+閒置產能未認列+每季 EPS -3；中國 PCB 泰國廠競爭加劇',target:null,tags:['PCB','空單']},
+      {name:'å´´å¥',stocks:[
+        {code:'5511',ex:'otc',name:'å¾·æ',thesis:'å·éè¡ï¼EPS 15 åï¼5 åæ¬çæ¯ï¼ç¡äººéæ³¨ï¼éè¡æ³¢åå½±é¿å°',target:null,tags:['å»ºè¨­','ä½æ¬çæ¯']},
+        {code:'3528',ex:'tse',name:'å®é¦³',thesis:'æ¸ç¢¼å¾è²·åï¼EPS ä¾¿å®ï¼ADI ä¸åå¹´æè²¨åè½ï¼åºéå·²æ¥ 1 å',target:null,tags:['é¡æ¯IC']},
+        {code:'2397',ex:'tse',name:'åé',thesis:'å·¥æ¥­é»è¦æç¾¤ï¼çæ¶å¹´å¢ä¸æï¼BB å¼æ¥è¿ 2ï¼è¢«é¯æ®ºï¼ç­åå½',target:null,tags:['å·¥æ¥­é»è¦']},
+        {code:'4927',ex:'otc',name:'æ³°é¼ï¼ç©ºï¼',thesis:'ç©ºå®ï¼ç±ç¢¼ç+éåä½éå»¶+éç½®ç¢è½æªèªå+æ¯å­£ EPS -3ï¼ä¸­å PCB æ³°åå» ç«¶ç­å å',target:null,tags:['PCB','ç©ºå®']},
       ]},
-      {name:'冠諺哥（書面）',stocks:[
-        {code:'2059',ex:'tse',name:'川湖',thesis:'三多大資金轉倉，7/7 後布局 16 億，短時間超 10 億代表信心強，目標破萬',target:10000,tags:['伺服器','AI']},
+      {name:'å è«ºå¥ï¼æ¸é¢ï¼',stocks:[
+        {code:'2059',ex:'tse',name:'å·æ¹',thesis:'ä¸å¤å¤§è³éè½åï¼7/7 å¾å¸å± 16 åï¼ç­æéè¶ 10 åä»£è¡¨ä¿¡å¿å¼·ï¼ç®æ¨ç ´è¬',target:10000,tags:['ä¼ºæå¨','AI']},
       ]},
-      {name:'新朋友',stocks:[
-        {code:'5288',ex:'otc',name:'豐祥',thesis:'汽車/機車零組件，電動機車越南大廠訂單，Q3 切入伺服器機櫃/水冷，EPS 今年 17+',target:null,tags:['汽車電子','AI伺服器','越南']},
+      {name:'æ°æå',stocks:[
+        {code:'5288',ex:'otc',name:'è±ç¥¥',thesis:'æ±½è»/æ©è»é¶çµä»¶ï¼é»åæ©è»è¶åå¤§å» è¨å®ï¼Q3 åå¥ä¼ºæå¨æ©æ«/æ°´å·ï¼EPS ä»å¹´ 17+',target:null,tags:['æ±½è»é»å­','AIä¼ºæå¨','è¶å']},
       ]},
-      {name:'JT哥（書面）',stocks:[
-        {code:'2303',ex:'tse',name:'聯電',thesis:'估值便宜，繼續持有，成熟製程漲價受惠',target:null,tags:['晶圓代工']},
+      {name:'JTå¥ï¼æ¸é¢ï¼',stocks:[
+        {code:'2303',ex:'tse',name:'è¯é»',thesis:'ä¼°å¼ä¾¿å®ï¼ç¹¼çºææï¼æçè£½ç¨æ¼²å¹åæ ',target:null,tags:['æ¶åä»£å·¥']},
       ]},
-      {name:'韋之哥（書面）',stocks:[
-        {code:'6669',ex:'tse',name:'緯穎',thesis:'Q3 核心長抱：高股票股利 + 明年獲利上修 + 下檔保護，殖利率保護型',target:null,tags:['AI伺服器','股票股利']},
+      {name:'éä¹å¥ï¼æ¸é¢ï¼',stocks:[
+        {code:'6669',ex:'tse',name:'ç·¯ç©',thesis:'Q3 æ ¸å¿é·æ±ï¼é«è¡ç¥¨è¡å© + æå¹´ç²å©ä¸ä¿® + ä¸æªä¿è­·ï¼æ®å©çä¿è­·å',target:null,tags:['AIä¼ºæå¨','è¡ç¥¨è¡å©']},
       ]},
-      {name:'高鐵哥（書面）',stocks:[
-        {code:'2356',ex:'tse',name:'英業達',thesis:'線形剛表態，整理完畢，可關注',target:null,tags:['AI伺服器']},
-        {code:'2423',ex:'tse',name:'固緯',thesis:'台中大戶買入（成本 40~45，已賺逾一倍），海外市場擴展，上半年營收創高',target:null,tags:['電源量測']},
+      {name:'é«éµå¥ï¼æ¸é¢ï¼',stocks:[
+        {code:'2356',ex:'tse',name:'è±æ¥­é',thesis:'ç·å½¢åè¡¨æï¼æ´çå®ç¢ï¼å¯éæ³¨',target:null,tags:['AIä¼ºæå¨']},
+        {code:'2423',ex:'tse',name:'åºç·¯',thesis:'å°ä¸­å¤§æ¶è²·å¥ï¼ææ¬ 40~45ï¼å·²è³ºé¾ä¸åï¼ï¼æµ·å¤å¸å ´æ´å±ï¼ä¸åå¹´çæ¶åµé«',target:null,tags:['é»æºéæ¸¬']},
       ]},
     ],
     bullish:[
-      {text:'<strong>台積電北美客戶訂單暴增</strong>（Broadcom +140%、NV +91%、AMD +56%、微軟 2027 年 14 倍），AI 需求未到頂',by:'凱哥'},
-      {text:'<strong>先進封裝質變</strong>：精材(3374) 台積電 OS 訂單轉入，比照矽品/日月光重估，多位成員獨立確認',by:'奇哥、AC哥'},
-      {text:'<strong>矽晶圓最後一波</strong>：美光 10 年長約確立需求，法人報告陸續出爐，共識擴散中',by:'漢堡、馬奎爾、發發哥、JT哥'},
-      {text:'<strong>川湖</strong>擴廠加速 2 年，年底完工產能翻倍；法人大資金 16 億轉倉，目標破萬',by:'凱哥、冠諺哥'},
-      {text:'<strong>成熟製程漲價</strong>確定（聯電 2303），史上首次發 CB，明年行情可期',by:'MT、JT哥'},
-      {text:'<strong>封測受惠</strong>：日月光(3711) EPS 今年 18、明年 30，CoWoS 外溢受益，AIPC 產能增',by:'漢堡'},
-      {text:'<strong>緯穎</strong>(6669) 首次發股票股利 20 元（配一送三），明年 EPS 聽聞 900，估值極便宜',by:'MT、韋之哥'},
-      {text:'<strong>非中供應鏈</strong>：聯友金屬(7610) 鎢材料稀缺，EPS 150~200，目標 3,400~3,600（2027）',by:'Harris哥'},
+      {text:'<strong>å°ç©é»åç¾å®¢æ¶è¨å®æ´å¢</strong>ï¼Broadcom +140%ãNV +91%ãAMD +56%ãå¾®è» 2027 å¹´ 14 åï¼ï¼AI éæ±æªå°é ',by:'å±å¥'},
+      {text:'<strong>åé²å°è£è³ªè®</strong>ï¼ç²¾æ(3374) å°ç©é» OS è¨å®è½å¥ï¼æ¯ç§ç½å/æ¥æåéä¼°ï¼å¤ä½æå¡ç¨ç«ç¢ºèª',by:'å¥å¥ãACå¥'},
+      {text:'<strong>ç½æ¶åæå¾ä¸æ³¢</strong>ï¼ç¾å 10 å¹´é·ç´ç¢ºç«éæ±ï¼æ³äººå ±åé¸çºåºçï¼å±è­æ´æ£ä¸­',by:'æ¼¢å ¡ãé¦¬å¥ç¾ãç¼ç¼å¥ãJTå¥'},
+      {text:'<strong>å·æ¹</strong>æ´å» å é 2 å¹´ï¼å¹´åºå®å·¥ç¢è½ç¿»åï¼æ³äººå¤§è³é 16 åè½åï¼ç®æ¨ç ´è¬',by:'å±å¥ãå è«ºå¥'},
+      {text:'<strong>æçè£½ç¨æ¼²å¹</strong>ç¢ºå®ï¼è¯é» 2303ï¼ï¼å²ä¸é¦æ¬¡ç¼ CBï¼æå¹´è¡æå¯æ',by:'MTãJTå¥'},
+      {text:'<strong>å°æ¸¬åæ </strong>ï¼æ¥æå(3711) EPS ä»å¹´ 18ãæå¹´ 30ï¼CoWoS å¤æº¢åçï¼AIPC ç¢è½å¢',by:'æ¼¢å ¡'},
+      {text:'<strong>ç·¯ç©</strong>(6669) é¦æ¬¡ç¼è¡ç¥¨è¡å© 20 åï¼éä¸éä¸ï¼ï¼æå¹´ EPS è½è 900ï¼ä¼°å¼æ¥µä¾¿å®',by:'MTãéä¹å¥'},
+      {text:'<strong>éä¸­ä¾æé</strong>ï¼è¯åéå±¬(7610) é¢ææç¨ç¼ºï¼EPS 150~200ï¼ç®æ¨ 3,400~3,600ï¼2027ï¼',by:'Harriså¥'},
     ],
     macro:[
-      {color:'r',text:'<strong>升息預期升溫</strong>，7-9 月指數通常橫整/回檔 ~10%（參照 2021、2023 同期）',by:'武王'},
-      {color:'r',text:'<strong>Core CPI MoM 預期 ~0.5%</strong>，若超預期加深估值修正壓力',by:'武王、韋之哥'},
-      {color:'r',text:'<strong>美伊地緣緊張</strong>，油價上漲恐觸發二輪通膨效應，跌幅可能超 10%',by:'武王、發發哥'},
-      {color:'y',text:'<strong>韓股槓桿爆倉</strong>類 2015 陸股，但系統性風險低，清槓桿後趨穩；台灣基本面未鬆動',by:'崴哥'},
-      {color:'g',text:'<strong>9 月 CPI</strong> 將顯現關稅高基期，通膨負貢獻，升息預期可望回落',by:'武王'},
-      {color:'g',text:'<strong>Q4 選舉效應</strong>（美台），政策面護盤，10 月後預期好轉；現在保守等 Q4 機會',by:'奇哥、AC哥、冠諺哥'},
-      {color:'g',text:'<strong>30 年美債</strong> CTA 空單降低，殖利率有機會回到 5% 以下，ZB 期貨有機會',by:'武王、馬奎爾'},
+      {color:'r',text:'<strong>åæ¯é æåæº«</strong>ï¼7-9 æææ¸éå¸¸æ©«æ´/åæª ~10%ï¼åç§ 2021ã2023 åæï¼',by:'æ­¦ç'},
+      {color:'r',text:'<strong>Core CPI MoM é æ ~0.5%</strong>ï¼è¥è¶é æå æ·±ä¼°å¼ä¿®æ­£å£å',by:'æ­¦çãéä¹å¥'},
+      {color:'r',text:'<strong>ç¾ä¼å°ç·£ç·å¼µ</strong>ï¼æ²¹å¹ä¸æ¼²æè§¸ç¼äºè¼ªéè¨ææï¼è·å¹å¯è½è¶ 10%',by:'æ­¦çãç¼ç¼å¥'},
+      {color:'y',text:'<strong>éè¡æ§æ¡¿çå</strong>é¡ 2015 é¸è¡ï¼ä½ç³»çµ±æ§é¢¨éªä½ï¼æ¸æ§æ¡¿å¾è¶¨ç©©ï¼å°ç£åºæ¬é¢æªé¬å',by:'å´´å¥'},
+      {color:'g',text:'<strong>9 æ CPI</strong> å°é¡¯ç¾éç¨é«åºæï¼éè¨è² è²¢ç»ï¼åæ¯é æå¯æåè½',by:'æ­¦ç'},
+      {color:'g',text:'<strong>Q4 é¸èææ</strong>ï¼ç¾å°ï¼ï¼æ¿ç­é¢è­·ç¤ï¼10 æå¾é æå¥½è½ï¼ç¾å¨ä¿å®ç­ Q4 æ©æ',by:'å¥å¥ãACå¥ãå è«ºå¥'},
+      {color:'g',text:'<strong>30 å¹´ç¾åµ</strong> CTA ç©ºå®éä½ï¼æ®å©çææ©æåå° 5% ä»¥ä¸ï¼ZB æè²¨ææ©æ',by:'æ­¦çãé¦¬å¥ç¾'},
     ]
   }
 ];
 
-// 手動標注（由 Claude 根據你提供的資訊更新）
+// æåæ¨æ³¨ï¼ç± Claude æ ¹æä½ æä¾çè³è¨æ´æ°ï¼
 const MANUAL_ANNOTATIONS = {
-  // '2330': [{date:'2026-06-15', text:'台積電法說會，EPS 超預期'}],
+  // '2330': [{date:'2026-06-15', text:'å°ç©é»æ³èªªæï¼EPS è¶é æ'}],
 };
 
 const codeMap = {};
@@ -878,7 +878,7 @@ function initStats(members){
   document.getElementById('st-total').textContent=seen.size;
   document.getElementById('st-tse').textContent=tse;
   document.getElementById('st-otc').textContent=otc;
-  document.getElementById('s-cnt').textContent=`${seen.size} 支標的`;
+  document.getElementById('s-cnt').textContent=`${seen.size} æ¯æ¨ç`;
 }
 
 function populateMeetingSelect(){
@@ -889,7 +889,7 @@ function populateMeetingSelect(){
 
 function populateMemberSelect(members){
   const sel=document.getElementById('member-select');
-  sel.innerHTML='<option value="">👤 查找成員</option>';
+  sel.innerHTML='<option value="">ð¤ æ¥æ¾æå¡</option>';
   members.forEach(p=>{ const o=document.createElement('option'); o.value=p.name; o.textContent=`${p.name} (${p.stocks.length})`; sel.appendChild(o); });
 }
 
@@ -907,17 +907,17 @@ function escQ(s){ return (s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'"); }
 
 function renderStockRow(s){
   const cc=s.ex==='tse'?'c-tse':s.ex==='otc'?'c-otc':'c-na';
-  const cl=s.code||'—';
-  const tr=s.target?(typeof s.target==='number'?'$'+s.target.toLocaleString():s.target):'—';
+  const cl=s.code||'â';
+  const tr=s.target?(typeof s.target==='number'?'$'+s.target.toLocaleString():s.target):'â';
   const tg=s.tags.map(t=>`<span class="tag">${t}</span>`).join('');
   return `<div class="sr" data-code="${s.code||''}" onclick="showStockDetail('${escQ(s.code)}','${escQ(s.name)}')">
     <span class="scode ${cc}">${cl}</span>
     <div class="si"><div class="sname">${s.name}</div><div class="sth">${s.thesis}</div>${tg?`<div class="stags">${tg}</div>`:''}</div>
     <div class="pcol">
-      <div class="pv" data-price="${s.code||''}">${s.code?'<span class="ldg"></span>':'—'}</div>
+      <div class="pv" data-price="${s.code||''}">${s.code?'<span class="ldg"></span>':'â'}</div>
       <div class="pc2" data-chg="${s.code||''}"></div>
     </div>
-    <div class="tcol"><div class="tlbl">目標</div><div class="tv2">${tr}</div></div>
+    <div class="tcol"><div class="tlbl">ç®æ¨</div><div class="tv2">${tr}</div></div>
   </div>`;
 }
 
@@ -925,11 +925,11 @@ function render(members){
   const g=document.getElementById('pgrid'); g.innerHTML='';
   members.forEach(p=>{
     const d=document.createElement('div'); d.className='pc'; d.dataset.member=p.name;
-    const ini=p.name.replace(/（.*?）/,'').trim().charAt(0);
-    d.innerHTML=`<div class="ph" onclick="showMemberDetail('${escQ(p.name)}')" title="查看 ${p.name} 完整記錄">
+    const ini=p.name.replace(/ï¼.*?ï¼/,'').trim().charAt(0);
+    d.innerHTML=`<div class="ph" onclick="showMemberDetail('${escQ(p.name)}')" title="æ¥ç ${p.name} å®æ´è¨é">
       <div class="av">${ini}</div><div class="pn">${p.name}</div>
-      <div style="margin-left:auto;font-size:10px;color:var(--mu);font-weight:600">${p.stocks.length} 標的</div>
-      <span class="view-link">查看 →</span>
+      <div style="margin-left:auto;font-size:10px;color:var(--mu);font-weight:600">${p.stocks.length} æ¨ç</div>
+      <span class="view-link">æ¥ç â</span>
     </div>
     <div class="sl">${p.stocks.map(renderStockRow).join('')}</div>`;
     g.appendChild(d);
@@ -938,13 +938,13 @@ function render(members){
 
 function renderObs(m){
   document.getElementById('obs-panel').innerHTML=`<div class="obs">
-    <div class="obh">產業與總經觀察 · ${m.date} ${m.label}</div>
+    <div class="obh">ç¢æ¥­èç¸½ç¶è§å¯ Â· ${m.date} ${m.label}</div>
     <div class="obg">
-      <div class="obs-s"><div class="obs-t">看好產業</div>
-        ${m.bullish.map(b=>`<div class="oi"><div class="od"></div><div class="ot">${b.text}<br><span class="ob">— ${b.by}</span></div></div>`).join('')}
+      <div class="obs-s"><div class="obs-t">çå¥½ç¢æ¥­</div>
+        ${m.bullish.map(b=>`<div class="oi"><div class="od"></div><div class="ot">${b.text}<br><span class="ob">â ${b.by}</span></div></div>`).join('')}
       </div>
-      <div class="obs-s"><div class="obs-t">總經觀點</div>
-        ${m.macro.map(x=>`<div class="oi"><div class="od ${x.color==='r'?'rdot':x.color==='g'?'gdot':'ydot'}"></div><div class="ot">${x.text}<br><span class="ob">— ${x.by}</span></div></div>`).join('')}
+      <div class="obs-s"><div class="obs-t">ç¸½ç¶è§é»</div>
+        ${m.macro.map(x=>`<div class="oi"><div class="od ${x.color==='r'?'rdot':x.color==='g'?'gdot':'ydot'}"></div><div class="ot">${x.text}<br><span class="ob">â ${x.by}</span></div></div>`).join('')}
       </div>
     </div>
   </div>`;
@@ -956,14 +956,14 @@ function renderObs(m){
 function showMemberDetail(name){
   const history=MEETINGS.map(m=>{ const mbr=m.members.find(p=>p.name===name); return mbr&&mbr.stocks.length?{date:m.date,label:m.label,stocks:mbr.stocks}:null; }).filter(Boolean);
   if(!history.length)return;
-  const ini=name.replace(/（.*?）/,'').trim().charAt(0);
+  const ini=name.replace(/ï¼.*?ï¼/,'').trim().charAt(0);
   const tot=history.reduce((s,h)=>s+h.stocks.length,0);
   document.getElementById('mp-av').textContent=ini;
   document.getElementById('mp-name').textContent=name;
-  document.getElementById('mp-sub').textContent=`${history.length} 場會議記錄 · 共 ${tot} 筆標的`;
+  document.getElementById('mp-sub').textContent=`${history.length} å ´æè­°è¨é Â· å± ${tot} ç­æ¨ç`;
   document.getElementById('mp-timeline').innerHTML=history.map(h=>`
     <div class="tl-block">
-      <div class="tl-head"><span class="tl-badge">${h.date} · ${h.label}</span><span class="tl-count">${h.stocks.length} 標的</span></div>
+      <div class="tl-head"><span class="tl-badge">${h.date} Â· ${h.label}</span><span class="tl-count">${h.stocks.length} æ¨ç</span></div>
       <div class="sl">${h.stocks.map(renderStockRow).join('')}</div>
     </div>`).join('');
   const page=document.getElementById('member-page');
@@ -987,21 +987,21 @@ function showStockDetail(code, name){
   const tot=timeline.reduce((s,t)=>s+t.mentions.length,0);
   const ex=code?codeMap[code]:null;
   const cc=ex==='tse'?'c-tse':ex==='otc'?'c-otc':'c-na';
-  document.getElementById('sdp-code').textContent=code||'—';
+  document.getElementById('sdp-code').textContent=code||'â';
   document.getElementById('sdp-code').className=`sdp-code ${cc}`;
   document.getElementById('sdp-name').textContent=name;
-  document.getElementById('sdp-sub').textContent=`${timeline.length} 場會議提及 · 共 ${tot} 人`;
+  document.getElementById('sdp-sub').textContent=`${timeline.length} å ´æè­°æå Â· å± ${tot} äºº`;
   document.getElementById('sdp-timeline').innerHTML=timeline.map(t=>`
     <div class="tl-block">
-      <div class="tl-head"><span class="tl-badge">${t.date} · ${t.label}</span><span class="tl-count">${t.mentions.length} 人提及</span></div>
+      <div class="tl-head"><span class="tl-badge">${t.date} Â· ${t.label}</span><span class="tl-count">${t.mentions.length} äººæå</span></div>
       ${t.mentions.map(item=>{
-        const ini=item.member.replace(/（.*?）/,'').trim().charAt(0);
+        const ini=item.member.replace(/ï¼.*?ï¼/,'').trim().charAt(0);
         const tr=item.stock.target?(typeof item.stock.target==='number'?'$'+item.stock.target.toLocaleString():item.stock.target):null;
         return `<div class="sm-row">
           <div class="sm-who"><div class="av">${ini}</div><span class="sm-who-name">${item.member}</span></div>
           <div class="sm-body">
             <div class="sm-thesis">${item.stock.thesis}</div>
-            ${tr?`<div class="sm-target"><span class="tlbl">目標價</span><span class="sm-target-val">${tr}</span></div>`:''}
+            ${tr?`<div class="sm-target"><span class="tlbl">ç®æ¨å¹</span><span class="sm-target-val">${tr}</span></div>`:''}
             ${item.stock.tags.length?`<div class="stags" style="margin-top:7px">${item.stock.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>`:''}
           </div>
         </div>`;
@@ -1009,7 +1009,7 @@ function showStockDetail(code, name){
     </div>`).join('');
 
   _stockCameFromMember=document.getElementById('member-page').classList.contains('active');
-  document.getElementById('stock-back-btn').textContent=_stockCameFromMember?'← 返回成員':'← 返回看板';
+  document.getElementById('stock-back-btn').textContent=_stockCameFromMember?'â è¿åæå¡':'â è¿åçæ¿';
   _chartCode=code; _chartEx=ex; _chartRange='6mo';
   document.querySelectorAll('.range-btn').forEach(b=>b.classList.toggle('active',b.dataset.range==='6mo'));
 
@@ -1114,7 +1114,7 @@ async function fetchYahooChart(code, ex, range){
       throw new Error('no result');
     }catch(e){ lastErr=e; }
   }
-  throw lastErr||new Error('資料尚未生成，請先執行 GitHub Actions 更新資料');
+  throw lastErr||new Error('è³æå°æªçæï¼è«åå·è¡ GitHub Actions æ´æ°è³æ');
 }
 
 async function loadChengwayeMarkers(code){
@@ -1128,10 +1128,10 @@ async function loadChengwayeMarkers(code){
       fetch(base+'/realtime_fin_events.json').then(r=>r.json()),
       fetch(base+'/realtime_revenue.json').then(r=>r.json()),
     ]);
-    if(fin.status==='fulfilled'){const entries=(fin.value.entries||fin.value||[]).filter(e=>String(e.code)===String(code));for(const e of entries){const t=rocToGreg(e.date);if(t)markers.push({time:t,position:'aboveBar',color:'#e8b000',shape:'circle',text:'季',size:1,_src:'季報',_detail:e.subject||'季報'});}}
-    if(att.status==='fulfilled'){const entries=(att.value.entries||att.value||[]).filter(e=>String(e.code)===String(code));for(const e of entries){const t=rocToGreg(e.date);if(t)markers.push({time:t,position:'aboveBar',color:'#0066cc',shape:'circle',text:'自',size:1,_src:'自結',_detail:e.subject||'自結'});}}
-    if(events.status==='fulfilled'){const entries=(events.value.entries||events.value||[]).filter(e=>String(e.code)===String(code));for(const e of entries){const t=(e.scheduled_date||e.date||'').split(' ')[0];if(t)markers.push({time:t,position:'aboveBar',color:'#00aa44',shape:'circle',text:'法',size:1,_src:'法說',_detail:'法說會'});}}
-    if(rev.status==='fulfilled'){const entries=(Array.isArray(rev.value)?rev.value:(rev.value.entries||[])).filter(e=>String(e.code)===String(code));for(const e of entries){const t=e.first_seen?e.first_seen.split(' ')[0]:null;if(t)markers.push({time:t,position:'aboveBar',color:'#cc4400',shape:'circle',text:'營',size:1,_src:'營收',_detail:(e.period||'')+'營收'});}}
+    if(fin.status==='fulfilled'){const entries=(fin.value.entries||fin.value||[]).filter(e=>String(e.code)===String(code));for(const e of entries){const t=rocToGreg(e.date);if(t)markers.push({time:t,position:'aboveBar',color:'#e8b000',shape:'circle',text:'å­£',size:1,_src:'å­£å ±',_detail:e.subject||'å­£å ±'});}}
+    if(att.status==='fulfilled'){const entries=(att.value.entries||att.value||[]).filter(e=>String(e.code)===String(code));for(const e of entries){const t=rocToGreg(e.date);if(t)markers.push({time:t,position:'aboveBar',color:'#0066cc',shape:'circle',text:'èª',size:1,_src:'èªçµ',_detail:e.subject||'èªçµ'});}}
+    if(events.status==='fulfilled'){const entries=(events.value.entries||events.value||[]).filter(e=>String(e.code)===String(code));for(const e of entries){const t=(e.scheduled_date||e.date||'').split(' ')[0];if(t)markers.push({time:t,position:'aboveBar',color:'#00aa44',shape:'circle',text:'æ³',size:1,_src:'æ³èªª',_detail:'æ³èªªæ'});}}
+    if(rev.status==='fulfilled'){const entries=(Array.isArray(rev.value)?rev.value:(rev.value.entries||[])).filter(e=>String(e.code)===String(code));for(const e of entries){const t=e.first_seen?e.first_seen.split(' ')[0]:null;if(t)markers.push({time:t,position:'aboveBar',color:'#cc4400',shape:'circle',text:'ç',size:1,_src:'çæ¶',_detail:(e.period||'')+'çæ¶'});}}
   }catch(err){}
   return markers;
 }
@@ -1139,10 +1139,10 @@ async function loadChart(code, ex, range){
   _chartCode=code; _chartEx=ex; if(range)_chartRange=range;
   const container=document.getElementById('chart-container');
   container.style.height='380px';
-  container.innerHTML=`<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;gap:8px"><span class="ldg"></span>載入走勢圖…</div>`;
+  container.innerHTML=`<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;gap:8px"><span class="ldg"></span>è¼å¥èµ°å¢åâ¦</div>`;
 
   if(!code){
-    container.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;padding:20px;text-align:center">此標的無股票代碼，無法顯示走勢圖</div>';
+    container.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;padding:20px;text-align:center">æ­¤æ¨çç¡è¡ç¥¨ä»£ç¢¼ï¼ç¡æ³é¡¯ç¤ºèµ°å¢å</div>';
     return;
   }
 
@@ -1224,10 +1224,10 @@ async function loadChart(code, ex, range){
   }catch(e){
     const r=_chartRange;
     container.innerHTML=`<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;gap:6px;padding:20px;text-align:center">
-      <span style="font-size:14px">⚠️ 走勢圖載入失敗</span>
-      <span style="font-size:10px;color:var(--mu2)">${e.message||'連線逾時'}</span>
-      <span style="font-size:10px;color:var(--mu2)">已嘗試多個資料源，請確認網路或稍後重試</span>
-      <button onclick="reloadChart('${r}')" style="margin-top:10px;padding:7px 18px;background:var(--acc);color:#fff;border:none;border-radius:5px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600">🔄 重新載入</button>
+      <span style="font-size:14px">â ï¸ èµ°å¢åè¼å¥å¤±æ</span>
+      <span style="font-size:10px;color:var(--mu2)">${e.message||'é£ç·é¾æ'}</span>
+      <span style="font-size:10px;color:var(--mu2)">å·²åè©¦å¤åè³ææºï¼è«ç¢ºèªç¶²è·¯æç¨å¾éè©¦</span>
+      <button onclick="reloadChart('${r}')" style="margin-top:10px;padding:7px 18px;background:var(--acc);color:#fff;border:none;border-radius:5px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600">ð éæ°è¼å¥</button>
     </div>`;
   }
 }
@@ -1243,7 +1243,7 @@ function renderAnnotationChips(code){
     ?notes.map((n,i)=>`<div class="ann-chip">
         <span style="font-weight:700">${n.date}</span>
         <span>${n.text}</span>
-        <button class="ann-chip-del" onclick="deleteAnnotation('${escQ(code)}',${i})">✕</button>
+        <button class="ann-chip-del" onclick="deleteAnnotation('${escQ(code)}',${i})">â</button>
       </div>`).join('')
     :'';
 }
@@ -1276,9 +1276,9 @@ function deleteAnnotation(code,idx){
 function showMarkerPopup(marker){
   const hdrEl=document.getElementById('popup-hdr'),bodyEl=document.getElementById('popup-body');
   if(marker._type==='meeting'){
-    hdrEl.innerHTML=`${marker._date} ${marker._label} <span class="popup-type popup-type-meet">會議討論</span>`;
+    hdrEl.innerHTML=`${marker._date} ${marker._label} <span class="popup-type popup-type-meet">æè­°è¨è«</span>`;
     bodyEl.innerHTML=marker._mentions.map(item=>{
-      const ini=item.member.replace(/（.*?）/,'').trim().charAt(0);
+      const ini=item.member.replace(/ï¼.*?ï¼/,'').trim().charAt(0);
       const tr=item.stock.target?(typeof item.stock.target==='number'?'$'+item.stock.target.toLocaleString():item.stock.target):null;
       return `<div class="sm-row" style="padding:12px 0;border-bottom:1px solid var(--bd)">
         <div class="sm-who"><div class="av">${ini}</div><span class="sm-who-name">${item.member}</span></div>
@@ -1286,7 +1286,7 @@ function showMarkerPopup(marker){
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>投資研討會追蹤看板</title>
+<title>æè³ç è¨æè¿½è¹¤çæ¿</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 :root{
@@ -1544,16 +1544,16 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 <div id="login-screen">
   <div class="login-card">
     <div class="login-top">
-      <div class="ico">📊</div>
-      <h1>好朋友投資研討會</h1>
-      <p>請輸入帳號密碼登入</p>
+      <div class="ico">ð</div>
+      <h1>å¥½æåæè³ç è¨æ</h1>
+      <p>è«è¼¸å¥å¸³èå¯ç¢¼ç»å¥</p>
     </div>
     <div class="lf">
       <label>Email</label>
       <input type="email" id="li-email" placeholder="you@example.com" autocomplete="email">
-      <label>密碼</label>
-      <input type="password" id="li-pw" placeholder="••••••••" autocomplete="current-password">
-      <button class="lbtn" id="li-btn" onclick="doSignIn()">登入</button>
+      <label>å¯ç¢¼</label>
+      <input type="password" id="li-pw" placeholder="â¢â¢â¢â¢â¢â¢â¢â¢" autocomplete="current-password">
+      <button class="lbtn" id="li-btn" onclick="doSignIn()">ç»å¥</button>
       <div id="login-err"></div>
     </div>
   </div>
@@ -1563,69 +1563,69 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 
 <div id="codename-modal">
   <div class="cn-card">
-    <h2>👋 設定你的代號</h2>
-    <p>請輸入你在研討會中的稱呼（例如：凱哥、小資男孩）。<br>這個代號會顯示在看板上，之後無法自行修改。</p>
-    <input type="text" id="cn-input" placeholder="你的代號" maxlength="12" autocomplete="off">
-    <button id="cn-btn" onclick="saveCodename()">確認並進入</button>
+    <h2>ð è¨­å®ä½ çä»£è</h2>
+    <p>è«è¼¸å¥ä½ å¨ç è¨æä¸­çç¨±å¼ï¼ä¾å¦ï¼å±å¥ãå°è³ç·å­©ï¼ã<br>éåä»£èæé¡¯ç¤ºå¨çæ¿ä¸ï¼ä¹å¾ç¡æ³èªè¡ä¿®æ¹ã</p>
+    <input type="text" id="cn-input" placeholder="ä½ çä»£è" maxlength="12" autocomplete="off">
+    <button id="cn-btn" onclick="saveCodename()">ç¢ºèªä¸¦é²å¥</button>
     <div id="cn-err"></div>
   </div>
 </div>
 
 <div id="invite-modal">
   <div class="cn-card">
-    <h2>🎉 歡迎加入研討會！</h2>
-    <p>你已受到邀請。請設定你的登入密碼和專屬代號。<br>代號將顯示在浮水印上，設定後無法自行修改。</p>
-    <label>設定密碼（至少 6 位）</label>
-    <input type="password" id="inv-pw1" placeholder="••••••••" autocomplete="new-password">
-    <label>確認密碼</label>
-    <input type="password" id="inv-pw2" placeholder="再輸入一次" autocomplete="new-password">
-    <label>你的代號</label>
-    <input type="text" id="inv-cn" placeholder="例如：凱哥、小資男孩" maxlength="12" autocomplete="off">
-    <button id="inv-btn" onclick="doSetupInvite()" style="margin-top:14px">完成設定並進入</button>
+    <h2>ð æ­¡è¿å å¥ç è¨æï¼</h2>
+    <p>ä½ å·²åå°éè«ãè«è¨­å®ä½ çç»å¥å¯ç¢¼åå°å±¬ä»£èã<br>ä»£èå°é¡¯ç¤ºå¨æµ®æ°´å°ä¸ï¼è¨­å®å¾ç¡æ³èªè¡ä¿®æ¹ã</p>
+    <label>è¨­å®å¯ç¢¼ï¼è³å° 6 ä½ï¼</label>
+    <input type="password" id="inv-pw1" placeholder="â¢â¢â¢â¢â¢â¢â¢â¢" autocomplete="new-password">
+    <label>ç¢ºèªå¯ç¢¼</label>
+    <input type="password" id="inv-pw2" placeholder="åè¼¸å¥ä¸æ¬¡" autocomplete="new-password">
+    <label>ä½ çä»£è</label>
+    <input type="text" id="inv-cn" placeholder="ä¾å¦ï¼å±å¥ãå°è³ç·å­©" maxlength="12" autocomplete="off">
+    <button id="inv-btn" onclick="doSetupInvite()" style="margin-top:14px">å®æè¨­å®ä¸¦é²å¥</button>
     <div id="inv-err" style="font-size:12px;color:var(--dn);margin-top:6px;min-height:16px"></div>
   </div>
 </div>
 
 <div id="app">
   <div class="topbar">
-    <div class="tb-brand">好朋友<span>投資研討會</span></div>
+    <div class="tb-brand">å¥½æå<span>æè³ç è¨æ</span></div>
     <div class="tb-sep"></div>
     <select class="tb-select" id="meeting-select" onchange="switchMeeting(this.value)"></select>
-    <span class="bdg-pu" id="s-cnt">計算中…</span>
+    <span class="bdg-pu" id="s-cnt">è¨ç®ä¸­â¦</span>
     <div class="tb-sep"></div>
     <select class="tb-select" id="member-select" onchange="openMemberFromSelect(this.value)">
-      <option value="">👤 查找成員</option>
+      <option value="">ð¤ æ¥æ¾æå¡</option>
     </select>
-    <input class="tb-search" id="stock-search" type="text" placeholder="🔍 搜尋標的…" oninput="filterStocks(this.value)" autocomplete="off">
+    <input class="tb-search" id="stock-search" type="text" placeholder="ð æå°æ¨çâ¦" oninput="filterStocks(this.value)" autocomplete="off">
     <div class="tb-spacer"></div>
-    <span class="px-bdg" id="px-st">載入中…</span>
-    <button class="rfsh" onclick="loadPrices()">重新整理</button>
+    <span class="px-bdg" id="px-st">è¼å¥ä¸­â¦</span>
+    <button class="rfsh" onclick="loadPrices()">éæ°æ´ç</button>
     <span class="user-chip" id="user-chip"></span>
-    <button class="signout" onclick="doSignOut()">登出</button>
+    <button class="signout" onclick="doSignOut()">ç»åº</button>
   </div>
 
   <div class="wrap">
     <div class="stats">
-      <div class="sc"><div class="sc-lbl">與會人數</div><div class="sc-val" id="st-members">—</div></div>
-      <div class="sc"><div class="sc-lbl">追蹤標的</div><div class="sc-val" id="st-total">—</div></div>
-      <div class="sc"><div class="sc-lbl">上市 (TSE)</div><div class="sc-val" id="st-tse">—</div></div>
-      <div class="sc"><div class="sc-lbl">上櫃 (TPEX)</div><div class="sc-val" id="st-otc">—</div></div>
-      <div class="sc"><div class="sc-lbl">更新時間</div><div class="sc-val" id="st-time" style="font-size:13px;margin-top:4px">—</div></div>
+      <div class="sc"><div class="sc-lbl">èæäººæ¸</div><div class="sc-val" id="st-members">â</div></div>
+      <div class="sc"><div class="sc-lbl">è¿½è¹¤æ¨ç</div><div class="sc-val" id="st-total">â</div></div>
+      <div class="sc"><div class="sc-lbl">ä¸å¸ (TSE)</div><div class="sc-val" id="st-tse">â</div></div>
+      <div class="sc"><div class="sc-lbl">ä¸æ« (TPEX)</div><div class="sc-val" id="st-otc">â</div></div>
+      <div class="sc"><div class="sc-lbl">æ´æ°æé</div><div class="sc-val" id="st-time" style="font-size:13px;margin-top:4px">â</div></div>
     </div>
     <div class="pgrid" id="pgrid"></div>
     <div id="obs-panel"></div>
     <div class="adm" id="admin-panel" style="display:none">
-      <div class="adm-hd">🔐 管理員後台<span class="adm-badge">ADMIN</span>
-        <a class="adm-link" href="https://supabase.com/dashboard/project/_/auth/users" target="_blank">Supabase 管理使用者 →</a>
+      <div class="adm-hd">ð ç®¡çå¡å¾å°<span class="adm-badge">ADMIN</span>
+        <a class="adm-link" href="https://supabase.com/dashboard/project/_/auth/users" target="_blank">Supabase ç®¡çä½¿ç¨è â</a>
       </div>
-      <div class="adm-body"><div class="adm-sub">成員登入記錄（最近 100 筆）</div><div id="adm-log">載入中…</div></div>
+      <div class="adm-body"><div class="adm-sub">æå¡ç»å¥è¨éï¼æè¿ 100 ç­ï¼</div><div id="adm-log">è¼å¥ä¸­â¦</div></div>
     </div>
   </div>
 
   <!-- MEMBER DETAIL PAGE -->
   <div class="side-page member-page" id="member-page">
     <div class="wrap">
-      <button class="sp-back" onclick="hideMemberDetail()">← 返回看板</button>
+      <button class="sp-back" onclick="hideMemberDetail()">â è¿åçæ¿</button>
       <div class="mp-hdr">
         <div class="mp-av-lg" id="mp-av"></div>
         <div><div class="mp-name" id="mp-name"></div><div class="mp-sub" id="mp-sub"></div></div>
@@ -1637,7 +1637,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   <!-- STOCK DETAIL PAGE -->
   <div class="side-page stock-page" id="stock-page">
     <div class="wrap">
-      <button class="sp-back" id="stock-back-btn" onclick="hideStockDetail()">← 返回</button>
+      <button class="sp-back" id="stock-back-btn" onclick="hideStockDetail()">â è¿å</button>
       <div class="sdp-hdr">
         <div class="sdp-code c-na" id="sdp-code"></div>
         <div><div class="sdp-name" id="sdp-name"></div><div class="sdp-sub" id="sdp-sub"></div></div>
@@ -1646,26 +1646,26 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       <!-- K-LINE CHART -->
       <div class="chart-wrap" id="chart-wrap">
         <div class="chart-topbar">
-          <span class="chart-title">日K走勢圖</span>
+          <span class="chart-title">æ¥Kèµ°å¢å</span>
           <div class="range-btns">
-            <button class="range-btn" data-range="3mo" onclick="reloadChart('3mo')">3月</button>
-            <button class="range-btn active" data-range="6mo" onclick="reloadChart('6mo')">6月</button>
-            <button class="range-btn" data-range="1y" onclick="reloadChart('1y')">1年</button>
-            <button class="range-btn" data-range="2y" onclick="reloadChart('2y')">2年</button>
+            <button class="range-btn" data-range="3mo" onclick="reloadChart('3mo')">3æ</button>
+            <button class="range-btn active" data-range="6mo" onclick="reloadChart('6mo')">6æ</button>
+            <button class="range-btn" data-range="1y" onclick="reloadChart('1y')">1å¹´</button>
+            <button class="range-btn" data-range="2y" onclick="reloadChart('2y')">2å¹´</button>
           </div>
         </div>
         <div id="chart-container"></div>
         <div class="chart-hint">
-          <span style="color:#0066cc;font-weight:700">●</span> 會議討論標記　
-          <span style="color:#f59e0b;font-weight:700">■</span> 事件標注　
-          點擊標記查看說明
+          <span style="color:#0066cc;font-weight:700">â</span> æè­°è¨è«æ¨è¨ã
+          <span style="color:#f59e0b;font-weight:700">â </span> äºä»¶æ¨æ³¨ã
+          é»ææ¨è¨æ¥çèªªæ
         </div>
         <div class="ann-section">
-          <div class="ann-sec-title">新增事件標注</div>
+          <div class="ann-sec-title">æ°å¢äºä»¶æ¨æ³¨</div>
           <div class="ann-inputs">
             <input type="date" id="ann-date" class="ann-input ann-input-date">
-            <input type="text" id="ann-text" class="ann-input ann-input-text" placeholder="說明（法說會、停損、群組討論重點…）">
-            <button class="ann-btn" onclick="addAnnotation()">＋ 新增</button>
+            <input type="text" id="ann-text" class="ann-input ann-input-text" placeholder="èªªæï¼æ³èªªæãåæãç¾¤çµè¨è«éé»â¦ï¼">
+            <button class="ann-btn" onclick="addAnnotation()">ï¼ æ°å¢</button>
           </div>
           <div class="ann-chips" id="ann-chips"></div>
         </div>
@@ -1674,7 +1674,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       <!-- DISCUSSION TIMELINE -->
       <div style="font-size:10px;font-weight:700;color:var(--navy);letter-spacing:.10em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px">
         <span style="width:3px;height:13px;background:var(--acc);border-radius:2px;display:inline-block"></span>
-        會議討論記錄
+        æè­°è¨è«è¨é
       </div>
       <div class="timeline" id="sdp-timeline"></div>
     </div>
@@ -1684,7 +1684,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   <div id="marker-popup" class="marker-popup" style="display:none">
     <div class="popup-backdrop" onclick="closeMarkerPopup()"></div>
     <div class="popup-card">
-      <button class="popup-close" onclick="closeMarkerPopup()">✕</button>
+      <button class="popup-close" onclick="closeMarkerPopup()">â</button>
       <div class="popup-hdr" id="popup-hdr"></div>
       <div id="popup-body"></div>
     </div>
@@ -1719,7 +1719,7 @@ function applyWatermark(label){
   const ctx=c.getContext('2d');
   ctx.save(); ctx.translate(100,60); ctx.rotate(-22*Math.PI/180); ctx.textAlign='center';
   ctx.font='600 11px Inter,sans-serif'; ctx.fillStyle='rgba(10,37,64,0.07)'; ctx.fillText(label,0,0);
-  ctx.font='500 9px Inter,sans-serif'; ctx.fillStyle='rgba(10,37,64,0.045)'; ctx.fillText('好朋友投資研討會 · 機密',0,15);
+  ctx.font='500 9px Inter,sans-serif'; ctx.fillStyle='rgba(10,37,64,0.045)'; ctx.fillText('å¥½æåæè³ç è¨æ Â· æ©å¯',0,15);
   ctx.restore();
   const wm=document.getElementById('watermark');
   wm.style.backgroundImage=`url(${c.toDataURL()})`; wm.style.backgroundSize='100px 60px'; wm.style.backgroundRepeat='repeat';
@@ -1729,10 +1729,10 @@ function getCodename(u){ return u?.user_metadata?.codename||null; }
 async function saveCodename(){
   const val=document.getElementById('cn-input').value.trim();
   const err=document.getElementById('cn-err'),btn=document.getElementById('cn-btn');
-  if(!val){err.textContent='請填入代號';return;}
-  btn.disabled=true; btn.textContent='儲存中…';
+  if(!val){err.textContent='è«å¡«å¥ä»£è';return;}
+  btn.disabled=true; btn.textContent='å²å­ä¸­â¦';
   const {data,error}=await sb.auth.updateUser({data:{codename:val}});
-  if(error){err.textContent='儲存失敗';btn.disabled=false;btn.textContent='確認並進入';return;}
+  if(error){err.textContent='å²å­å¤±æ';btn.disabled=false;btn.textContent='ç¢ºèªä¸¦é²å¥';return;}
   document.getElementById('codename-modal').style.display='none';
   document.getElementById('user-chip').textContent=val; applyWatermark(val);
   sb.from('activity_log').insert({user_email:data.user.email,codename:val,action:'login',ua:navigator.userAgent.substring(0,250)});
@@ -1789,11 +1789,11 @@ setTimeout(function(){
 async function doSignIn(){
   const email=document.getElementById('li-email').value.trim(),pw=document.getElementById('li-pw').value;
   const btn=document.getElementById('li-btn'),err=document.getElementById('login-err');
-  if(!email||!pw){err.textContent='請填入 Email 和密碼';return;}
-  btn.disabled=true; btn.textContent='登入中…'; err.textContent='';
+  if(!email||!pw){err.textContent='è«å¡«å¥ Email åå¯ç¢¼';return;}
+  btn.disabled=true; btn.textContent='ç»å¥ä¸­â¦'; err.textContent='';
   Object.keys(localStorage).filter(function(k){return k.startsWith('sb-');}).forEach(function(k){localStorage.removeItem(k);});
   const {error}=await sb.auth.signInWithPassword({email,password:pw});
-  if(error){err.textContent='帳密錯誤，請再試一次';btn.disabled=false;btn.textContent='登入';}
+  if(error){err.textContent='å¸³å¯é¯èª¤ï¼è«åè©¦ä¸æ¬¡';btn.disabled=false;btn.textContent='ç»å¥';}
 }
 async function doSignOut(){await sb.auth.signOut();}
 
@@ -1801,12 +1801,12 @@ async function doSetupInvite(){
   const pw1=document.getElementById('inv-pw1').value,pw2=document.getElementById('inv-pw2').value;
   const cn=document.getElementById('inv-cn').value.trim();
   const err=document.getElementById('inv-err'),btn=document.getElementById('inv-btn');
-  if(pw1.length<6){err.textContent='密碼至少 6 位';return;}
-  if(pw1!==pw2){err.textContent='兩次密碼不一致';return;}
-  if(!cn){err.textContent='請填入代號';return;}
-  btn.disabled=true; btn.textContent='設定中…';
+  if(pw1.length<6){err.textContent='å¯ç¢¼è³å° 6 ä½';return;}
+  if(pw1!==pw2){err.textContent='å©æ¬¡å¯ç¢¼ä¸ä¸è´';return;}
+  if(!cn){err.textContent='è«å¡«å¥ä»£è';return;}
+  btn.disabled=true; btn.textContent='è¨­å®ä¸­â¦';
   const {data,error}=await sb.auth.updateUser({password:pw1,data:{codename:cn}});
-  if(error){err.textContent='設定失敗：'+error.message;btn.disabled=false;btn.textContent='完成設定並進入';return;}
+  if(error){err.textContent='è¨­å®å¤±æï¼'+error.message;btn.disabled=false;btn.textContent='å®æè¨­å®ä¸¦é²å¥';return;}
   window.history.replaceState(null,'',window.location.pathname);
   document.getElementById('invite-modal').style.display='none';
   document.getElementById('app').style.display='block';
@@ -1825,13 +1825,13 @@ document.addEventListener('DOMContentLoaded',()=>{
 async function loadAdminLog(){
   const {data,error}=await sb.from('activity_log').select('user_email,codename,action,ua,created_at').order('created_at',{ascending:false}).limit(100);
   const el=document.getElementById('adm-log');
-  if(error||!data||!data.length){el.innerHTML='<span style="font-size:12px;color:var(--mu)">尚無記錄</span>';return;}
-  el.innerHTML=`<table><thead><tr><th>代號</th><th>Email</th><th>動作</th><th>時間</th><th>裝置</th></tr></thead><tbody>${data.map(r=>{
+  if(error||!data||!data.length){el.innerHTML='<span style="font-size:12px;color:var(--mu)">å°ç¡è¨é</span>';return;}
+  el.innerHTML=`<table><thead><tr><th>ä»£è</th><th>Email</th><th>åä½</th><th>æé</th><th>è£ç½®</th></tr></thead><tbody>${data.map(r=>{
     const d=new Date(r.created_at);
     const dt=`${d.getFullYear()}/${d.getMonth()+1}/${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
-    const ua=r.ua||'',dev=ua.includes('iPhone')||ua.includes('Android')?'📱 手機':ua.includes('iPad')?'📱 平板':'💻 電腦';
-    const ab=r.action==='login'?'<span style="background:#eff6ff;color:#1d4ed8;font-size:10px;padding:1px 6px;border-radius:999px">登入</span>':'<span style="background:#f3f4f6;color:#6b7280;font-size:10px;padding:1px 6px;border-radius:999px">瀏覽</span>';
-    return `<tr><td style="font-weight:500">${r.codename||'—'}</td><td style="color:var(--mu);font-size:11px">${r.user_email}</td><td>${ab}</td><td style="white-space:nowrap;font-variant-numeric:tabular-nums">${dt}</td><td>${dev}</td></tr>`;
+    const ua=r.ua||'',dev=ua.includes('iPhone')||ua.includes('Android')?'ð± ææ©':ua.includes('iPad')?'ð± å¹³æ¿':'ð» é»è¦';
+    const ab=r.action==='login'?'<span style="background:#eff6ff;color:#1d4ed8;font-size:10px;padding:1px 6px;border-radius:999px">ç»å¥</span>':'<span style="background:#f3f4f6;color:#6b7280;font-size:10px;padding:1px 6px;border-radius:999px">çè¦½</span>';
+    return `<tr><td style="font-weight:500">${r.codename||'â'}</td><td style="color:var(--mu);font-size:11px">${r.user_email}</td><td>${ab}</td><td style="white-space:nowrap;font-variant-numeric:tabular-nums">${dt}</td><td>${dev}</td></tr>`;
   }).join('')}</tbody></table>`;
 }
 
@@ -1840,237 +1840,237 @@ async function loadAdminLog(){
 // ============================================================
 const MEETINGS = [
   {
-    id:'m20260609',date:'2026/06/09',label:'第一次',
+    id:'m20260609',date:'2026/06/09',label:'ç¬¬ä¸æ¬¡',
     members:[
-      {name:'凱哥',stocks:[
-        {code:'7871',ex:'otc',name:'安立璽榮-KY',thesis:'阿茲海默小分子藥，BioMark 生物標記有效率 5/7（4/7 降低 30%+ 發炎），1 案例 MMSE 從 15 分逆轉至 23 分（全球首例），即將進大型臨床試驗，大藥廠授權機會',target:null,tags:['生技','阿茲海默']},
-        {code:'3528',ex:'tse',name:'安馳',thesis:'雷哥推薦，凱哥下週私訪，基金已買進兩大買超，120 以下將加碼至 1 億',target:'120以下',tags:[]},
-        {code:'7610',ex:'otc',name:'聯友金屬',thesis:'鎢材料稀缺 + 中美貿易戰地緣政治 + 技術壁壘（競爭對手難進入），成本 57 元漲至 1900+；日本停產消息待消化',target:2300,tags:['鎢','地緣政治']},
-        {code:'2059',ex:'tse',name:'川湖',thesis:'伺服器機櫃導軌，營收持續超預期，成本 1000 出頭，基金已買進',target:null,tags:['伺服器','AI']},
-        {code:'3026',ex:'tse',name:'禾伸堂',thesis:'被動元件漲價受惠，基金持有',target:null,tags:['被動元件']},
-        {code:'7902',ex:'otc',name:'宇越生技',thesis:'宇越生醫科技（UWELL Biopharma）專注開發嵌合抗原受體（CAR-T）細胞療法與基因改造免疫治療藥物',target:null,tags:['生技','CAR-T']},
+      {name:'å±å¥',stocks:[
+        {code:'7871',ex:'otc',name:'å®ç«ç½æ¦®-KY',thesis:'é¿è²æµ·é»å°åå­è¥ï¼BioMark çç©æ¨è¨ææç 5/7ï¼4/7 éä½ 30%+ ç¼çï¼ï¼1 æ¡ä¾ MMSE å¾ 15 åéè½è³ 23 åï¼å¨çé¦ä¾ï¼ï¼å³å°é²å¤§åè¨åºè©¦é©ï¼å¤§è¥å» ææ¬æ©æ',target:null,tags:['çæ','é¿è²æµ·é»']},
+        {code:'3528',ex:'tse',name:'å®é¦³',thesis:'é·å¥æ¨è¦ï¼å±å¥ä¸é±ç§è¨ªï¼åºéå·²è²·é²å©å¤§è²·è¶ï¼120 ä»¥ä¸å°å ç¢¼è³ 1 å',target:'120ä»¥ä¸',tags:[]},
+        {code:'7610',ex:'otc',name:'è¯åéå±¬',thesis:'é¢ææç¨ç¼º + ä¸­ç¾è²¿ææ°å°ç·£æ¿æ²» + æè¡å£å£ï¼ç«¶ç­å°æé£é²å¥ï¼ï¼ææ¬ 57 åæ¼²è³ 1900+ï¼æ¥æ¬åç¢æ¶æ¯å¾æ¶å',target:2300,tags:['é¢','å°ç·£æ¿æ²»']},
+        {code:'2059',ex:'tse',name:'å·æ¹',thesis:'ä¼ºæå¨æ©æ«å°è»ï¼çæ¶æçºè¶é æï¼ææ¬ 1000 åºé ­ï¼åºéå·²è²·é²',target:null,tags:['ä¼ºæå¨','AI']},
+        {code:'3026',ex:'tse',name:'ç¦¾ä¼¸å ',thesis:'è¢«ååä»¶æ¼²å¹åæ ï¼åºéææ',target:null,tags:['è¢«ååä»¶']},
+        {code:'7902',ex:'otc',name:'å®è¶çæ',thesis:'å®è¶çé«ç§æï¼UWELL Biopharmaï¼å°æ³¨éç¼åµåæååé«ï¼CAR-Tï¼ç´°èçæ³èåºå æ¹é åç«æ²»çè¥ç©',target:null,tags:['çæ','CAR-T']},
       ]},
-      {name:'崴哥',stocks:[
-        {code:'3528',ex:'tse',name:'安馳',thesis:'4 月營收掉、5 月回升，市場估月 EPS 2 塊、全年 20，等凱哥私訪驗證 EPS',target:null,tags:['生技']},
-        {code:'2385',ex:'tse',name:'群光',thesis:'高殖利率 ETF 成分股（0056/919），法人持續買進，線型飄升中',target:null,tags:['除息行情','高殖利率']},
-        {code:'9939',ex:'otc',name:'宏全',thesis:'7 月初除息，高殖利率，法人目前持續建倉，還有約一個月時間',target:null,tags:['除息行情','高殖利率']},
-        {code:'6449',ex:'otc',name:'鈺邦',thesis:'鋁質電容漲價 + 缺貨（比 MLCC 漲幅更大），漲價前月 EPS 已達 1 塊，本益比低於國巨，籌碼較冷',target:null,tags:['被動元件','鋁質電容']},
-        {code:'5511',ex:'otc',name:'德昌',thesis:'社宅案 1/3 暗量 Q4 入帳，今年 EPS 估 15，除息後本益比僅 4 倍，明年繼續成長',target:null,tags:['建設','低本益比']},
+      {name:'å´´å¥',stocks:[
+        {code:'3528',ex:'tse',name:'å®é¦³',thesis:'4 æçæ¶æã5 æååï¼å¸å ´ä¼°æ EPS 2 å¡ãå¨å¹´ 20ï¼ç­å±å¥ç§è¨ªé©è­ EPS',target:null,tags:['çæ']},
+        {code:'2385',ex:'tse',name:'ç¾¤å',thesis:'é«æ®å©ç ETF æåè¡ï¼0056/919ï¼ï¼æ³äººæçºè²·é²ï¼ç·åé£åä¸­',target:null,tags:['é¤æ¯è¡æ','é«æ®å©ç']},
+        {code:'9939',ex:'otc',name:'å®å¨',thesis:'7 æåé¤æ¯ï¼é«æ®å©çï¼æ³äººç®åæçºå»ºåï¼éæç´ä¸åææé',target:null,tags:['é¤æ¯è¡æ','é«æ®å©ç']},
+        {code:'6449',ex:'otc',name:'éºé¦',thesis:'éè³ªé»å®¹æ¼²å¹ + ç¼ºè²¨ï¼æ¯ MLCC æ¼²å¹æ´å¤§ï¼ï¼æ¼²å¹åæ EPS å·²é 1 å¡ï¼æ¬çæ¯ä½æ¼åå·¨ï¼ç±ç¢¼è¼å·',target:null,tags:['è¢«ååä»¶','éè³ªé»å®¹']},
+        {code:'5511',ex:'otc',name:'å¾·æ',thesis:'ç¤¾å®æ¡ 1/3 æé Q4 å¥å¸³ï¼ä»å¹´ EPS ä¼° 15ï¼é¤æ¯å¾æ¬çæ¯å 4 åï¼æå¹´ç¹¼çºæé·',target:null,tags:['å»ºè¨­','ä½æ¬çæ¯']},
       ]},
-      {name:'漁樵耕讀',stocks:[
-        {code:'6227',ex:'otc',name:'茂綸',thesis:'通路股，威剛下 80 億訂單，明年 Q2 入帳，明年營收 300 億起跳，EPS 估 20，通路股 PE 11-13 倍',target:220,tags:['通路','AI記憶體']},
-        {code:'5289',ex:'otc',name:'宜鼎',thesis:'工業 NAND，六月營收破 80 億，上半年 EPS 150-160，全年 EPS 破 300，今日創歷史新高',target:null,tags:['工業記憶體','AI']},
-        {code:'3026',ex:'tse',name:'禾伸堂',thesis:'長期持有，無轉弱跡象',target:null,tags:['被動元件']},
-        {code:'7610',ex:'otc',name:'聯友金屬',thesis:'長期持有，無轉弱跡象，持續追蹤',target:null,tags:['鎢']},
+      {name:'æ¼æ¨µèè®',stocks:[
+        {code:'6227',ex:'otc',name:'èç¶¸',thesis:'éè·¯è¡ï¼å¨åä¸ 80 åè¨å®ï¼æå¹´ Q2 å¥å¸³ï¼æå¹´çæ¶ 300 åèµ·è·³ï¼EPS ä¼° 20ï¼éè·¯è¡ PE 11-13 å',target:220,tags:['éè·¯','AIè¨æ¶é«']},
+        {code:'5289',ex:'otc',name:'å®é¼',thesis:'å·¥æ¥­ NANDï¼å­æçæ¶ç ´ 80 åï¼ä¸åå¹´ EPS 150-160ï¼å¨å¹´ EPS ç ´ 300ï¼ä»æ¥åµæ­·å²æ°é«',target:null,tags:['å·¥æ¥­è¨æ¶é«','AI']},
+        {code:'3026',ex:'tse',name:'ç¦¾ä¼¸å ',thesis:'é·æææï¼ç¡è½å¼±è·¡è±¡',target:null,tags:['è¢«ååä»¶']},
+        {code:'7610',ex:'otc',name:'è¯åéå±¬',thesis:'é·æææï¼ç¡è½å¼±è·¡è±¡ï¼æçºè¿½è¹¤',target:null,tags:['é¢']},
       ]},
-      {name:'高鐵哥',stocks:[
-        {code:'1612',ex:'tse',name:'宏泰',thesis:'台電電網 10 年計畫受惠，同業大亞/華榮錨點 PE 150-180，福邦關係戶',target:72,tags:['電力','電網']},
-        {code:null,ex:null,name:'世界盃加密貨幣',thesis:'世界盃期間操作相關幣種：狐狸/Flocky、Solana 鏈上主題幣，事件型交易',target:null,tags:['加密貨幣']},
+      {name:'é«éµå¥',stocks:[
+        {code:'1612',ex:'tse',name:'å®æ³°',thesis:'å°é»é»ç¶² 10 å¹´è¨ç«åæ ï¼åæ¥­å¤§äº/è¯æ¦®é¨é» PE 150-180ï¼ç¦é¦éä¿æ¶',target:72,tags:['é»å','é»ç¶²']},
+        {code:null,ex:null,name:'ä¸ççå å¯è²¨å¹£',thesis:'ä¸ççæéæä½ç¸éå¹£ç¨®ï¼çç¸/FlockyãSolana éä¸ä¸»é¡å¹£ï¼äºä»¶åäº¤æ',target:null,tags:['å å¯è²¨å¹£']},
       ]},
-      {name:'小資男孩',stocks:[
-        {code:'8299',ex:'otc',name:'群聯',thesis:'AI PC + Intel 合作 NPU 晶片，5-6 萬 vs NV 10 萬+ 價差，CP 值高；庫存持續出補；今年 EPS 估 300+',target:null,tags:['AI PC','NPU','NAND']},
-        {code:'6223',ex:'otc',name:'旺矽',thesis:'探針需求持續強勁，CB 詢圈期間認購，轉換價 6223',target:null,tags:['探針','CB']},
+      {name:'å°è³ç·å­©',stocks:[
+        {code:'8299',ex:'otc',name:'ç¾¤è¯',thesis:'AI PC + Intel åä½ NPU æ¶çï¼5-6 è¬ vs NV 10 è¬+ å¹å·®ï¼CP å¼é«ï¼åº«å­æçºåºè£ï¼ä»å¹´ EPS ä¼° 300+',target:null,tags:['AI PC','NPU','NAND']},
+        {code:'6223',ex:'otc',name:'æºç½',thesis:'æ¢ééæ±æçºå¼·åï¼CB è©¢åæéèªè³¼ï¼è½æå¹ 6223',target:null,tags:['æ¢é','CB']},
       ]},
       {name:'Monson',stocks:[
-        {code:'8299',ex:'otc',name:'群聯',thesis:'Computex 展出 NPU 晶片，讓 AIPC 地端流暢跑 LLM，潘董說持續缺貨，餐飲業已實際落地應用',target:null,tags:['AI PC','NPU']},
-        {code:'3167',ex:'tse',name:'大量',thesis:'PCB 厚度 TMS 量測機台全球最優，毛利率 42-45%，下半年營收 +25%；董事長：今年 EPS 30、明年 60（保守）',target:1500,tags:['設備','PCB量測']},
+        {code:'8299',ex:'otc',name:'ç¾¤è¯',thesis:'Computex å±åº NPU æ¶çï¼è® AIPC å°ç«¯æµæ¢è· LLMï¼æ½è£èªªæçºç¼ºè²¨ï¼é¤é£²æ¥­å·²å¯¦éè½å°æç¨',target:null,tags:['AI PC','NPU']},
+        {code:'3167',ex:'tse',name:'å¤§é',thesis:'PCB ååº¦ TMS éæ¸¬æ©å°å¨çæåªï¼æ¯å©ç 42-45%ï¼ä¸åå¹´çæ¶ +25%ï¼è£äºé·ï¼ä»å¹´ EPS 30ãæå¹´ 60ï¼ä¿å®ï¼',target:1500,tags:['è¨­å','PCBéæ¸¬']},
       ]},
-      {name:'馬奎爾',stocks:[
-        {code:'2327',ex:'tse',name:'國巨',thesis:'被動元件漲價，流動性強，長期持有核心部位',target:null,tags:['被動元件']},
-        {code:'2316',ex:'tse',name:'楠梓電',thesis:'母以子貴（持有滬電 15%），投信 00982A 新買 3000 張；滬電漲 40-50%，理論合理值約 770+',target:770,tags:['PCB','母以子貴']},
-        {code:null,ex:null,name:'美債 ZB 30Y',thesis:'三週前超買，殖利率約 5.2，若再掉一點繼續加碼；未來升息機率降低看好回升',target:null,tags:['美債','總經']},
-        {code:null,ex:null,name:'比特幣 BTC',thesis:'線型仍差，等打底後把股票利潤 rebalance 5-10%，等待時機',target:null,tags:['加密貨幣']},
+      {name:'é¦¬å¥ç¾',stocks:[
+        {code:'2327',ex:'tse',name:'åå·¨',thesis:'è¢«ååä»¶æ¼²å¹ï¼æµåæ§å¼·ï¼é·ææææ ¸å¿é¨ä½',target:null,tags:['è¢«ååä»¶']},
+        {code:'2316',ex:'tse',name:'æ¥ æ¢é»',thesis:'æ¯ä»¥å­è²´ï¼æææ»¬é» 15%ï¼ï¼æä¿¡ 00982A æ°è²· 3000 å¼µï¼æ»¬é»æ¼² 40-50%ï¼çè«åçå¼ç´ 770+',target:770,tags:['PCB','æ¯ä»¥å­è²´']},
+        {code:null,ex:null,name:'ç¾åµ ZB 30Y',thesis:'ä¸é±åè¶è²·ï¼æ®å©çç´ 5.2ï¼è¥åæä¸é»ç¹¼çºå ç¢¼ï¼æªä¾åæ¯æ©çéä½çå¥½åå',target:null,tags:['ç¾åµ','ç¸½ç¶']},
+        {code:null,ex:null,name:'æ¯ç¹å¹£ BTC',thesis:'ç·åä»å·®ï¼ç­æåºå¾æè¡ç¥¨å©æ½¤ rebalance 5-10%ï¼ç­å¾ææ©',target:null,tags:['å å¯è²¨å¹£']},
       ]},
-      {name:'新朋友',stocks:[
-        {code:'3450',ex:'otc',name:'聯鈞',thesis:'AOC 光纖線，接到 Coherent/Lite/Marvel 訂單；子公司源傑 Q3 上興櫃；庫存去化完成，YOY 40-50%，產能開到 200%',target:null,tags:['光通訊','AOC']},
-        {code:'2327',ex:'tse',name:'國巨',thesis:'被動元件漲價受惠，持續追蹤',target:null,tags:['被動元件']},
-        {code:'8043',ex:'otc',name:'蜜望實',thesis:'太陽誘電（TDK）台灣代理，已率先發漲價通知，受惠被動元件漲價週期',target:null,tags:['被動元件通路']},
+      {name:'æ°æå',stocks:[
+        {code:'3450',ex:'otc',name:'è¯é',thesis:'AOC åçºç·ï¼æ¥å° Coherent/Lite/Marvel è¨å®ï¼å­å¬å¸æºå Q3 ä¸èæ«ï¼åº«å­å»åå®æï¼YOY 40-50%ï¼ç¢è½éå° 200%',target:null,tags:['åéè¨','AOC']},
+        {code:'2327',ex:'tse',name:'åå·¨',thesis:'è¢«ååä»¶æ¼²å¹åæ ï¼æçºè¿½è¹¤',target:null,tags:['è¢«ååä»¶']},
+        {code:'8043',ex:'otc',name:'èæå¯¦',thesis:'å¤ªé½èªé»ï¼TDKï¼å°ç£ä»£çï¼å·²çåç¼æ¼²å¹éç¥ï¼åæ è¢«ååä»¶æ¼²å¹é±æ',target:null,tags:['è¢«ååä»¶éè·¯']},
       ]},
-      {name:'小哥哥',stocks:[
-        {code:'3485',ex:'otc',name:'敘豐',thesis:'TGV 概念，欣興拉貨提前，月營收 0.5 億→7 月達 1 億，明年 EPS 估 20+，剛上櫃籌碼乾淨，6/15 處置結束後量才會出來',target:null,tags:['TGV','PCB材料']},
-        {code:'3059',ex:'otc',name:'偉訓',thesis:'大股東直接說可以買，CB 可轉債，利多 7-8 月；禮拜一從跌停拉到翻紅已驗證',target:null,tags:['CB','通路']},
+      {name:'å°å¥å¥',stocks:[
+        {code:'3485',ex:'otc',name:'æè±',thesis:'TGV æ¦å¿µï¼æ¬£èæè²¨æåï¼æçæ¶ 0.5 åâ7 æé 1 åï¼æå¹´ EPS ä¼° 20+ï¼åä¸æ«ç±ç¢¼ä¹¾æ·¨ï¼6/15 èç½®çµæå¾éææåºä¾',target:null,tags:['TGV','PCBææ']},
+        {code:'3059',ex:'otc',name:'åè¨',thesis:'å¤§è¡æ±ç´æ¥èªªå¯ä»¥è²·ï¼CB å¯è½åµï¼å©å¤ 7-8 æï¼ç¦®æä¸å¾è·åæå°ç¿»ç´å·²é©è­',target:null,tags:['CB','éè·¯']},
       ]},
-      {name:'KK大',stocks:[
-        {code:'3653',ex:'otc',name:'健策',thesis:'NV 改設計 ASP 掉 66% 已 price in，Computex 展出新 solution（MC link + VC 結合），目標 23kW 散熱，展示驗證中',target:null,tags:['散熱','AI伺服器','CoWoS']},
-        {code:'2454',ex:'tse',name:'聯發科',thesis:'大股票持有，月初有人記得月中忘記策略，抓 20% 區間操作',target:null,tags:['IC設計']},
-        {code:'3324',ex:'tse',name:'雙鴻',thesis:'大股票持有',target:null,tags:['散熱']},
-        {code:'2059',ex:'tse',name:'川湖',thesis:'大股票持有',target:null,tags:['伺服器']},
-        {code:'5289',ex:'otc',name:'宜鼎',thesis:'大股票，月初漲月中被遺忘策略反覆操作，EPS 強勁',target:null,tags:['工業記憶體']},
-        {code:'6840',ex:'otc',name:'東延信超',thesis:'CB 轉換價 106，月營收衝 9000 萬驗證中，若月 EPS 近 1 塊即 60 元股價就進場',target:null,tags:['CB','電子']},
+      {name:'KKå¤§',stocks:[
+        {code:'3653',ex:'otc',name:'å¥ç­',thesis:'NV æ¹è¨­è¨ ASP æ 66% å·² price inï¼Computex å±åºæ° solutionï¼MC link + VC çµåï¼ï¼ç®æ¨ 23kW æ£ç±ï¼å±ç¤ºé©è­ä¸­',target:null,tags:['æ£ç±','AIä¼ºæå¨','CoWoS']},
+        {code:'2454',ex:'tse',name:'è¯ç¼ç§',thesis:'å¤§è¡ç¥¨ææï¼æåæäººè¨å¾æä¸­å¿è¨ç­ç¥ï¼æ 20% åéæä½',target:null,tags:['ICè¨­è¨']},
+        {code:'3324',ex:'tse',name:'éé´»',thesis:'å¤§è¡ç¥¨ææ',target:null,tags:['æ£ç±']},
+        {code:'2059',ex:'tse',name:'å·æ¹',thesis:'å¤§è¡ç¥¨ææ',target:null,tags:['ä¼ºæå¨']},
+        {code:'5289',ex:'otc',name:'å®é¼',thesis:'å¤§è¡ç¥¨ï¼æåæ¼²æä¸­è¢«éºå¿ç­ç¥åè¦æä½ï¼EPS å¼·å',target:null,tags:['å·¥æ¥­è¨æ¶é«']},
+        {code:'6840',ex:'otc',name:'æ±å»¶ä¿¡è¶',thesis:'CB è½æå¹ 106ï¼æçæ¶è¡ 9000 è¬é©è­ä¸­ï¼è¥æ EPS è¿ 1 å¡å³ 60 åè¡å¹å°±é²å ´',target:null,tags:['CB','é»å­']},
       ]},
-      {name:'小王子',stocks:[
-        {code:'6147',ex:'otc',name:'頎邦',thesis:'光通訊金凸塊封裝（COF），27 年 TEM 600 億美元，廖學邦建倉持股達 5%，明年營收 300 億',target:null,tags:['光通訊','封裝','COF']},
-        {code:'6442',ex:'otc',name:'光聖',thesis:'Google TPU 光纖佈線，子公司合聖待上興櫃，今年 EPS 60 / 明年 115，9 成以上收入來自 TPU',target:115,tags:['光通訊','Google TPU']},
+      {name:'å°çå­',stocks:[
+        {code:'6147',ex:'otc',name:'é é¦',thesis:'åéè¨éå¸å¡å°è£ï¼COFï¼ï¼27 å¹´ TEM 600 åç¾åï¼å»å­¸é¦å»ºåæè¡é 5%ï¼æå¹´çæ¶ 300 å',target:null,tags:['åéè¨','å°è£','COF']},
+        {code:'6442',ex:'otc',name:'åè',thesis:'Google TPU åçºä½ç·ï¼å­å¬å¸åèå¾ä¸èæ«ï¼ä»å¹´ EPS 60 / æå¹´ 115ï¼9 æä»¥ä¸æ¶å¥ä¾èª TPU',target:115,tags:['åéè¨','Google TPU']},
       ]},
       {name:'CH',stocks:[
-        {code:'7610',ex:'otc',name:'聯友金屬',thesis:'鎢材料：稀缺資源 + 地緣政治 + 技術壁壘，半導體封裝廠指定供應商，明年 EPS 估 115',target:2300,tags:['鎢','地緣政治']},
-        {code:'3042',ex:'otc',name:'晶技',thesis:'石英震盪器 AI 伺服器不可替代（抖動遠低於 MEMS），今年 EPS 12 / 明年 16，配息率 80%+',target:null,tags:['石英振盪器','AI伺服器']},
-        {code:'3653',ex:'otc',name:'健策',thesis:'ASP 掉 66% 已充分反映，Computex 展出新 solution，接低點布局',target:null,tags:['散熱','CoWoS']},
+        {code:'7610',ex:'otc',name:'è¯åéå±¬',thesis:'é¢ææï¼ç¨ç¼ºè³æº + å°ç·£æ¿æ²» + æè¡å£å£ï¼åå°é«å°è£å» æå®ä¾æåï¼æå¹´ EPS ä¼° 115',target:2300,tags:['é¢','å°ç·£æ¿æ²»']},
+        {code:'3042',ex:'otc',name:'æ¶æ',thesis:'ç³è±éçªå¨ AI ä¼ºæå¨ä¸å¯æ¿ä»£ï¼æåé ä½æ¼ MEMSï¼ï¼ä»å¹´ EPS 12 / æå¹´ 16ï¼éæ¯ç 80%+',target:null,tags:['ç³è±æ¯çªå¨','AIä¼ºæå¨']},
+        {code:'3653',ex:'otc',name:'å¥ç­',thesis:'ASP æ 66% å·²åååæ ï¼Computex å±åºæ° solutionï¼æ¥ä½é»å¸å±',target:null,tags:['æ£ç±','CoWoS']},
       ]},
-      {name:'發發哥',stocks:[
-        {code:'2329',ex:'tse',name:'華泰',thesis:'CB 可轉債，整理很久剛開始啟動，籌碼認很多，共識形成，富邦新板已注意',target:null,tags:['CB','類比IC']},
-        {code:'6121',ex:'otc',name:'新普',thesis:'電池廠，CB 可轉債，電池漲價趨勢，近期有人在拆 CB，可留意',target:null,tags:['電池','CB']},
+      {name:'ç¼ç¼å¥',stocks:[
+        {code:'2329',ex:'tse',name:'è¯æ³°',thesis:'CB å¯è½åµï¼æ´çå¾ä¹åéå§ååï¼ç±ç¢¼èªå¾å¤ï¼å±è­å½¢æï¼å¯é¦æ°æ¿å·²æ³¨æ',target:null,tags:['CB','é¡æ¯IC']},
+        {code:'6121',ex:'otc',name:'æ°æ®',thesis:'é»æ± å» ï¼CB å¯è½åµï¼é»æ± æ¼²å¹è¶¨å¢ï¼è¿ææäººå¨æ CBï¼å¯çæ',target:null,tags:['é»æ± ','CB']},
       ]},
-      {name:'寶寶',stocks:[
-        {code:'2327',ex:'tse',name:'國巨',thesis:'大部位核心持倉，被動元件漲價週期主標的',target:null,tags:['被動元件']},
-        {code:'6449',ex:'otc',name:'鈺邦',thesis:'鋁質電容，籌碼乾淨，有資訊優勢，持續關注',target:null,tags:['鋁質電容']},
-        {code:'6788',ex:'otc',name:'（6788 待確認）',thesis:'台積電擴廠設備受惠，毛利率 60%，今年 EPS 20 / 明年 35，富邦新板目標 600-800',target:800,tags:['設備','台積電']},
+      {name:'å¯¶å¯¶',stocks:[
+        {code:'2327',ex:'tse',name:'åå·¨',thesis:'å¤§é¨ä½æ ¸å¿æåï¼è¢«ååä»¶æ¼²å¹é±æä¸»æ¨ç',target:null,tags:['è¢«ååä»¶']},
+        {code:'6449',ex:'otc',name:'éºé¦',thesis:'éè³ªé»å®¹ï¼ç±ç¢¼ä¹¾æ·¨ï¼æè³è¨åªå¢ï¼æçºéæ³¨',target:null,tags:['éè³ªé»å®¹']},
+        {code:'6788',ex:'otc',name:'ï¼6788 å¾ç¢ºèªï¼',thesis:'å°ç©é»æ´å» è¨­ååæ ï¼æ¯å©ç 60%ï¼ä»å¹´ EPS 20 / æå¹´ 35ï¼å¯é¦æ°æ¿ç®æ¨ 600-800',target:800,tags:['è¨­å','å°ç©é»']},
       ]},
       {name:'momoji',stocks:[
-        {code:'2327',ex:'tse',name:'國巨',thesis:'標配持股',target:null,tags:['被動元件']},
-        {code:'3167',ex:'tse',name:'大量',thesis:'標配持股，董事長預期今年 EPS 30 / 明年 60（保守），統一報告 2027 EPS 43.4',target:null,tags:['設備']},
-        {code:'2059',ex:'tse',name:'川湖',thesis:'標配持股',target:null,tags:['伺服器']},
-        {code:'6669',ex:'tse',name:'緯穎',thesis:'明年 EPS 估 600，現在 <10 倍 PE，市場關注度低，除息公告後有啟動機會',target:null,tags:['伺服器','AI']},
-        {code:'6223',ex:'otc',name:'旺矽',thesis:'CB 詢圈被洗掉後，昨天好營收出來，MS 今天可能發報告',target:null,tags:['探針']},
-        {code:'2303',ex:'tse',name:'聯電',thesis:'919 ETF 成分股調整事件，朋友推，內部估 200-300',target:300,tags:['晶圓代工']},
+        {code:'2327',ex:'tse',name:'åå·¨',thesis:'æ¨éæè¡',target:null,tags:['è¢«ååä»¶']},
+        {code:'3167',ex:'tse',name:'å¤§é',thesis:'æ¨éæè¡ï¼è£äºé·é æä»å¹´ EPS 30 / æå¹´ 60ï¼ä¿å®ï¼ï¼çµ±ä¸å ±å 2027 EPS 43.4',target:null,tags:['è¨­å']},
+        {code:'2059',ex:'tse',name:'å·æ¹',thesis:'æ¨éæè¡',target:null,tags:['ä¼ºæå¨']},
+        {code:'6669',ex:'tse',name:'ç·¯ç©',thesis:'æå¹´ EPS ä¼° 600ï¼ç¾å¨ <10 å PEï¼å¸å ´éæ³¨åº¦ä½ï¼é¤æ¯å¬åå¾æååæ©æ',target:null,tags:['ä¼ºæå¨','AI']},
+        {code:'6223',ex:'otc',name:'æºç½',thesis:'CB è©¢åè¢«æ´æå¾ï¼æ¨å¤©å¥½çæ¶åºä¾ï¼MS ä»å¤©å¯è½ç¼å ±å',target:null,tags:['æ¢é']},
+        {code:'2303',ex:'tse',name:'è¯é»',thesis:'919 ETF æåè¡èª¿æ´äºä»¶ï¼æåæ¨ï¼å§é¨ä¼° 200-300',target:300,tags:['æ¶åä»£å·¥']},
       ]},
-      {name:'奇哥（線上）',stocks:[
-        {code:'2303',ex:'tse',name:'聯電',thesis:'8 吋成熟製程產能 7 月後達 9 成，客戶收到漲價通知 5-20%（PMIC、PowerIC），台積電退出 28nm 訂單流向聯電；市場共識 200-300',target:300,tags:['晶圓代工','漲價']},
+      {name:'å¥å¥ï¼ç·ä¸ï¼',stocks:[
+        {code:'2303',ex:'tse',name:'è¯é»',thesis:'8 åæçè£½ç¨ç¢è½ 7 æå¾é 9 æï¼å®¢æ¶æ¶å°æ¼²å¹éç¥ 5-20%ï¼PMICãPowerICï¼ï¼å°ç©é»éåº 28nm è¨å®æµåè¯é»ï¼å¸å ´å±è­ 200-300',target:300,tags:['æ¶åä»£å·¥','æ¼²å¹']},
       ]},
-      {name:'武王（線上）',stocks:[
-        {code:'2330',ex:'tse',name:'台積電',thesis:'主要持股，AI 硬體核心受惠者，台灣 AI 成長率蓋過升息利率，基本面最強，拉回即加碼',target:null,tags:['台積電','AI']},
+      {name:'æ­¦çï¼ç·ä¸ï¼',stocks:[
+        {code:'2330',ex:'tse',name:'å°ç©é»',thesis:'ä¸»è¦æè¡ï¼AI ç¡¬é«æ ¸å¿åæ èï¼å°ç£ AI æé·çèéåæ¯å©çï¼åºæ¬é¢æå¼·ï¼æåå³å ç¢¼',target:null,tags:['å°ç©é»','AI']},
       ]},
     ],
     bullish:[
-      {text:'被動元件漲價週期（MLCC、鋁質電容缺貨，漲幅超預期）',by:'崴哥、新朋友、寶寶、KK大'},
-      {text:'光通訊族群（AOC、Google TPU、光纖模組）持續擴產',by:'小王子、新朋友、Monson'},
-      {text:'TGV（玻璃通孔）2027-28 年設備/產線爆發期，撒網佈局',by:'小哥哥、凱哥、奇哥；相關：漢偉、東捷、鈦昇、川寶'},
-      {text:'AI PC / 地端 NPU 晶片，CP 值優於 NV，Intel 合作',by:'小資男孩、Monson'},
-      {text:'CoWoS 散熱升級（目標 23kW+），健策新 solution 驗證中',by:'CH、KK大'},
-      {text:'SpaceX IPO → 太空/陶瓷材料供應鏈受惠（九豪等陶瓷基板）',by:'奇哥；SpaceX 市值 1.7T'},
-      {text:'高殖利率除息行情（7 月），ETF 成分股提前飄升',by:'崴哥；0056、919 成分股'},
-      {text:'阿茲海默小分子藥，安立璽榮-KY BioMark 全球首例認知逆轉案例',by:'凱哥、崴哥；即將進大型臨床'},
+      {text:'è¢«ååä»¶æ¼²å¹é±æï¼MLCCãéè³ªé»å®¹ç¼ºè²¨ï¼æ¼²å¹è¶é æï¼',by:'å´´å¥ãæ°æåãå¯¶å¯¶ãKKå¤§'},
+      {text:'åéè¨æç¾¤ï¼AOCãGoogle TPUãåçºæ¨¡çµï¼æçºæ´ç¢',by:'å°çå­ãæ°æåãMonson'},
+      {text:'TGVï¼ç»çéå­ï¼2027-28 å¹´è¨­å/ç¢ç·çç¼æï¼æç¶²ä½å±',by:'å°å¥å¥ãå±å¥ãå¥å¥ï¼ç¸éï¼æ¼¢åãæ±æ·ãé¦æãå·å¯¶'},
+      {text:'AI PC / å°ç«¯ NPU æ¶çï¼CP å¼åªæ¼ NVï¼Intel åä½',by:'å°è³ç·å­©ãMonson'},
+      {text:'CoWoS æ£ç±åç´ï¼ç®æ¨ 23kW+ï¼ï¼å¥ç­æ° solution é©è­ä¸­',by:'CHãKKå¤§'},
+      {text:'SpaceX IPO â å¤ªç©º/é¶ç·ææä¾æéåæ ï¼ä¹è±ªç­é¶ç·åºæ¿ï¼',by:'å¥å¥ï¼SpaceX å¸å¼ 1.7T'},
+      {text:'é«æ®å©çé¤æ¯è¡æï¼7 æï¼ï¼ETF æåè¡æåé£å',by:'å´´å¥ï¼0056ã919 æåè¡'},
+      {text:'é¿è²æµ·é»å°åå­è¥ï¼å®ç«ç½æ¦®-KY BioMark å¨çé¦ä¾èªç¥éè½æ¡ä¾',by:'å±å¥ãå´´å¥ï¼å³å°é²å¤§åè¨åº'},
     ],
     macro:[
-      {color:'r',text:'<strong>日本升息</strong>（下週），Carry Trade 壓力釋放，預期影響小於去年 7 月崩盤',by:'奇哥、武王、馬奎爾'},
-      {color:'y',text:'<strong>CPI</strong> 市場預期 4.2，內部估實際 4.0-4.1；若未超預期則無升息壓力',by:'奇哥（2026/06/10 公布）'},
-      {color:'g',text:'今年 CPI <strong>高點在 7 月</strong>後轉降，升息機率低，Fed 維持不動',by:'武王'},
-      {color:'r',text:'<strong>SpaceX IPO</strong> 抽資金 75-100B 美元，造成半導體短線賣壓（SMH 跌 10%）',by:'奇哥'},
-      {color:'g',text:'台灣經濟成長率 > 升息利率，AI 硬體優勢明確，<strong>拉回建倉</strong>好時機',by:'奇哥、武王；預期 2-3 週波動後回升'},
-      {color:'g',text:'聯電 8 吋成熟製程產能下半年達 9 成，<strong>季季漲價 5-20%</strong>，可挑客戶',by:'奇哥；台積電放棄 28nm，訂單流向聯電'},
-      {color:'y',text:'馬奎爾持美債 ZB 30Y（殖利率 5.2），看好短期回升；比特幣等打底後再 rebalance 5-10%',by:'馬奎爾'},
+      {color:'r',text:'<strong>æ¥æ¬åæ¯</strong>ï¼ä¸é±ï¼ï¼Carry Trade å£åéæ¾ï¼é æå½±é¿å°æ¼å»å¹´ 7 æå´©ç¤',by:'å¥å¥ãæ­¦çãé¦¬å¥ç¾'},
+      {color:'y',text:'<strong>CPI</strong> å¸å ´é æ 4.2ï¼å§é¨ä¼°å¯¦é 4.0-4.1ï¼è¥æªè¶é æåç¡åæ¯å£å',by:'å¥å¥ï¼2026/06/10 å¬å¸ï¼'},
+      {color:'g',text:'ä»å¹´ CPI <strong>é«é»å¨ 7 æ</strong>å¾è½éï¼åæ¯æ©çä½ï¼Fed ç¶­æä¸å',by:'æ­¦ç'},
+      {color:'r',text:'<strong>SpaceX IPO</strong> æ½è³é 75-100B ç¾åï¼é æåå°é«ç­ç·è³£å£ï¼SMH è· 10%ï¼',by:'å¥å¥'},
+      {color:'g',text:'å°ç£ç¶æ¿æé·ç > åæ¯å©çï¼AI ç¡¬é«åªå¢æç¢ºï¼<strong>æåå»ºå</strong>å¥½ææ©',by:'å¥å¥ãæ­¦çï¼é æ 2-3 é±æ³¢åå¾åå'},
+      {color:'g',text:'è¯é» 8 åæçè£½ç¨ç¢è½ä¸åå¹´é 9 æï¼<strong>å­£å­£æ¼²å¹ 5-20%</strong>ï¼å¯æå®¢æ¶',by:'å¥å¥ï¼å°ç©é»æ¾æ£ 28nmï¼è¨å®æµåè¯é»'},
+      {color:'y',text:'é¦¬å¥ç¾æç¾åµ ZB 30Yï¼æ®å©ç 5.2ï¼ï¼çå¥½ç­æååï¼æ¯ç¹å¹£ç­æåºå¾å rebalance 5-10%',by:'é¦¬å¥ç¾'},
     ]
   }
 ,
   {
-    id:'m20260714',date:'2026/07/14',label:'第二次',
+    id:'m20260714',date:'2026/07/14',label:'ç¬¬äºæ¬¡',
     members:[
-      {name:'小資男孩',stocks:[
-        {code:'3017',ex:'tse',name:'奇鋐',thesis:'Q2 EPS ~24（vs 上季 20），BNV/ASIC 產品組合改善毛利率，明顯超預期',target:null,tags:['散熱','AI伺服器']},
-        {code:'2408',ex:'tse',name:'南電',thesis:'ABF 基板主要持股',target:null,tags:['ABF','AI']},
+      {name:'å°è³ç·å­©',stocks:[
+        {code:'3017',ex:'tse',name:'å¥é',thesis:'Q2 EPS ~24ï¼vs ä¸å­£ 20ï¼ï¼BNV/ASIC ç¢åçµåæ¹åæ¯å©çï¼æé¡¯è¶é æ',target:null,tags:['æ£ç±','AIä¼ºæå¨']},
+        {code:'2408',ex:'tse',name:'åé»',thesis:'ABF åºæ¿ä¸»è¦æè¡',target:null,tags:['ABF','AI']},
       ]},
-      {name:'凱哥',stocks:[
-        {code:'8431',ex:'otc',name:'匯鑽科',thesis:'轉機題材，AI 供應鏈轉型，業績開始兌現',target:null,tags:['AI','轉機']},
-        {code:'2330',ex:'tse',name:'台積電',thesis:'北美客戶訂單暴增：Broadcom +140%、NV +91%、AMD +56%、AWS +37%、Microsoft 2027 年 14 倍',target:null,tags:['台積電','AI']},
-        {code:'6696',ex:'otc',name:'仁新',thesis:'藥廠自銷策略，成本約 100，目標 1,200+，自主商業化 Upside 更大',target:1200,tags:['生技','自銷']},
-        {code:'2059',ex:'tse',name:'川湖',thesis:'擴廠加速 2 年，年底兩座新廠完工，產能翻倍；法人大資金 16 億佈局',target:10000,tags:['伺服器','AI']},
-        {code:'7610',ex:'otc',name:'聯友金屬',thesis:'鎢非中供應鏈，美中貿易戰長期受益',target:null,tags:['鎢','地緣政治']},
-        {code:'7871',ex:'otc',name:'安立璽榮-KY',thesis:'阿茲海默藥試驗數據正向，6 月公告 200 萬美金 fee',target:null,tags:['生技','阿茲海默']},
-        {code:'3528',ex:'tse',name:'安馳',thesis:'ADI 通知下半年交期拉長，基金已接 1 億部位，長線看多',target:null,tags:['類比IC']},
-        {code:'7902',ex:'otc',name:'宇越（興櫃）',thesis:'補件完成即將進二期，對比沛爾(6949)~500億估值，宇越僅 70 億；沙烏地授權談判中',target:null,tags:['生技','興櫃']},
-        {code:'6610',ex:'otc',name:'安成生技',thesis:'25 元現增，年底二期高機率過，名聲差但定價錯誤機會',target:null,tags:['生技','新藥']},
-        {code:'6467',ex:'otc',name:'泰合',thesis:'口溶膜抗凝血藥，原廠 BMS 三期炸掉，授權機會大增',target:null,tags:['生技','新藥']},
-        {code:'7798',ex:'otc',name:'將捷',thesis:'15 元現增，明年文山區建案 EPS ~3.5，目標 ~24.5（7 倍）',target:24,tags:['營建']},
+      {name:'å±å¥',stocks:[
+        {code:'8431',ex:'otc',name:'å¯é½ç§',thesis:'è½æ©é¡æï¼AI ä¾æéè½åï¼æ¥­ç¸¾éå§åç¾',target:null,tags:['AI','è½æ©']},
+        {code:'2330',ex:'tse',name:'å°ç©é»',thesis:'åç¾å®¢æ¶è¨å®æ´å¢ï¼Broadcom +140%ãNV +91%ãAMD +56%ãAWS +37%ãMicrosoft 2027 å¹´ 14 å',target:null,tags:['å°ç©é»','AI']},
+        {code:'6696',ex:'otc',name:'ä»æ°',thesis:'è¥å» èªé·ç­ç¥ï¼ææ¬ç´ 100ï¼ç®æ¨ 1,200+ï¼èªä¸»åæ¥­å Upside æ´å¤§',target:1200,tags:['çæ','èªé·']},
+        {code:'2059',ex:'tse',name:'å·æ¹',thesis:'æ´å» å é 2 å¹´ï¼å¹´åºå©åº§æ°å» å®å·¥ï¼ç¢è½ç¿»åï¼æ³äººå¤§è³é 16 åä½å±',target:10000,tags:['ä¼ºæå¨','AI']},
+        {code:'7610',ex:'otc',name:'è¯åéå±¬',thesis:'é¢éä¸­ä¾æéï¼ç¾ä¸­è²¿ææ°é·æåç',target:null,tags:['é¢','å°ç·£æ¿æ²»']},
+        {code:'7871',ex:'otc',name:'å®ç«ç½æ¦®-KY',thesis:'é¿è²æµ·é»è¥è©¦é©æ¸ææ­£åï¼6 æå¬å 200 è¬ç¾é fee',target:null,tags:['çæ','é¿è²æµ·é»']},
+        {code:'3528',ex:'tse',name:'å®é¦³',thesis:'ADI éç¥ä¸åå¹´äº¤ææé·ï¼åºéå·²æ¥ 1 åé¨ä½ï¼é·ç·çå¤',target:null,tags:['é¡æ¯IC']},
+        {code:'7902',ex:'otc',name:'å®è¶ï¼èæ«ï¼',thesis:'è£ä»¶å®æå³å°é²äºæï¼å°æ¯æ²ç¾(6949)~500åä¼°å¼ï¼å®è¶å 70 åï¼æ²çå°ææ¬è«å¤ä¸­',target:null,tags:['çæ','èæ«']},
+        {code:'6610',ex:'otc',name:'å®æçæ',thesis:'25 åç¾å¢ï¼å¹´åºäºæé«æ©çéï¼åè²å·®ä½å®å¹é¯èª¤æ©æ',target:null,tags:['çæ','æ°è¥']},
+        {code:'6467',ex:'otc',name:'æ³°å',thesis:'å£æº¶èæåè¡è¥ï¼åå»  BMS ä¸æç¸æï¼ææ¬æ©æå¤§å¢',target:null,tags:['çæ','æ°è¥']},
+        {code:'7798',ex:'otc',name:'å°æ·',thesis:'15 åç¾å¢ï¼æå¹´æå±±åå»ºæ¡ EPS ~3.5ï¼ç®æ¨ ~24.5ï¼7 åï¼',target:24,tags:['çå»º']},
       ]},
-      {name:'Harris哥',stocks:[
-        {code:'7610',ex:'otc',name:'聯友金屬',thesis:'EPS 150~200 估，目標 3,400~3,600（2027 年）',target:3500,tags:['鎢','地緣政治']},
-        {code:'3042',ex:'tse',name:'晶技',thesis:'216MHz 產品銷售佳，下半年動能持續',target:null,tags:['石英振盪器','AI伺服器']},
-        {code:'6182',ex:'otc',name:'合晶',thesis:'矽晶圓，在 10~11 元進行部位調整',target:null,tags:['矽晶圓']},
-        {code:'7856',ex:'otc',name:'漢測',thesis:'Advantest 合作進展，下半年動能',target:null,tags:['測試設備']},
+      {name:'Harriså¥',stocks:[
+        {code:'7610',ex:'otc',name:'è¯åéå±¬',thesis:'EPS 150~200 ä¼°ï¼ç®æ¨ 3,400~3,600ï¼2027 å¹´ï¼',target:3500,tags:['é¢','å°ç·£æ¿æ²»']},
+        {code:'3042',ex:'tse',name:'æ¶æ',thesis:'216MHz ç¢åé·å®ä½³ï¼ä¸åå¹´åè½æçº',target:null,tags:['ç³è±æ¯çªå¨','AIä¼ºæå¨']},
+        {code:'6182',ex:'otc',name:'åæ¶',thesis:'ç½æ¶åï¼å¨ 10~11 åé²è¡é¨ä½èª¿æ´',target:null,tags:['ç½æ¶å']},
+        {code:'7856',ex:'otc',name:'æ¼¢æ¸¬',thesis:'Advantest åä½é²å±ï¼ä¸åå¹´åè½',target:null,tags:['æ¸¬è©¦è¨­å']},
       ]},
-      {name:'馬奎爾',stocks:[
-        {code:'2327',ex:'tse',name:'國巨',thesis:'已於約 900 元賣出，獲利了結',target:null,tags:['被動元件']},
-        {code:'5483',ex:'tse',name:'中美晶',thesis:'買入：對環球晶折價 55%，集團小金雞（朋程等）；矽晶圓代替選擇',target:null,tags:['矽晶圓']},
-        {code:'2316',ex:'tse',name:'楠梓電',thesis:'持有；機器人/衛星/無人機轉型，EPS：今年 14~15、明年 21、後年 30',target:null,tags:['PCB','無人機','機器人']},
-        {code:'2330',ex:'tse',name:'台積電',thesis:'加碼佈局',target:null,tags:['台積電','AI']},
+      {name:'é¦¬å¥ç¾',stocks:[
+        {code:'2327',ex:'tse',name:'åå·¨',thesis:'å·²æ¼ç´ 900 åè³£åºï¼ç²å©äºçµ',target:null,tags:['è¢«ååä»¶']},
+        {code:'5483',ex:'tse',name:'ä¸­ç¾æ¶',thesis:'è²·å¥ï¼å°ç°çæ¶æå¹ 55%ï¼éåå°ééï¼æç¨ç­ï¼ï¼ç½æ¶åä»£æ¿é¸æ',target:null,tags:['ç½æ¶å']},
+        {code:'2316',ex:'tse',name:'æ¥ æ¢é»',thesis:'ææï¼æ©å¨äºº/è¡æ/ç¡äººæ©è½åï¼EPSï¼ä»å¹´ 14~15ãæå¹´ 21ãå¾å¹´ 30',target:null,tags:['PCB','ç¡äººæ©','æ©å¨äºº']},
+        {code:'2330',ex:'tse',name:'å°ç©é»',thesis:'å ç¢¼ä½å±',target:null,tags:['å°ç©é»','AI']},
       ]},
-      {name:'AC哥',stocks:[
-        {code:'3595',ex:'otc',name:'山太士',thesis:'ABF 獨立供應商，明年 EPS 下限 100 元',target:null,tags:['ABF','AI']},
-        {code:'7861',ex:'otc',name:'貝爾威勒',thesis:'目標 50 元',target:50,tags:[]},
-        {code:'6683',ex:'otc',name:'雍智科技',thesis:'V9 出貨量 >> V8，快速放量，升估值空間',target:null,tags:['AI','GPU']},
-        {code:'6182',ex:'otc',name:'合晶',thesis:'矽晶圓佈局',target:null,tags:['矽晶圓']},
-        {code:'4542',ex:'otc',name:'科嶠',thesis:'明年 EPS 40+，等季線支撐後切入',target:null,tags:['ABF']},
-        {code:'3529',ex:'otc',name:'力旺',thesis:'3,000 以下可考慮佈局',target:null,tags:['IP','嵌入式記憶體']},
-        {code:'3374',ex:'otc',name:'精材',thesis:'台積電 OS 訂單從矽品轉至精材，質變升估值，現價 350 vs 日月光 600~700',target:null,tags:['先進封裝','台積電']},
+      {name:'ACå¥',stocks:[
+        {code:'3595',ex:'otc',name:'å±±å¤ªå£«',thesis:'ABF ç¨ç«ä¾æåï¼æå¹´ EPS ä¸é 100 å',target:null,tags:['ABF','AI']},
+        {code:'7861',ex:'otc',name:'è²ç¾å¨å',thesis:'ç®æ¨ 50 å',target:50,tags:[]},
+        {code:'6683',ex:'otc',name:'éæºç§æ',thesis:'V9 åºè²¨é >> V8ï¼å¿«éæ¾éï¼åä¼°å¼ç©ºé',target:null,tags:['AI','GPU']},
+        {code:'6182',ex:'otc',name:'åæ¶',thesis:'ç½æ¶åä½å±',target:null,tags:['ç½æ¶å']},
+        {code:'4542',ex:'otc',name:'ç§å¶ ',thesis:'æå¹´ EPS 40+ï¼ç­å­£ç·æ¯æå¾åå¥',target:null,tags:['ABF']},
+        {code:'3529',ex:'otc',name:'åæº',thesis:'3,000 ä»¥ä¸å¯èæ®ä½å±',target:null,tags:['IP','åµå¥å¼è¨æ¶é«']},
+        {code:'3374',ex:'otc',name:'ç²¾æ',thesis:'å°ç©é» OS è¨å®å¾ç½åè½è³ç²¾æï¼è³ªè®åä¼°å¼ï¼ç¾å¹ 350 vs æ¥æå 600~700',target:null,tags:['åé²å°è£','å°ç©é»']},
       ]},
-      {name:'奇哥（線上）',stocks:[
-        {code:'3374',ex:'otc',name:'精材',thesis:'4~5 個 channel check 確認台積電 OS 訂單轉入，質變升估值，可與矽品/日月光比；槓桿工具齊全，動能資金必關注',target:null,tags:['先進封裝','台積電']},
+      {name:'å¥å¥ï¼ç·ä¸ï¼',stocks:[
+        {code:'3374',ex:'otc',name:'ç²¾æ',thesis:'4~5 å channel check ç¢ºèªå°ç©é» OS è¨å®è½å¥ï¼è³ªè®åä¼°å¼ï¼å¯èç½å/æ¥æåæ¯ï¼æ§æ¡¿å·¥å·é½å¨ï¼åè½è³éå¿éæ³¨',target:null,tags:['åé²å°è£','å°ç©é»']},
       ]},
-      {name:'小哥哥',stocks:[
-        {code:'8096',ex:'otc',name:'擎亞',thesis:'月營收 89 億創新高，CBAS 定價 160，目標 200；EPS 今年 10~15，明年 25；轉單+台積電訂單放大催化劑',target:200,tags:['PCB材料','台積電']},
+      {name:'å°å¥å¥',stocks:[
+        {code:'8096',ex:'otc',name:'æäº',thesis:'æçæ¶ 89 ååµæ°é«ï¼CBAS å®å¹ 160ï¼ç®æ¨ 200ï¼EPS ä»å¹´ 10~15ï¼æå¹´ 25ï¼è½å®+å°ç©é»è¨å®æ¾å¤§å¬åå',target:200,tags:['PCBææ','å°ç©é»']},
       ]},
       {name:'Monson',stocks:[
-        {code:'3167',ex:'tse',name:'大量',thesis:'6 月營收 ~10 億，背鑽機技術全球最優（優於德國）；700 多元有支撐，共識度提升',target:null,tags:['設備','PCB量測']},
-        {code:'6213',ex:'tse',name:'聯茂',thesis:'M7 毛利率 30%+（vs M4 11~12%），H2 佔比拉至 10~13%；泰國產能 H2 開出；新客戶微軟（呼應台積電微軟訂單 14x）',target:null,tags:['CCL','AI伺服器','微軟']},
-        {code:'4554',ex:'otc',name:'橙的',thesis:'胎壓偵測器，歐洲 AM 市場 50%+ 市占，配息 2 元（殖利率高），6 月營收十年同期新高',target:null,tags:['汽車電子']},
+        {code:'3167',ex:'tse',name:'å¤§é',thesis:'6 æçæ¶ ~10 åï¼èé½æ©æè¡å¨çæåªï¼åªæ¼å¾·åï¼ï¼700 å¤åææ¯æï¼å±è­åº¦æå',target:null,tags:['è¨­å','PCBéæ¸¬']},
+        {code:'6213',ex:'tse',name:'è¯è',thesis:'M7 æ¯å©ç 30%+ï¼vs M4 11~12%ï¼ï¼H2 ä½æ¯æè³ 10~13%ï¼æ³°åç¢è½ H2 éåºï¼æ°å®¢æ¶å¾®è»ï¼å¼æå°ç©é»å¾®è»è¨å® 14xï¼',target:null,tags:['CCL','AIä¼ºæå¨','å¾®è»']},
+        {code:'4554',ex:'otc',name:'æ©ç',thesis:'èå£åµæ¸¬å¨ï¼æ­æ´² AM å¸å ´ 50%+ å¸å ï¼éæ¯ 2 åï¼æ®å©çé«ï¼ï¼6 æçæ¶åå¹´åææ°é«',target:null,tags:['æ±½è»é»å­']},
       ]},
-      {name:'漢堡',stocks:[
-        {code:'3711',ex:'tse',name:'日月光投控',thesis:'最大持股，EPS 今年 18、明年 30；AIPC 產能擴增；封測龍頭，台積電外溢受益',target:null,tags:['封測','AI']},
-        {code:'5483',ex:'tse',name:'中美晶',thesis:'矽晶圓還有最後一波，法人報告陸續出爐；比環球晶便宜（折價 55%）',target:null,tags:['矽晶圓']},
+      {name:'æ¼¢å ¡',stocks:[
+        {code:'3711',ex:'tse',name:'æ¥æåææ§',thesis:'æå¤§æè¡ï¼EPS ä»å¹´ 18ãæå¹´ 30ï¼AIPC ç¢è½æ´å¢ï¼å°æ¸¬é¾é ­ï¼å°ç©é»å¤æº¢åç',target:null,tags:['å°æ¸¬','AI']},
+        {code:'5483',ex:'tse',name:'ä¸­ç¾æ¶',thesis:'ç½æ¶åéææå¾ä¸æ³¢ï¼æ³äººå ±åé¸çºåºçï¼æ¯ç°çæ¶ä¾¿å®ï¼æå¹ 55%ï¼',target:null,tags:['ç½æ¶å']},
       ]},
-      {name:'武王（線上）',stocks:[
-        {code:'2330',ex:'tse',name:'台積電',thesis:'基本面最穩，台指期多單，接近前高再增現金',target:null,tags:['台積電','AI']},
-        {code:null,ex:null,name:'ZB 30Y美債期貨',thesis:'CTA 空單降低，30 年美債利率有機會回到 5% 以下，已買進',target:null,tags:['美債','總經']},
+      {name:'æ­¦çï¼ç·ä¸ï¼',stocks:[
+        {code:'2330',ex:'tse',name:'å°ç©é»',thesis:'åºæ¬é¢æç©©ï¼å°ææå¤å®ï¼æ¥è¿åé«åå¢ç¾é',target:null,tags:['å°ç©é»','AI']},
+        {code:null,ex:null,name:'ZB 30Yç¾åµæè²¨',thesis:'CTA ç©ºå®éä½ï¼30 å¹´ç¾åµå©çææ©æåå° 5% ä»¥ä¸ï¼å·²è²·é²',target:null,tags:['ç¾åµ','ç¸½ç¶']},
       ]},
       {name:'MT',stocks:[
-        {code:'2303',ex:'tse',name:'聯電',thesis:'成熟製程明年漲價確定，史上首次發 CB（2 張），目標 200~250',target:250,tags:['晶圓代工','成熟製程']},
-        {code:'6669',ex:'tse',name:'緯穎',thesis:'首次發股票股利 20 元（配一送三），明年 EPS 聽聞 900，估值便宜，事件+基本面雙驅動',target:null,tags:['AI伺服器','股票股利']},
+        {code:'2303',ex:'tse',name:'è¯é»',thesis:'æçè£½ç¨æå¹´æ¼²å¹ç¢ºå®ï¼å²ä¸é¦æ¬¡ç¼ CBï¼2 å¼µï¼ï¼ç®æ¨ 200~250',target:250,tags:['æ¶åä»£å·¥','æçè£½ç¨']},
+        {code:'6669',ex:'tse',name:'ç·¯ç©',thesis:'é¦æ¬¡ç¼è¡ç¥¨è¡å© 20 åï¼éä¸éä¸ï¼ï¼æå¹´ EPS è½è 900ï¼ä¼°å¼ä¾¿å®ï¼äºä»¶+åºæ¬é¢éé©å',target:null,tags:['AIä¼ºæå¨','è¡ç¥¨è¡å©']},
       ]},
       {name:'momoji',stocks:[
-        {code:'3167',ex:'tse',name:'大量',thesis:'區間操作，今日有接，目標約 1,000',target:1000,tags:['設備','PCB量測']},
+        {code:'3167',ex:'tse',name:'å¤§é',thesis:'åéæä½ï¼ä»æ¥ææ¥ï¼ç®æ¨ç´ 1,000',target:1000,tags:['è¨­å','PCBéæ¸¬']},
       ]},
-      {name:'發發哥',stocks:[
-        {code:'6182',ex:'otc',name:'合晶',thesis:'矽晶圓族群，台勝科漲停後跟進',target:null,tags:['矽晶圓']},
-        {code:'5483',ex:'tse',name:'中美晶',thesis:'算術目標 200+，折價環球晶 50%，有補漲空間',target:200,tags:['矽晶圓']},
+      {name:'ç¼ç¼å¥',stocks:[
+        {code:'6182',ex:'otc',name:'åæ¶',thesis:'ç½æ¶åæç¾¤ï¼å°åç§æ¼²åå¾è·é²',target:null,tags:['ç½æ¶å']},
+        {code:'5483',ex:'tse',name:'ä¸­ç¾æ¶',thesis:'ç®è¡ç®æ¨ 200+ï¼æå¹ç°çæ¶ 50%ï¼æè£æ¼²ç©ºé',target:200,tags:['ç½æ¶å']},
       ]},
-      {name:'崴哥',stocks:[
-        {code:'5511',ex:'otc',name:'德昌',thesis:'冷門股，EPS 15 元，5 倍本益比，無人關注，韓股波動影響小',target:null,tags:['建設','低本益比']},
-        {code:'3528',ex:'tse',name:'安馳',thesis:'減碼後買回，EPS 便宜，ADI 下半年拉貨動能；基金已接 1 億',target:null,tags:['類比IC']},
-        {code:'2397',ex:'tse',name:'友通',thesis:'工業電腦族群，營收年增三成，BB 值接近 2，被錯殺，等反彈',target:null,tags:['工業電腦']},
-        {code:'4927',ex:'otc',name:'泰鼎（空）',thesis:'空單：籌碼爛+韓合作遞延+閒置產能未認列+每季 EPS -3；中國 PCB 泰國廠競爭加劇',target:null,tags:['PCB','空單']},
+      {name:'å´´å¥',stocks:[
+        {code:'5511',ex:'otc',name:'å¾·æ',thesis:'å·éè¡ï¼EPS 15 åï¼5 åæ¬çæ¯ï¼ç¡äººéæ³¨ï¼éè¡æ³¢åå½±é¿å°',target:null,tags:['å»ºè¨­','ä½æ¬çæ¯']},
+        {code:'3528',ex:'tse',name:'å®é¦³',thesis:'æ¸ç¢¼å¾è²·åï¼EPS ä¾¿å®ï¼ADI ä¸åå¹´æè²¨åè½ï¼åºéå·²æ¥ 1 å',target:null,tags:['é¡æ¯IC']},
+        {code:'2397',ex:'tse',name:'åé',thesis:'å·¥æ¥­é»è¦æç¾¤ï¼çæ¶å¹´å¢ä¸æï¼BB å¼æ¥è¿ 2ï¼è¢«é¯æ®ºï¼ç­åå½',target:null,tags:['å·¥æ¥­é»è¦']},
+        {code:'4927',ex:'otc',name:'æ³°é¼ï¼ç©ºï¼',thesis:'ç©ºå®ï¼ç±ç¢¼ç+éåä½éå»¶+éç½®ç¢è½æªèªå+æ¯å­£ EPS -3ï¼ä¸­å PCB æ³°åå» ç«¶ç­å å',target:null,tags:['PCB','ç©ºå®']},
       ]},
-      {name:'冠諺哥（書面）',stocks:[
-        {code:'2059',ex:'tse',name:'川湖',thesis:'三多大資金轉倉，7/7 後布局 16 億，短時間超 10 億代表信心強，目標破萬',target:10000,tags:['伺服器','AI']},
+      {name:'å è«ºå¥ï¼æ¸é¢ï¼',stocks:[
+        {code:'2059',ex:'tse',name:'å·æ¹',thesis:'ä¸å¤å¤§è³éè½åï¼7/7 å¾å¸å± 16 åï¼ç­æéè¶ 10 åä»£è¡¨ä¿¡å¿å¼·ï¼ç®æ¨ç ´è¬',target:10000,tags:['ä¼ºæå¨','AI']},
       ]},
-      {name:'新朋友',stocks:[
-        {code:'5288',ex:'otc',name:'豐祥',thesis:'汽車/機車零組件，電動機車越南大廠訂單，Q3 切入伺服器機櫃/水冷，EPS 今年 17+',target:null,tags:['汽車電子','AI伺服器','越南']},
+      {name:'æ°æå',stocks:[
+        {code:'5288',ex:'otc',name:'è±ç¥¥',thesis:'æ±½è»/æ©è»é¶çµä»¶ï¼é»åæ©è»è¶åå¤§å» è¨å®ï¼Q3 åå¥ä¼ºæå¨æ©æ«/æ°´å·ï¼EPS ä»å¹´ 17+',target:null,tags:['æ±½è»é»å­','AIä¼ºæå¨','è¶å']},
       ]},
-      {name:'JT哥（書面）',stocks:[
-        {code:'2303',ex:'tse',name:'聯電',thesis:'估值便宜，繼續持有，成熟製程漲價受惠',target:null,tags:['晶圓代工']},
+      {name:'JTå¥ï¼æ¸é¢ï¼',stocks:[
+        {code:'2303',ex:'tse',name:'è¯é»',thesis:'ä¼°å¼ä¾¿å®ï¼ç¹¼çºææï¼æçè£½ç¨æ¼²å¹åæ ',target:null,tags:['æ¶åä»£å·¥']},
       ]},
-      {name:'韋之哥（書面）',stocks:[
-        {code:'6669',ex:'tse',name:'緯穎',thesis:'Q3 核心長抱：高股票股利 + 明年獲利上修 + 下檔保護，殖利率保護型',target:null,tags:['AI伺服器','股票股利']},
+      {name:'éä¹å¥ï¼æ¸é¢ï¼',stocks:[
+        {code:'6669',ex:'tse',name:'ç·¯ç©',thesis:'Q3 æ ¸å¿é·æ±ï¼é«è¡ç¥¨è¡å© + æå¹´ç²å©ä¸ä¿® + ä¸æªä¿è­·ï¼æ®å©çä¿è­·å',target:null,tags:['AIä¼ºæå¨','è¡ç¥¨è¡å©']},
       ]},
-      {name:'高鐵哥（書面）',stocks:[
-        {code:'2356',ex:'tse',name:'英業達',thesis:'線形剛表態，整理完畢，可關注',target:null,tags:['AI伺服器']},
-        {code:'2423',ex:'tse',name:'固緯',thesis:'台中大戶買入（成本 40~45，已賺逾一倍），海外市場擴展，上半年營收創高',target:null,tags:['電源量測']},
+      {name:'é«éµå¥ï¼æ¸é¢ï¼',stocks:[
+        {code:'2356',ex:'tse',name:'è±æ¥­é',thesis:'ç·å½¢åè¡¨æï¼æ´çå®ç¢ï¼å¯éæ³¨',target:null,tags:['AIä¼ºæå¨']},
+        {code:'2423',ex:'tse',name:'åºç·¯',thesis:'å°ä¸­å¤§æ¶è²·å¥ï¼ææ¬ 40~45ï¼å·²è³ºé¾ä¸åï¼ï¼æµ·å¤å¸å ´æ´å±ï¼ä¸åå¹´çæ¶åµé«',target:null,tags:['é»æºéæ¸¬']},
       ]},
     ],
     bullish:[
-      {text:'<strong>台積電北美客戶訂單暴增</strong>（Broadcom +140%、NV +91%、AMD +56%、微軟 2027 年 14 倍），AI 需求未到頂',by:'凱哥'},
-      {text:'<strong>先進封裝質變</strong>：精材(3374) 台積電 OS 訂單轉入，比照矽品/日月光重估，多位成員獨立確認',by:'奇哥、AC哥'},
-      {text:'<strong>矽晶圓最後一波</strong>：美光 10 年長約確立需求，法人報告陸續出爐，共識擴散中',by:'漢堡、馬奎爾、發發哥、JT哥'},
-      {text:'<strong>川湖</strong>擴廠加速 2 年，年底完工產能翻倍；法人大資金 16 億轉倉，目標破萬',by:'凱哥、冠諺哥'},
-      {text:'<strong>成熟製程漲價</strong>確定（聯電 2303），史上首次發 CB，明年行情可期',by:'MT、JT哥'},
-      {text:'<strong>封測受惠</strong>：日月光(3711) EPS 今年 18、明年 30，CoWoS 外溢受益，AIPC 產能增',by:'漢堡'},
-      {text:'<strong>緯穎</strong>(6669) 首次發股票股利 20 元（配一送三），明年 EPS 聽聞 900，估值極便宜',by:'MT、韋之哥'},
-      {text:'<strong>非中供應鏈</strong>：聯友金屬(7610) 鎢材料稀缺，EPS 150~200，目標 3,400~3,600（2027）',by:'Harris哥'},
+      {text:'<strong>å°ç©é»åç¾å®¢æ¶è¨å®æ´å¢</strong>ï¼Broadcom +140%ãNV +91%ãAMD +56%ãå¾®è» 2027 å¹´ 14 åï¼ï¼AI éæ±æªå°é ',by:'å±å¥'},
+      {text:'<strong>åé²å°è£è³ªè®</strong>ï¼ç²¾æ(3374) å°ç©é» OS è¨å®è½å¥ï¼æ¯ç§ç½å/æ¥æåéä¼°ï¼å¤ä½æå¡ç¨ç«ç¢ºèª',by:'å¥å¥ãACå¥'},
+      {text:'<strong>ç½æ¶åæå¾ä¸æ³¢</strong>ï¼ç¾å 10 å¹´é·ç´ç¢ºç«éæ±ï¼æ³äººå ±åé¸çºåºçï¼å±è­æ´æ£ä¸­',by:'æ¼¢å ¡ãé¦¬å¥ç¾ãç¼ç¼å¥ãJTå¥'},
+      {text:'<strong>å·æ¹</strong>æ´å» å é 2 å¹´ï¼å¹´åºå®å·¥ç¢è½ç¿»åï¼æ³äººå¤§è³é 16 åè½åï¼ç®æ¨ç ´è¬',by:'å±å¥ãå è«ºå¥'},
+      {text:'<strong>æçè£½ç¨æ¼²å¹</strong>ç¢ºå®ï¼è¯é» 2303ï¼ï¼å²ä¸é¦æ¬¡ç¼ CBï¼æå¹´è¡æå¯æ',by:'MTãJTå¥'},
+      {text:'<strong>å°æ¸¬åæ </strong>ï¼æ¥æå(3711) EPS ä»å¹´ 18ãæå¹´ 30ï¼CoWoS å¤æº¢åçï¼AIPC ç¢è½å¢',by:'æ¼¢å ¡'},
+      {text:'<strong>ç·¯ç©</strong>(6669) é¦æ¬¡ç¼è¡ç¥¨è¡å© 20 åï¼éä¸éä¸ï¼ï¼æå¹´ EPS è½è 900ï¼ä¼°å¼æ¥µä¾¿å®',by:'MTãéä¹å¥'},
+      {text:'<strong>éä¸­ä¾æé</strong>ï¼è¯åéå±¬(7610) é¢ææç¨ç¼ºï¼EPS 150~200ï¼ç®æ¨ 3,400~3,600ï¼2027ï¼',by:'Harriså¥'},
     ],
     macro:[
-      {color:'r',text:'<strong>升息預期升溫</strong>，7-9 月指數通常橫整/回檔 ~10%（參照 2021、2023 同期）',by:'武王'},
-      {color:'r',text:'<strong>Core CPI MoM 預期 ~0.5%</strong>，若超預期加深估值修正壓力',by:'武王、韋之哥'},
-      {color:'r',text:'<strong>美伊地緣緊張</strong>，油價上漲恐觸發二輪通膨效應，跌幅可能超 10%',by:'武王、發發哥'},
-      {color:'y',text:'<strong>韓股槓桿爆倉</strong>類 2015 陸股，但系統性風險低，清槓桿後趨穩；台灣基本面未鬆動',by:'崴哥'},
-      {color:'g',text:'<strong>9 月 CPI</strong> 將顯現關稅高基期，通膨負貢獻，升息預期可望回落',by:'武王'},
-      {color:'g',text:'<strong>Q4 選舉效應</strong>（美台），政策面護盤，10 月後預期好轉；現在保守等 Q4 機會',by:'奇哥、AC哥、冠諺哥'},
-      {color:'g',text:'<strong>30 年美債</strong> CTA 空單降低，殖利率有機會回到 5% 以下，ZB 期貨有機會',by:'武王、馬奎爾'},
+      {color:'r',text:'<strong>åæ¯é æåæº«</strong>ï¼7-9 æææ¸éå¸¸æ©«æ´/åæª ~10%ï¼åç§ 2021ã2023 åæï¼',by:'æ­¦ç'},
+      {color:'r',text:'<strong>Core CPI MoM é æ ~0.5%</strong>ï¼è¥è¶é æå æ·±ä¼°å¼ä¿®æ­£å£å',by:'æ­¦çãéä¹å¥'},
+      {color:'r',text:'<strong>ç¾ä¼å°ç·£ç·å¼µ</strong>ï¼æ²¹å¹ä¸æ¼²æè§¸ç¼äºè¼ªéè¨ææï¼è·å¹å¯è½è¶ 10%',by:'æ­¦çãç¼ç¼å¥'},
+      {color:'y',text:'<strong>éè¡æ§æ¡¿çå</strong>é¡ 2015 é¸è¡ï¼ä½ç³»çµ±æ§é¢¨éªä½ï¼æ¸æ§æ¡¿å¾è¶¨ç©©ï¼å°ç£åºæ¬é¢æªé¬å',by:'å´´å¥'},
+      {color:'g',text:'<strong>9 æ CPI</strong> å°é¡¯ç¾éç¨é«åºæï¼éè¨è² è²¢ç»ï¼åæ¯é æå¯æåè½',by:'æ­¦ç'},
+      {color:'g',text:'<strong>Q4 é¸èææ</strong>ï¼ç¾å°ï¼ï¼æ¿ç­é¢è­·ç¤ï¼10 æå¾é æå¥½è½ï¼ç¾å¨ä¿å®ç­ Q4 æ©æ',by:'å¥å¥ãACå¥ãå è«ºå¥'},
+      {color:'g',text:'<strong>30 å¹´ç¾åµ</strong> CTA ç©ºå®éä½ï¼æ®å©çææ©æåå° 5% ä»¥ä¸ï¼ZB æè²¨ææ©æ',by:'æ­¦çãé¦¬å¥ç¾'},
     ]
   }
 ];
 
-// 手動標注（由 Claude 根據你提供的資訊更新）
+// æåæ¨æ³¨ï¼ç± Claude æ ¹æä½ æä¾çè³è¨æ´æ°ï¼
 const MANUAL_ANNOTATIONS = {
-  // '2330': [{date:'2026-06-15', text:'台積電法說會，EPS 超預期'}],
+  // '2330': [{date:'2026-06-15', text:'å°ç©é»æ³èªªæï¼EPS è¶é æ'}],
 };
 
 const codeMap = {};
@@ -2129,7 +2129,7 @@ function initStats(members){
   document.getElementById('st-total').textContent=seen.size;
   document.getElementById('st-tse').textContent=tse;
   document.getElementById('st-otc').textContent=otc;
-  document.getElementById('s-cnt').textContent=`${seen.size} 支標的`;
+  document.getElementById('s-cnt').textContent=`${seen.size} æ¯æ¨ç`;
 }
 
 function populateMeetingSelect(){
@@ -2140,7 +2140,7 @@ function populateMeetingSelect(){
 
 function populateMemberSelect(members){
   const sel=document.getElementById('member-select');
-  sel.innerHTML='<option value="">👤 查找成員</option>';
+  sel.innerHTML='<option value="">ð¤ æ¥æ¾æå¡</option>';
   members.forEach(p=>{ const o=document.createElement('option'); o.value=p.name; o.textContent=`${p.name} (${p.stocks.length})`; sel.appendChild(o); });
 }
 
@@ -2158,17 +2158,17 @@ function escQ(s){ return (s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'"); }
 
 function renderStockRow(s){
   const cc=s.ex==='tse'?'c-tse':s.ex==='otc'?'c-otc':'c-na';
-  const cl=s.code||'—';
-  const tr=s.target?(typeof s.target==='number'?'$'+s.target.toLocaleString():s.target):'—';
+  const cl=s.code||'â';
+  const tr=s.target?(typeof s.target==='number'?'$'+s.target.toLocaleString():s.target):'â';
   const tg=s.tags.map(t=>`<span class="tag">${t}</span>`).join('');
   return `<div class="sr" data-code="${s.code||''}" onclick="showStockDetail('${escQ(s.code)}','${escQ(s.name)}')">
     <span class="scode ${cc}">${cl}</span>
     <div class="si"><div class="sname">${s.name}</div><div class="sth">${s.thesis}</div>${tg?`<div class="stags">${tg}</div>`:''}</div>
     <div class="pcol">
-      <div class="pv" data-price="${s.code||''}">${s.code?'<span class="ldg"></span>':'—'}</div>
+      <div class="pv" data-price="${s.code||''}">${s.code?'<span class="ldg"></span>':'â'}</div>
       <div class="pc2" data-chg="${s.code||''}"></div>
     </div>
-    <div class="tcol"><div class="tlbl">目標</div><div class="tv2">${tr}</div></div>
+    <div class="tcol"><div class="tlbl">ç®æ¨</div><div class="tv2">${tr}</div></div>
   </div>`;
 }
 
@@ -2176,11 +2176,11 @@ function render(members){
   const g=document.getElementById('pgrid'); g.innerHTML='';
   members.forEach(p=>{
     const d=document.createElement('div'); d.className='pc'; d.dataset.member=p.name;
-    const ini=p.name.replace(/（.*?）/,'').trim().charAt(0);
-    d.innerHTML=`<div class="ph" onclick="showMemberDetail('${escQ(p.name)}')" title="查看 ${p.name} 完整記錄">
+    const ini=p.name.replace(/ï¼.*?ï¼/,'').trim().charAt(0);
+    d.innerHTML=`<div class="ph" onclick="showMemberDetail('${escQ(p.name)}')" title="æ¥ç ${p.name} å®æ´è¨é">
       <div class="av">${ini}</div><div class="pn">${p.name}</div>
-      <div style="margin-left:auto;font-size:10px;color:var(--mu);font-weight:600">${p.stocks.length} 標的</div>
-      <span class="view-link">查看 →</span>
+      <div style="margin-left:auto;font-size:10px;color:var(--mu);font-weight:600">${p.stocks.length} æ¨ç</div>
+      <span class="view-link">æ¥ç â</span>
     </div>
     <div class="sl">${p.stocks.map(renderStockRow).join('')}</div>`;
     g.appendChild(d);
@@ -2189,13 +2189,13 @@ function render(members){
 
 function renderObs(m){
   document.getElementById('obs-panel').innerHTML=`<div class="obs">
-    <div class="obh">產業與總經觀察 · ${m.date} ${m.label}</div>
+    <div class="obh">ç¢æ¥­èç¸½ç¶è§å¯ Â· ${m.date} ${m.label}</div>
     <div class="obg">
-      <div class="obs-s"><div class="obs-t">看好產業</div>
-        ${m.bullish.map(b=>`<div class="oi"><div class="od"></div><div class="ot">${b.text}<br><span class="ob">— ${b.by}</span></div></div>`).join('')}
+      <div class="obs-s"><div class="obs-t">çå¥½ç¢æ¥­</div>
+        ${m.bullish.map(b=>`<div class="oi"><div class="od"></div><div class="ot">${b.text}<br><span class="ob">â ${b.by}</span></div></div>`).join('')}
       </div>
-      <div class="obs-s"><div class="obs-t">總經觀點</div>
-        ${m.macro.map(x=>`<div class="oi"><div class="od ${x.color==='r'?'rdot':x.color==='g'?'gdot':'ydot'}"></div><div class="ot">${x.text}<br><span class="ob">— ${x.by}</span></div></div>`).join('')}
+      <div class="obs-s"><div class="obs-t">ç¸½ç¶è§é»</div>
+        ${m.macro.map(x=>`<div class="oi"><div class="od ${x.color==='r'?'rdot':x.color==='g'?'gdot':'ydot'}"></div><div class="ot">${x.text}<br><span class="ob">â ${x.by}</span></div></div>`).join('')}
       </div>
     </div>
   </div>`;
@@ -2207,14 +2207,14 @@ function renderObs(m){
 function showMemberDetail(name){
   const history=MEETINGS.map(m=>{ const mbr=m.members.find(p=>p.name===name); return mbr&&mbr.stocks.length?{date:m.date,label:m.label,stocks:mbr.stocks}:null; }).filter(Boolean);
   if(!history.length)return;
-  const ini=name.replace(/（.*?）/,'').trim().charAt(0);
+  const ini=name.replace(/ï¼.*?ï¼/,'').trim().charAt(0);
   const tot=history.reduce((s,h)=>s+h.stocks.length,0);
   document.getElementById('mp-av').textContent=ini;
   document.getElementById('mp-name').textContent=name;
-  document.getElementById('mp-sub').textContent=`${history.length} 場會議記錄 · 共 ${tot} 筆標的`;
+  document.getElementById('mp-sub').textContent=`${history.length} å ´æè­°è¨é Â· å± ${tot} ç­æ¨ç`;
   document.getElementById('mp-timeline').innerHTML=history.map(h=>`
     <div class="tl-block">
-      <div class="tl-head"><span class="tl-badge">${h.date} · ${h.label}</span><span class="tl-count">${h.stocks.length} 標的</span></div>
+      <div class="tl-head"><span class="tl-badge">${h.date} Â· ${h.label}</span><span class="tl-count">${h.stocks.length} æ¨ç</span></div>
       <div class="sl">${h.stocks.map(renderStockRow).join('')}</div>
     </div>`).join('');
   const page=document.getElementById('member-page');
@@ -2238,21 +2238,21 @@ function showStockDetail(code, name){
   const tot=timeline.reduce((s,t)=>s+t.mentions.length,0);
   const ex=code?codeMap[code]:null;
   const cc=ex==='tse'?'c-tse':ex==='otc'?'c-otc':'c-na';
-  document.getElementById('sdp-code').textContent=code||'—';
+  document.getElementById('sdp-code').textContent=code||'â';
   document.getElementById('sdp-code').className=`sdp-code ${cc}`;
   document.getElementById('sdp-name').textContent=name;
-  document.getElementById('sdp-sub').textContent=`${timeline.length} 場會議提及 · 共 ${tot} 人`;
+  document.getElementById('sdp-sub').textContent=`${timeline.length} å ´æè­°æå Â· å± ${tot} äºº`;
   document.getElementById('sdp-timeline').innerHTML=timeline.map(t=>`
     <div class="tl-block">
-      <div class="tl-head"><span class="tl-badge">${t.date} · ${t.label}</span><span class="tl-count">${t.mentions.length} 人提及</span></div>
+      <div class="tl-head"><span class="tl-badge">${t.date} Â· ${t.label}</span><span class="tl-count">${t.mentions.length} äººæå</span></div>
       ${t.mentions.map(item=>{
-        const ini=item.member.replace(/（.*?）/,'').trim().charAt(0);
+        const ini=item.member.replace(/ï¼.*?ï¼/,'').trim().charAt(0);
         const tr=item.stock.target?(typeof item.stock.target==='number'?'$'+item.stock.target.toLocaleString():item.stock.target):null;
         return `<div class="sm-row">
           <div class="sm-who"><div class="av">${ini}</div><span class="sm-who-name">${item.member}</span></div>
           <div class="sm-body">
             <div class="sm-thesis">${item.stock.thesis}</div>
-            ${tr?`<div class="sm-target"><span class="tlbl">目標價</span><span class="sm-target-val">${tr}</span></div>`:''}
+            ${tr?`<div class="sm-target"><span class="tlbl">ç®æ¨å¹</span><span class="sm-target-val">${tr}</span></div>`:''}
             ${item.stock.tags.length?`<div class="stags" style="margin-top:7px">${item.stock.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>`:''}
           </div>
         </div>`;
@@ -2260,7 +2260,7 @@ function showStockDetail(code, name){
     </div>`).join('');
 
   _stockCameFromMember=document.getElementById('member-page').classList.contains('active');
-  document.getElementById('stock-back-btn').textContent=_stockCameFromMember?'← 返回成員':'← 返回看板';
+  document.getElementById('stock-back-btn').textContent=_stockCameFromMember?'â è¿åæå¡':'â è¿åçæ¿';
   _chartCode=code; _chartEx=ex; _chartRange='6mo';
   document.querySelectorAll('.range-btn').forEach(b=>b.classList.toggle('active',b.dataset.range==='6mo'));
 
@@ -2367,10 +2367,10 @@ async function loadChart(code, ex, range){
   _chartCode=code; _chartEx=ex; if(range)_chartRange=range;
   const container=document.getElementById('chart-container');
   container.style.height='380px';
-  container.innerHTML=`<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;gap:8px"><span class="ldg"></span>載入走勢圖…</div>`;
+  container.innerHTML=`<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;gap:8px"><span class="ldg"></span>è¼å¥èµ°å¢åâ¦</div>`;
 
   if(!code){
-    container.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;padding:20px;text-align:center">此標的無股票代碼，無法顯示走勢圖</div>';
+    container.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;padding:20px;text-align:center">æ­¤æ¨çç¡è¡ç¥¨ä»£ç¢¼ï¼ç¡æ³é¡¯ç¤ºèµ°å¢å</div>';
     return;
   }
 
@@ -2440,10 +2440,10 @@ async function loadChart(code, ex, range){
   }catch(e){
     const r=_chartRange;
     container.innerHTML=`<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--mu);font-size:12px;gap:6px;padding:20px;text-align:center">
-      <span style="font-size:14px">⚠️ 走勢圖載入失敗</span>
-      <span style="font-size:10px;color:var(--mu2)">${e.message||'連線逾時'}</span>
-      <span style="font-size:10px;color:var(--mu2)">已嘗試多個資料源，請確認網路或稍後重試</span>
-      <button onclick="reloadChart('${r}')" style="margin-top:10px;padding:7px 18px;background:var(--acc);color:#fff;border:none;border-radius:5px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600">🔄 重新載入</button>
+      <span style="font-size:14px">â ï¸ èµ°å¢åè¼å¥å¤±æ</span>
+      <span style="font-size:10px;color:var(--mu2)">${e.message||'é£ç·é¾æ'}</span>
+      <span style="font-size:10px;color:var(--mu2)">å·²åè©¦å¤åè³ææºï¼è«ç¢ºèªç¶²è·¯æç¨å¾éè©¦</span>
+      <button onclick="reloadChart('${r}')" style="margin-top:10px;padding:7px 18px;background:var(--acc);color:#fff;border:none;border-radius:5px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600">ð éæ°è¼å¥</button>
     </div>`;
   }
 }
@@ -2459,7 +2459,7 @@ function renderAnnotationChips(code){
     ?notes.map((n,i)=>`<div class="ann-chip">
         <span style="font-weight:700">${n.date}</span>
         <span>${n.text}</span>
-        <button class="ann-chip-del" onclick="deleteAnnotation('${escQ(code)}',${i})">✕</button>
+        <button class="ann-chip-del" onclick="deleteAnnotation('${escQ(code)}',${i})">â</button>
       </div>`).join('')
     :'';
 }
@@ -2492,20 +2492,20 @@ function deleteAnnotation(code,idx){
 function showMarkerPopup(marker){
   const hdrEl=document.getElementById('popup-hdr'),bodyEl=document.getElementById('popup-body');
   if(marker._type==='meeting'){
-    hdrEl.innerHTML=`${marker._date} ${marker._label} <span class="popup-type popup-type-meet">會議討論</span>`;
+    hdrEl.innerHTML=`${marker._date} ${marker._label} <span class="popup-type popup-type-meet">æè­°è¨è«</span>`;
     bodyEl.innerHTML=marker._mentions.map(item=>{
-      const ini=item.member.replace(/（.*?）/,'').trim().charAt(0);
+      const ini=item.member.replace(/ï¼.*?ï¼/,'').trim().charAt(0);
       const tr=item.stock.target?(typeof item.stock.target==='number'?'$'+item.stock.target.toLocaleString():item.stock.target):null;
       return `<div class="sm-row" style="padding:12px 0;border-bottom:1px solid var(--bd)">
         <div class="sm-who"><div class="av">${ini}</div><span class="sm-who-name">${item.member}</span></div>
         <div class="sm-body">
           <div class="sm-thesis">${item.stock.thesis}</div>
-          ${tr?`<div class="sm-target"><span class="tlbl">目標價</span><span class="sm-target-val">${tr}</span></div>`:''}
+          ${tr?`<div class="sm-target"><span class="tlbl">ç®æ¨å¹</span><span class="sm-target-val">${tr}</span></div>`:''}
         </div>
       </div>`;
     }).join('');
   } else {
-    hdrEl.innerHTML=`${marker._date.replace(/-/g,'/')} <span class="popup-type popup-type-note">事件標注</span>`;
+    hdrEl.innerHTML=`${marker._date.replace(/-/g,'/')} <span class="popup-type popup-type-note">äºä»¶æ¨æ³¨</span>`;
     bodyEl.innerHTML=`<div style="padding:12px 0;font-size:13px;color:var(--tx);line-height:1.7">${marker._text}</div>`;
   }
   document.getElementById('marker-popup').style.display='flex';
@@ -2525,7 +2525,7 @@ async function loadPrices(){
   });
   if(!seen.size)return;
   const stEl=document.getElementById('px-st');
-  stEl.textContent='載入中…'; stEl.style.background='rgba(255,255,200,0.12)'; stEl.style.color='rgba(255,255,255,0.65)';
+  stEl.textContent='è¼å¥ä¸­â¦'; stEl.style.background='rgba(255,255,200,0.12)'; stEl.style.color='rgba(255,255,255,0.65)';
   try{
     const r=await fetchWithTimeout(`${DATA_BASE}/prices.json`,8000);
     if(!r.ok)throw new Error(`HTTP ${r.status}`);
@@ -2534,8 +2534,105 @@ async function loadPrices(){
     let loaded=0;
     document.querySelectorAll('[data-price]').forEach(el=>{
       const c=el.dataset.price; if(!c)return;
-      const d=prices[c];
-      if(!d){el.textContent='—';return;}
+      const d=prices[c  ,{
+    id:'m20260811',date:'2026/08/11',label:'第三次',
+    members:[
+      {name:'凱哥',stocks:[
+        {code:'6467',ex:'otc',name:'泰合',thesis:'口溶膜抗凝血藥；8/21 FDA 補件送審（實審），過審機率高；授權 BMS 機率升至 15-20%；無授權 EPS 估 80-90 元；歐洲藥證 Q4 拿到，美國明年 Q2',target:null,tags:['生技','FDA']},
+        {code:'7871',ex:'otc',name:'安立璽榮-KY',thesis:'現價 92 元；資深委員群持續介入，尋圈前收完部位',target:null,tags:['生技','阿茲海默']},
+        {code:'3661',ex:'otc',name:'世芯-KY',thesis:'TSMC 消息：明年產能拿今年 4 倍；Q4 營收 230-250 億，與傳言相符，繼續持有',target:null,tags:['AI ASIC','台積電']},
+        {code:'1256',ex:'tse',name:'鮮活果汁-KY CB',thesis:'CB 12561；轉換價 182.5；昆山廠 7 月出貨；EPS 估 17-20 元；康和新金鑽 6 倍槓桿',target:null,tags:['CB']},
+        {code:'6629',ex:'otc',name:'泰金-KY CB',thesis:'CB 66292；轉換價 115.5；現股 107-108；7 月 YoY +99%；EPS 估 13-14 元',target:null,tags:['CB']},
+      ]},
+      {name:'Harris哥',stocks:[
+        {code:'3167',ex:'tse',name:'大量',thesis:'PCB/半導體量測龍頭；DN4 背鑽機報價 1200→1400→1600 萬／台；臻鼎 6+8 月各下逾 11 億機台；PCB 缺貨率 50%；明年 EPS 估 75-80 元',target:null,tags:['PCB','量測設備']},
+        {code:'4958',ex:'otc',name:'臻鼎-KY',thesis:'大量主要客戶；6+8 月各下逾 11 億機台訂單',target:null,tags:['PCB']},
+        {code:'8150',ex:'otc',name:'南茂',thesis:'矽光子半導體設備；明年 EPS 估 10 元',target:null,tags:['矽光子','設備']},
+      ]},
+      {name:'發發哥',stocks:[
+        {code:'2464',ex:'tse',name:'盟立',thesis:'Tesla Optimus 大關節供應商；出貨目標多次下修（10萬→5K→年底→約200台）；基本盤有台積電/南亞電合作',target:null,tags:['機器人','Tesla']},
+      ]},
+      {name:'momoji',stocks:[
+        {code:'8358',ex:'otc',name:'金居科技',thesis:'HVLP4 高階電解銅箔；CCL 上游；離前高約 50%；明年 EPS 估 25 元',target:null,tags:['CCL','銅箔']},
+        {code:'2368',ex:'tse',name:'金像電',thesis:'高層數 AI 伺服器板 / 網通板大廠',target:null,tags:['PCB','AI伺服器']},
+        {code:'6274',ex:'otc',name:'台燿',thesis:'高階 CCL；8/20 PCB ETF 上市帶動族群氣氛；Q2 EPS 8 元，7 月自結 4 元',target:null,tags:['CCL']},
+        {code:'3014',ex:'otc',name:'聯亞',thesis:'磷化銦（InP）磊晶片；光通訊元件',target:null,tags:['光通訊']},
+        {code:'3450',ex:'otc',name:'聯鈞',thesis:'光通訊封裝測試；CPO+800G 題材；下週法說董事長親自主講；2027 EPS 估 20 元 TP 600；子公司源傑已興櫃',target:600,tags:['光通訊','CPO']},
+        {code:'6454',ex:'otc',name:'GIS-KY',thesis:'CPO Laser COS 封裝；客戶 Lumentum/Coherent；驗證結果近期有望公布；壓小倉',target:null,tags:['光通訊','CPO']},
+        {code:'6538',ex:'otc',name:'倉和',thesis:'太陽能精密網版；全球市占 5-60%；Tesla 110GW 太陽能長線題材；EPS 上看 50 元（2028+）',target:null,tags:['太陽能']},
+      ]},
+      {name:'漢堡',stocks:[
+        {code:'3026',ex:'tse',name:'禾伸堂',thesis:'MLCC/MCO；定錨報告：今年 EPS 16 元（共識 13）、明年 30 元（共識 26）；8/7 跌停接；目標價 750 元（30×25x PE）',target:750,tags:['被動元件','MLCC']},
+        {code:'2492',ex:'tse',name:'華新科',thesis:'R-chip 部分料號漲幅 30-50%；公開表示漲價',target:null,tags:['被動元件']},
+        {code:'2327',ex:'tse',name:'國巨',thesis:'C+R 端都在談漲；8-9 月可能跟進',target:null,tags:['被動元件']},
+      ]},
+      {name:'KK大',stocks:[
+        {code:'2059',ex:'tse',name:'川湖',thesis:'低接；跌幅相對少；繼續持有',target:null,tags:['伺服器']},
+        {code:'6139',ex:'otc',name:'亞翔',thesis:'法說好但財報出來未漲，已回彈兩成，繼續等；合約負債持續增加',target:null,tags:['機台工程']},
+        {code:'5516',ex:'otc',name:'雙喜',thesis:'公共營造；近期接 31-41 億標案；等 Q2 毛利改善，翻身空間大',target:null,tags:['營建']},
+        {code:'3206',ex:'otc',name:'志豐',thesis:'村田停產車用風機後釋出訂單；世界第三/四大風機廠；董事長三次買股；7 月開始動',target:null,tags:['風機']},
+        {code:'2454',ex:'tse',name:'聯發科',thesis:'展望上修，股價已下來，吸引力提升；從京鼎調節轉入',target:null,tags:['半導體']},
+      ]},
+      {name:'崴哥',stocks:[
+        {code:'5511',ex:'otc',name:'德昌',thesis:'上半年 EPS 5 塊+；現價 71 元；全年估 11-12 元；嚴重低估',target:null,tags:['低估']},
+        {code:'6028',ex:'otc',name:'公勝保經',thesis:'保險經紀龍頭；Q1 EPS 2.5 元；全年估 11 元，YoY+50%；市場冷清',target:null,tags:['保險']},
+        {code:'1736',ex:'tse',name:'喬山',thesis:'外資持續往上敲；越南廠擴完又買歐洲廠；本益比不到 10x；繼續加碼',target:null,tags:['健身器材']},
+        {code:'9939',ex:'otc',name:'宏全',thesis:'Q2 EPS 創新高；7 月微降卻爆跌，趁跌加碼五成；Q3/Q4 產能起來看好',target:null,tags:['包材']},
+      ]},
+      {name:'來信寶寶',stocks:[
+        {code:'3211',ex:'otc',name:'順達',thesis:'BBU 電池備援模組；Q4 傳馬斯克 xAI 新客戶；BBU 明年佔比近 50%，毛利率大幅拉升',target:null,tags:['AI資料中心','BBU']},
+      ]},
+      {name:'打單',stocks:[
+        {code:'6855',ex:'otc',name:'數泓科',thesis:'數位扭力工具；H1 EPS 4.75 元，H2 更好；送樣台積電認證中；機器人精密工具題材',target:null,tags:['精密工具']},
+      ]},
+      {name:'JT書面',stocks:[
+        {code:'2301',ex:'tse',name:'光寶科技',thesis:'電源供應器；出貨基期低，有爆發性',target:null,tags:['電源']},
+        {code:'2308',ex:'tse',name:'台達電',thesis:'電源供應器；出貨基期低，有爆發性',target:null,tags:['電源']},
+        {code:'6213',ex:'otc',name:'聯茂電子',thesis:'低階 CCL；7 月 YoY +96.87%；Q2 三率三升；估值相對同業低，基期低',target:null,tags:['CCL']},
+        {code:'4991',ex:'otc',name:'環宇-KY',thesis:'⚠ 月減 55%（MoM）重大利空；PD 需求低迷；Q3 guide 否定漲價+切LD；修復緩慢',target:null,tags:['利空','光通訊']},
+      ]},
+      {name:'馬奎爾書面',stocks:[
+        {code:'2462',ex:'tse',name:'楠梓電',thesis:'這波幾乎腰斬；子公司滬電成長按計畫；本業有望今年轉正；繼續持有',target:null,tags:['PCB']},
+      ]},
+      {name:'Monson書面',stocks:[
+        {code:'2337',ex:'tse',name:'旺宏',thesis:'Q2 毛利率 64.4%（vs Q1 的 40.8%）；股價回低點；低容量 eMMC 供需缺口；區間 135-170 操作',target:170,tags:['記憶體','eMMC']},
+      ]},
+      {name:'AC書面',stocks:[
+        {code:'4772',ex:'otc',name:'台特化',thesis:'矽乙烷/AHF 特化氣體；台積電 2nm A16 關鍵材料；全球市占第一；EPS 今年 7-8 / 明年 10 元；年均成長 30%',target:null,tags:['特化氣體','台積電']},
+        {code:'4728',ex:'otc',name:'雙美生醫',thesis:'醫美膠原蛋白；今年 EPS ~18 元；毛利率 80%；2027 新廠產能 3 倍（30→100 萬劑）；中國售價台灣 2 倍',target:null,tags:['醫美','生技']},
+        {code:'5215',ex:'otc',name:'朋程',thesis:'車用→HVDC 業務佔比提升；AI 資料中心高功率受惠；市場尚未完全反映',target:null,tags:['HVDC','AI資料中心']},
+        {code:'6488',ex:'tse',name:'環球晶',thesis:'方向正確但 forward PE 近 40x；長約佔比高，上修空間受限；非優先標的',target:null,tags:['矽晶圓']},
+      ]},
+      {name:'冠諺書面',stocks:[
+        {code:'3008',ex:'tse',name:'大立光',thesis:'三多哥撐盤；3700 附近有強支撐；光學族群相對抗跌；看後續創新高',target:null,tags:['光學']},
+        {code:'2408',ex:'tse',name:'南亞電路板',thesis:'靠近新高進場',target:null,tags:['PCB','ABF']},
+      ]},
+      {name:'小資男孩書面',stocks:[
+        {code:'2383',ex:'tse',name:'台光電',thesis:'Q2 EPS 27 元；7 月自結 13 元；打入 ABF CCL（日廠主導領域）；毛利率高，本益比上修空間大',target:null,tags:['CCL','ABF']},
+      ]},
+      {name:'小王子書面',stocks:[
+        {code:'7919',ex:'otc',name:'源傑',thesis:'光通訊純度最高；Oracle 去庫存結束 Q2 重拉；今年 EPS ~8 元；800G+ELSFP 驗證通過後加碼；4991 爆後接棒台股 AAOI',target:null,tags:['光通訊','800G']},
+        {code:'3595',ex:'otc',name:'山太士',thesis:'從高點腰斬；布局 Q4 IPO 行情',target:null,tags:['IPO']},
+      ]},
+    ],
+    bullish:[
+      {text:'<strong>被動元件漲價浪</strong>：禾伸堂（EPS 明年 30 元）、華新科漲 30-50%、國巨 C+R 端齊談漲；高階 MLCC 供需偏緊',by:'漢堡、來信寶寶、AC'},
+      {text:'<strong>光通訊最強板塊</strong>：聯鈞法說董事長親主講；源傑接棒 4991 成台股 AAOI；聯亞、GIS-KY 各有驗證催化',by:'momoji、小王子、冠諺'},
+      {text:'<strong>PCB / CCL 缺貨基本面</strong>：PCB 缺貨率 50%；8/20 PCB ETF 上市；大量 DN4 報價持續調漲，EPS 估 75-80 元',by:'Harris哥、momoji、小資男孩'},
+      {text:'<strong>泰合 FDA 送審</strong>：8/21 補件實審，過審機率高；授權 BMS 機率升至 15-20%；無授權 EPS 80-90 元',by:'凱哥'},
+      {text:'<strong>AI 資料中心材料卡位</strong>：台特化 2nm 材料（全球第一）、順達 BBU 傳 xAI 新客戶、朋程 HVDC 轉型',by:'AC、來信寶寶'},
+    ],
+    macro:[
+      {color:'y',text:'<strong>等 CPI 決定方向</strong>：大盤反彈至整理區；CPI 優預期→中小型股繼續上攻；CPI 差→9 月升息疑慮',by:'漢堡、打單'},
+      {color:'r',text:'<strong>9 月回檔風險高</strong>：Jackson Hole（8 月底）、Fed 利率決策（9 月中）、川普上任（11 月）；多人低持股等第二隻腳',by:'KK大、漢堡、打單'},
+      {color:'r',text:'<strong>4991 環宇-KY 重大利空</strong>：月減 55%；PD 需求低迷；Q3 guide 否定漲價+切LD；小心蔓延光通訊族群情緒',by:'JT、小王子'},
+      {color:'g',text:'<strong>族群輪動快，每族群壓一些</strong>：低持股做短打；財報後開高走低沒跑就放著摔',by:'momoji'},
+      {color:'g',text:'<strong>CB 低風險套利</strong>：鮮活 CB（12561）轉換價 182.5；泰金 CB（66292）轉換價 115.5；康和新金鑽 6 倍槓桿',by:'凱哥'},
+    ]
+  }
+];
+
+      if(!d){el.textContent='â';return;}
       loaded++;
       el.textContent=d.p.toLocaleString('zh-TW',{minimumFractionDigits:1,maximumFractionDigits:2});
       const pcol=el.closest('.pcol'); if(!pcol)return;
@@ -2550,11 +2647,11 @@ async function loadPrices(){
     const twTime=new Date(upd.getTime()+8*3600000);
     const hm=`${twTime.getUTCHours()}:${String(twTime.getUTCMinutes()).padStart(2,'0')}`;
     document.getElementById('st-time').textContent=hm;
-    stEl.textContent=loaded>0?`收盤價 ${upd.toLocaleDateString('zh-TW',{month:'numeric',day:'numeric'})}` :'無資料';
+    stEl.textContent=loaded>0?`æ¶ç¤å¹ ${upd.toLocaleDateString('zh-TW',{month:'numeric',day:'numeric'})}` :'ç¡è³æ';
     stEl.style.background='rgba(0,184,148,0.15)'; stEl.style.color='#00d4a8';
   }catch(e){
-    stEl.textContent='資料更新中…'; stEl.style.background='rgba(245,158,11,0.15)'; stEl.style.color='#f59e0b';
-    document.querySelectorAll('[data-price]').forEach(el=>{if(el.dataset.price)el.textContent='—';});
+    stEl.textContent='è³ææ´æ°ä¸­â¦'; stEl.style.background='rgba(245,158,11,0.15)'; stEl.style.color='#f59e0b';
+    document.querySelectorAll('[data-price]').forEach(el=>{if(el.dataset.price)el.textContent='â';});
   }
 }
 
@@ -2573,22 +2670,22 @@ function switchLoginTab(t){
 }
 async function doForgotPw(){
   const email=document.getElementById('login-email').value.trim();
-  if(!email){alert('請先輸入 Email');return;}
+  if(!email){alert('è«åè¼¸å¥ Email');return;}
   const {error}=await sb.auth.resetPasswordForEmail(email,{redirectTo:'https://circleofkindness.github.io/investment-seminar/'});
-  if(error){alert('發送失敗：'+error.message);}
-  else{alert('重設密碼信已寄出，請檢查你的信箱（含垃圾信件夾）。');}
+  if(error){alert('ç¼éå¤±æï¼'+error.message);}
+  else{alert('éè¨­å¯ç¢¼ä¿¡å·²å¯åºï¼è«æª¢æ¥ä½ çä¿¡ç®±ï¼å«åå¾ä¿¡ä»¶å¤¾ï¼ã');}
 }
 async function doResetPw(){
   const pw=document.getElementById('new-pw').value;
   const pw2=document.getElementById('new-pw2').value;
   const err=document.getElementById('reset-err');
-  if(pw.length<6){err.textContent='密碼至少需要 6 位';return;}
-  if(pw!==pw2){err.textContent='兩次密碼不一致';return;}
-  err.textContent='更新中...';
+  if(pw.length<6){err.textContent='å¯ç¢¼è³å°éè¦ 6 ä½';return;}
+  if(pw!==pw2){err.textContent='å©æ¬¡å¯ç¢¼ä¸ä¸è´';return;}
+  err.textContent='æ´æ°ä¸­...';
   const {error}=await sb.auth.updateUser({password:pw});
-  if(error){err.textContent='錯誤：'+error.message;}
+  if(error){err.textContent='é¯èª¤ï¼'+error.message;}
   else{
-    alert('密碼已更新！請重新登入。');
+    alert('å¯ç¢¼å·²æ´æ°ï¼è«éæ°ç»å¥ã');
     await sb.auth.signOut();
     document.getElementById('reset-screen').style.display='none';
     document.getElementById('login-screen').style.display='flex';
@@ -2600,21 +2697,21 @@ async function doRegister(){
   var pw=document.getElementById('reg-pw').value;
   var nick=document.getElementById('reg-nick').value.trim();
   var err=document.getElementById('login-err');
-  if(!email||!pw||!nick){if(err){err.style.color='#f87171';err.textContent='請填寫所有欄位';}return;}
-  if(pw.length<6){if(err){err.style.color='#f87171';err.textContent='密碼需至6位以上';}return;}
+  if(!email||!pw||!nick){if(err){err.style.color='#f87171';err.textContent='è«å¡«å¯«æææ¬ä½';}return;}
+  if(pw.length<6){if(err){err.style.color='#f87171';err.textContent='å¯ç¢¼éè³6ä½ä»¥ä¸';}return;}
   var btn=document.querySelector('#pane-reg .lbtn');
-  if(btn){btn.disabled=true;btn.textContent='申請中...';}
+  if(btn){btn.disabled=true;btn.textContent='ç³è«ä¸­...';}
   try{
     var res=await sb.auth.signUp({email:email,password:pw,options:{data:{codename:nick}}});
     if(res.error)throw res.error;
     if(res.data&&res.data.user){
       await sb.from('profiles').upsert({id:res.data.user.id,email:email,codename:nick,approved:false},{onConflict:'id'});
     }
-    if(err){err.style.color='#4ade80';err.textContent='申請已送出，請等待管理員核准。';}
-    if(btn)btn.textContent='已送出';
+    if(err){err.style.color='#4ade80';err.textContent='ç³è«å·²éåºï¼è«ç­å¾ç®¡çå¡æ ¸åã';}
+    if(btn)btn.textContent='å·²éåº';
   }catch(ex){
-    if(err){err.style.color='#f87171';err.textContent=ex.message||'申請失敗';}
-    if(btn){btn.disabled=false;btn.textContent='送出申請';}
+    if(err){err.style.color='#f87171';err.textContent=ex.message||'ç³è«å¤±æ';}
+    if(btn){btn.disabled=false;btn.textContent='éåºç³è«';}
   }
 }
 async function loadPendingUsers(){
@@ -2625,7 +2722,7 @@ async function loadPendingUsers(){
   if(!data||!data.length){
     var p=document.createElement('p');
     p.style.cssText='color:#7a8fa3;font-size:.85rem;padding:.5rem';
-    p.textContent='目前無待審核申請';
+    p.textContent='ç®åç¡å¾å¯©æ ¸ç³è«';
     el.appendChild(p);return;
   }
   data.forEach(function(usr){
@@ -2633,9 +2730,9 @@ async function loadPendingUsers(){
     row.style.cssText='display:flex;align-items:center;gap:.5rem;padding:.4rem;border-bottom:1px solid #2a3a56;font-size:.85rem;';
     var nb=document.createElement('b');nb.textContent=usr.codename;
     var sp=document.createElement('span');sp.style.color='#7a8fa3';sp.textContent=usr.email;
-    var ba=document.createElement('button');ba.textContent='核准';ba.className='lbtn';ba.style.cssText='padding:.2rem .6rem;font-size:.8rem;margin-left:auto;';
+    var ba=document.createElement('button');ba.textContent='æ ¸å';ba.className='lbtn';ba.style.cssText='padding:.2rem .6rem;font-size:.8rem;margin-left:auto;';
     ba.onclick=(function(uid){return function(){approveUser(uid,true);};})(usr.id);
-    var bd=document.createElement('button');bd.textContent='拒絕';bd.className='lbtn';bd.style.cssText='padding:.2rem .6rem;font-size:.8rem;background:#991b1b;border-color:#991b1b;';
+    var bd=document.createElement('button');bd.textContent='æçµ';bd.className='lbtn';bd.style.cssText='padding:.2rem .6rem;font-size:.8rem;background:#991b1b;border-color:#991b1b;';
     bd.onclick=(function(uid){return function(){approveUser(uid,false);};})(usr.id);
     row.appendChild(nb);row.appendChild(sp);row.appendChild(ba);row.appendChild(bd);
     el.appendChild(row);
