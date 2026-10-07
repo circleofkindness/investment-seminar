@@ -2747,7 +2747,7 @@ function switchLoginTab(t){
   var le=document.getElementById('login-err');if(le)le.textContent='';
 }
 async function doForgotPw(){
-  const email=document.getElementById('login-email').value.trim();
+  const email=document.getElementById('li-email').value.trim();
   if(!email){alert('請先輸入 Email');return;}
   const {error}=await sb.auth.resetPasswordForEmail(email,{redirectTo:'https://circleofkindness.github.io/investment-seminar/'});
   if(error){alert('發送失敗：'+error.message);}
