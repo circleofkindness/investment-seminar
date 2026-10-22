@@ -2244,30 +2244,55 @@ const MEETINGS = [
   ,{
     id:'m20261019',date:'2026/10/19',label:'第五次',
     members:[
-      {name:'Channel',stocks:[
-        {code:'7902',ex:'otc',name:'宇越',thesis:'12/11福邦送IPO創新板；CDE 30天諮詢完成可行報價；比沛爾好比諾華好',target:null,tags:['生技','興櫃']},
-        {code:'7871',ex:'otc',name:'安立璽榮-KY',thesis:'長期估值有成長空間（阿尼熊+泰河 pipeline）',target:null,tags:['生技','阿茲海默']},
-        {code:'8996',ex:'tse',name:'高力',thesis:'Hot box碳排效果確認（BE台灣區總經理確認）；市場ASP低估；目標2000元',target:2000,tags:['AI','散熱']},
-        {code:'8415',ex:'tse',name:'大國鋼',thesis:'EPS 4.5-5塊/季，YOY三四成；流動性不足但可解決；期待ETF納入後買盤',target:null,tags:['鋼鐵','高殖利率']},
-        {code:'2915',ex:'tse',name:'潤泰全',thesis:'南山人壽Q3 EPS 4-5塊，全年10幾塊；殖利率可達8%+；等明年Q1-Q2兌現',target:null,tags:['壽險','高殖利率']},
-        {code:'宣誠',ex:'未上市',name:'宣誠科技',thesis:'EDA CoWoS翹曲熱模擬；天使10元→估值50元；日月光下單，台積電驗證中；上市目標500-600元',target:600,tags:['未上市','EDA','半導體']},
+      {name:'打單',stocks:[]},
+      {name:'凱哥',stocks:[
+        {code:'7902',ex:'otc',name:'宇越生醫',thesis:'CDE 30天諮詢完成「可行」，12月11日福邦送件、12月中送創新板IPO申請；無沛爾核心專利問題；12月明確催化劑，略加碼',target:null,tags:['生技','興櫃IPO','近視']},
+        {code:'7871',ex:'otc',name:'安立璽榮-KY',thesis:'繼續持有，長期估值空間大（阿茲海默+眼科pipeline）',target:null,tags:['生技','阿茲海默']},
+        {code:'6467',ex:'otc',name:'泰合',thesis:'今日上市首日；TLC解盲成功（市場規模遠大於乾眼症）；外資每天在買；目標400-500元（EPS計算可到2-3千元）',target:500,tags:['生技','眼科','TLC']},
+        {code:'6610',ex:'otc',name:'安成藥業',thesis:'乾眼症解盲失敗，end point太難做；估值應降至10元以下，現18-19元仍高，已無投資價值',target:null,tags:['生技']},
+        {code:'12561',ex:'otc',name:'鮮活果汁CB',thesis:'100元不虧，有兩次降轉換價機會，到期還錢保底，加槓桿勝率不差，觀察中',target:null,tags:['CB']},
       ]},
       {name:'小隻男孩',stocks:[
-        {code:'2330',ex:'tse',name:'台積電',thesis:'核心持股，AI算力唯一確定受益者',target:null,tags:['半導體','AI']},
-        {code:'6669',ex:'tse',name:'緯穎',thesis:'除權後整理，借券4000張快認輸；Meta估1.5兆/年；明年EPS市場估200+但實際可能更高；PE便宜但無動能',target:null,tags:['AI伺服器']},
+        {code:'2330',ex:'tse',name:'台積電',thesis:'核心持倉',target:null,tags:['台積電','AI']},
+        {code:'6669',ex:'tse',name:'緯穎',thesis:'Meta年收1.5兆，AWS/微軟各約1兆；EPS 200+市場估偏低；借券從高點4000多張快速清空，空頭壓力消除',target:null,tags:['AI伺服器','Meta']},
+        {code:'5469',ex:'tse',name:'瀚宇博',thesis:'PCB中低階版廠，規格升級帶動毛利提升，CCL/BF族群升級受惠',target:null,tags:['PCB','CCL']},
       ]},
-      {name:'凱哥',stocks:[
-        {code:'3443',ex:'tse',name:'創意電子',thesis:'Google CPU明年consign機台今年4倍以上（~500萬顆）；AI5超200萬顆（高毛利）；記憶體Base Die額外機會；Q4有望確認',target:null,tags:['IC設計','Google','AI']},
-        {code:'2449',ex:'tse',name:'京元電',thesis:'Google CPU consign機台量驗證管道（追蹤創意出貨量）',target:null,tags:['半導體','封測']},
-        {code:'3711',ex:'tse',name:'日月光',thesis:'AMD CPU機台量確認（廣發報告呼應）；2028年數量可能4倍',target:null,tags:['封測','AMD']},
+      {name:'書文',stocks:[
+        {code:'6669',ex:'tse',name:'緯穎',thesis:'借券4000多張表態空頭壓力差不多；3231緯創同步走出，緯穎/緯創都有機會',target:null,tags:['AI伺服器']},
+        {code:'3443',ex:'otc',name:'創意電子',thesis:'核心重倉。Google CPU consign今年4倍+（UBS估400萬顆，實際可能超500萬）；AI5 200萬+顆（7成創意/3成三星，毛利高）；Base Die轉台積電投片首選。Q4多催化劑',target:null,tags:['IC設計','Google','AI']},
+        {code:'2449',ex:'tse',name:'京元電',thesis:'Google consign機台確認今年4倍以上（客戶付錢consign不隨意取消），明年Google CPU可能500萬顆',target:null,tags:['IC測試','Google']},
+        {code:'3711',ex:'tse',name:'日月光',thesis:'AMD CPU 2028年可能是現在4倍；廣發今日出報告，與自行確認數字一致',target:null,tags:['封裝','AMD']},
+        {code:'8996',ex:'otc',name:'高力',thesis:'Hot box ASP市場估太低；BE台灣區總經理確認碳排是真的，ASP有上調空間，目標2000元',target:2000,tags:['伺服器','散熱','Hot box']},
       ]},
+      {name:'MT',stocks:[
+        {code:'6274',ex:'otc',name:'台燿',thesis:'CCL/CB，明後年PE低，布局明後年',target:null,tags:['CCL','PCB']},
+        {code:'2383',ex:'tse',name:'台光電',thesis:'董娘分點（永豐金敦北）近兩週買進，最近一個月質押約800張（歷史分點買進紀錄不錯）；CCL前期被投信砸出，hold住部位不要被洗出場',target:null,tags:['CCL','籌碼']},
+        {code:'2368',ex:'tse',name:'金像電',thesis:'明後年PE低，目標至少1500元；年底Google六七壓單催化劑（待確認）；外資空單可能認輸',target:1500,tags:['PCB','Google']},
+      ]},
+      {name:'momoji',stocks:[
+        {code:'6669',ex:'tse',name:'緯穎',thesis:'投信下修報告+除權息撥券賣壓後有接，便宜但動能不足，買基本部位放著不重壓',target:null,tags:['AI伺服器']},
+      ]},
+      {name:'崴哥',stocks:[
+        {code:'8415',ex:'otc',name:'大國鋼',thesis:'業績YOY 30-40%已持續近一年，EPS約4.5-5元/Q；低本益比防守型；ETF門檻是流動性，一旦納入有1-2萬張買盤',target:null,tags:['鋼鐵','ETF','防守']},
+        {code:'2915',ex:'tse',name:'潤泰全',thesis:'南山壽險Q3自結EPS單季4-5塊，全年估10幾塊；南山配息→潤泰全跟著配，殖利率8%+；ETF若納入1.2萬張買盤；等明年2-3月配息公告',target:null,tags:['壽險','高殖利率','ETF']},
+      ]},
+      {name:'發發哥',stocks:[]},
+    ],
+    bullish:[
+      {text:'<strong>AI伺服器Capex持續</strong>：緯穎Meta年收1.5兆；Google CPU consign今年4倍+；AI5 200萬+顆待確認',by:'小隻男孩、書文、momoji'},
+      {text:'<strong>創意電子（3443）多催化劑</strong>：Google CPU consign機台、AI5出貨量、Base Die轉台積電投片潛在動能，Q4逐步兌現',by:'書文'},
+      {text:'<strong>CCL/PCB升級周期</strong>：E glass短缺漲價；台光電董娘分點買進+質押；金像電年底Google催化劑',by:'MT、momoji'},
+      {text:'<strong>泰合（6467）TLC解盲成功</strong>：TLC市場規模遠大於乾眼症，外資每天在買；凱哥目標400-500元',by:'凱哥'},
+      {text:'<strong>高力（8996）ASP低估</strong>：Hot box碳排真實需求確認，ASP有上調空間，目標2000元',by:'書文'},
+      {text:'<strong>宇越生醫（7902）</strong>：12月創新板IPO送件，無沛爾核心專利問題，12月明確催化劑',by:'凱哥'},
     ],
     macro:[
-      {color:'r',text:'<strong>CoreWeave公司債殖利率~15%</strong>：9.75% 2031票息，現價~80.785（10/13-14觸及），YTM~15%；算力租借B200 $6.75-7/hr持續漲但股債雙崩，兩者背離為核心風險指標',by:'Channel（崴哥提供圖表）'},
-      {color:'r',text:'<strong>AI leaders basket -11.61%</strong>（Goldman Sachs GSTMTAIP）：自ChatGPT以來最差單週；YTD漲幅幾乎全數回吐；科技股淨賣超創近十年最高',by:'發哥（Goldman Sachs週報）'},
-      {color:'y',text:'<strong>市場水位普遍降至60-80%</strong>，觀望狀態；融資未見大幅退場（凱哥視為反向指標）；10年期美債利率見頂是後續多頭關鍵',by:'全體'},
-      {color:'g',text:'<strong>11月企業回購接力</strong>（全年第二大回購月）；Q3財報期首場META；美國選後歷史型態偏多',by:'發哥、小隻男孩'},
-      {color:'y',text:'<strong>台光電董娘近兩週明顯買進</strong>（永豐金敦北分點）；質押約800張，歷史少見；CCL族群投信棄守後可能逢低承接',by:'Channel'},
+      {color:'r',text:'<strong>CoreWeave 2031年債券殖利率~15%</strong>（價格~80元）：算力租金（B200）$6.75-7/hr持續漲；分歧警訊：算力需求↑ vs. CoreWeave債券↓；債券回到100元 = 多頭信號',by:'崴哥'},
+      {color:'r',text:'<strong>Goldman Sachs AI籃子（GSTMTAIP）近一週-11.61%</strong>：ChatGPT問世以來最差單週，AI資產評價壓力升高',by:'全員'},
+      {color:'y',text:'<strong>台股10月7日為近期高點</strong>，多數人降水位普遍觀望；關鍵指標：美10年期公債殖利率是否見頂',by:'打單、全員'},
+      {color:'g',text:'<strong>美國期中選舉（11月初）</strong>：歷史上選後多反彈；11月為企業回購高峰月；美選後到台選前（11月底）可能有小窗口',by:'發發哥'},
+      {color:'r',text:'若<strong>12月Fed升息且強硬</strong>，可能重演某年12月炸盤模式，需提前留意',by:'發發哥'},
+      {color:'g',text:'Meta Q3財報登場，AI Capex確認關鍵；美股零售股（好市多/Walmart）強，科技股弱',by:'發發哥、全員'},
     ]
   }
 ];
